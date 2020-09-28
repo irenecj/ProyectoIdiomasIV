@@ -8,7 +8,7 @@ API para gestionar el aprendizaje de un idioma nuevo. El propósito de este proy
 Lenguaje de programación: JavaScript.
 
 ## :closed_book: DOCUMENTACIÓN
-1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/git.md)
+1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
 2. [Justificación de las herramientas](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
 
 ## :pencil2: AUTORA
