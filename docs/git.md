@@ -32,4 +32,7 @@ Una vez tenemos la clave, nos dirigimos a GitHub, seleccionamos nuestro perfil, 
 
 ![](img/sshKey.png)
 
+De esta forma ya podremos hacer uso de SSH con los distintos repositorios.
+![](img/usoSSH.png)
+
 **Referencia:** https://docs.github.com/es/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
