@@ -7,6 +7,7 @@ API para gestionar el aprendizaje de un idioma nuevo. El propósito de este proy
 ## :wrench: HERRAMIENTAS
 Lenguaje de programación: JavaScript.
 
+
 Entorno de ejecución: Node.js.
 
 Gestor de paquetes: npm.
@@ -22,8 +23,8 @@ Framework para web: Express.
 
 ## :closed_book: DOCUMENTACIÓN
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
-2. [Elección de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
-3. [Análisis más detallado y justificación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/servicios.md)
+2. [Elección y jusfiticación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
+
 
 ## :pencil2: AUTORA
 Irene Cano Jerez
