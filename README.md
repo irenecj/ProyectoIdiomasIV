@@ -6,11 +6,18 @@ API para gestionar el aprendizaje de un idioma nuevo. El propósito de este proy
 
 ## :wrench: HERRAMIENTAS
 Lenguaje de programación: JavaScript.
+
 Entorno de ejecución: Node.js.
+
 Gestor de paquetes: npm.
-Base de datos: MongoDB.
+
+Base de datos: MySQL.
+
 Realización de test: Jest.
+
 Sistema de log: Winston.
+
+Framework para web: Express.
 
 
 ## :closed_book: DOCUMENTACIÓN
