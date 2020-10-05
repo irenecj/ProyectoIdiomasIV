@@ -1,4 +1,4 @@
-## EXPLICACIÓN DETALLADA DE LOS SERVICIOS NECESARIOS.
+## EXPLICACIÓN DETALLADA DE LOS SERVICIOS NECESARIOS
 
 En primer lugar necesitamos tener instalado **node.js** que es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación JavaScript.
 Además, vamos a instalar **npm** que es un gestor de paquetes que nos facilitará el trabajo con node ya que nos proporciona las librerías que tiene disponibles haciendo uso simplemente de una línea de código.
