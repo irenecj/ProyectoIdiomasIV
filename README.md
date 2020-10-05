@@ -23,7 +23,7 @@ Framework para web: Express.
 
 ## :closed_book: DOCUMENTACIÓN
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
-2. [Elección y jusfiticación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
+2. [Elección y justificación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
 
 
 ## :pencil2: AUTORA
