@@ -1,6 +1,6 @@
-## PASOS A SEGUIR PARA LLEVAR A CABO LA REALIZACIÓN DEL PROYECTO.
+# PASOS A SEGUIR PARA LLEVAR A CABO LA REALIZACIÓN DEL PROYECTO.
 
-# HITO 0: USO BÁSICO DE HERRAMIENTAS.
+## HITO 0: USO BÁSICO DE HERRAMIENTAS.
 En primer lugar debemos configurar git, obtener el par de claves pública y privada para hacer uso de SSH y subir el fichero de objetivos:
 - Hacemos un fork del [repositorio de IV.](https://github.com/JJ/IV-20-21)
 - Clonamos en nuestro local dicho repositorio.
