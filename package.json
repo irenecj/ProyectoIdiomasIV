@@ -1,0 +1,22 @@
+{
+  "name": "ProyectoIdiomasIV",
+  "version": "1.0.0",
+  "description": "proyecto para gestionar un idioma que queremos aprender",
+  "main": "index.js",
+  "author": "irenecj",
+  "license": "GPL-3.0",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/irenecj/ProyectoIdiomasIV"
+  },
+  "directories": {
+      "doc" : "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "idiomas",
+    "iv"
+  ]
+}
