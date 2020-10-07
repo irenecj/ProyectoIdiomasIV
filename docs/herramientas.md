@@ -15,11 +15,14 @@ Otro servicio que nos resultará muy útil será el sistema de log, ya que nunca
 -----------------------------------------------------------------------
 A continuación, después de documentarme, voy a exponer qué tipo de herramientas podría necesitar conforme a lo explicado arriba. **Aclarar** que esta elección puede variar conforme avance el proyecto ya que en el punto en el que nos encontramos aún no ha sido necesario que haga uso de ninguna de estas herramientas.
 
+---------------------------------------------------------------------------
 Como entorno de ejecución podemos usar **Node.js** ya que este es de código abierto y es uno de los más usados en el mercado en lo que se refiere a JavaScript, por lo que me parece interesante aprender a usarlo.
 Junto con él podemos instalar también **npm** que es un gestor de paquetes el cual proporciona multitud de librerías y puede que nos agilice parte del trabajo.
+
 --------------------------------------------------------------------------
 
 En cuanto a la base de datos, seguramente me decante por **MySQL** ya que he trabajado con bases de datos SQL en otra asignatura, pero hasta que no avance un poco más en el proyecto no tendré seguro si ésta será la mejor opción.
+
 --------------------------------------------------------------------------
 
 Para llevar a cabo los tests es muy probable que use **Jest**  ya que tiene una documentación muy extensa, lo cual me será muy útil ya que nunca he realizado pruebas de testeo, y he leído diversas opiniones en las que se menciona que es muy completo.
