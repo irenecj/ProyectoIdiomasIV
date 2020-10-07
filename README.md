@@ -18,15 +18,6 @@ Entorno de ejecución: Node.js.
 
 Gestor de paquetes: npm.
 
-Base de datos: MySQL.
-
-Realización de test: Jest.
-
-Sistema de log: Winston.
-
-Framework para web: Sails.js.
-
-
 ## :closed_book: DOCUMENTACIÓN
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
 2. [Elección y justificación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
