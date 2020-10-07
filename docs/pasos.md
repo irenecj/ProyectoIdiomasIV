@@ -15,7 +15,7 @@ A continuación tenemos que crearnos un repositorio donde desarrollaremos y docu
 
 Una vez hecho esto, sincronizamos el repositorio con el remoto, modificamos el fichero [hito-0.md](https://github.com/JJ/IV-20-21/blob/master/proyectos/hito-0.md) y hacemos un Pull Request.
 
-# HITO 1: ORGANIZACIÓN DE LOS GRUPOS DE PRÁCTICAS Y CREACIÓN DEL PROYECTO
+## HITO 1: ORGANIZACIÓN DE LOS GRUPOS DE PRÁCTICAS Y CREACIÓN DEL PROYECTO
 Para este hito comenzamos familiarizándonos con el uso de *issues* y *milestones*, además, en mi caso, tuve que documentarme bastante sobre la mayoría de servicios que voy a utilizar en el proyecto ya que nunca he hecho nada similar a lo que se pide.
 
 En primer lugar, creamos los milestones de los hitos 1, 2 y 3 y después comenzamos a crear por un lado issues relacionados con el hito 1, y por otro lado issues de historias de usuario. Muestro dichos issues:
@@ -30,7 +30,7 @@ En primer lugar, creamos los milestones de los hitos 1, 2 y 3 y después comenza
 - Añadir fichero con los pasos a seguir.
 
 Una vez establecidos los issues simplemente es cuestión de comenzar a completarlos.
-Para ello creamos un directorio **src** en el que tenemos la clase principal y otro directorio que contiene el fichero *app.js*. Cuando ya tenía ambos ficheros añadí *vi.yaml* y el *package.json* que contiene los metadatos del proyecto.
+Para ello creamos un directorio **src** en el que tenemos la clase principal, en la que sólo hemos implementado el constructor, la implementación de las diferentes funcionalidades se llevará a cabo más adelante. Además, añadimos el fichero *iv.yaml*.
 
 Modificamos de nuevo el README añadiéndole el por qué se ha elegido dicho proyecto y el resto de herramientas que vamos a utilizar, las cuales se han detallado en el fichero de herramientas ubicado en el directorio *docs*.
 
