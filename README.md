@@ -24,7 +24,7 @@ Realización de test: Jest.
 
 Sistema de log: Winston.
 
-Framework para web: Express.
+Framework para web: Sails.js.
 
 
 ## :closed_book: DOCUMENTACIÓN
