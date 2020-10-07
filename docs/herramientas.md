@@ -1,23 +1,32 @@
 ## EXPLICACIÓN DETALLADA DE LAS HERRAMIENTAS
 
-Antes de nada, tener claro que todo esto son elecciones que puede que conforme vayan apareciendo funcionalidades y necesidades, y vayamos avanzando en él proyecto puede ocurrir que algunas de ellas cambien.
+Para poder llevar a cabo el lanzamiento de nuestro microservicio debemos hacer uso de diversos servicios.
+En primer lugar necesitamos un entorno en tiempo de ejecución el cual nos permita ejecutar nuestro proyecto.
+Es recomendable que la instalación de dicho runtime se lleve acabo mediante un gestor de versiones, como por ejemplo **nvm**.
 
-------------------------------------------------------------------------
-En primer lugar necesitamos tener instalado **node.js** que es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor basado en el lenguaje de programación JavaScript. Podemos instalarlo haciendo uso del gestor de versiones **nvm**.
-Además, necesitamos instalar **npm** que es un gestor de paquetes que nos facilitará el trabajo con node ya que nos proporciona las librerías que tiene disponibles haciendo uso simplemente de una línea de código.
+Por otro lado, necesitaremos una Base de Datos en la cual poder almacenar los datos que vamos a manejar. Un ejemplo de dato a manejar, en mi caso, sería una palabra que pertenezca al vocabulario que vamos a aprender.
 
+También será necesario tener un gestor de tareas en el cual podremos definir las tareas que se van a ejecutar, para indicar las dependencias, entre otras.
+
+Un servicio a destacar es el de testeo, ya que sólo el código que hemos testeado es aquel que sabemos que funciona y que está bien, por tanto, cada vez que nos dispongamos a generar código tendremos que testearlo para saber que todo está correcto. Debido a esto, tendremos que buscar un framework de testeo que nos ayude a realizar dicha tarea.
+
+Otro servicio que nos resultará muy útil será el sistema de log, ya que nunca viene mal tener un archivo de texto en el cual se registren,por ejemplo, los acontecimientos que han ido teniendo lugar en nuestro proyecto, el estado actual de ciertos programas, entre otro tipo de información.
+
+-----------------------------------------------------------------------
+A continuación, después de documentarme, voy a exponer qué tipo de herramientas podría necesitar conforme a lo explicado arriba. **Aclarar** que esta elección puede variar conforme avance el proyecto ya que en el punto en el que nos encontramos aún no ha sido necesario que haga uso de ninguna de estas herramientas.
+
+Como entorno de ejecución podemos usar **Node.js** ya que este es de código abierto y es uno de los más usados en el mercado en lo que se refiere a JavaScript, por lo que me parece interesante aprender a usarlo.
+Junto con él podemos instalar también **npm** que es un gestor de paquetes el cual proporciona multitud de librerías y puede que nos agilice parte del trabajo.
 --------------------------------------------------------------------------
 
-Una vez hecho esto, debemos proceder a buscar una base de datos donde almacenaremos los datos a manejar. En mi caso he elegido **MySQL** ya que buscando un poco en Internet he visto que hay numerosos tutoriales para aprender a conectar MySQL desde Node y además, ya he trabajado con bases de datos SQL en otra asignatura.
-Aquí tenemos una [guía](https://linuxhint.com/connect_mysql_nodejs/) para cuando sea necesario conectar MySQL con Node.
-
+En cuanto a la base de datos, seguramente me decante por **MySQL** ya que he trabajado con bases de datos SQL en otra asignatura, pero hasta que no avance un poco más en el proyecto no tendré seguro si ésta será la mejor opción.
 --------------------------------------------------------------------------
-Para llevar a cabo los tests vamos a usar el framework de testing **Jest**. Me he decantado por dicho framework después de haber buscado mucho por Internet ya que tiene una documentación muy extensa, lo cual me será muy útil ya que nunca he realizado pruebas de testeo, y he leído diversas opiniones en las que se menciona que es muy completo.
-Con npm podemos proceder a la instalación de Jest y en este [enlace](https://jestjs.io/docs/es-ES/getting-started) se explica cómo comenzar a trabajar con él, aunque en el punto en el que nos encontramos aún no es necesario hacer uso de dicho framework.
+
+Para llevar a cabo los tests es muy probable que use **Jest**  ya que tiene una documentación muy extensa, lo cual me será muy útil ya que nunca he realizado pruebas de testeo, y he leído diversas opiniones en las que se menciona que es muy completo.
 
 --------------------------------------------------------------------------------
-Para el sistema de log he elegido **Winston** por los mismos motivos que Jest, he visto que podemos encontrar documentación suficiente en Internet y hay muy buenas opiniones acerca de él. Además aparece como la mejor librería de logging para Node en esta [página](https://openbase.io/packages/top-nodejs-logging-libraries). De todas formas, cuando avancemos con el proyecto, decidiré si esta opción es la más adecuada.
+Para el sistema de log hay varias opciones, aunque principio he visto más documentación y mejores opiniones sobre **Winston**, pero aún tengo que informarme más para saber cuál elegir.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finalmente voy a usar **Sails.js** como framework de web. Éste está realizado bajo el framework Express, que es uno de los más usado, y además su última versión viene preparada para trabajar con MySQL, entre otras bases de datos, por lo que es un punto a favor en mi caso.
-Cuando avance el proyecto y sea necesario hacer uso de dicho framework, hay algunas páginas que podemos consultar, como [esta.](https://openwebinars.net/blog/tutorial-sailsjs-instalacion/)
+
+**Adicional:** en muchos sitios recomiendan que se use un *framework de web* pero aún no me queda claro cómo se usará dicho framework ni su funcionalidad en general. Como ejemplo de este framework he visto **sails.js** y éste viene preparado para trabajar con MySQL, lo que sería un punto a favor en mi caso, pero hasta que no comprenda del todo el uso de este servicio no me voy a centrar en él.
