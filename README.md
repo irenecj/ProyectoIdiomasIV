@@ -24,7 +24,7 @@ Repositorio para el proyecto de la asignatura Infraestructura Virtual de la UGR.
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/milestones) de milestones cubiertos y próximos a completar.
 
 ## :page_facing_up: HISTORIAS DE USUARIO
-En este punto del proyecto sólo tengo dos historias de usuario, pero en próximos hitos se pueden añadir más issues de este tipo.
+En este punto del proyecto sólo tengo dos historias de usuario, pero en próximas prácticas se pueden añadir más issues de este tipo.
 - [HU1.](https://github.com/irenecj/ProyectoIdiomasIV/issues/6) Consultar listado de vocabulario.
   * Como usuario debo poder consultar todo el listado de vocabulario junto con su traducción y significado. El formato que se mostrará será la palabra aprendida y al lado su traducción y significado.
 - [HU2.](https://github.com/irenecj/ProyectoIdiomasIV/issues/7) Añadir vocabulario.
