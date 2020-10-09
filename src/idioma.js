@@ -2,34 +2,36 @@
 
 
 class Idioma{
-    //vamos a crear un array asociativo de strings para relacionar una palabra con su traducción y significado
-
 
       constructor(descripcion, listaVocab){
         descripcion = new Array();
         listaVocab = new Array();
-        this.listaVocab = ["Formato Palabra "]
+        this.listaVocab = ["Formato a mostrar -->  Palabra "]
         this.descripcion = [" Significado "]
       }
 
 
- //FUNCIÓN PARA MOSTRAR PALABRAS DEL VOCABULARIO
-       //hacemos un bucle en el que recorremos el array
+      //FUNCIÓN PARA MOSTRAR PALABRAS DEL VOCABULARIO
+      MostrarVocab(){
+            for(var i in this.listaVocab){
+              console.log(this.listaVocab[i]+" : " + this.descripcion[i]);
+             }
+         }
 
-     MostrarVocab(){
-    }
-//
- //FUNCIÓN PARA AÑADIR
-    AniadirVocab(palabra, significado){
-    }
+      //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
+         AniadirVocab(palabra, significado){
+             this.descripcion.push(significado);
+             this.listaVocab.push(palabra);
+         }
+
+     }
+
+     var diccionario = new Idioma();
+     palabra = "ordenador";
+     significado = "Ordinateur. Sinónimo de computador o computadora y se refiere a la máquina electrónica capaz de almacenar información y tratarla automáticamente";
+
+     diccionario.AniadirVocab(palabra,significado);
+     diccionario.MostrarVocab();
 
 
-    //función que nos muestra todo el vocabulario que hay hasta el momento
-
-    //función que muestra una serie de frases típicas
-
-    //función que muestra 1 dato curioso sobre dicha lengua.
-}
-
-
-//module.exports = Idioma;
+     module.exports = Idioma;
