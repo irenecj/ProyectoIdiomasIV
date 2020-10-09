@@ -30,7 +30,7 @@ En primer lugar, creamos los milestones de los hitos 1, 2 y 3 y después comenza
 - Añadir fichero con los pasos a seguir.
 
 Una vez establecidos los issues simplemente es cuestión de comenzar a completarlos.
-Para ello creamos un directorio **src** en el que tenemos la clase principal, en la que sólo hemos implementado el constructor, la implementación de las diferentes funcionalidades se llevará a cabo más adelante. Además, añadimos el fichero *iv.yaml*.
+Para ello creamos un directorio **src** en el que tenemos la clase principal, en la que sólo hemos implementado el constructor y dos funciones, una para añadir vocabulario y otra para mostrar el vocabulario que hay añadido, la implementación de las diferentes funcionalidades junto con la ampliación de las dos que ya hemos implementado se llevará a cabo más adelante. Además, añadimos el fichero *iv.yaml*.
 
 Modificamos de nuevo el README añadiéndole el por qué se ha elegido dicho proyecto y el resto de herramientas que vamos a utilizar, las cuales se han detallado en el fichero de herramientas ubicado en el directorio *docs*.
 
