@@ -1,0 +1,30 @@
+{
+  "name": "proyectoidiomasiv",
+  "version": "1.0.0",
+  "description": "proyecto para gestionar el aprendizaje de un idioma que queremos aprender",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irenecj/ProyectoIdiomasIV.git"
+  },
+  "keywords": [
+    "idiomas",
+    "iv"
+  ],
+  "author": "irenecj",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/irenecj/ProyectoIdiomasIV/issues"
+  },
+  "homepage": "https://github.com/irenecj/ProyectoIdiomasIV#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "jest": "^26.5.2"
+  }
+}
