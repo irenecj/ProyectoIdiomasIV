@@ -39,6 +39,14 @@ describe("Testeando la clase idioma.js", () => {
     });
   });
 
+  describe("Testeando el método MostrarVocab()", () => {
+    test("Comprobamos que los dos vectores son iguales", () => {
+      var tam_vocab = idioma.listaVocab.length;
+      var tam_descrip = idioma.descripcion.length;
+
+      expect(tam_vocab).toEqual(tam_descrip);
+    });
+  });
 
 
 });
