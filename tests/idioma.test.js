@@ -48,5 +48,34 @@ describe("Testeando la clase idioma.js", () => {
     });
   });
 
+  describe("Testeando el método BuscarPalabra()", () => {
+    test("Comprobando que lanza error cuando la palabra buscada no es un string", () => {
+       var palabra = "1";
+       var thrown_error = () => idioma.MostrarPalabra(palabra);
+       var expectedError = new Error('La palabra debe ser de tipo "string"');
+
+       expect(thrown_error).toThrow(expectedError);
+     });
+     test("Comprobando que funciona correctamente", () => {
+       var palabra = "silla";
+       var thrown_error = () => idioma.AniadirVocab(palabra, significado);
+       var expectedError = new Error('Las variables deben ser de tipo "string"');
+
+       expect(thrown_error).not.toThrow(expectedError);
+     });
+     test("Comprobando que la palabra se corresponde con la descripción", () => {
+       var palabra = "libro";
+       var indicePalabra = idioma.listaVocab.indexOf(palabra);
+       var indiceDescrip = idioma.descripcion.indexOf(indicePalabra);
+
+       expect(indicePalabra).toEqual(indiceDescrip);
+     });
+     test("Comprobamos que los dos vectores son iguales", () => {
+       var tam_vocab = idioma.listaVocab.length;
+       var tam_descrip = idioma.descripcion.length;
+
+       expect(tam_vocab).toEqual(tam_descrip);
+     });
+  });
 
 });
