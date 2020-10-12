@@ -49,6 +49,12 @@ describe("Testeando la clase idioma.js", () => {
   });
 
   describe("Testeando el método BuscarPalabra()", () => {
+    test("Comprobamos que los dos vectores son iguales", () => {
+      var tam_vocab = idioma.listaVocab.length;
+      var tam_descrip = idioma.descripcion.length;
+
+      expect(tam_vocab).toEqual(tam_descrip);
+    });
     test("Comprobando que lanza error cuando la palabra buscada no es un string", () => {
        var palabra = "1";
        var thrown_error = () => idioma.MostrarPalabra(palabra);
@@ -56,26 +62,28 @@ describe("Testeando la clase idioma.js", () => {
 
        expect(thrown_error).toThrow(expectedError);
      });
-     test("Comprobando que funciona correctamente", () => {
-       var palabra = "silla";
+     test("Comprobamos que funciona aunque la palabra no se encuentre en el listado de vocabulario", () => {
+       var palabra = "gominola";
+       var thrown_error = () => idioma.AniadirVocab(palabra, significado);
+       var expectedError = new Error('Las variables deben ser de tipo "string"');
+
+       expect(thrown_error).not.toThrow(expectedError);
+     });
+     test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
+       var palabra = "ordenador";
        var thrown_error = () => idioma.AniadirVocab(palabra, significado);
        var expectedError = new Error('Las variables deben ser de tipo "string"');
 
        expect(thrown_error).not.toThrow(expectedError);
      });
      test("Comprobando que la palabra se corresponde con la descripción", () => {
-       var palabra = "libro";
+       var palabra = "ordenador";
        var indicePalabra = idioma.listaVocab.indexOf(palabra);
        var indiceDescrip = idioma.descripcion.indexOf(indicePalabra);
 
        expect(indicePalabra).toEqual(indiceDescrip);
      });
-     test("Comprobamos que los dos vectores son iguales", () => {
-       var tam_vocab = idioma.listaVocab.length;
-       var tam_descrip = idioma.descripcion.length;
 
-       expect(tam_vocab).toEqual(tam_descrip);
-     });
   });
 
 });
