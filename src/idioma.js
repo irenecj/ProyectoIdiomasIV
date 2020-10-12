@@ -22,7 +22,7 @@ class Idioma{
             this.listaVocab.push(palabra);
           }
       }
-         
+
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
       MostrarVocab(){
             for(var i in this.listaVocab){
@@ -30,7 +30,29 @@ class Idioma{
              }
          }
 
+      //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
+      MostrarPalabra(palabra){
+        var encontrada = 0;
+        var indice;
+        const numeros = /^[0-9]*$/;
+        const palabraNum = numeros.test(palabra);
+        if(palabraNum == true){
+          throw new Error('La palabra debe ser de tipo "string"');
+        }else{
+          for(var i in this.listaVocab){
+            if(palabra == this.listaVocab[i]){
+              encontrada++;
+              indice = i;
+            }
+          }
+        }
 
+        if(encontrada > 0){
+          console.log(this.listaVocab[indice]+" : " + this.descripcion[indice]);
+        }else{
+          console.log("La palabra que busca aún no está añadida");
+        }
+      }
 
 }
 
