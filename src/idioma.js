@@ -20,18 +20,18 @@ class Idioma{
 
       //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
          AniadirVocab(palabra, significado){
+           const numeros = /^[0-9]*$/;
+           const palabraNum = numeros.test(palabra);
+           const significadoNum = numeros.test(significado);
+           if( palabraNum == true || significadoNum == true){
+             throw new Error('Las variables deben ser de tipo "string"');
+           }else{
              this.descripcion.push(significado);
              this.listaVocab.push(palabra);
+           }
          }
 
      }
-
-     var diccionario = new Idioma();
-     palabra = "ordenador";
-     significado = "Ordinateur. Sinónimo de computador o computadora y se refiere a la máquina electrónica capaz de almacenar información y tratarla automáticamente";
-
-     diccionario.AniadirVocab(palabra,significado);
-     diccionario.MostrarVocab();
 
 
      module.exports = Idioma;
