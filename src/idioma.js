@@ -10,17 +10,29 @@ class Idioma{
         this.descripcion = [" Significado "]
       }
 
-      //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
-      AniadirVocab(palabra, significado){
+      //FUNCIÓN PARA COMPROBAR QUE UNA PALABRA ES UN STRING
+      ComprobarString(palabra){
         const numeros = /^[0-9]*$/;
         const palabraNum = numeros.test(palabra);
-        const significadoNum = numeros.test(significado);
-          if( palabraNum == true || significadoNum == true){
-            throw new Error('Las variables deben ser de tipo "string"');
-          }else{
+        if(palabraNum == true){
+          throw new Error('La palabra debe ser de tipo "string"');
+        }else{
+          return palabraNum;
+        }
+      }
+
+      //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
+      AniadirVocab(palabra, significado){
+        var palabraIsString = this.ComprobarString(palabra);
+        var significadoIsString = this.ComprobarString(significado);
+        if( palabraIsString == false && significadoIsString == false){
+          try{
             this.descripcion.push(significado);
             this.listaVocab.push(palabra);
+          } catch (exception) {
+			         throw exception;
           }
+        }
       }
 
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
@@ -34,11 +46,8 @@ class Idioma{
       MostrarPalabra(palabra){
         var encontrada = 0;
         var indice;
-        const numeros = /^[0-9]*$/;
-        const palabraNum = numeros.test(palabra);
-        if(palabraNum == true){
-          throw new Error('La palabra debe ser de tipo "string"');
-        }else{
+        var esString = this.ComprobarString(palabra);
+        if(esString == false){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
               encontrada++;
@@ -57,11 +66,8 @@ class Idioma{
       CambiarDescripcion(palabra, descripcionNueva){
         var encontrada = 0;
         var indice;
-        const numeros = /^[0-9]*$/;
-        const palabraNum = numeros.test(palabra);
-        if(palabraNum == true){
-          throw new Error('La palabra debe ser de tipo "string"');
-        }else{
+        var esString = this.ComprobarString(palabra);
+        if(esString == false){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
               var descripcionActual = this.descripcion[i];
@@ -77,6 +83,7 @@ class Idioma{
         console.log("La palabra que busca no se ha encontrado.");
       }
     }
+
 }
 
 module.exports = Idioma;
