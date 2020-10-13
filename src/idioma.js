@@ -3,7 +3,7 @@
 
 class Idioma{
 
-      constructor(descripcion, listaVocab, cuentaPalabras){
+      constructor(descripcion, listaVocab){
         descripcion = new Array();
         listaVocab = new Array();
         this.listaVocab = ["Formato a mostrar -->  Palabra "]
@@ -54,6 +54,29 @@ class Idioma{
         }
       }
 
+      CambiarDescripcion(palabra, descripcionNueva){
+        var encontrada = 0;
+        var indice;
+        const numeros = /^[0-9]*$/;
+        const palabraNum = numeros.test(palabra);
+        if(palabraNum == true){
+          throw new Error('La palabra debe ser de tipo "string"');
+        }else{
+          for(var i in this.listaVocab){
+            if(palabra == this.listaVocab[i]){
+              var descripcionActual = this.descripcion[i];
+              indice = i;
+              encontrada++;
+            }
+          }
+      }
+
+      if(encontrada > 0){
+        this.descripcion[indice] = descripcionNueva;
+      }else{
+        console.log("La palabra que busca no se ha encontrado.");
+      }
+    }
 }
 
 module.exports = Idioma;
