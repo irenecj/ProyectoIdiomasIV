@@ -3,22 +3,23 @@ const Idioma = require("../src/idioma.js");
 describe("Testeando la clase idioma.js", () => {
   const idioma = new Idioma();
 
-  describe("Testeando el método AniadirVocab()", () => {
-   test("Comprobando que lanza error cuando no añadimos un string", () => {
+  describe("Testeando el método CompruebaString()", () => {
+    test("Comprobando que lanza error si la palabra no es un string", () => {
       var palabra = "1";
-      var significado = "2";
-      var thrown_error = () => idioma.AniadirVocab(palabra, significado);
-      var expectedError = new Error('Las variables deben ser de tipo "string"');
+      var thrown_error = () => idioma.ComprobarString(palabra);
+      var expectedError = new Error('La palabra debe ser de tipo "string"');
 
       expect(thrown_error).toThrow(expectedError);
     });
+  });
+
+  describe("Testeando el método AniadirVocab()", () => {
    test("Comprobando que añade la palabra con su descripción correctamente", () => {
       var palabra = "silla";
       var significado = "chaise";
-      var thrown_error = () => idioma.AniadirVocab(palabra, significado);
-      var expectedError = new Error('Las variables deben ser de tipo "string"');
-
-      expect(thrown_error).not.toThrow(expectedError);
+      expect(() => {
+        idioma.AniadirVocab(palabra,significado);
+      }).not.toThrow();
     });
    test("Comprobando que se inserta la palabra correctamente", () => {
       var tam_vocab_inicial = idioma.listaVocab.length;
@@ -48,34 +49,28 @@ describe("Testeando la clase idioma.js", () => {
     });
   });
 
-  describe("Testeando el método BuscarPalabra()", () => {
+  describe("Testeando el método MostrarPalabra()", () => {
     test("Comprobamos que los dos vectores son iguales", () => {
       var tam_vocab = idioma.listaVocab.length;
       var tam_descrip = idioma.descripcion.length;
 
       expect(tam_vocab).toEqual(tam_descrip);
     });
-    test("Comprobando que lanza error cuando la palabra buscada no es un string", () => {
-       var palabra = "1";
-       var thrown_error = () => idioma.MostrarPalabra(palabra);
-       var expectedError = new Error('La palabra debe ser de tipo "string"');
 
-       expect(thrown_error).toThrow(expectedError);
-     });
-     test("Comprobamos que funciona aunque la palabra no se encuentre en el listado de vocabulario", () => {
+     test("Comprobando que funciona correctamente aunque la palabra no se encuentre en el listado de vocabulario", () => {
        var palabra = "gominola";
-       var thrown_error = () => idioma.AniadirVocab(palabra, significado);
-       var expectedError = new Error('Las variables deben ser de tipo "string"');
-
-       expect(thrown_error).not.toThrow(expectedError);
+       expect(() => {
+         idioma.MostrarPalabra(palabra);
+       }).not.toThrow();
      });
+
      test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
        var palabra = "ordenador";
-       var thrown_error = () => idioma.AniadirVocab(palabra, significado);
-       var expectedError = new Error('Las variables deben ser de tipo "string"');
-
-       expect(thrown_error).not.toThrow(expectedError);
+       expect(() => {
+         idioma.MostrarPalabra(palabra);
+       }).not.toThrow();
      });
+
      test("Comprobando que la palabra se corresponde con la descripción", () => {
        var palabra = "ordenador";
        var indicePalabra = idioma.listaVocab.indexOf(palabra);
@@ -83,7 +78,26 @@ describe("Testeando la clase idioma.js", () => {
 
        expect(indicePalabra).toEqual(indiceDescrip);
      });
+  });
 
+  describe("Testeando el método CambiarDescripcion()", () =>{
+     test("Comprobando que funciona correctamente aunque la palabra no se encuentre en el listado de vocabulario", () => {
+       var palabra = "piano";
+       var significado = "instrumento musical";
+
+       expect(() => {
+         idioma.CambiarDescripcion(palabra,significado);
+       }).not.toThrow();
+     });
+
+     test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
+       var palabra = "libro";
+       var significado = "cambio descripción del libro";
+
+       expect(() => {
+         idioma.CambiarDescripcion(palabra,significado);
+       }).not.toThrow();
+     });
   });
 
 });
