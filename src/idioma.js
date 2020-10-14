@@ -4,11 +4,22 @@ const NoString = require("./excepciones/NoString");
 const NoEncontrada = require("./excepciones/NoEncontrada");
 class Idioma{
 
-      constructor(descripcion, listaVocab){
+      constructor(listaVocab, descripcion){
+        this.listaVocab = new Array();
+        this.descripcion = new Array();
+        this.listaVocab.push(listaVocab);
+        this.descripcion.push(descripcion);
+
+      /*  listaVocab[0] = listaVocab;
+        descripcion[0] = descripcion;
         descripcion = new Array();
         listaVocab = new Array();
-        this.listaVocab = ["Formato a mostrar -->  Palabra "];
-        this.descripcion = [" Significado "];
+        listaVocab[0] = listaVocab;
+        descripcion[0] = descripcion;*/
+        //this.listaVocab.push(listaVocab);
+      //  this.descripcion.push(descripcion);
+      //  this.listaVocab = ["Formato a mostrar -->  Palabra "];
+      //  this.descripcion = [" Significado "];
       }
 
       //FUNCIÓN PARA COMPROBAR QUE UNA PALABRA ES UN STRING
@@ -21,8 +32,6 @@ class Idioma{
           return palabraNum;
         }
       }
-
-      //FUNCIÓN PARA AÑADIR UNA EXPRESIÓN
 
       //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
       AniadirVocab(palabra, significado){
@@ -37,14 +46,17 @@ class Idioma{
 
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
       MostrarVocab(){
-            for(var i in this.listaVocab){
-              console.log(this.listaVocab[i]+" : " + this.descripcion[i]);
-             }
-         }
+        var mostrar = new Array();
+          for(var i in this.listaVocab){
+            mostrar.push(this.listaVocab[i]+" : " + this.descripcion[i]);
+           }
+        return mostrar;
+      }
 
       //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
       MostrarPalabra(palabra){
         var encontrada = 0;
+        var palabraEncontrada;
         var indice;
         var noString = this.ComprobarString(palabra);
         if(noString == false){
@@ -57,11 +69,12 @@ class Idioma{
         }
 
         if(encontrada > 0){
-          console.log(this.listaVocab[indice]+" : " + this.descripcion[indice]);
+          palabraEncontrada = this.listaVocab[indice] + " : " + this.descripcion[indice] + " \n";
         }else{
           throw new NoEncontrada("La palabra que busca aún no está añadida");
         }
 
+        return palabraEncontrada;
       }
 
       CambiarDescripcion(palabra, descripcionNueva){
@@ -87,14 +100,31 @@ class Idioma{
 
     //MOSTRAR LISTADO DE PALABRAS QUE COMIENZAN POR UNA LETRA
     ClasificaLetra(letra){
+      var mostrar = new Array();
+      var encontrada = false;
+      var letraMayusc;
+      var letraMinusc;
+
       for(var i in this.listaVocab){
-        var comienza = this.listaVocab[i].startsWith(`${letra}`);
-        if(comienza == true){
-          console.log(this.listaVocab[i]+" : " + this.descripcion[i]);
+        if(letra = letra.toUpperCase()){
+          letraMayusc = letra;
+          letraMinusc = letra.toLowerCase();
         }else{
-          throw new NoEncontrada("No hay ninguna palabra que comience por esa letra");
+          letraMayusc = letra.toUpperCase();
+          letraMinusc = letra;
+        }
+
+        var comienzaMinusc = this.listaVocab[i].startsWith(letraMinusc);
+        var comienzaMayusc = this.listaVocab[i].startsWith(letraMayusc);
+        if(comienzaMinusc == true || comienzaMayusc == true){
+          mostrar.push(this.listaVocab[i] + " : " + this.descripcion[i] + " \n");
+          encontrada = true;
         }
       }
+      if(encontrada == false){
+          throw new NoEncontrada("No hay ninguna palabra que comience por esa letra");
+      }
+      return mostrar;
     }
 
 }
