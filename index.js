@@ -17,7 +17,7 @@ significado = "livre";
 idioma.AniadirVocab(palabra, significado);
 
 var readlineRecursivo = function() {
-  rl.question("¿Qué desea hacer? Pulse: \n 1 para añadir vocabulario. \n 2 para mostrar el vocabulario existente. \n 3 para buscar una palabra concreta. \n 4 para modificar la descripción de una palabra.\n 5 para salir. \n", function(tecla){
+  rl.question("¿Qué desea hacer? Pulse: \n 1 para añadir vocabulario. \n 2 para mostrar el vocabulario existente. \n 3 para buscar una palabra concreta. \n 4 para modificar la descripción de una palabra.\n 5 para buscar por una letra. \n 6 para salir. \n", function(tecla){
     switch(tecla){
       case "1":
       rl.question("¿Qué palabra has aprendido? ", function(palabra){
@@ -50,6 +50,13 @@ var readlineRecursivo = function() {
       break;
 
       case "5":
+      rl.question("Clasificación según letra indicada: ", function(letra){
+        idioma.ClasificaLetra(letra);
+        readlineRecursivo();
+      });
+      break;
+
+      case "6":
       rl.close();
       break;
 
