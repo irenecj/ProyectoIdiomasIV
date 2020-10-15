@@ -8,17 +8,6 @@ class Idioma{
         this.descripcion = new Array();
         this.listaVocab.push(listaVocab);
         this.descripcion.push(descripcion);
-
-      /*  listaVocab[0] = listaVocab;
-        descripcion[0] = descripcion;
-        descripcion = new Array();
-        listaVocab = new Array();
-        listaVocab[0] = listaVocab;
-        descripcion[0] = descripcion;*/
-        //this.listaVocab.push(listaVocab);
-      //  this.descripcion.push(descripcion);
-      //  this.listaVocab = ["Formato a mostrar -->  Palabra "];
-      //  this.descripcion = [" Significado "];
       }
 
       //FUNCIÓN PARA COMPROBAR QUE UNA PALABRA ES UN STRING
