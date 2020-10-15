@@ -49,4 +49,4 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU7. Mostrar expresiones populares.
 - HU8. Mostrar palabras ordenadas alfabéticamente.
 
-Para realizar estos tests he usado **Grunt** como gestor de tareas.
+Para realizar estos tests he usado **Grunt** como gestor de tareas. 
