@@ -47,5 +47,6 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU5. Mostrar palabras que comiencen por una determinada letra.
 - HU6. Añadir expresiones populares.
 - HU7. Mostrar expresiones populares.
+- HU8. Mostrar palabras ordenadas alfabéticamente.
 
 Para realizar estos tests he usado **Grunt** como gestor de tareas.
