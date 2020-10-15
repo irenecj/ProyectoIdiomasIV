@@ -6,6 +6,7 @@ class Idioma{
       constructor(listaVocab, descripcion){
         this.listaVocab = new Array();
         this.descripcion = new Array();
+        this.expresiones = new Array();
         this.listaVocab.push(listaVocab);
         this.descripcion.push(descripcion);
       }
@@ -36,7 +37,7 @@ class Idioma{
       MostrarVocab(){
         var mostrar = new Array();
           for(var i in this.listaVocab){
-            mostrar.push(this.listaVocab[i]+" : " + this.descripcion[i]);
+            mostrar.push(this.listaVocab[i]+" : " + this.descripcion[i] + "\n");
            }
         return mostrar;
       }
@@ -66,7 +67,8 @@ class Idioma{
         return palabraEncontrada;
       }
 
-      CambiarDescripcion(palabra, descripcionNueva){
+      //MODIFICAR EL SIGNIFICADO DE UNA PALABRA
+      CambiarSignificado(palabra, descripcionNueva){
         var encontrada = 0;
         var indice;
         var noString = this.ComprobarString(palabra);
@@ -95,20 +97,23 @@ class Idioma{
       var letraMayusc;
       var letraMinusc;
 
-      for(var i in this.listaVocab){
-        if(letra = letra.toUpperCase()){
-          letraMayusc = letra;
-          letraMinusc = letra.toLowerCase();
-        }else{
-          letraMayusc = letra.toUpperCase();
-          letraMinusc = letra;
-        }
+      var noString = this.ComprobarString(letra);
+      if(noString == false){
+        for(var i in this.listaVocab){
+          if(letra = letra.toUpperCase()){
+            letraMayusc = letra;
+            letraMinusc = letra.toLowerCase();
+          }else{
+            letraMayusc = letra.toUpperCase();
+            letraMinusc = letra;
+          }
 
-        var comienzaMinusc = this.listaVocab[i].startsWith(letraMinusc);
-        var comienzaMayusc = this.listaVocab[i].startsWith(letraMayusc);
-        if(comienzaMinusc == true || comienzaMayusc == true){
-          mostrar.push(this.listaVocab[i] + " : " + this.descripcion[i] + " \n");
-          encontrada = true;
+          var comienzaMinusc = this.listaVocab[i].startsWith(letraMinusc);
+          var comienzaMayusc = this.listaVocab[i].startsWith(letraMayusc);
+          if(comienzaMinusc == true || comienzaMayusc == true){
+            mostrar.push(this.listaVocab[i] + " : " + this.descripcion[i] + " \n");
+            encontrada = true;
+          }
         }
       }
       if(encontrada == false){
@@ -116,6 +121,20 @@ class Idioma{
         return NoEncontrada;
       }
       return mostrar;
+    }
+
+    AniadirExpresiones(expresion, explicacion){
+      var expr = expresion + " --> " + explicacion;
+      this.expresiones.push(expr);
+    }
+
+    MostrarExpresiones(){
+      var resultado = new Array();
+      for(var i in this.expresiones){
+        resultado.push(this.expresiones[i] + "\n");
+      }
+
+      return resultado;
     }
 
 }
