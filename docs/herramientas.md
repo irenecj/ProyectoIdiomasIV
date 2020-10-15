@@ -15,17 +15,17 @@ Otro servicio que nos resultará muy útil será el sistema de log, ya que nunca
 -----------------------------------------------------------------------
 A continuación, después de documentarme, voy a exponer qué tipo de herramientas podría necesitar conforme a lo explicado arriba. **Aclarar** que esta elección puede variar conforme avance el proyecto ya que en el punto en el que nos encontramos aún no ha sido necesario que haga uso de ninguna de estas herramientas.
 
----------------------------------------------------------------------------
 Como entorno de ejecución podemos usar **Node.js** ya que este es de código abierto y es uno de los más usados en el mercado en lo que se refiere a JavaScript, por lo que me parece interesante aprender a usarlo.
 Junto con él podemos instalar también **npm** que es un gestor de paquetes el cual proporciona multitud de librerías y puede que nos agilice parte del trabajo.
 
+Además, hemos usado como gestor de tareas **grunt**. En este punto me he encontrado con cierta dificultad a la hora de definir una tarea para realizar los tests ya que me han surgido diversos problemas relacionados con las versiones. En cuanto al último error que obtuve, no he encontrado en Internet cómo arreglarlo por lo que se me ha ocurrido una alternativa para solucionar todo esto: ésta se basa en que en vez de hacer una tarea para realizar los tests, he visto que en grunt tenemos *grunt-shell* de forma que podemos usarlo para ejecutar comandos. Por tanto, he definido una tarea con la cual ejecuto el comando *npm test* de manera que pueda testear el código. 
 --------------------------------------------------------------------------
 
 En cuanto a la base de datos, seguramente me decante por **MySQL** ya que he trabajado con bases de datos SQL en otra asignatura, pero hasta que no avance un poco más en el proyecto no tendré seguro si ésta será la mejor opción.
 
 --------------------------------------------------------------------------
 
-Para llevar a cabo los tests es muy probable que use **Jest**  ya que tiene una documentación muy extensa, lo cual me será muy útil ya que nunca he realizado pruebas de testeo, y he leído diversas opiniones en las que se menciona que es muy completo.
+Para llevar a cabo los tests vamos a usar **Jest**  ya que tiene una documentación muy extensa, lo cual me es muy útil ya que nunca he realizado pruebas de testeo, y he leído diversas opiniones en las que se menciona que es muy completo.
 
 --------------------------------------------------------------------------------
 Para el sistema de log hay varias opciones, aunque principio he visto más documentación y mejores opiniones sobre **Winston**, pero aún tengo que informarme más para saber cuál elegir.
