@@ -12,7 +12,7 @@ class Idioma{
       }
 
       //FUNCIÓN PARA COMPROBAR QUE UNA PALABRA ES UN STRING
-      ComprobarString(palabra){
+      comprobarString(palabra){
         const numeros = /^[0-9]*$/;
         const palabraNum = numeros.test(palabra);
         if(palabraNum == true){
@@ -23,9 +23,9 @@ class Idioma{
       }
 
       //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
-      AniadirVocab(palabra, significado){
-        var palabraNoString = this.ComprobarString(palabra);
-        var significadoNoString = this.ComprobarString(significado);
+      aniadirVocab(palabra, significado){
+        var palabraNoString = this.comprobarString(palabra);
+        var significadoNoString = this.comprobarString(significado);
         if( palabraNoString == false && significadoNoString == false){
             this.descripcion.push(significado);
             this.listaVocab.push(palabra);
@@ -34,7 +34,7 @@ class Idioma{
       }
 
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
-      MostrarVocab(){
+      mostrarVocab(){
         var mostrar = new Array();
           for(var i in this.listaVocab){
             mostrar.push(this.listaVocab[i]+" : " + this.descripcion[i] + "\n");
@@ -43,11 +43,11 @@ class Idioma{
       }
 
       //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
-      MostrarPalabra(palabra){
+      mostrarPalabra(palabra){
         var encontrada = 0;
         var palabraEncontrada;
         var indice;
-        var noString = this.ComprobarString(palabra);
+        var noString = this.comprobarString(palabra);
         if(noString == false){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
@@ -68,10 +68,10 @@ class Idioma{
       }
 
       //MODIFICAR EL SIGNIFICADO DE UNA PALABRA
-      CambiarSignificado(palabra, descripcionNueva){
+      cambiarSignificado(palabra, descripcionNueva){
         var encontrada = 0;
         var indice;
-        var noString = this.ComprobarString(palabra);
+        var noString = this.comprobarString(palabra);
         if(noString == false){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
@@ -91,13 +91,13 @@ class Idioma{
     }
 
     //MOSTRAR LISTADO DE PALABRAS QUE COMIENZAN POR UNA LETRA
-    ClasificaLetra(letra){
+    clasificaLetra(letra){
       var mostrar = new Array();
       var encontrada = false;
       var letraMayusc;
       var letraMinusc;
 
-      var noString = this.ComprobarString(letra);
+      var noString = this.comprobarString(letra);
       if(noString == false){
         for(var i in this.listaVocab){
           if(letra = letra.toUpperCase()){
@@ -124,7 +124,7 @@ class Idioma{
     }
 
     //FUNCIÓN QUE ORDENA ALFABETICAMENTE DE MANERA ASCENDENTE O DESCENDENTE
-    OrdenarAlfabeto(orden){
+    ordenarAlfabeto(orden){
       var orden = orden;
       var ordenado = new Array();
       var ordenadoA = new Array();
@@ -147,12 +147,12 @@ class Idioma{
     }
 
     //FUNCIÓN PARA AÑADIR EXPRESIONES
-    AniadirExpresiones(expresion, explicacion){
+    aniadirExpresiones(expresion, explicacion){
       var expr = expresion + " --> " + explicacion;
       this.expresiones.push(expr);
     }
 
-    MostrarExpresiones(){
+    mostrarExpresiones(){
       var resultado = new Array();
       for(var i in this.expresiones){
         resultado.push(this.expresiones[i] + "\n");
