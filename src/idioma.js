@@ -123,6 +123,30 @@ class Idioma{
       return mostrar;
     }
 
+    //FUNCIÓN QUE ORDENA ALFABETICAMENTE DE MANERA ASCENDENTE O DESCENDENTE
+    OrdenarAlfabeto(orden){
+      var orden = orden;
+      var ordenado = new Array();
+      var ordenadoA = new Array();
+
+      for(var i in this.listaVocab){
+        this.listaVocab[i].toUpperCase();
+      }
+
+      if(orden == "Ascendente" || orden == "ascendente"){
+        ordenado = this.listaVocab.sort();
+        return ordenado;
+      }else if(orden == "Descendente" || orden == "descendente"){
+        ordenadoA = this.listaVocab.sort();
+        ordenado = ordenadoA.reverse();
+        return ordenado;
+      }else{
+        var noValido = "Debe introducir orden 'ascendente' o 'descendente'";
+        return noValido;
+      }
+    }
+
+    //FUNCIÓN PARA AÑADIR EXPRESIONES
     AniadirExpresiones(expresion, explicacion){
       var expr = expresion + " --> " + explicacion;
       this.expresiones.push(expr);
