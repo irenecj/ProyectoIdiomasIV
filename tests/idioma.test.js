@@ -219,11 +219,7 @@ describe("Testeando la clase idioma.js", () => {
       var tamaño = idioma.expresiones.length;
       var ultimo = idioma.expresiones[tamaño - 1];
       var expresionEsperada = "Hablar por los codos. --> Cuando una persona habla mucho o está hablando en todo momento, no se calla nunca.";
-
-      for(var i in idioma.expresiones){
-        console.log(idioma.expresiones[i]);
-      }
-
+      
       expect(ultimo).toBe(expresionEsperada);
     });
   });
