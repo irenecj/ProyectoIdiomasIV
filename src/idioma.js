@@ -1,7 +1,6 @@
 /* Clase principal que contiene el vocabulario, las frases típicas y datos curiosos sobre el idioma */
 
 const NoString = require("./excepciones/NoString");
-const NoEncontrada = require("./excepciones/NoEncontrada");
 class Idioma{
 
       constructor(listaVocab, descripcion){
@@ -71,7 +70,8 @@ class Idioma{
         if(encontrada > 0){
           palabraEncontrada = this.listaVocab[indice] + " : " + this.descripcion[indice] + " \n";
         }else{
-          throw new NoEncontrada("La palabra que busca aún no está añadida");
+          var NoEncontrada = "La palabra que busca no se ha encontrado";
+          return NoEncontrada;
         }
 
         return palabraEncontrada;
@@ -94,7 +94,8 @@ class Idioma{
       if(encontrada > 0){
         this.descripcion[indice] = descripcionNueva;
       }else{
-        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+        var NoEncontrada = "La palabra que busca no se ha encontrado";
+        return NoEncontrada;
       }
     }
 
@@ -122,7 +123,8 @@ class Idioma{
         }
       }
       if(encontrada == false){
-          throw new NoEncontrada("No hay ninguna palabra que comience por esa letra");
+        var NoEncontrada = "La palabra que busca no se ha encontrado" ;
+        return NoEncontrada;
       }
       return mostrar;
     }
