@@ -35,3 +35,17 @@ Para ello creamos un directorio **src** en el que tenemos la clase principal, en
 Modificamos de nuevo el README añadiéndole el por qué se ha elegido dicho proyecto y el resto de herramientas que vamos a utilizar, las cuales se han detallado en el fichero de herramientas ubicado en el directorio *docs*.
 
 Finalmente, sincronizamos el repositorio con el remoto, modificamos el fichero [hito-1.md](https://github.com/JJ/IV-20-21/blob/master/proyectos/hito-1.md) y hacemos un Pull Request.
+
+## HITO 2: TESTS UNITARIOS PARA LA CLASE DISEÑADA
+Este hito se ha basado principalmente en aprender a testear nuestro código para asegurarnos de que éste funciona correctamente, por tanto hemos llevado a cabo una serie de tests unitarios y significativos para la clase implementada.
+
+En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, las cuales he implementado basándome en las Historias de Usuario creadas, las cuales son:
+- HU1. Consultar listado de vocabulario.
+- HU2. Añadir vocabulario.
+- HU3. Consultar una palabra concreta.
+- HU4. Modificar la descripción de una palabra.
+- HU5. Mostrar palabras que comiencen por una determinada letra.
+- HU6. Añadir expresiones populares.
+- HU7. Mostrar expresiones populares.
+
+Para ejecutar los test he usado **npm** como gestor de tareas que, pese a que no es tan completo como otros gestores de tareas, en el punto en el que nos encontramos nos basta con él.
