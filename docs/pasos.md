@@ -48,4 +48,4 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU6. Añadir expresiones populares.
 - HU7. Mostrar expresiones populares.
 
-Para ejecutar los test he usado **npm** como gestor de tareas que, pese a que no es tan completo como otros gestores de tareas, en el punto en el que nos encontramos nos basta con él.
+Para realizar estos tests he usado **Grunt** como gestor de tareas.
