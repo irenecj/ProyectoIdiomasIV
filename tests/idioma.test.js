@@ -8,6 +8,8 @@ var significado;
 var thrown_error;
 var expectedError;
 var letra;
+var encontrada;
+var expectedEncontrada;
 const idioma = new Idioma("Hola", "Salut");
 
 describe("Testeando la clase idioma.js", () => {
@@ -81,10 +83,10 @@ describe("Testeando la clase idioma.js", () => {
     });
      test("Comprobando que notifica correctamente que la palabra no se encuentra en el listado de vocabulario", () => {
        palabra = "Gominola";
-       thrown_error = () => idioma.MostrarPalabra(palabra);
-       expectedError = new NoEncontrada("La palabra que busca aún no está añadida");
+       encontrada = idioma.MostrarPalabra(palabra);
+       expectedEncontrada = "La palabra que busca no se ha encontrado";
 
-       expect(thrown_error).toThrow(expectedError);
+       expect(encontrada).toBe(expectedEncontrada);
      });
      test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
        palabra = "Mesa";
@@ -108,10 +110,10 @@ describe("Testeando la clase idioma.js", () => {
     test("Comprobando que notifica correctamente que la palabra no se encuentra en el listado de vocabulario", () => {
        palabra = "Piano";
        significado = "Piano. Instrumento musical.";
-       thrown_error = () => idioma.CambiarDescripcion(palabra, significado);
-       expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+       encontrada = idioma.CambiarDescripcion(palabra,significado);
+       expectedEncontrada = "La palabra que busca no se ha encontrado";
 
-       expect(thrown_error).toThrow(expectedError);
+       expect(encontrada).toBe(expectedEncontrada);
      });
      test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
        palabra = "Mesa";
@@ -126,10 +128,10 @@ describe("Testeando la clase idioma.js", () => {
   describe("Testeando el método ClasificaLetra()", () => {
     test("Comprobando que notifica correctamente si no hay ninguna palabra que comience por dicha letra", () => {
       letra = "W";
-      thrown_error = () => idioma.ClasificaLetra(letra);
-      expectedError = new NoEncontrada("No hay ninguna palabra que comience por esa letra");
+      encontrada = idioma.ClasificaLetra(letra);
+      expectedEncontrada = "La palabra que busca no se ha encontrado";
 
-      expect(thrown_error).toThrow(expectedError);
+      expect(encontrada).toBe(expectedEncontrada);
     });
 
     test("Comprobando que muestra el listado de palabras correctamente si la letra es mayúscula", () => {
