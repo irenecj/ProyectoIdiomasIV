@@ -49,4 +49,17 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU7. Mostrar expresiones populares.
 - HU8. Mostrar palabras ordenadas alfabéticamente.
 
-Para realizar estos tests he usado **Grunt** como gestor de tareas. 
+En dicha clase, como ya he comentado, nos encontramos funciones cuyo propósito reside en las historias de usuario. Por tanto, tenemos un constructor al cual le debemos pasar una *palabra* junto con su *significado y/o traducción*, una función para poder añadir palabras nuevas y otra función para poder añadir expresiones populares.
+Por otro lado, podemos mostrar toda la lista de palabras y su significado, al igual que podemos mostrar todas las expresiones populares.
+Si el significado o la traducción de una palabra no nos queda clara o preferimos redactarla de otra manera, tenemos una función que nos permite modificarla sin problema.
+También tenemos las opciones de consultar una palabra concreta, de consultar todas las palabras que empiecen por una letra determinada y de mostrar todo el listado de palabras ordenado alfabéticamente tanto ascendetente como descendentemente.
+
+Además, hemos implementado una clase llamada *NoString* la cual hereda de la clase error y que lanza un error cuando el argumento introducido no es de tipo *string*.
+
+Por último, aclarar que para realizar estos tests he usado **Grunt** como gestor de tareas.
+Para su instalación simplemente debemos ejecutar los siguientes comando:
+~~~
+sudo npm install -g grunt-cli
+
+sudo npm install grunt --save-dev #para tener la dependencia en el package.json
+~~~
