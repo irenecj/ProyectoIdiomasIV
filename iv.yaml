@@ -1,5 +1,5 @@
 entidad: src/idioma.js
 lenguaje: JavaScript
-test: 
-	tests/idioma.test.js
+test:
+  - tests/idioma.test.js
 taskfile: Gruntfile.js
