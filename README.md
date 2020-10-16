@@ -25,6 +25,9 @@ grunt shell
 
 La explicación de por qué usamos este comando la podemos encontrar en el siguiente [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md).
 
+En mi caso, a parte de la clase para gestionar la excepción, tengo una sola clase, llamada *idioma.js*, la cual posee todas las funciones relacionadas con las operaciones que se pueden llevar a cabo con el listado de vocabulario junto con su significado, y las expresiones populares junto con una explicación de éstas. Como sólo tenemos dicha clase, ésta será la principal a la hora de lanzar nuestro servicio web.
+Podemos encontrar una explicación más detallada en [esta documentación](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pasos.md) y este es el [código fuente](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/src/idioma.js) de la clase.
+
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
 
