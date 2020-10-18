@@ -18,7 +18,8 @@ En primer lugar, si queremos lanzar el proyecto debemos tener instalados **node,
 npm install .
 ~~~
 
-A continuación, para ejecutar los tests debemos ejecutar:
+A continuación, para llevar a cabo los tests vamos a usar Jest ya que podemos encontrar abundante documentación en Internet sobre su uso y esto nos va a resultar muy útil a la hora de testear por primera vez, como ocurre en mi caso. Además, su instalación es muy sencilla y no requiere que hagamos ninguna Configuración inicial, simplemente lo instalamos con npm, creamos los tests y comenzamos a testear.
+Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente debemos ejecutar el siguiente comando:
 ~~~
 grunt shell
 ~~~
@@ -33,7 +34,7 @@ He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js]
 
 ## :closed_book: DOCUMENTACIÓN Y ENLACES ÚTILES
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
-2. [Elección y justificación de las herramientas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
+2. [Elección y justificación de las herramientas y servicios utilizados.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
 3. [Pasos a seguir para la realización del proyecto.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pasos.md)
 4. [Acceso al código fuente del proyecto](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/src).
 5. [Acceso a los tests del proyecto.](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/tests)
