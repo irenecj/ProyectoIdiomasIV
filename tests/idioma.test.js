@@ -1,5 +1,8 @@
 const Idioma = require("../src/idioma.js");
 const NoString = require("../src/excepciones/NoString.js");
+const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
+const NoOrden = require("../src/excepciones/NoOrden.js");
+
 
 //VARIABLES A UTILIZAR
 var palabra, significado;
@@ -7,8 +10,6 @@ var tam_vocab, tam_descrip;
 var thrown_error;
 var expectedError;
 var letra;
-var encontrada;
-var expectedEncontrada;
 var expresion, explicacion;
 var resultado;
 const idioma = new Idioma("Ordenador", "Ordinateur.Sinónimo de computador o computadora. Se refiere a la máquina electrónica capaz de almacenar información y tratarla automáticamente");
@@ -99,13 +100,14 @@ describe("Testeando la clase idioma.js", () => {
 
       expect(tam_vocab).toEqual(tam_descrip);
     });
-     test("Comprobando que notifica correctamente que la palabra no se encuentra en el listado de vocabulario", () => {
+     test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
        //mostramos al usuario un mensaje que indica que la palabra no existe, permitiéndole buscar otra o realizar otra acción como añadir esa palabra
-       palabra = "Gominola";
-       encontrada = idioma.mostrarPalabra(palabra);
-       expectedEncontrada = "La palabra que busca no se ha encontrado";
+       palabra = "Oso.";
+       significado = "Ours. Animal";
+       thrown_error = () => idioma.mostrarPalabra(palabra, significado);
+       expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
 
-       expect(encontrada).toBe(expectedEncontrada);
+       expect(thrown_error).toThrow(expectedError);
      });
      test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
        //nos devuelve la palabra con su significado
@@ -128,14 +130,14 @@ describe("Testeando la clase idioma.js", () => {
   });
 
   describe("Testeando el método cambiarSignificado()", () =>{
-    test("Comprobando que notifica correctamente que la palabra no se encuentra en el listado de vocabulario", () => {
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
       //si la palabra no se encuentra notificamos al usuario para que así decida si realizar otra acción, como añadir dicha palabra
        palabra = "Piano";
        significado = "Piano. Instrumento musical.";
-       encontrada = idioma.cambiarSignificado(palabra,significado);
-       expectedEncontrada = "La palabra que busca no se ha encontrado";
+       thrown_error = () => idioma.cambiarSignificado(palabra,significado);
+       expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
 
-       expect(encontrada).toBe(expectedEncontrada);
+       expect(thrown_error).toThrow(expectedError);
      });
      test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
        //vemos que en el array 'descripcion' ahora el significado correspondiente a la palabra es el nuevo
@@ -149,13 +151,13 @@ describe("Testeando la clase idioma.js", () => {
   });
 
   describe("Testeando el método clasificaLetra()", () => {
-    test("Comprobando que notifica correctamente si no hay ninguna palabra que comience por dicha letra", () => {
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
       //si no hay palabras que empiecen por dicha letra se notifica al usuario
       letra = "W";
-      encontrada = idioma.clasificaLetra(letra);
-      expectedEncontrada = "La palabra que busca no se ha encontrado";
+      thrown_error = () => idioma.clasificaLetra(letra);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
 
-      expect(encontrada).toBe(expectedEncontrada);
+      expect(thrown_error).toThrow(expectedError);
     });
 
     test("Comprobando que muestra el listado de palabras correctamente si la letra es mayúscula", () => {
@@ -176,11 +178,12 @@ describe("Testeando la clase idioma.js", () => {
   });
 
   describe("Testeando el método ordenarAlfabeto()", () => {
-    test("Comprobando que notifica correctamente si no se introduce el orden debido", () => {
-      resultado = idioma.ordenarAlfabeto("OrdenNoValido");
-      var resultadoEsperado = "Debe introducir orden 'ascendente' o 'descendente'";
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
+      thrown_error = () => idioma.ordenarAlfabeto("OrdenNoValido");
+      expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
 
-      expect(resultado).toBe(resultadoEsperado);
+      expect(thrown_error).toThrow(expectedError);
+
     });
     test("Comprobando que ordena ascendentemente de forma correcta", () => {
       var idio_nuevo = new Idioma("Vino.","Vin.");
@@ -219,7 +222,7 @@ describe("Testeando la clase idioma.js", () => {
       var tamaño = idioma.expresiones.length;
       var ultimo = idioma.expresiones[tamaño - 1];
       var expresionEsperada = "Hablar por los codos. --> Cuando una persona habla mucho o está hablando en todo momento, no se calla nunca.";
-      
+
       expect(ultimo).toBe(expresionEsperada);
     });
   });

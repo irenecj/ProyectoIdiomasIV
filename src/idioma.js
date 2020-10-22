@@ -1,6 +1,9 @@
 /* Clase principal que contiene el vocabulario, las frases típicas y datos curiosos sobre el idioma */
 
 const NoString = require("./excepciones/NoString");
+const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
+const NoOrden = require("../src/excepciones/NoOrden.js");
+
 class Idioma{
 
       constructor(listaVocab, descripcion){
@@ -60,8 +63,7 @@ class Idioma{
         if(encontrada > 0){
           palabraEncontrada = this.listaVocab[indice] + " : " + this.descripcion[indice] + " \n";
         }else{
-          var NoEncontrada = "La palabra que busca no se ha encontrado";
-          return NoEncontrada;
+          throw new NoEncontrada("La palabra que busca no se ha encontrado");
         }
 
         return palabraEncontrada;
@@ -85,8 +87,7 @@ class Idioma{
       if(encontrada > 0){
         this.descripcion[indice] = descripcionNueva;
       }else{
-        var NoEncontrada = "La palabra que busca no se ha encontrado";
-        return NoEncontrada;
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
       }
     }
 
@@ -117,8 +118,7 @@ class Idioma{
         }
       }
       if(encontrada == false){
-        var NoEncontrada = "La palabra que busca no se ha encontrado" ;
-        return NoEncontrada;
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
       }
       return mostrar;
     }
@@ -141,8 +141,7 @@ class Idioma{
         ordenado = ordenadoA.reverse();
         return ordenado;
       }else{
-        var noValido = "Debe introducir orden 'ascendente' o 'descendente'";
-        return noValido;
+        throw new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
       }
     }
 
