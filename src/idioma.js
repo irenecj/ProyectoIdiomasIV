@@ -159,6 +159,24 @@ class Idioma{
       }
     }
 
+    //FUNCIÓN PARA AÑADIR EXPRESIONES
+    aniadirExpresiones(expresion, explicacion){
+      var expr = expresion + " --> " + explicacion;
+      var formatoExpr = this.comprobarFormato(expresion);
+      var formatoExpl = this.comprobarFormato(explicacion);
+      if(formatoExpr == true && formatoExpl == true){
+        this.expresiones.push(expr.toUpperCase());
+      }
+    }
+
+    mostrarExpresiones(){
+      var resultado = new Array();
+      for(var i in this.expresiones){
+        resultado.push(this.expresiones[i] + "\n");
+      }
+
+      return resultado;
+    }
 
 }
 
