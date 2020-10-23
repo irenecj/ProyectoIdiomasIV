@@ -109,6 +109,31 @@ class Idioma{
       }
     }
 
+    //MOSTRAR LISTADO DE PALABRAS QUE COMIENZAN POR UNA LETRA
+    clasificaLetra(letra){
+      var mostrar = new Array();
+      var encontrada = false;
+      var letraMayusc;
+      var letraMinusc;
+
+      var noString = this.comprobarString(letra);
+      if(noString == false){
+        for(var i in this.listado){
+            var comienza = this.listado[i].getPalabra().startsWith(letra.toUpperCase());
+
+            if(comienza == true){
+                mostrar.push(this.listado[i].getPalabra() + " : " + this.listado[i].getSignificado() + " \n");
+                encontrada = true;
+            }
+        }
+      }
+
+      if(encontrada == false){
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+      }
+      return mostrar;
+    }
+
   
 }
 
