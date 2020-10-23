@@ -19,8 +19,8 @@ describe("Testeando la clase idioma.js", () => {
 
   describe("Testeando el constructor", () =>{
     test("Comprobando que funciona correctamente", () => {
-      expect(idioma.listaVocab[0]).toBe("ORDENADOR.");
-      expect(idioma.descripcion[0]).toBe("ORDINATEUR. SINÓNIMO DE OCMPUTADOR O COMPUTADOR. SE REFIERE A LA MÁQUINA ELECTRÓNICA CAPAZ DE ALMACENAR INFORMACIÓN Y TRATARLA AUTOMÁTICAMENTE");
+      expect(idioma.palabra).toBe("ORDENADOR.");
+      expect(idioma.descripcion).toBe("ORDINATEUR. SINÓNIMO DE OCMPUTADOR O COMPUTADOR. SE REFIERE A LA MÁQUINA ELECTRÓNICA CAPAZ DE ALMACENAR INFORMACIÓN Y TRATARLA AUTOMÁTICAMENTE");
     });
   });
   describe("Testeando el método compruebaString()", () => {
@@ -42,29 +42,34 @@ describe("Testeando la clase idioma.js", () => {
     });
   });
   describe("Testeando el método aniadirVocab()", () => {
-   test("Comprobando que no se lanza el error al pasarle un 'string'", () => {
-      palabra = "SILLA.";
-      significado = "CHAISE.ASIENTO INDIVIDUAL CON PATAS Y RESPALDO.";
-      thrown_error = () => idioma.aniadirVocab(palabra, significado);
-      expectedError = new NoString('La palabra debe ser de tipo "string"');
-
-      expect(thrown_error).not.toThrow(expectedError);
-    });
+   // test("Comprobando que no se lanza el error al pasarle un 'string'", () => {
+   //    palabra = "SILLA.";
+   //    significado = "CHAISE.ASIENTO INDIVIDUAL CON PATAS Y RESPALDO.";
+   //    thrown_error = () => idioma.aniadirVocab(palabra, significado);
+   //    expectedError = new NoString('La palabra debe ser de tipo "string"');
+   //
+   //    expect(thrown_error).not.toThrow(expectedError);
+   //  });
 
    test("Comprobando que se insertan la palabra y la descripción correctamente", () => {
      //al insertar la palabra el tamaño del vector 'listaVocab' debe incrementar en 1
-      var tam_vocab_inicial = idioma.listaVocab.length;
-      var tam_descrip_inicial = idioma.descripcion.length;
+      // var tam_vocab_inicial = idioma.listaVocab.length;
+      // var tam_descrip_inicial = idioma.descripcion.length;
+      var tamInicial = idioma.listado.length;
+
       palabra="MESA.";
       descripcion = "TABLE.MUEBLE FORMADO POR UN TABLERO HORIZONTAL, SOSTENIDO POR UNO O VARIOS PIES, CON LA ALTURA CONVENIENTE PARA PODER REALIZAR ALGUNA ACTIVIDAD SOBRE ELLA O DEJAR COSAS ENCIMA.";
-
       idioma.aniadirVocab(palabra, descripcion);
 
-      tam_vocab = idioma.listaVocab.length;
-      tam_descrip = idioma.descripcion.length;
+      var tamFinal = idioma.listado.length;
 
-      expect(tam_vocab).toBe(tam_vocab_inicial+1);
-      expect(tam_descrip).toBe(tam_descrip_inicial+1);
+      expect(tamFinal).toBe(tamInicial+1);
+
+      // tam_vocab = idioma.listaVocab.length;
+      // tam_descrip = idioma.descripcion.length;
+      //
+      // expect(tam_vocab).toBe(tam_vocab_inicial+1);
+      // expect(tam_descrip).toBe(tam_descrip_inicial+1);
 
     });
     test("Comprobando que la palabra y su significando se añaden correctamente", () => {
@@ -87,7 +92,7 @@ describe("Testeando la clase idioma.js", () => {
   describe("Testeando el método mostrarVocab()", () => {
     test("Comprobamos que los dos vectores son iguales", () => {
       //para que cada palabra coincida con su significado, los dos vectores deben tener el mismo tamaño
-      tam_vocab = idioma.listaVocab.length;
+      tam_vocab = idioma.listado.length;
       tam_descrip = idioma.descripcion.length;
 
       expect(tam_vocab).toEqual(tam_descrip);
