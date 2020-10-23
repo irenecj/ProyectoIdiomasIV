@@ -51,6 +51,16 @@ class Idioma{
 
       }
 
+      //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
+      mostrarVocab(){
+        var mostrar = new Array();
+          for(var i in this.listado){
+            mostrar.push(this.listado[i].getTraduccion() + "\n");
+           }
+        return mostrar;
+      }
+
+    
 }
 
 module.exports = Idioma;
