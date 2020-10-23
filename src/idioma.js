@@ -134,7 +134,32 @@ class Idioma{
       return mostrar;
     }
 
-  
+    //FUNCIÓN QUE ORDENA ALFABETICAMENTE DE MANERA ASCENDENTE O DESCENDENTE
+    ordenarAlfabeto(orden){
+      var orden = orden;
+      var mostrar = new Array();
+      var ordenado = new Array();
+      var ordenadoA = new Array();
+
+      if(orden == "Descendente" || orden == "descendente"){
+        ordenado = this.listado.sort();
+        for(var i in ordenado){
+          mostrar.push(this.listado[i].getTraduccion() + " \n");
+        }
+        return ordenado;
+      }else if(orden == "Ascendente" || orden == "ascendente"){
+        ordenadoA = this.listado.sort();
+        ordenado = ordenadoA.reverse();
+        for(var i in ordenado){
+          mostrar.push(this.listado[i].getTraduccion() + " \n");
+        }
+        return ordenado;
+      }else{
+        throw new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
+      }
+    }
+
+
 }
 
 module.exports = Idioma;
