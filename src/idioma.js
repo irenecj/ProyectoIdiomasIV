@@ -8,10 +8,9 @@ const Traduccion = require("../src/traduccion.js");
 
 class Idioma{
 
-      constructor(idiomaBase, idiomaTraducir, palabra, significado){
-        idiomaBase = "Español";
-        idiomaTraducir = "Francés";
-        var palabra = new Traduccion(palabra, significado);
+      constructor(idiomaBase, idiomaTraducir){
+        this.idiomaBase = idiomaBase;
+        this.idiomaTraducir = idiomaTraducir;
         this.listado = new Array();
         this.expresiones = new Array();
       }
