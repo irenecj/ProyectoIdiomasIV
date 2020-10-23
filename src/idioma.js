@@ -85,7 +85,31 @@ class Idioma{
         return palabraEncontrada;
       }
 
-    
+      //MODIFICAR EL SIGNIFICADO DE UNA PALABRA
+      cambiarSignificado(palabra, descripcionNueva){
+        var encontrada = 0;
+        var indice;
+        var noString = this.comprobarString(palabra);
+        var formatoValidoP = this.comprobarFormato(palabra);
+        var formatoValidoD = this.comprobarFormato(descripcionNueva);
+        if(noString == false && formatoValidoD == true){
+          for(var i in this.listado){
+            if(palabra.toUpperCase() == this.listado[i].getPalabra()){
+            //  var descripcionActual = this.descripcion[i];
+              indice = i;
+              encontrada++;
+            }
+          }
+      }
+
+      if(encontrada > 0){
+        this.listado[indice].setSignificado(descripcionNueva.toUpperCase());
+      }else{
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+      }
+    }
+
+  
 }
 
 module.exports = Idioma;
