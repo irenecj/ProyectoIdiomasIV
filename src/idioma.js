@@ -3,6 +3,7 @@
 const NoString = require("./excepciones/NoString");
 const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
+const NoFormato = require("../src/excepciones/NoFormato.js");
 
 class Idioma{
 
@@ -25,13 +26,25 @@ class Idioma{
         }
       }
 
+      //LA CADENA DEBE ACABAR EN PUNTO FINAL
+      comprobarFormato(cadena){
+        var puntoFinal = cadena.endsWith('.');
+        if(puntoFinal == false){
+          throw new NoFormato('El formato introducido no es válido, debe poner punto final.');
+        }else{
+          return true;
+        }
+      }
+
       //FUNCIÓN PARA AÑADIR UNA PALABRA AL VOCABULARIO
       aniadirVocab(palabra, significado){
         var palabraNoString = this.comprobarString(palabra);
         var significadoNoString = this.comprobarString(significado);
-        if( palabraNoString == false && significadoNoString == false){
-            this.descripcion.push(significado);
-            this.listaVocab.push(palabra);
+        var formatoValidoP = this.comprobarFormato(palabra);
+        var formatoValidoS = this.comprobarFormato(significado);
+        if( palabraNoString == false && significadoNoString == false && formatoValidoP == true && formatoValidoS == true){
+            this.descripcion.push(significado.toUpperCase());
+            this.listaVocab.push(palabra.toUpperCase());
         }
 
       }
@@ -51,7 +64,8 @@ class Idioma{
         var palabraEncontrada;
         var indice;
         var noString = this.comprobarString(palabra);
-        if(noString == false){
+        var formatoValidoP = this.comprobarFormato(palabra);
+        if(noString == false && formatoValidoP == true){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
               encontrada++;
@@ -74,7 +88,9 @@ class Idioma{
         var encontrada = 0;
         var indice;
         var noString = this.comprobarString(palabra);
-        if(noString == false){
+        var formatoValidoP = this.comprobarFormato(palabra);
+        var formatoValidoD = this.comprobarFormato(descripcionNueva);
+        if(noString == false && formatoValidoD == true){
           for(var i in this.listaVocab){
             if(palabra == this.listaVocab[i]){
               var descripcionActual = this.descripcion[i];
@@ -129,9 +145,9 @@ class Idioma{
       var ordenado = new Array();
       var ordenadoA = new Array();
 
-      for(var i in this.listaVocab){
-        this.listaVocab[i].toUpperCase();
-      }
+      // for(var i in this.listaVocab){
+      //   this.listaVocab[i].toUpperCase();
+      // }
 
       if(orden == "Ascendente" || orden == "ascendente"){
         ordenado = this.listaVocab.sort();
@@ -148,7 +164,11 @@ class Idioma{
     //FUNCIÓN PARA AÑADIR EXPRESIONES
     aniadirExpresiones(expresion, explicacion){
       var expr = expresion + " --> " + explicacion;
-      this.expresiones.push(expr);
+      var formatoExpr = this.comprobarFormato(expresion);
+      var formatoExpl = this.comprobarFormato(explicacion);
+      if(formatoExpr == true && formatoExpl == true){
+        this.expresiones.push(expr.toUpperCase());
+      }
     }
 
     mostrarExpresiones(){
