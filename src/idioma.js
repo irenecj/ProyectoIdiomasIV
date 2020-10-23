@@ -60,6 +60,31 @@ class Idioma{
         return mostrar;
       }
 
+      //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
+      mostrarPalabra(palabra){
+        var encontrada = 0;
+        var palabraEncontrada;
+        var indice;
+        var noString = this.comprobarString(palabra);
+        var formatoValidoP = this.comprobarFormato(palabra);
+        if(noString == false && formatoValidoP == true){
+          for(var i in this.listado){
+            if(palabra.toUpperCase() == this.listado[i].getPalabra()){
+              encontrada++;
+              indice = i;
+            }
+          }
+        }
+
+        if(encontrada > 0){
+          palabraEncontrada = this.listado[indice].getTraduccion()+ " \n";
+        }else{
+          throw new NoEncontrada("La palabra que busca no se ha encontrado");
+        }
+
+        return palabraEncontrada;
+      }
+
     
 }
 
