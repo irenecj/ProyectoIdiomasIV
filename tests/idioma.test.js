@@ -78,43 +78,51 @@ describe("Testeando la clase idioma.js", () => {
       expect(tam_vector_esperado).toEqual(tam_vocab);
     });
   });
-  //
-  // describe("Testeando el método mostrarPalabra()", () => {
-  //   //para que la palabra coincida con su significado, los dos vectores deben tener el mismo tamaño
-  //   test("Comprobamos que los dos vectores son iguales", () => {
-  //     tam_vocab = idioma.listaVocab.length;
-  //     tam_descrip = idioma.descripcion.length;
-  //
-  //     expect(tam_vocab).toEqual(tam_descrip);
-  //   });
-  //    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
-  //      //mostramos al usuario un mensaje que indica que la palabra no existe, permitiéndole buscar otra o realizar otra acción como añadir esa palabra
-  //      palabra = "OSO.";
-  //      significado = "OURS.ANIMAL.";
-  //      thrown_error = () => idioma.mostrarPalabra(palabra, significado);
-  //      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
-  //
-  //      expect(thrown_error).toThrow(expectedError);
-  //    });
-  //    test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
-  //      //nos devuelve la palabra con su significado
-  //      palabra = "MESA.";
-  //      resultado = idioma.mostrarPalabra(palabra);
-  //      var indicePalabra = idioma.listaVocab.indexOf(palabra);
-  //      significado = idioma.descripcion[indicePalabra];
-  //
-  //      expect(resultado).toBe(palabra + " : " + significado + " \n");
-  //    });
-  //    test("Comprobando que la palabra se corresponde con la descripción", () => {
-  //      //comprobamos que el significado es el de dicha palabra y no otro
-  //      palabra = "MESA.";
-  //      significado = "TABLE.MUEBLE FORMADO POR UN TABLERO HORIZONTAL, SOSTENIDO POR UNO O VARIOS PIES, CON LA ALTURA CONVENIENTE PARA PODER REALIZAR ALGUNA ACTIVIDAD SOBRE ELLA O DEJAR COSAS ENCIMA.";
-  //      var indicePalabra = idioma.listaVocab.indexOf(palabra);
-  //      var indiceDescrip = idioma.descripcion.indexOf(significado);
-  //
-  //      expect(indicePalabra).toEqual(indiceDescrip);
-  //    });
-  // });
+
+  describe("Testeando el método mostrarPalabra()", () => {
+     test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
+       //mostramos al usuario un mensaje que indica que la palabra no existe, permitiéndole buscar otra o realizar otra acción como añadir esa palabra
+       palabra = "OSO.";
+       significado = "OURS.ANIMAL.";
+       thrown_error = () => idioma.mostrarPalabra(palabra, significado);
+       expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+       expect(thrown_error).toThrow(expectedError);
+     });
+     test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
+       //nos devuelve la palabra con su significado
+       palabra = "MESA.";
+       resultado = idioma.mostrarPalabra(palabra);
+       for(var i in idioma.listado){
+         if(palabra == idioma.listado[i].getPalabra()){
+           var indicePalabra = i;
+         }
+       }
+       significado = idioma.listado[indicePalabra].getSignificado();
+
+       expect(resultado).toBe("\nPALABRA --> "  + palabra + "\nSIGNIFICADO --> " + significado + " \n");
+     });
+     test("Comprobando que la palabra se corresponde con la descripción", () => {
+       //comprobamos que el significado es el de dicha palabra y no otro
+       palabra = "MESA.";
+       significado = "TABLE.MUEBLE FORMADO POR UN TABLERO HORIZONTAL, SOSTENIDO POR UNO O VARIOS PIES, CON LA ALTURA CONVENIENTE PARA PODER REALIZAR ALGUNA ACTIVIDAD SOBRE ELLA O DEJAR COSAS ENCIMA.";
+       for(var i in idioma.listado){
+         if(palabra == idioma.listado[i].getPalabra()){
+           var indicePalabra = i;
+           console.log(idioma.listado[i].getPalabra())
+           console.log(indicePalabra);
+         }
+       }
+
+      for(var j in idioma.listado){
+         if(significado == idioma.listado[j].getSignificado()){
+            var indiceSignif = j;
+          }
+       }
+
+       expect(indicePalabra).toEqual(indiceSignif);
+     });
+  });
   //
   // describe("Testeando el método cambiarSignificado()", () =>{
   //   test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
