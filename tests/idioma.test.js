@@ -123,27 +123,33 @@ describe("Testeando la clase idioma.js", () => {
        expect(indicePalabra).toEqual(indiceSignif);
      });
   });
-  //
-  // describe("Testeando el método cambiarSignificado()", () =>{
-  //   test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
-  //     //si la palabra no se encuentra notificamos al usuario para que así decida si realizar otra acción, como añadir dicha palabra
-  //      palabra = "PIANO.";
-  //      significado = "PIANO.INSTRUMENTO MUSICAL.";
-  //      thrown_error = () => idioma.cambiarSignificado(palabra,significado);
-  //      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
-  //
-  //      expect(thrown_error).toThrow(expectedError);
-  //    });
-  //    test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
-  //      //vemos que en el array 'descripcion' ahora el significado correspondiente a la palabra es el nuevo
-  //      palabra = "MESA.";
-  //      significadoNuevo = "CAMBIO DESCRIPCIÓN DE LA MESA.";
-  //      idioma.cambiarSignificado(palabra, significadoNuevo);
-  //      var indicePalabra = idioma.listaVocab.indexOf(palabra);
-  //      significado = idioma.descripcion[indicePalabra];
-  //      expect(significado).toBe(significadoNuevo);
-  //    });
-  // });
+
+  describe("Testeando el método cambiarSignificado()", () =>{
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
+      //si la palabra no se encuentra notificamos al usuario para que así decida si realizar otra acción, como añadir dicha palabra
+       palabra = "PIANO.";
+       significado = "PIANO.INSTRUMENTO MUSICAL.";
+       thrown_error = () => idioma.cambiarSignificado(palabra,significado);
+       expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+       expect(thrown_error).toThrow(expectedError);
+     });
+     test("Comprobando que funciona correctamente al pasarle una palabra existente en la lista de vocabulario", () => {
+       //vemos que en el array 'descripcion' ahora el significado correspondiente a la palabra es el nuevo
+       palabra = "MESA.";
+       significadoNuevo = "CAMBIO DESCRIPCIÓN DE LA MESA.";
+       for(var i in idioma.listado){
+         if(palabra == idioma.listado[i].getPalabra()){
+           var indicePalabra = i;
+         }
+       }
+       idioma.cambiarSignificado(palabra, significadoNuevo);
+
+       significado = idioma.listado[indicePalabra].getSignificado();
+
+       expect(significado).toBe(significadoNuevo);
+     });
+  });
   //
   // describe("Testeando el método clasificaLetra()", () => {
   //   test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
