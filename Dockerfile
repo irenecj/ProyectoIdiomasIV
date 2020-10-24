@@ -7,18 +7,20 @@ MAINTAINER Irene Cano Jerez
 #necesarios para que funcione la aplicación
 WORKDIR /home/irene/proyectoIdiomas
 
-#pasamos los archivos al directorio de trabajo
+#pasamos todo lo que necesitamos al directorio de trabajo
 #usamos el asterisco para copiar directamente package.json y package-lock.json
-COPY package*.json ./
+COPY src ./src
+COPY package*.json Gruntfile.js ./
+COPY tests ./test
 
 #ejecutamos npm install para instalar las dependencias
 RUN npm install
 
 RUN npm install -g grunt-cli
 
-#queremos copiar todo en nuestro contenedor excepto el directorio node_modules
+#queremos copiar todo lo que necesitemos en nuestro contenedor excepto el directorio node_modules
 #por lo cual crearemos también el .dockerignore.
-COPY . .
+#COPY . .
 
 #para ejecutar los tests
 CMD ["grunt","run:tests"]
