@@ -49,7 +49,9 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU7. Mostrar expresiones populares.
 - HU8. Mostrar palabras ordenadas alfabéticamente.
 
-En dicha clase, como ya he comentado, nos encontramos funciones cuyo propósito reside en las historias de usuario. Por tanto, tenemos un constructor al cual le debemos pasar una *palabra* junto con su *significado y/o traducción*, una función para poder añadir palabras nuevas y otra función para poder añadir expresiones populares.
+Antes de nada, he implementado una clase llamada *traduccion.js* la cual sirve para crear objetos formados por una palabra y su significado. Dentro de esta clase tenemos métodos 'get' y 'set' para acceder y/o modificar los distintos atributos mencionados.
+
+En la clase *idioma.js*, como ya he comentado, nos encontramos funciones cuyo propósito reside en las historias de usuario. Por tanto, tenemos un constructor al cual le debemos pasar un objeto de la clase *traduccion.js*, una función para poder añadir palabras nuevas y otra función para poder añadir expresiones populares.
 Por otro lado, podemos mostrar toda la lista de palabras y su significado, al igual que podemos mostrar todas las expresiones populares.
 Si el significado o la traducción de una palabra no nos queda clara o preferimos redactarla de otra manera, tenemos una función que nos permite modificarla sin problema.
 También tenemos las opciones de consultar una palabra concreta, de consultar todas las palabras que empiecen por una letra determinada y de mostrar todo el listado de palabras ordenado alfabéticamente tanto ascendetente como descendentemente.
@@ -62,4 +64,6 @@ Para su instalación simplemente debemos ejecutar los siguientes comando:
 sudo npm install -g grunt-cli
 
 sudo npm install grunt --save-dev #para tener la dependencia en el package.json
+
+sudo npm install grunt-run --save-dev #para poder lanzar la tarea correspondiente a los tests
 ~~~
