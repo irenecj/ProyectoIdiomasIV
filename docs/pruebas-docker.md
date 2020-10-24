@@ -6,11 +6,15 @@ Basándome en los [repositorios oficiales]() he decidido probar con las siguient
 - **node:15.0-alpine3.10**
 - **node:15.0-slim**
 
-Con los siguientes comandos podemos ver cuánto tarda en descargarse el contenedor y cuál es el tamaño de cada imagen.
+Con los siguientes comandos podemos ver cuánto tarda en descargarse el contenedor, construimos nuestra imagen, vemos cuál es el tamaño de nuestra imagen después de construir y ejecutamos los tests:
 ~~~
 time docker pull [nombre-imagen]
 
+time docker build -t irene/proyectoiv .
+
 docker images
+
+time docker run irene/proyectoiv
 ~~~
 
 Y los resultados que obtenemos son:
@@ -22,7 +26,7 @@ Y los resultados que obtenemos son:
   - Tamaño de nuestra imagen después de construir: 1.07GB
   ![](imagenes/tamañoNode.png)
   - Tiempo en ejecutar los tests: 1.805s
-  
+
   ![](imagenes/test-node15.png)
 
 - **node:15.0-alpine3.10**
