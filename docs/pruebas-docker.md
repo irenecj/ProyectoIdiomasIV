@@ -27,7 +27,7 @@ Y los resultados que obtenemos son:
   ![](imagenes/tamañoNode.png)
   - Tiempo en ejecutar los tests: 1.805s
 
-  ![](imagenes/test-node15.png)
+    ![](imagenes/test-node15.png)
 
 - **node:15.0-alpine3.10**
 
@@ -39,7 +39,7 @@ Y los resultados que obtenemos son:
   ![](imagenes/tamañoAlpine.png)
   - Tiempo en ejecutar los tests: 1.913s
 
-  ![](imagenes/test-node-alpine.png)
+    ![](imagenes/test-node-alpine.png)
 
 - **node:15.0-slim**
   - Tiempo de descarga de la imagen oficial: 17.016s
@@ -50,7 +50,7 @@ Y los resultados que obtenemos son:
   ![](imagenes/tamañoSlim.png)
   - Tiempo en ejecutar los tests: 1.827s
 
-  ![](imagenes/test-node-slim.png)
+    ![](imagenes/test-node-slim.png)
 
 Dentro de cada criterio de mejor a peor tenemos:
 - **Descarga:** Alpine > Slim > Node
