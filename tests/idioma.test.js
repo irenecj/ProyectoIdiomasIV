@@ -167,5 +167,33 @@ describe("Testeando la clase idioma.js", () => {
       expect(resultado.length).toBe(1);
     });
   });
+  describe("Testeando el método ordenarAlfabeto()", () => {
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
+      thrown_error = () => idioma.ordenarAlfabeto("OrdenNoValido");
+      expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
+
+      expect(thrown_error).toThrow(expectedError);
+
+    });
+    test("Comprobando que ordena ascendentemente de forma correcta", () => {
+      var idio_nuevo = new Idioma("Español", "Francés");
+      idio_nuevo.aniadirVocab("VINO.", "VIN.");
+      idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
+      idio_nuevo.ordenarAlfabeto("Ascendente");
+
+      expect(idio_nuevo.listado[0].getPalabra()).toBe("BONITO.");
+      expect(idio_nuevo.listado[1].getPalabra()).toBe("VINO.");
+
+    });
+    test("Comprobando que ordena descendentemente de forma correcta", () => {
+      var idio_nuevo = new Idioma("Español", "Francés");
+      idio_nuevo.aniadirVocab("VINO.", "VIN.");
+      idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
+      idio_nuevo.ordenarAlfabeto("Descendente");
+
+      expect(idio_nuevo.listado[0].getPalabra()).toBe("VINO.");
+      expect(idio_nuevo.listado[1].getPalabra()).toBe("BONITO.");
+    });
+  });
 
 });
