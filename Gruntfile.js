@@ -4,13 +4,18 @@
 module.exports = function (grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    shell: {
+    run: {
       tests: {
-        command: 'npm test',
+        cmd: 'npm',
+        args: [
+          'run',
+          'test'
+        ]
       }
     }
 });
 
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-run');
+  grunt.registerTask('default', ['run:tests']);
 
 };
