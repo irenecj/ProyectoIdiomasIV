@@ -109,8 +109,6 @@ describe("Testeando la clase idioma.js", () => {
        for(var i in idioma.listado){
          if(palabra == idioma.listado[i].getPalabra()){
            var indicePalabra = i;
-           console.log(idioma.listado[i].getPalabra())
-           console.log(indicePalabra);
          }
        }
 
@@ -150,91 +148,24 @@ describe("Testeando la clase idioma.js", () => {
        expect(significado).toBe(significadoNuevo);
      });
   });
-  //
-  // describe("Testeando el método clasificaLetra()", () => {
-  //   test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
-  //     //si no hay palabras que empiecen por dicha letra se notifica al usuario
-  //     letra = "W";
-  //     thrown_error = () => idioma.clasificaLetra(letra);
-  //     expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
-  //
-  //     expect(thrown_error).toThrow(expectedError);
-  //   });
-  //
-  //   test("Comprobando que muestra el listado de palabras correctamente si la letra es mayúscula", () => {
-  //     //debe ser indiferente si le pasamos una letra mayúscula o minúscula.
-  //     letra = "M";
-  //     resultado = idioma.clasificaLetra(letra);
-  //
-  //     expect(resultado.length).toBe(1);
-  //   });
-  //
-  //   test("Comprobando que muestra el listado de palabras correctamente si la letra es minúscula", () => {
-  //     //debe ser indiferente si le pasamos una letra mayúscula o minúscula.
-  //     letra = "m";
-  //     resultado = idioma.clasificaLetra(letra);
-  //
-  //     expect(resultado.length).toBe(1);
-  //   });
-  // });
-  //
-  // describe("Testeando el método ordenarAlfabeto()", () => {
-  //   test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
-  //     thrown_error = () => idioma.ordenarAlfabeto("OrdenNoValido");
-  //     expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
-  //
-  //     expect(thrown_error).toThrow(expectedError);
-  //
-  //   });
-  //   test("Comprobando que ordena ascendentemente de forma correcta", () => {
-  //     var idio_nuevo = new Idioma("VINO.","VIN.");
-  //     idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
-  //     idio_nuevo.ordenarAlfabeto("Ascendente");
-  //
-  //     expect(idio_nuevo.listaVocab[0]).toBe("BONITO.");
-  //     expect(idio_nuevo.listaVocab[1]).toBe("VINO.");
-  //
-  //   });
-  //   test("Comprobando que ordena descendentemente de forma correcta", () => {
-  //     var idio_nuevo = new Idioma("VINO.", "VIN.");
-  //     idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
-  //     idio_nuevo.ordenarAlfabeto("Descendente");
-  //
-  //     expect(idio_nuevo.listaVocab[0]).toBe("VINO.");
-  //     expect(idio_nuevo.listaVocab[1]).toBe("BONITO.");
-  //   });
-  // });
-  // describe("Testeando el método aniadirExpresiones()", () => {
-  //   test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
-  //     expresion = "MONTAR UN POLLO.";
-  //     explicacion = "TE HAS VENIDO ARRIBA. HAS MONTADO UNA BRONCA SIN VENIR A CUENTO. UN ESCÁNDALO."
-  //     var tamañoOriginal = idioma.expresiones.length;
-  //     idioma.aniadirExpresiones(expresion, explicacion);
-  //     var tamañoActual = idioma.expresiones.length;
-  //
-  //     expect(tamañoActual).toEqual(tamañoOriginal + 1);
-  //   });
-  //   test("Comprobamos que la expresión se ha añadido correctamente", () => {
-  //     expresion = "HABLAR POR LOS CODOS.";
-  //     significado = "CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.";
-  //
-  //     idioma.aniadirExpresiones(expresion, significado);
-  //
-  //     var tamaño = idioma.expresiones.length;
-  //     var ultimo = idioma.expresiones[tamaño - 1];
-  //     var expresionEsperada = "HABLAR POR LOS CODOS. --> CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.";
-  //
-  //     expect(ultimo).toBe(expresionEsperada);
-  //   });
-  // });
-  // describe("Testeando el método mostrarExpresiones()", () => {
-  //   test("Comprobando que se muestran TODAS las expresiones", () => {
-  //     //el tamaño del vector devuelto tiene que ser el mismo que el del vector de expresiones
-  //     var tam_vector_expresiones = idioma.mostrarVocab().length;
-  //     var tam_vocab = idioma.listaVocab.length;
-  //     expect(tam_vector_expresiones).toEqual(tam_vocab);
-  //   });
-  // });
 
+  describe("Testeando el método clasificaLetra()", () => {
+    test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
+      //si no hay palabras que empiecen por dicha letra se notifica al usuario
+      letra = "W";
+      thrown_error = () => idioma.clasificaLetra(letra);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+
+    test("Comprobando que muestra el listado de palabras correctamente", () => {
+      //debe ser indiferente si le pasamos una letra mayúscula o minúscula.
+      letra = "M";
+      resultado = idioma.clasificaLetra(letra);
+
+      expect(resultado.length).toBe(1);
+    });
+  });
 
 });
