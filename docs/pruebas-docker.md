@@ -22,6 +22,7 @@ Y los resultados que obtenemos son:
   - Tamaño de nuestra imagen después de construir: 1.07GB
   ![](imagenes/tamañoNode.png)
   - Tiempo en ejecutar los tests: 1.805s
+  
   ![](imagenes/test-node15.png)
 
 - **node:15.0-alpine3.10**
@@ -33,6 +34,7 @@ Y los resultados que obtenemos son:
   - Tamaño de nuestra imagen después de construir: 170MB
   ![](imagenes/tamañoAlpine.png)
   - Tiempo en ejecutar los tests: 1.913s
+
   ![](imagenes/test-node-alpine.png)
 
 - **node:15.0-slim**
@@ -43,6 +45,7 @@ Y los resultados que obtenemos son:
   - Tamaño de nuestra imagen después de construir: 296MB
   ![](imagenes/tamañoSlim.png)
   - Tiempo en ejecutar los tests: 1.827s
+
   ![](imagenes/test-node-slim.png)
 
 Dentro de cada criterio de mejor a peor tenemos:
