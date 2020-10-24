@@ -32,6 +32,10 @@ Podemos encontrar una explicación más detallada en [esta documentación](https
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
 
+## :whale2: DOCKER
+Para la creación de un contenedor de pruebas, en primer lugar necesitamos elegir un contenedor base.
+En la documentación correspondiente a este apartado tenemos un documento donde [introducimos Docker y las distintas imágenes oficiales](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md) que podemos encontrar y otro donde quedan reflejadas las [pruebas realizadas y la decisión tomada](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md) en la elección del contenedor.
+
 ## :closed_book: DOCUMENTACIÓN Y ENLACES ÚTILES
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
 2. [Elección y justificación de las herramientas y servicios utilizados.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
