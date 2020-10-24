@@ -1,5 +1,5 @@
 # BUENAS PRÁCTICAS SEGUIDAS PARA DESARROLLAR NUESTRO DOCKERFILE
-A la hora de crear el **[Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Dockerfile)** es muy recomendable que sigamos unas buenas prácticas. En mi caso, he consultado esta [página](https://blog.arima.eu/es/2020/04/21/buenas-practicas-para-escribir-un-dockerfile.html) para ver cuáles eran dichas prácticas y hemos cumplido las siguientes:
+A la hora de crear el **[Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Dockerfile)** es muy recomendable que sigamos unas buenas prácticas. En mi caso, he consultado esta [página](https://blog.arima.eu/es/2020/04/21/buenas-practicas-para-escribir-un-dockerfile.html) para ver cuáles eran dichas prácticas y además, he consultado otra [página]https://nodejs.org/en/docs/guides/nodejs-docker-webapp/() para aprender a desarrollar nuestro fichero.
 1. **Escribir [.dockerignore](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/.dockerignore):** este archivo es equivalente al *.gitignore* y en él incluiremos aquellos ficheros que queremos que sean ignorados.
 2. **Fusionar varios comandos RUN en uno solo:** como podemos ver en nuestro Dockerfile, tenemos un único comando RUN que ejecuta *npm install* y *npm install -g grunt-cli*.
 ~~~
