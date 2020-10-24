@@ -31,8 +31,6 @@ En mi caso, a parte de las clases para gestionar las excepciones, tengo una clas
 Por otro lado, tenemos otra clase, llamada **traduccion.js** la cual nos permite crear una palabra junto con su significado. Dentro de esta clase tenemos los métodos *get* y *set* necesarios para poder usar los objetos en la clase principal.
 Podemos encontrar una explicación más detallada en [esta documentación](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pasos.md) y este es el [código fuente](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/src) del proyecto.
 
-### DOCKERFILE
-Para crear nuestro [Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Dockerfile) hemos seguido una serie de [buenas prácticas.]()
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
@@ -40,6 +38,12 @@ He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js]
 ## :whale2: DOCKER
 Para la creación de un contenedor de pruebas, en primer lugar necesitamos elegir un contenedor base.
 En la documentación correspondiente a este apartado tenemos un documento donde [introducimos Docker y las distintas imágenes oficiales](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md) que podemos encontrar y otro donde quedan reflejadas las [pruebas realizadas y la decisión tomada](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md) en la elección del contenedor base.
+
+### DOCKERFILE
+Para crear nuestro [Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Dockerfile) hemos seguido una serie de [buenas prácticas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
+
+### DOCKER HUB
+En este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md) están explicados los pasos necesarios para subir correctamente nuestro [contenedor](https://hub.docker.com/r/irenecj/proyectoidiomasiv) a Docker Hub.
 
 ## :closed_book: RECOPILACIÓN DE ENLACES ÚTILES
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
@@ -51,6 +55,7 @@ En la documentación correspondiente a este apartado tenemos un documento donde 
 7. [Introducción a Docker y las imágenes base oficiales para Node.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md)
 8. [Elección del contenedor base.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md)
 9. [Buenas prácticas para diseñar un Dockerfile.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
+10. [Subir contenedor a Docker Hub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md)
 
 ## :heavy_check_mark: ISSUES Y MILESTONES
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/issues?q=is%3Aissue+is%3Aclosed) de issues cerrados.
