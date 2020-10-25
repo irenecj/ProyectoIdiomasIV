@@ -12,7 +12,7 @@ WORKDIR /test
 COPY package*.json ./
 
 #ejecutamos npm install para instalar las dependencias
-RUN npm install && npm install -g grunt-cli
+RUN npm install && npm install -g grunt
 
 #para ejecutar los tests
 CMD ["grunt","run:tests"]
