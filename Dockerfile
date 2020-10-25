@@ -8,11 +8,13 @@ LABEL maintainer="Irene Cano Jerez"
 #necesarios para que funcione la aplicación
 WORKDIR /test
 
+RUN npm install -g grunt-cli
+
 #usamos el asterisco para copiar directamente package.json y package-lock.json
 COPY package*.json ./
 
 #ejecutamos npm install para instalar las dependencias
-RUN npm install -g grunt-cli && npm install 
+RUN npm install
 
 #para ejecutar los tests
 CMD ["grunt","run:tests"]
