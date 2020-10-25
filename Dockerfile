@@ -4,15 +4,16 @@ FROM node:15.0-alpine3.10
 LABEL maintainer="Irene Cano Jerez"
 
 #creamos directorio de trabajo en el que tendremos todos los archivos
-#necesarios para que funcione la aplicación 
+#necesarios para que funcione la aplicación
 WORKDIR /test
 
-COPY Gruntfile.js ./test
+COPY package*.json /test
+
+COPY Gruntfile.js /test
 #usamos el asterisco para copiar directamente package.json y package-lock.json
-COPY package*.json ./test
 
 #ejecutamos npm install para instalar las dependencias
-RUN npm install -g grunt && npm install
+RUN npm install &&  npm install -g grunt && rm package*.json
 
 #para ejecutar los tests
 CMD ["grunt","run:tests"]
