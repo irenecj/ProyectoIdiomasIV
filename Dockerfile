@@ -4,7 +4,7 @@ FROM node:15.0-alpine3.10
 LABEL maintainer="Irene Cano Jerez"
 
 #creamos directorio de trabajo en el que tendremos todos los archivos
-#necesarios para que funcione la aplicación
+#necesarios para que funcione la aplicación 
 WORKDIR /test
 
 COPY Gruntfile.js ./
