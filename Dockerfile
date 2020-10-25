@@ -7,9 +7,9 @@ LABEL maintainer="Irene Cano Jerez"
 #necesarios para que funcione la aplicación
 WORKDIR /test
 
-COPY package*.json /test
+COPY package*.json /test/
 
-COPY Gruntfile.js /test
+COPY Gruntfile.js /test/
 #usamos el asterisco para copiar directamente package.json y package-lock.json
 
 #ejecutamos npm install para instalar las dependencias
