@@ -7,9 +7,9 @@ LABEL maintainer="Irene Cano Jerez"
 #necesarios para que funcione la aplicación 
 WORKDIR /test
 
-COPY Gruntfile.js ./
+COPY Gruntfile.js ./test
 #usamos el asterisco para copiar directamente package.json y package-lock.json
-COPY package*.json ./
+COPY package*.json ./test
 
 #ejecutamos npm install para instalar las dependencias
 RUN npm install -g grunt && npm install
