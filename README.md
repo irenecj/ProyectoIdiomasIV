@@ -34,7 +34,7 @@ Podemos encontrar una explicación más detallada en [esta documentación](https
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
 
-Podemos acceder a la explicación de cómo lo hemos [diseñado](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md)
+Podemos acceder a la explicación de cómo lo hemos [diseñado.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md)
 
 ## :whale2: DOCKER
 Para la creación de un contenedor de pruebas, en primer lugar necesitamos elegir un contenedor base.
@@ -46,7 +46,7 @@ Para crear nuestro [Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blo
 ### DOCKER HUB
 En este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md) están explicados los pasos necesarios para subir correctamente nuestro [contenedor](https://hub.docker.com/r/irenecj/proyectoidiomasiv) a Docker Hub.
 
-## GITHUB CONTAINER REGISTRY
+### GITHUB CONTAINER REGISTRY
 En un principio pensé en probar a subir mi contenedor a [Azure](https://azure.microsoft.com/es-es/) lo que ocurre es que sólo tienen una prueba gratuita de 30 días por lo que prefiero dejarlo para más adelante. Por este motivo, he subido mi contenedor a **GitHub Container Registry** y en este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md) podemos ver los pasos seguidos.
 
 ## :closed_book: RECOPILACIÓN DE ENLACES ÚTILES
@@ -57,11 +57,12 @@ En un principio pensé en probar a subir mi contenedor a [Azure](https://azure.m
 5. [Explicación detallada de las clases implementadas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/idioma-traduccion.md)
 6. [Acceso a los tests del proyecto.](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/tests)
 7. [¿Por qué elegir Jest para testear?.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/test-jest.md)
-8. [Introducción a Docker y las imágenes base oficiales para Node.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md)
-9. [Elección del contenedor base.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md)
-10. [Buenas prácticas para diseñar un Dockerfile.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
-11. [Subir contenedor a Docker Hub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md)
-12. [Subir contenedor a GitHub Docker Registry.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md)
+8. [Documentación sobre el Gruntfile.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md)
+9. [Introducción a Docker y las imágenes base oficiales para Node.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md)
+10. [Elección del contenedor base.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md)
+11. [Buenas prácticas para diseñar un Dockerfile.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
+12. [Subir contenedor a Docker Hub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md)
+13. [Subir contenedor a GitHub Docker Registry.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md)
 
 ## :heavy_check_mark: ISSUES Y MILESTONES
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/issues?q=is%3Aissue+is%3Aclosed) de issues cerrados.
