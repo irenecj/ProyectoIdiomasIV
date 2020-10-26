@@ -12,8 +12,8 @@ COPY package*.json ./
 
 COPY Gruntfile.js ./
 
-#ejecutamos npm install para instalar las dependencias y  además borramos los archivos de dependencias
-RUN npm install  && npm cache clean --force && rm package*.json
+#ejecutamos npm install para instalar las dependencias 
+RUN npm install  && npm cache clean --force
 
 WORKDIR /test
 
