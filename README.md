@@ -21,10 +21,9 @@ npm install .
 A continuación, para llevar a cabo los tests vamos a usar Jest debido a varios motivos que expongo en este [documento.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/test-jest.md)
 Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente debemos ejecutar el siguiente comando:
 ~~~
-grunt run:tests
+grunt test
 ~~~
 
-La explicación de por qué usamos este comando la podemos encontrar en el siguiente [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md).
 
 ## :computer: CLASES IMPLEMENTADAS
 En mi caso, a parte de las clases para gestionar las [excepciones](https://github.com/irenecj/proyecto-idiomas/tree/master/src/excepciones), tengo una clase, llamada **idioma.js**, la cual posee todas las funciones relacionadas con las operaciones que se pueden llevar a cabo con un listado de palabras, y las expresiones populares junto con una explicación de éstas. Esta clase es la principal de nuestro proyecto.
@@ -34,6 +33,8 @@ Podemos encontrar una explicación más detallada en [esta documentación](https
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
+
+Podemos acceder a la explicación de cómo lo hemos [diseñado](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md)
 
 ## :whale2: DOCKER
 Para la creación de un contenedor de pruebas, en primer lugar necesitamos elegir un contenedor base.
