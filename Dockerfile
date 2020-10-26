@@ -1,5 +1,5 @@
 #node con la versión 14
-FROM node:14.0-alpine
+FROM node:14.0-alpine3.10
 
 LABEL maintainer="Irene Cano Jerez"
 
