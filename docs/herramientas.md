@@ -18,7 +18,7 @@ A continuación, después de documentarme, voy a exponer qué tipo de herramient
 Como entorno de ejecución podemos usar **Node.js** ya que este es de código abierto y es uno de los más usados en el mercado en lo que se refiere a JavaScript, por lo que me parece interesante aprender a usarlo.
 Junto con él podemos instalar también **npm** que es un gestor de paquetes el cual proporciona multitud de librerías y puede que nos agilice parte del trabajo.
 
-Además, hemos usado como gestor de tareas **grunt** y tenemos un [fichero]() donde se explica con más detalle dicho task runner junto con su [Grunftile](https://github.com/irenecj/proyecto-idiomas/blob/master/Gruntfile.js) correspondiente.
+Además, hemos usado como gestor de tareas **grunt** y tenemos un [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md) donde se explica con más detalle dicho task runner junto con su [Grunftile](https://github.com/irenecj/proyecto-idiomas/blob/master/Gruntfile.js) correspondiente.
 
 --------------------------------------------------------------------------
 
