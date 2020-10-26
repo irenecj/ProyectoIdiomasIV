@@ -18,8 +18,7 @@ A continuación, después de documentarme, voy a exponer qué tipo de herramient
 Como entorno de ejecución podemos usar **Node.js** ya que este es de código abierto y es uno de los más usados en el mercado en lo que se refiere a JavaScript, por lo que me parece interesante aprender a usarlo.
 Junto con él podemos instalar también **npm** que es un gestor de paquetes el cual proporciona multitud de librerías y puede que nos agilice parte del trabajo.
 
-Además, hemos usado como gestor de tareas **grunt**. En este punto me he encontrado con cierta dificultad a la hora de definir una tarea para realizar los tests ya que me han surgido diversos problemas relacionados con las versiones. En cuanto al último error que obtuve, no he encontrado en Internet cómo arreglarlo pero si encontré un [repositorio en GitHub](https://github.com/leebyron/grunt-jest) donde se comenta que el uso de **grunt-jest** ya está obsoleto y propone una alternativa: ésta se basa en que en vez de hacer una tarea para realizar los tests, podemos usar el comando **grunt-run** junto con un script de npm que llame a Jest. Por tanto, he definido una tarea que se encarga del testeo y se lanza con el comando **grunt run:tests**.
-
+Además, hemos usado como gestor de tareas **grunt** y tenemos un [fichero]() donde se explica con más detalle dicho task runner junto con su [Grunftile](https://github.com/irenecj/proyecto-idiomas/blob/master/Gruntfile.js) correspondiente.
 
 --------------------------------------------------------------------------
 
