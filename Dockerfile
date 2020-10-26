@@ -11,7 +11,7 @@ RUN adduser -D userIV
 COPY package.json package-lock.json ./
 
 #ejecutamos npm install para instalar las dependencias y  además borramos los archivos de dependencias
-RUN npm install
+RUN npm install && npm install -g grunt-cli
 
 ENV PATH=/node_modules/.bin:$PATH
 
