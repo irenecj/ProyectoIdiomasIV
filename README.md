@@ -48,15 +48,19 @@ En este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/
 ### GITHUB CONTAINER REGISTRY
 En un principio pensé en probar a subir mi contenedor a [Azure](https://azure.microsoft.com/es-es/) lo que ocurre es que sólo tienen una prueba gratuita de 30 días por lo que prefiero dejarlo para más adelante. Por este motivo, he subido mi contenedor a **GitHub Container Registry** y en este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md) podemos ver los pasos seguidos.
 
-### EJECUCIÓN DE LOS TEST A PARTIR DE LOS CONTENEDORES.
+### EJECUCIÓN DE LOS TESTS A PARTIR DE LOS CONTENEDORES
 En primer lugar debemos descargarnos el repositorio de GitHub.
-Una vez hecho esto, si usamos el contenedor de Docker Hub, ejecutamos el siguiente comando:
+Una vez hecho esto, debemos descargarnos la imagen y ejecutamos los test. Si usamos el contenedor de Docker Hub, ejecutamos el siguiente comando:
 ~~~
+docker pull irenecj/proyecto-idiomas
+
 docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
 ~~~
 Si usamos el contenedor de **GitHub Container Registry**, ejecutamos:
 ~~~
-docker run -t -v `pwd`:/test ghcr.io/irenecj/proyecto-idiomas:latest
+docker pull ghcr.io/irenecj/proyectoidiomas:latest
+
+docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas:latest
 ~~~
 
 ## :closed_book: RECOPILACIÓN DE ENLACES ÚTILES
