@@ -14,10 +14,12 @@ COPY package*.json /test/
 
 COPY Gruntfile.js /test/
 
+COPY node_modules /test/
+
 #ejecutamos npm install para instalar las dependencias y  además borramos los archivos de dependencias
 RUN npm install &&  npm install -g grunt && rm package*.json
 
-RUN npm install grunt-cli --save-dev
+RUN npm install grunt-cli
 
 USER userIV
 
