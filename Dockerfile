@@ -1,5 +1,5 @@
 #node con la versión 14
-FROM node:14.0-alpine3.10
+FROM node:14
 
 LABEL maintainer="Irene Cano Jerez"
 
@@ -13,8 +13,6 @@ RUN npm install
 ENV PATH=/node_modules/.bin:$PATH
 
 #añadimos un usuario
-RUN adduser -D userIV
-
 USER userIV
 
 #creamos el directorio test
