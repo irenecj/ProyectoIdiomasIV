@@ -19,7 +19,7 @@ CMD ["grunt","run:tests"]
 ~~~
 6. **Mejor COPY que ADD:** por la simple razón de que *COPY* es más sencillo.
 7. **Optimizar COPY y RUN:** deberíamos poner los cambios que se producen con menor frecuencia en la parte superior de nuestros Dockerfiles para aprovechar el almacenamiento en caché. Por este motivo, en nuestro *Dockerfile* primero copiamos el *package.json* y *package-lock.json*, instalamos las dependencias y luego añadimos el resto de archivos, de manera que cada vez que cambiemos nuestro código no tengamos que reinstalar los paquetes.
-8. **Especificar variables de entorno:** es recomendable usar variables de entorno para establecer valores predeterminados en nuestro fichero. Nosotros hemos utilizado una variable de entorno que contiene el path de nuestra carpeta 'node_modules'.
+8. **Especificar variables de entorno:** es recomendable usar variables de entorno para establecer valores predeterminados en nuestro fichero. Nosotros hemos utilizado una variable de entorno para solucionar el error relacionado con que nuestro contenedor no encontraba grunt en el local y que contiene el path de nuestra carpeta 'node_modules'. Dicha solución explicada con más detalle se puede encontrar en la siguiente [página.](https://www.docker.com/blog/keep-nodejs-rockin-in-docker/)
 ~~~
 ENV PATH=/node_modules/.bin:$PATH
 ~~~
