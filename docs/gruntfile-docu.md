@@ -5,6 +5,7 @@ Grunt es un task runner basado en Node.js y hemos decidido usarlo para nuestro p
 En la siguiente imagen podemos ver nuestro [Gruntfile](https://github.com/irenecj/proyecto-idiomas/blob/master/Gruntfile.js):
 
 ![](imagenes/gruntfile-tarea.png)
+
 Para comenzar, toda la configuración de Grunt se define usando el método **initConfig**, que recibe un objeto con las distintas opciones de configuración y que además, nos permite definir las tareas que queremos ejecutar.
 
 Nada más empezar le indicamos cual es nuestro fichero de dependencias.
