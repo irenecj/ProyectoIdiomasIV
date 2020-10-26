@@ -16,4 +16,4 @@ COPY Gruntfile.js /test/
 RUN npm install &&  npm install -g grunt && rm package*.json
 
 #para ejecutar los tests
-CMD ["grunt","run:tests"]
+CMD ["grunt","test"]
