@@ -7,13 +7,13 @@ LABEL maintainer="Irene Cano Jerez"
 COPY package.json package-lock.json ./
 
 #instalamos las dependencias con npm
-RUN npm install
+RUN adduser -D useriv && npm install
 
 #variable de entorno para gestionar node_modules
 ENV PATH=/node_modules/.bin:$PATH
 
 #añadimos un usuario
-USER userIV
+USER useriv
 
 #creamos el directorio test
 WORKDIR /test
