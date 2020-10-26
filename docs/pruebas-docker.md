@@ -4,7 +4,7 @@ Para proceder a la elección de un contenedor base nos vamos a basar en dos crit
 Basándome en los [repositorios oficiales](https://hub.docker.com/_/node) he decidido probar con las siguientes imágenes:
 - **node:14.0**
 - **node:14.0-alpine3.10**
-- **node:14.0-slim**
+- **node:14.0-slim** 
 
 **Aclaración:** en un principio comencé probando con la versión 15 pero esta me dió diversos problemas a la hora de usar el gestor de tareas.
 
@@ -22,14 +22,15 @@ time docker run irene/proyectoiv
 Y los resultados que obtenemos son:
 - **node:14.0**
   - Tiempo de descarga de la imagen oficial: 14,358s
-  ![](imagenes/descarga-node14.png)
+
+    ![](imagenes/descarga-node14.png)
   - Tiempo de construcción de la imagen: 1min55s
   ![](imagenes/construccion-node14.png)
   - Tamaño de nuestra imagen después de construir: 992MB
   ![](imagenes/tamaño-node14.png)
   - Tiempo en ejecutar los tests: 5,258s
 
-    ![](imagenes/test-node14.png)
+    ![](imagenes/test-Node14.png)
 
 - **node:14.0-alpine3.10**
 
@@ -41,7 +42,7 @@ Y los resultados que obtenemos son:
   ![](imagenes/tamaño-14-alpine.png)
   - Tiempo en ejecutar los tests: 5,503s
 
-    ![](imagenes/test-14-alpine.png)
+    ![](imagenes/test-14Alpine.png)
 
 - **node:14.0-slim**
   - Tiempo de descarga de la imagen oficial: 21,253s
@@ -52,7 +53,7 @@ Y los resultados que obtenemos son:
   ![](imagenes/tamaño-14-slim.png)
   - Tiempo en ejecutar los tests: 5,329s
 
-    ![](imagenes/test-14-slim.png)
+    ![](imagenes/test-14Slim.png)
 
 Dentro de cada criterio de mejor a peor tenemos:
 - **Descarga:** Node14 > Alpine > Slim
