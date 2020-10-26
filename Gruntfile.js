@@ -16,6 +16,6 @@ module.exports = function (grunt){
 });
 
   grunt.loadNpmTasks('grunt-run');
-  grunt.registerTask('default', ['run:tests']);
+  grunt.registerTask('test', ['run']);
 
 };
