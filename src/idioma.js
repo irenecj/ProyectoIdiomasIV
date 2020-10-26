@@ -5,6 +5,7 @@ const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const Traduccion = require("../src/traduccion.js");
+const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 class Idioma{
 
@@ -139,14 +140,14 @@ class Idioma{
       var mostrar = new Array();
       var ordenado = new Array();
       var ordenadoA = new Array();
-
-      if(orden == "Descendente" || orden == "descendente"){
+      // descendente
+      if(orden == enumOrden[1]){
         ordenado = this.listado.sort();
         for(var i in ordenado){
           mostrar.push(this.listado[i].getTraduccion() + " \n");
         }
         return ordenado;
-      }else if(orden == "Ascendente" || orden == "ascendente"){
+      }else if(orden == enumOrden[0]){ //ascendente
         ordenadoA = this.listado.sort();
         ordenado = ordenadoA.reverse();
         for(var i in ordenado){
@@ -154,7 +155,7 @@ class Idioma{
         }
         return ordenado;
       }else{
-        throw new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
+        throw new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
       }
     }
 

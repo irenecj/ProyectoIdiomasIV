@@ -4,7 +4,7 @@ const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const Traduccion = require("../src/traduccion.js")
-
+const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 //VARIABLES A UTILIZAR
 var palabra, significado;
@@ -170,7 +170,7 @@ describe("Testeando la clase idioma.js", () => {
   describe("Testeando el método ordenarAlfabeto()", () => {
     test("Comprobando que se lanza una excepción si no se encuentra ninguna palabra", () => {
       thrown_error = () => idioma.ordenarAlfabeto("OrdenNoValido");
-      expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ascendente' o 'desscendente'");
+      expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
 
       expect(thrown_error).toThrow(expectedError);
 
@@ -179,7 +179,7 @@ describe("Testeando la clase idioma.js", () => {
       var idio_nuevo = new Idioma("Español", "Francés");
       idio_nuevo.aniadirVocab("VINO.", "VIN.");
       idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
-      idio_nuevo.ordenarAlfabeto("Ascendente");
+      idio_nuevo.ordenarAlfabeto(enumOrden[0]);
 
       expect(idio_nuevo.listado[0].getPalabra()).toBe("BONITO.");
       expect(idio_nuevo.listado[1].getPalabra()).toBe("VINO.");
@@ -189,7 +189,7 @@ describe("Testeando la clase idioma.js", () => {
       var idio_nuevo = new Idioma("Español", "Francés");
       idio_nuevo.aniadirVocab("VINO.", "VIN.");
       idio_nuevo.aniadirVocab("BONITO.", "JOLIE.");
-      idio_nuevo.ordenarAlfabeto("Descendente");
+      idio_nuevo.ordenarAlfabeto(enumOrden[1]);
 
       expect(idio_nuevo.listado[0].getPalabra()).toBe("VINO.");
       expect(idio_nuevo.listado[1].getPalabra()).toBe("BONITO.");
