@@ -24,7 +24,6 @@ Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente
 grunt test
 ~~~
 
-
 ## :computer: CLASES IMPLEMENTADAS
 En mi caso, a parte de las clases para gestionar las [excepciones](https://github.com/irenecj/proyecto-idiomas/tree/master/src/excepciones), tengo una clase, llamada **idioma.js**, la cual posee todas las funciones relacionadas con las operaciones que se pueden llevar a cabo con un listado de palabras, y las expresiones populares junto con una explicación de éstas. Esta clase es la principal de nuestro proyecto.
 Por otro lado, tenemos otra clase, llamada **traduccion.js** la cual nos permite crear una palabra junto con su significado. Dentro de esta clase tenemos los métodos *get* y *set* necesarios para poder usar los objetos en la clase principal.
@@ -48,6 +47,17 @@ En este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/
 
 ### GITHUB CONTAINER REGISTRY
 En un principio pensé en probar a subir mi contenedor a [Azure](https://azure.microsoft.com/es-es/) lo que ocurre es que sólo tienen una prueba gratuita de 30 días por lo que prefiero dejarlo para más adelante. Por este motivo, he subido mi contenedor a **GitHub Container Registry** y en este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md) podemos ver los pasos seguidos.
+
+### EJECUCIÓN DE LOS TEST A PARTIR DE LOS CONTENEDORES.
+En primer lugar debemos descargarnos el repositorio de GitHub.
+Una vez hecho esto, si usamos el contenedor de Docker Hub, ejecutamos el siguiente comando:
+~~~
+docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
+~~~
+Si usamos el contenedor de **GitHub Container Registry**, ejecutamos:
+~~~
+docker run -t -v `pwd`:/test ghcr.io/irenecj/proyecto-idiomas:latest
+~~~
 
 ## :closed_book: RECOPILACIÓN DE ENLACES ÚTILES
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
