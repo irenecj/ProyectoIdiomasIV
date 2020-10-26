@@ -155,7 +155,7 @@ class Idioma{
         }
         return ordenado;
       }else{
-        throw new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'.");
+        throw new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
       }
     }
 
