@@ -1,23 +1,32 @@
-#node con la versión 14 de Alpine
-FROM node:14.0-alpine3.10
+#usamos como sistema operativo alpine con la versión 3.10.5
+FROM alpine:3.10.5
 
 #indicamos información sobre quién es la persona encargada del contenedor
 LABEL maintainer="Irene Cano Jerez"
 
-#copiamos los ficheros de dependencias
-COPY package.json package-lock.json ./
+#creamos un usuario y una carpeta sobre la que tendrá permisos
+RUN adduser -S usuario && mkdir /idiomas && chown -R usuario /idiomas
 
-#instalamos las dependencias con npm y creamos un usuario con el parámetro -D
-#para crearlo con los valores por defecto
-RUN adduser -D useriv && npm install
+WORKDIR /idiomas
+
+#permisos necesarios para el usuario e instalación de curl para poder descarganos después NVM y así instalar la versión de node que queramos, en este caso la 14.12.0
+RUN mkdir /idiomas/node_modules \
+    && chown -R usuario /idiomas/node_modules \
+    && apk add --update nodejs npm
+
+#usuario sin privilegios
+USER usuario
+
+#copiamos el fichero de dependencias
+COPY package.json ./
+
+#instalamos las dependencias y borramos el fichero de dependencias una vez éstas han sido instaladas
+RUN npm install && rm package.json
 
 #variable de entorno para gestionar node_modules
-ENV PATH=/node_modules/.bin:$PATH
+ENV PATH=./node_modules/.bin:$PATH
 
-#añadimos un usuario
-USER useriv
-
-#creamos el directorio test
+#creamos el directorio de trabajo /test
 WORKDIR /test
 
 #ejecutamos los tests con grunt, en concreto, con el comando 'grunt test'
