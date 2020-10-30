@@ -5,7 +5,7 @@ FROM alpine:3.10.5
 LABEL maintainer="Irene Cano Jerez"
 
 #creamos un usuario y una carpeta sobre la que tendrá permisos
-RUN adduser -S usuario && mkdir /idiomas && chown -R usuario /idiomas
+RUN adduser -S usuario && mkdir /idiomas && chown -R usuario /idiomas 
 
 #establecemos el directorio de trabajo
 WORKDIR /idiomas
@@ -13,7 +13,8 @@ WORKDIR /idiomas
 #permisos necesarios para el usuario e instalación de curl para poder descarganos después NVM y así instalar la versión de node que queramos, en este caso la 14.12.0
 RUN mkdir /idiomas/node_modules \
     && chown -R usuario /idiomas/node_modules \
-    && apk add --update nodejs npm
+    && apk add --update nodejs npm \
+    && npm i -g grunt-cli grunt-run
 
 #usuario sin privilegios
 USER usuario
