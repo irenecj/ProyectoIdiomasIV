@@ -48,8 +48,6 @@ time docker run irene/proyectoiv
 
     ![](imagenes/test-slim15.png)
 
-## PRUEBAS CON REPOSITORIOS OFICIALES
-
 #### VERSIÓN 14
 A continuación, vamos a realizar pruebas con los mismos repositorios oficiales pero cambiando la versión de la 15 a la 14.
 
