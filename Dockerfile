@@ -8,7 +8,7 @@ LABEL maintainer="Irene Cano Jerez"
 #creamos un usuario y una carpeta sobre la que tendrá permisos
 RUN adduser -S usuario 
 
-#permisos necesarios para el usuario e instalación de curl para poder descarganos después NVM y así instalar la versión de node que queramos, en este caso la 14.12.0
+#permisos necesarios para el usuario e instalación de node, npm y grunt
 RUN mkdir node_modules \
     && chown -R usuario node_modules \
     && apk add --update nodejs npm \
@@ -20,14 +20,13 @@ USER usuario
 #copiamos el fichero de dependencias
 COPY package.json ./
 
-#instalamos las dependencias y borramos el fichero de dependencias una vez éstas han sido instaladas
-#y la caché de información de los paquetes
+#instalamos las dependencias y borramos la caché de información de los paquetes
 RUN npm install && rm -rf /var/lib/apt/lists/*
 
 #necesitamos el usuario root para poder eliminar el fichero de dependencias
 USER root
 
-#eliminamos el fichero de dependencias
+#eliminamos el fichero de dependencias una vez éstas se han instalado
 RUN rm package.json
 
 #volvemos al usuario sin privilegios
