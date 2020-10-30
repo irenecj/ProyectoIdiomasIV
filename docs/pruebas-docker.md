@@ -1,6 +1,6 @@
 # PRUEBAS Y DECISIÓN SOBRE CONTENEDOR BASE
 Para proceder a la elección de un contenedor base nos vamos a basar en 3 criterios técnicos: el tiempo que tardan los contenedores en ejecutar los tests, y el tiempo que tardan en descargarse junto con su tamaño final.
-Igual un contenedor tarda mucho en descargarse pero ejecuta los tests bastante rápido, ¿cuál nos interesa más?, esta es la pregunta que vamos a resolver baśandonos en pruebas.
+Igual un contenedor tarda mucho en descargarse pero ejecuta los tests bastante rápido, ¿cuál nos interesa más?, esta es la pregunta que vamos a resolver basándonos en pruebas.
 
 ## PRUEBAS CON REPOSITORIOS OFICIALES
 Basándome en los [repositorios oficiales](https://hub.docker.com/_/node) he decidido probar con las siguientes imágenes:
