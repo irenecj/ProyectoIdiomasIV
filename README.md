@@ -37,7 +37,7 @@ Podemos acceder a la explicación de cómo lo hemos [diseñado.](https://github.
 
 ## :whale2: DOCKER
 Para la creación de un contenedor de pruebas, en primer lugar necesitamos elegir un contenedor base.
-En la documentación correspondiente a este apartado tenemos un documento donde [introducimos Docker y las distintas imágenes oficiales](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md) que podemos encontrar y otro donde quedan reflejadas las [pruebas realizadas y la decisión tomada](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md) en la elección del contenedor base.
+En la documentación correspondiente a este apartado tenemos un [documento](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md) donde comparamos las distintas imágenes oficiales junto con imágenes base con sistemas operativos y finalmente tomamos una decisión. Además, explicamos cómo hemos [optimizado](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/optimizacion.md) la imagen obtenida.
 
 ### DOCKERFILE
 Para crear nuestro [Dockerfile](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Dockerfile) hemos seguido una serie de [buenas prácticas.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md), además, el Dockerfile tiene comentarios acerca de la función de cada línea que añadimos.
@@ -72,7 +72,7 @@ docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas:latest
 6. [Acceso a los tests del proyecto.](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/tests)
 7. [¿Por qué elegir Jest para testear?.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/test-jest.md)
 8. [Documentación sobre el Gruntfile.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/gruntfile-docu.md)
-9. [Introducción a Docker y las imágenes base oficiales para Node.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/intro-Docker.md)
+9. [Optimización de la imagen usada en Docker.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/optimizacion.md)
 10. [Elección del contenedor base.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md)
 11. [Buenas prácticas para diseñar un Dockerfile.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
 12. [Subir contenedor a Docker Hub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md)

@@ -136,3 +136,5 @@ Como vemos, ambas opciones están muy igualadas en estos aspectos, pero *alpine:
 Por todo esto, considero que lo más adecuado es que escojamos **alpine:3.10.5** como imagen para nuestro contenedor base.
 
 **Documentación:** los dockerfiles usados se encuentran en esta [carpeta](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/dockerfiles-pruebas) y la explicación de que debemos modificar en cada uno para probarlo en el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/dockerfiles-usados.md).
+
+**Optimización:** en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/optimizacion.md) vemos como se ha optimizado la imagen.
