@@ -1,5 +1,5 @@
 # OPTIMIZACIÓN DE LA IMAGEN OBTENIDA
-En primer lugar, como ya hemos visto en las [pruebas realizadas]() la imagen que hemos elegido es *Alpine* ya que nos proporciona una imagen muy pequeña.
+En primer lugar, como ya hemos visto en las [pruebas realizadas](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/pruebas-docker.md) la imagen que hemos elegido es *Alpine* ya que nos proporciona una imagen muy pequeña.
 En este punto, la optimización reside en que hemos decidido elegir *Alpine* como sistema operativo en lugar de la imagen oficial de Node, *node:14-alpine3.10*, ya que vimos que esta última nos proporcionaba una imagen mayor:
 - **Alpine:** 117MB
 - **Node:14-alpine3.10:** 165MB
