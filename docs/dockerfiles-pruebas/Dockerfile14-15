@@ -4,14 +4,8 @@ FROM node:14.0-alpine3.10
 #indicamos información sobre quién es la persona encargada del contenedor
 LABEL maintainer="Irene Cano Jerez"
 
-#tenemos el usuario node y creamos una carpeta sobre la que tendrá permisos
-RUN mkdir /idiomas && chown -R node /idiomas
-
-#establecemos el directorio de trabajo
-WORKDIR /idiomas
-
 #pasamos node_modules y le damos permiso al usuario
-RUN mkdir /idiomas/node_modules && chown -R node /idiomas/node_modules 
+RUN mkdir node_modules && chown -R node node_modules 
 
 #usuario sin privilegios
 USER node
@@ -20,10 +14,16 @@ USER node
 COPY package.json ./
 
 #instalamos las dependencias y borramos el fichero de dependencias una vez éstas han sido instaladas
-RUN  npm install && rm package.json
+RUN  npm install 
+
+USER root 
+
+RUN rm package.json
+
+USER node
 
 #variable de entorno para gestionar node_modules
-ENV PATH=./node_modules/.bin:$PATH
+ENV PATH=/node_modules/.bin:$PATH
 
 #creamos el directorio test
 WORKDIR /test
