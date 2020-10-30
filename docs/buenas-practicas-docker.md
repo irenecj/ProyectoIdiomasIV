@@ -27,3 +27,13 @@ A la hora de crear el **[Dockerfile](https://github.com/irenecj/ProyectoIdiomasI
   ~~~
   LABEL maintainer Irene Cano Jerez
   ~~~
+10. **Eliminar aquello que no necesitemos:** en nuestro Dockerfile podemos ver como eliminamos el fichero de dependencias, *package.json*, una vez hemos instalado las dependencias, y la caché de información sobre los paquetes.
+  ~~~
+  RUN npm install && rm package.json && rm -rf /var/lib/apt/lists/*
+  ~~~
+11. **Usuario sin privilegios:** no es recomendable que ejecutemos el contenedor como root, debemos usar un usuario sin privilegios. Nosotros hemos tenido que crear un usuario y darle permiso sobre las distintas carpetas creadas para así evitar errores de permisos.
+  ~~~
+  RUN adduser -S usuario && mkdir /idiomas && chown -R usuario /idiomas
+
+  RUN mkdir /idiomas/node_modules && chown -R usuario /idiomas/node_modules 
+  ~~~
