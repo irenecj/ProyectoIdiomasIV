@@ -1,6 +1,6 @@
 #indicamos el lenguaje que estamos usando
 language: node_js
-#vamos a probar las versiones 11 y 14
+#vamos a probar las versiones 11 
 node_js:
     - 11
 #instalamos Docker y además iniciamos el servicio
@@ -11,4 +11,4 @@ services:
 before_install:
     - docker pull irenecj/proyecto-idiomas
 #una vez descargada la imagen ejecutamos los tests
-script: docker run -t -v `pwd':/test irenecj/proyecto-idiomas
+script: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
