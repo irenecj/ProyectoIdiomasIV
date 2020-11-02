@@ -3,7 +3,6 @@ language: node_js
 #vamos a probar las versiones 11 y 14
 node_js:
     - 11
-    - 14
 #instalamos Docker y además iniciamos el servicio
 services:
   - docker
