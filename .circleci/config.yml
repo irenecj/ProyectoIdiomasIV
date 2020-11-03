@@ -6,7 +6,7 @@ jobs:
   test:
     docker:
         #imagen que vamos a usar, en este caso necesitamos node
-      - image: - image: circleci/node:lts
+      - image: circleci/node:lts
     #listado de órdenes a ejecutar
     steps:
       - checkout
