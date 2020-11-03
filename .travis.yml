@@ -17,7 +17,7 @@ services:
   - docker
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
 before_install:
-  - docker pull ghcr.io/irenecj/proyecto-idiomas
+  - docker pull ghcr.io/irenecj/proyectoidiomas
 
 #una vez descargada la imagen ejecutamos los tests
-script: docker run -t -v `pwd`:/test ghcr.io/irenecj/proyecto-idiomas
+script: docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas
