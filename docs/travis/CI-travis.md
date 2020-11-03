@@ -9,7 +9,7 @@ He querido probar también con la 8 y la 9 ya que me parece interesante saber si
 
 Nuestro primer fichero de configuración quedó de la siguiente forma:
 
-![](../imagenes/primer-travis.png)
+![](../imagenes/primerTravis.png)
 
 Y el resultado que obtuvimos fue:
 
@@ -20,14 +20,14 @@ Vemos que nuestra aplicación funciona correctamente para todo el rango de versi
 Visto este resultado, decidí ampliar un poco más el rango, incluyendo las versiones 6 y 7, y sospechando que estas probablemente no serían soportadas.
 Efectivamente, cuando actualizamos nuestro fichero *.travis.yml* en el resultado obtenido queda reflejado como a partir de la versión 7 de *node* nuestro proyecto deja de funcionar.
 
-![](../imagenes/segundo-travis.png)
+![](../imagenes/segundoTravis.png)
 
 ![](../imagenes/versiones-node2.png)
 
 ## USANDO EL CONTENEDOR DE DOCKER HUB
 Como vemos, el fichero de configuración que hemos utilizado no aprovecha el contenedor que creamos en Docker Hub, por tanto, vamos a probar el primer rango de versiones anterior para ver si todo sigue funcionando correctamente.
 
-![](../imagenes/travis-contenedor1.png)
+![](../imagenes/travisContenedor1.png)
 
 ![](../imagenes/resultado-contendor1-travis.png)
 
@@ -35,7 +35,7 @@ En el resultado vemos que todo funciona correctamente para todas las versiones. 
 
 Para comprobar esto, recordamos que anteriormente probamos también las versiones 6 y 7 y demostramos que nuestro proyecto no funciona con dichas versiones. Sin embargo, al probar dichas versiones haciendo uso del contenedor nos encontramos el siguiente resultado:
 
-![](../imagenes/resultado-contenedor2-travis.png)
+![](../imagenes/travisContenedor2.png)
 
 Vemos que como hemos comentado, todo funciona perfectamente en **todas** las versiones, debido a que nuestro contenedor tiene instalada la última versión de Node.
 

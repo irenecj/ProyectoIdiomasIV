@@ -1,9 +1,9 @@
 # EXPLICACIÓN SOBRE LOS FICHEROS DE CONFIGURACIÓN DE TRAVIS USADOS
 
 ## SIN HACER USO DE UN CONTENEDOR
-![](../imagenes/primer-travis.png)
+![](../imagenes/primerTravis.png)
 
-![](../imagenes/segundo-travis.png)
+![](../imagenes/segundoTravis.png)
 
 En primer lugar establecemos el lenguaje que vamos a usar en nuestro proyecto, a continuación, ponemos las versiones de dicho lenguaje que vamos a testear. Como ya hemos comentado en este [fichero de documentación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/travis/CI-travis.md), primero hemos probado de el rango de versiones desde la 8 hasta la 14, y después hemos añadido la 6 y la 7 para ver hasta qué versión tenía soporte nuestra aplicación.
 
@@ -14,7 +14,7 @@ Finalmente, nos encontramos la sección *script* en la que indicamos como ejecut
 
 
 ## HACIENDO USO DEL CONTENEDOR DE DOCKER HUB
-![](../imagenes/travis-contenedor1.png)
+![](../imagenes/travisContenedor1.png)
 
 ![](../imagenes/travisContenedor2.png)
 
