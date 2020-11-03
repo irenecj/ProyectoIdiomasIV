@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+services:
+  - docker
 jobs:
   test:
     docker:
@@ -10,10 +12,6 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
-      - run:
-          name: Install Docker client
-          command: |
-            apt-get install docker-cli
       - run:
           name: Ejecutar test
           command: |
