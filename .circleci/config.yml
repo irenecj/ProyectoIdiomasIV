@@ -5,15 +5,25 @@ jobs:
   #nombre de la tarea
   test:
     docker:
-        #imagen que vamos a usar
-      - image: irenecj/proyecto-idiomas
+        #imagen que vamos a usar, en este caso necesitamos node
+      - image: - image: circleci/node:lts
     #listado de órdenes a ejecutar
     steps:
       - checkout
       - run:
           #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
-          name: Ejecutar test
-          #comando para ejecutar los tests con grunt
+          name: Instalar Jest
+          #comando para ejecutar instalar Jest
+          command: |
+            npm install -g jest
+      - run:
+          name: Instalar Grunt
+          #comando para instalar grunt
+          command: |
+            npm install -g grunt
+      - run:
+          name: Lanzar tests
+          #ejecutamos los tests con el gestor de tareas
           command: |
             grunt test
 #flujos de trabajo
