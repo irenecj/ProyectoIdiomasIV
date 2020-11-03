@@ -2,22 +2,16 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
 jobs:
-  imagen-proyecto:
-    docker:
-      - image: irenecj/proyecto-idiomas
-    steps:
-      - checkout
   test:
     docker:
-      - image: docker:18.06.1-ce-git
+      - image: irenecj/proyecto-idiomas
     steps:
       - checkout
       - run:
           name: Ejecutar test
           command: |
-            docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
+            grunt test
 workflows:
   testeo:
     jobs:
-      - imagen-proyecto
       - test
