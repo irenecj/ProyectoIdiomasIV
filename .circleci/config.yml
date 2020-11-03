@@ -1,15 +1,14 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
-services:
-  - docker
 jobs:
   test:
     docker:
+      - image: docker:18.06.1-ce-git
+    steps:
+      - checkout
+    docker:
       - image: irenecj/proyecto-idiomas
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
