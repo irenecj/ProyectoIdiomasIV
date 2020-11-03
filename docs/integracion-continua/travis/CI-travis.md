@@ -1,4 +1,4 @@
-# INTEGRACIÓN CONTÍNUA CON TRAVIS
+# INTEGRACIÓN CONTINUA CON TRAVIS
 
 ## SIN HACER USO DE CONTENEDORES
 Vamos a hacer uso de [Travis](https://travis-ci.com/) para poder ver qué versiones del lenguaje que uso en mi aplicación funcionan adecuadamente, es decir, vamos a testear diversas versiones de *Node*.
