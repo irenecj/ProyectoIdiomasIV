@@ -15,12 +15,12 @@ jobs:
           name: Instalar Jest
           #comando para ejecutar instalar Jest
           command: |
-            npm install -g jest
+            sudo npm install -g jest
       - run:
           name: Instalar Grunt
           #comando para instalar grunt
           command: |
-            npm install -g grunt
+            sudo npm install -g grunt
       - run:
           name: Lanzar tests
           #ejecutamos los tests con el gestor de tareas
