@@ -13,7 +13,7 @@ jobs:
       - run:
           #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
           name: Ejecutar test
-          #comando
+          #comando para ejecutar los tests con grunt
           command: |
             grunt test
 #flujos de trabajo
