@@ -19,6 +19,7 @@ Vemos que nuestra aplicación funciona correctamente para todo el rango de versi
 
 Visto este resultado, decidí ampliar un poco más el rango, incluyendo las versiones 6 y 7, y sospechando que estas probablemente no serían soportadas.
 Efectivamente, cuando actualizamos nuestro fichero *.travis.yml* en el resultado obtenido queda reflejado como a partir de la versión 7 de *node* nuestro proyecto deja de funcionar.
+
 ![](../imagenes/segundo-travis.png)
 
 ![](../imagenes/versiones-node2.png)
