@@ -1,6 +1,6 @@
 #indicamos el lenguaje que estamos usando
 language: node_js
-#vamos a probar desde la versión 8 a la 14
+#vamos a probar desde la versión 6 a la 14
 node_js:
     - 6
     - 7
@@ -13,9 +13,12 @@ node_js:
     - 14
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
 #instalamos Jest y nuestro gestor de tareas, Grunt
+#instalamos Docker y además iniciamos el servicio
+services:
+  - docker
+#esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
 before_install:
-  - npm install -g jest
-  - npm install -g grunt
+  - docker pull irenecj/proyecto-idiomas
 
 #una vez descargada la imagen ejecutamos los tests
-script: grunt test
+script: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
