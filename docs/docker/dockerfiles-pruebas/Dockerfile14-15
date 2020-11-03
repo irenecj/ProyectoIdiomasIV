@@ -1,0 +1,36 @@
+#node con la versión 14 - Alpine
+FROM node:14.0-alpine3.10
+
+#indicamos información sobre quién es la persona encargada del contenedor
+LABEL maintainer="Irene Cano Jerez"
+
+#pasamos node_modules y le damos permiso al usuario
+RUN mkdir node_modules && chown -R node node_modules 
+
+#usuario sin privilegios
+USER node
+
+#copiamos los ficheros de dependencias
+COPY package.json ./
+
+#instalamos las dependencias y borramos la caché de información de los paquetes
+RUN  npm install && rm -rf /var/lib/apt/lists/*
+
+#necesitamos usuario con permisos para poder borrar el fichero de dependencias una vez se han instalado
+USER root 
+
+#borramos el fichero de dependencias
+RUN rm package.json
+
+#volvemos a un usuario sin permisos
+USER node
+
+#variable de entorno para gestionar node_modules
+ENV PATH=/node_modules/.bin:$PATH
+
+#creamos el directorio test
+WORKDIR /test
+
+#ejecutamos los tests con grunt, en concreto, con el comando 'grunt test'
+CMD ["grunt","test"]
+
