@@ -4,13 +4,15 @@ orbs:
 jobs:
   test:
     docker:
-      - image: docker:18.06.1-ce-git
       - image: irenecj/proyecto-idiomas
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+       - run:
+          name: Install Docker client
+          command: apt-get install docker-cli
       - run:
           name: Ejecutar test
           command: |
