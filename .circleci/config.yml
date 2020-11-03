@@ -10,9 +10,10 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
-       - run:
+      - run:
           name: Install Docker client
-          command: apt-get install docker-cli
+          command: |
+            apt-get install docker-cli
       - run:
           name: Ejecutar test
           command: |
