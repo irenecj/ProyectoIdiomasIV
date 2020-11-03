@@ -5,7 +5,7 @@
 
 ![](../imagenes/segundo-travis.png)
 
-En primer lugar establecemos el lenguaje que vamos a usar en nuestro proyecto, a continuación, ponemos las versiones de dicho lenguaje que vamos a testear. Como ya hemos comentado en este [fichero de documentación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/CI-travis.md), primero hemos probado de el rango de versiones desde la 8 hasta la 14, y después hemos añadido la 6 y la 7 para ver hasta qué versión tenía soporte nuestra aplicación.
+En primer lugar establecemos el lenguaje que vamos a usar en nuestro proyecto, a continuación, ponemos las versiones de dicho lenguaje que vamos a testear. Como ya hemos comentado en este [fichero de documentación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/travis/CI-travis.md), primero hemos probado de el rango de versiones desde la 8 hasta la 14, y después hemos añadido la 6 y la 7 para ver hasta qué versión tenía soporte nuestra aplicación.
 
 Ahora tenemos la sección *before_install* la cual se ejecutará antes de la instalación de la aplicación, es decir, antes de ejecutar **npm install .**. En nuestro caso, instalaremos Jest para testear, y Grunt como gestor de tareas.
 
