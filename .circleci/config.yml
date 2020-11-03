@@ -2,14 +2,14 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
 jobs:
-  servicio-docker:
+  imagen-proyecto:
     docker:
-      - image: docker:18.06.1-ce-git
+      - image: irenecj/proyecto-idiomas
     steps:
       - checkout
   test:
     docker:
-      - image: irenecj/proyecto-idiomas
+      - image: docker:18.06.1-ce-git
     steps:
       - checkout
       - run:
@@ -19,5 +19,5 @@ jobs:
 workflows:
   testeo:
     jobs:
-      - servicio-docker
+      - imagen-proyecto
       - test
