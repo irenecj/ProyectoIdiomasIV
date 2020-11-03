@@ -12,13 +12,12 @@ node_js:
     - 13
     - 14
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
-#instalamos Jest y nuestro gestor de tareas, Grunt
 #instalamos Docker y además iniciamos el servicio
 services:
   - docker
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
 before_install:
-  - docker pull irenecj/proyecto-idiomas
+  - docker pull ghcr.io/irenecj/proyecto-idiomas
 
 #una vez descargada la imagen ejecutamos los tests
-script: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
+script: docker run -t -v `pwd`:/test ghcr.io/irenecj/proyecto-idiomas
