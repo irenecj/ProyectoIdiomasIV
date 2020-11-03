@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+jobs:
+  test:
+    docker:
+      - image: irenecj/proyecto-idiomas:latest
+    steps:
+      - checkout
+      - run: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
+
+workflows:
+  testeo:
+    jobs:
+      - test
