@@ -9,7 +9,7 @@ A la hora de crear el **[Dockerfile](https://github.com/irenecj/ProyectoIdiomasI
   ~~~
   FROM node:14.0-alpine3.10
   ~~~
-4. **Usar una imagen base adecuada:** en nuestro caso es mucho mejor utilizar una imagen especializada con *Node.js* ya instalado a usar una imagen base de propósito general como *ubuntu*. En nuestro caso, por los motivos que ya hemos comentado en este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/pruebas-docker.md) hemos decidido usar **node:14.0-alpine3.10** como imagen base.
+4. **Usar una imagen base adecuada:** en nuestro caso es mucho mejor utilizar una imagen especializada con *Node.js* ya instalado a usar una imagen base de propósito general como *ubuntu*. En nuestro caso, por los motivos que ya hemos comentado en este [fichero](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker/pruebas-docker.md) hemos decidido usar **node:14.0-alpine3.10** como imagen base.
   ~~~
   FROM node:14.0-alpine3.10
   ~~~

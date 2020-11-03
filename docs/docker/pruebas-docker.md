@@ -22,31 +22,31 @@ time docker run irene/proyectoiv
 
 - **node:15.0**
   - Tiempo de descarga de la imagen oficial: 24,35s
-    ![](imagenes/descarga-node15.png)
+    ![](../imagenes/descarga-node15.png)
   - Tamaño de nuestra imagen después de construir: 1.07GB
-    ![](imagenes/tamaño-node15.png)
+    ![](../imagenes/tamaño-node15.png)
   - Tiempo en ejecutar los tests: 1,805s.
 
-    ![](imagenes/test-node15.png)
+    ![](../imagenes/test-node15.png)
 
 - **node:15.0-alpine3.10**
   - Tiempo de descarga de la imagen oficial. 15,280s
-    ![](imagenes/descarga-alpine15.png)
+    ![](../imagenes/descarga-alpine15.png)
   - Tamaño de nuestra imagen después de construir: 170MB
-    ![](imagenes/tamaño-alpine15.png)
+    ![](../imagenes/tamaño-alpine15.png)
   - Tiempo en ejecutar los tests: 1,913s
 
-    ![](imagenes/test-alpine15.png)
+    ![](../imagenes/test-alpine15.png)
 
 
 - **node:15.0-slim**
   - Tiempo de descarga de la imagen oficial: 17.016s
-    ![](imagenes/descarga-slim15.png)
+    ![](../imagenes/descarga-slim15.png)
   - Tamaño de nuestra imagen después de construir: 170MB
-    ![](imagenes/tamaño-slim15.png)
+    ![](../imagenes/tamaño-slim15.png)
   - Tiempo en ejecutar los tests: 1,827s
 
-    ![](imagenes/test-slim15.png)
+    ![](../imagenes/test-slim15.png)
 
 #### VERSIÓN 14
 A continuación, vamos a realizar pruebas con los mismos repositorios oficiales pero cambiando la versión de la 15 a la 14.
@@ -55,32 +55,32 @@ Y los resultados que obtenemos son:
 - **node:14.0**
   - Tiempo de descarga de la imagen oficial: 14,358s
 
-    ![](imagenes/descarga-node14.png)
+    ![](../imagenes/descarga-node14.png)
 
   - Tamaño de nuestra imagen después de construir: 992MB
-  ![](imagenes/tamaño-node14.png)
+  ![](../imagenes/tamaño-node14.png)
   - Tiempo en ejecutar los tests: 5,258s
 
-    ![](imagenes/test-Node14.png)
+    ![](../imagenes/test-Node14.png)
 
 - **node:14.0-alpine3.10**
 
   - Tiempo de descarga de la imagen oficial: 17,464s
-  ![](imagenes/descarga-14-alpine.png)
+  ![](../imagenes/descarga-14-alpine.png)
   - Tamaño de nuestra imagen después de construir: 165MB
-  ![](imagenes/tamaño-14-alpine.png)
+  ![](../imagenes/tamaño-14-alpine.png)
   - Tiempo en ejecutar los tests: 5,503s
 
-    ![](imagenes/test-14Alpine.png)
+    ![](../imagenes/test-14Alpine.png)
 
 - **node:14.0-slim**
   - Tiempo de descarga de la imagen oficial: 21,253s
-  ![](imagenes/descarga-14-slim.png)
+  ![](../imagenes/descarga-14-slim.png)
   - Tamaño de nuestra imagen después de construir: 214MB
-  ![](imagenes/tamaño-14-slim.png)
+  ![](../imagenes/tamaño-14-slim.png)
   - Tiempo en ejecutar los tests: 5,329s
 
-    ![](imagenes/test-14Slim.png)
+    ![](../imagenes/test-14Slim.png)
 
 #### VERSIÓN 14 vs VERSIÓN 15
 Una vez hechas las pruebas, vemos que la principal diferencia entre ambas versiones es que la versión 15 ejecuta más rápido los tests, sin embargo, la versión 14 genera imágenes un poco más pequeñas.
@@ -100,25 +100,25 @@ Los sistemas operativos con los que voy a probar son **Alpine:3.10.5** y **Ubunt
 En ambos casos necesitaremos instalar todo aquello necesario para ejecutar nuestra aplicación, es decir, para ejecutar los tests. Por tanto, corre de nuestra cuenta instalar *npm* y *node*.
 
 #### ALPINE LINUX
-Como ya he mencionado en el [documento anterior](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/intro-Docker.md) vamos a usar Alpine como sistema operativo ya que destaca por proporcionar imágenes muy pequeñas y esto siempre es un punto a favor.
+Como ya he mencionado vamos a probar Alpine como sistema operativo ya que destaca por proporcionar imágenes muy pequeñas y esto siempre es un punto a favor.
 Los resultado obtenidos son:
 - Tiempo de descarga de la imagen: 4,048s
-  ![](imagenes/descarga-alpineSO.png)
+  ![](../imagenes/descarga-alpineSO.png)
 - Tamaño de nuestra imagen después de construir: 117MB
-  ![](imagenes/tamaño-alpineSO.png)
+  ![](../imagenes/tamaño-alpineSO.png)
 - Tiempo en ejecutar los tests: 5,541s
 
-  ![](imagenes/test-alpineSO.png)
+  ![](../imagenes/test-alpineSO.png)
 
 ### UBUNTU
 A continuación vamos a probar **Ubuntu:20.10** y veremos los resultados obtenidos.
 - Tiempo de descarga de la imagen: 16,642s
-  ![](imagenes/descarga-ubuntu.png)
+  ![](../imagenes/descarga-ubuntu.png)
 - Tamaño de nuestra imagen después de construir: 744MB
-  ![](imagenes/tamaño-ubuntuSO.png)
+  ![](../imagenes/tamaño-ubuntuSO.png)
 - Tiempo en ejecutar los tests: 10.171s
 
-  ![](imagenes/test-ubuntuSO.png)
+  ![](../imagenes/test-ubuntuSO.png)
 
 Entre estas dos imágenes, considero que la decisión está clara ya que *Ubuntu* nos proporciona una imagen muy grande y además tarda mucho en ejecutar los tests, por lo que nos **decantamos por Alpine Linux**
 
@@ -135,6 +135,6 @@ Como vemos, ambas opciones están muy igualadas en estos aspectos, pero *alpine:
 
 Por todo esto, considero que lo más adecuado es que escojamos **alpine:3.10.5** como imagen para nuestro contenedor base.
 
-**Documentación:** los dockerfiles usados se encuentran en esta [carpeta](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/dockerfiles-pruebas) y la explicación de qué debemos modificar en cada uno para probarlo en el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/dockerfiles-usados.md).
+**Documentación:** los dockerfiles usados se encuentran en esta [carpeta](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/docker/dockerfiles-pruebas) y la explicación de qué debemos modificar en cada uno para probarlo en el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/docker/dockerfiles-usados.md).
 
-**Optimización:** en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/optimizacion.md) vemos como se ha optimizado la imagen.
+**Optimización:** en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/docker/optimizacion.md) vemos como se ha optimizado la imagen.

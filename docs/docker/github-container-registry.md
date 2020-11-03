@@ -24,4 +24,4 @@ Una vez tenemos la imagen en GitHub Container Registry debemos cambiarle la visi
 
 Para sincronizarlo con nuestro repositorio, hacemos click en *connect repository*, como aparece en la imagen, y elegimos el repositorio correspondiente, y ya tendríamos nuestro contenedor correctamente subido a GitHub Container Registry.
 
-![](imagenes/github-container-registry-sincro.png)
+![](../imagenes/github-container-registry-sincro.png)

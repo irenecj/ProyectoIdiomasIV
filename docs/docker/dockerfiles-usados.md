@@ -2,7 +2,7 @@
 
 ## NODE VERSIÓN 14 Y 15
 Para hacer las pruebas con las diferentes imágenes tanto de node en la versión 15 como en la 14 nos hemos basado en el siguiente fichero:
-![](imagenes/dockerfile-base.png)
+![](../imagenes/dockerfile-base.png)
 
 El único cambio que hemos tenido que realizar es cambiar la primera línea de nuestro Dockerfile, donde tendremos que indicar que imagen de node estamos usando, por ejemplo, *node14*, *node15-alpine3.10*, entre otras.
 
@@ -15,14 +15,14 @@ Volvemos a nuestro usuario sin privilegios y el siguiente paso es crear una vari
 Finalmente ejecutamos los tests con *grunt test*.
 
 ## ALPINE COMO SISTEMA OPERATIVO
-![](imagenes/docker-alp.png)
+![](../imagenes/docker-alp.png)
 
 En este caso lo único que cambia respecto al anterior es que la imagen no trae un usuario, por tanto debemos crearlo nosotros y además, tenemos que instalar *npm* y *node*. Para ello, creamos un usuario, creamos también un directorio para *node_modules* y le damos al usuario permisos sobre este. A continuación, debemos instalar *npm*, *node* y *grunt*.
 
 El resto del dockerfile es similar al anterior.
 
 ## UBUNTU COMO SISTEMA OPERATIVO
-![](imagenes/dockerfile-ubuntu.png)
+![](../imagenes/dockerfile-ubuntu.png)
 
 Aquí ocurre igual que con *Alpine*, debemos añadir un usuario y tenemos que instalar *npm*, *node* y *grunt*.
 
