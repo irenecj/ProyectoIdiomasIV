@@ -1,16 +1,17 @@
 #versión de la plataforma circle que estamos usando
 version: 2.1
-orbs:
-  node: circleci/node@1.1
 #tareas que vamos a realizar
 jobs:
   build:
+    #vamos a usar node en su versión 14
     executor:
       name: node/default
       tag: '14.0'
     steps:
       - checkout
+      #almacenamos en caché automáticamente los paquetes
       - node/with-cache:
+         #instalamos todo lo necesario
           steps:
             - run: npm install
             - run: sudo npm install -g jest
