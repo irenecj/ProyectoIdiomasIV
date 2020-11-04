@@ -19,3 +19,8 @@ jobs:
             - run: sudo npm install -g jest
             - run: sudo npm install -g grunt
       - run: grunt test
+
+workflows:
+    testeo:
+      jobs:
+        - build
