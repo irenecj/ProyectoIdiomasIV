@@ -12,6 +12,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
+            - run: cd ..
             - run: npm install
             - run: npm install -g jest
             - run: npm install -g grunt
