@@ -1,5 +1,7 @@
 #versión de la plataforma circle que estamos usando
 version: 2.1
+orbs:
+  node: circleci/node@1.1
 #tareas que vamos a realizar
 jobs:
   build:
