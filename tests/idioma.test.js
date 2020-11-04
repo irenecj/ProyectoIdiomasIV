@@ -3,7 +3,8 @@ const NoString = require("../src/excepciones/NoString.js");
 const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
-const Traduccion = require("../src/traduccion.js")
+const Traduccion = require("../src/traduccion.js");
+const Expresion = require("../src/expresion.js");
 const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 //VARIABLES A UTILIZAR
@@ -213,10 +214,12 @@ describe("Testeando la clase idioma.js", () => {
       idioma.aniadirExpresiones(expresion, significado);
 
       var tamaño = idioma.expresiones.length;
-      var ultimo = idioma.expresiones[tamaño - 1];
-      var expresionEsperada = "HABLAR POR LOS CODOS. --> CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.";
+      var ultimaExprPopu = idioma.expresiones[tamaño - 1].getExprPopular();
+      var ultimaExplicacion = idioma.expresiones[tamaño - 1].getExplicacion();
 
-      expect(ultimo).toBe(expresionEsperada);
+      expect(ultimaExprPopu).toBe("HABLAR POR LOS CODOS.");
+      expect(ultimaExplicacion).toBe("CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.")
+
     });
   });
   describe("Testeando el método mostrarExpresiones()", () => {

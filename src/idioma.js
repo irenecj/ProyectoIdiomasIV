@@ -5,6 +5,7 @@ const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const Traduccion = require("../src/traduccion.js");
+const Expresion = require("../src/expresion.js");
 const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 class Idioma{
@@ -46,9 +47,7 @@ class Idioma{
         if( palabraNoString == false && significadoNoString == false && formatoValidoP == true && formatoValidoS == true){
             var palabraNueva = new Traduccion(palabra.toUpperCase(), significado.toUpperCase());
             this.listado.push(palabraNueva);
-
         }
-
       }
 
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO

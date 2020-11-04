@@ -1,11 +1,11 @@
 class Expresion{
   constructor(exprPopular, explicacion){
-    this.expr = expr;
+    this.exprPopular = exprPopular;
     this.explicacion = explicacion;
   }
 
   getExpresion(){
-    return expr = "\nEXPRESIÓN --> " + this.exprPopular + "\nESTA EXPRESIÓN QUIERE DECIR --> " + this.explicacion;
+    var expr = "\nEXPRESIÓN --> " + this.exprPopular + "\nESTA EXPRESIÓN QUIERE DECIR --> " + this.explicacion;
     return expr;
   }
 
@@ -17,8 +17,8 @@ class Expresion{
     return this.explicacion;
   }
 
-  setExpresion(nuevaExpr){
-    this.expr = nuevaExpr;
+  setExprPopular(nuevaExpr){
+    this.exprPopular = nuevaExpr;
   }
 
   setExplicacion(nuevaExplicacion){
@@ -28,4 +28,4 @@ class Expresion{
 
 }
 
-module.exports = Expresion
+module.exports = Expresion;
