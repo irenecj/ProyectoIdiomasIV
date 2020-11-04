@@ -122,7 +122,7 @@ class Idioma{
             var comienza = this.listado[i].getPalabra().startsWith(letra.toUpperCase());
 
             if(comienza == true){
-                mostrar.push(this.listado[i].getPalabra() + " : " + this.listado[i].getSignificado() + " \n");
+                mostrar.push(this.listado[i].getTraduccion());
                 encontrada = true;
             }
         }
@@ -165,16 +165,16 @@ class Idioma{
       var formatoExpr = this.comprobarFormato(expresion);
       var formatoExpl = this.comprobarFormato(explicacion);
       if(formatoExpr == true && formatoExpl == true){
-        this.expresiones.push(expr.toUpperCase());
+        var expresionNueva = new Expresion(expresion.toUpperCase(), explicacion.toUpperCase());
+        this.expresiones.push(expresionNueva);
       }
     }
 
     mostrarExpresiones(){
       var resultado = new Array();
       for(var i in this.expresiones){
-        resultado.push(this.expresiones[i] + "\n");
+        resultado.push(this.expresiones[i].getExprPopular() + "\n");
       }
-
       return resultado;
     }
 
