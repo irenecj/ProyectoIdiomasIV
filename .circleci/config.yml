@@ -1,34 +1,18 @@
 #versión de la plataforma circle que estamos usando
 version: 2.1
+orbs:
+  node: circleci/node@1.1
 #tareas que vamos a realizar
 jobs:
-  #nombre de la tarea
-  test:
-    docker:
-        #imagen que vamos a usar, en este caso necesitamos node
-      - image: circleci/node:lts
-    #listado de órdenes a ejecutar
+  build:
+    executor:
+      name: node/default
+      tag: '14.0'
     steps:
       - checkout
-      - run:
-          #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
-          name: Instalar Jest
-          #comando para ejecutar instalar Jest
-          command: |
-            sudo npm install -g jest
-      - run:
-          name: Instalar Grunt
-          #comando para instalar grunt
-          command: |
-            sudo npm install -g grunt && npm i -g grunt-cli grunt-run
-      - run:
-          name: Lanzar tests
-          #ejecutamos los tests con el gestor de tareas
-          command: |
-            grunt test
-#flujos de trabajo
-workflows:
-  testeo:
-    jobs:
-      #tarea a ejecutar
-      - test
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm install -g jest
+            - run: npm install -g grunt
+      - run: grunt test
