@@ -1,7 +1,6 @@
 # PROYECTO PARA INFRAESTRUCTURA VIRTUAL - ProyectoIdiomasIV
 Repositorio para el proyecto de la asignatura Infraestructura Virtual de la UGR. 20/21.
 
-
 ## :clipboard: DESCRIPCIÓN
  El microservicio escogido va a consistir en facilitar el aprendizaje de un idioma que no conocemos. Para ello podrá proporcionarnos frases populares, vocabulario junto con su traducción y significado, e incluso podremos añadir el vocabulario nuevo que estamos aprendiendo.
 
@@ -24,10 +23,28 @@ Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente
 grunt test
 ~~~
 
-## :computer: CLASES IMPLEMENTADAS
-En mi caso, a parte de las clases para gestionar las [excepciones](https://github.com/irenecj/proyecto-idiomas/tree/master/src/excepciones), tengo una clase, llamada **idioma.js**, la cual posee todas las funciones relacionadas con las operaciones que se pueden llevar a cabo con un listado de palabras, y las expresiones populares junto con una explicación de éstas. Esta clase es la principal de nuestro proyecto.
-Por otro lado, tenemos otra clase, llamada **traduccion.js** la cual nos permite crear una palabra junto con su significado. Dentro de esta clase tenemos los métodos *get* y *set* necesarios para poder usar los objetos en la clase principal.
-Podemos encontrar una explicación más detallada en [esta documentación](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/idioma-traduccion.md) y este es el [código fuente](https://github.com/irenecj/ProyectoIdiomasIV/tree/master/src) del proyecto.
+## :eyes: RELEVANTE AL HITO A ENTREGAR: HITO 4 - INTEGRACIÓN CONTINUA :eyes:
+Este hito ha consistido en añadir integración continua a nuestro proyecto con diferentes plataformas. Para poder usar las diferentes plataformas que vamos a utilizar, siempre debemos realizar un primer paso y es registrarse. Por ello, he adjuntado una [explicación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/registros-CI.md) de cómo registrarse en dichas plataformas.
+
+#### INTEGRACIÓN CONTINUA CON TRAVIS CI
+En el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) podemos encontrar como ha sido el proceso de usar Travis para nuestro proyecto, y además, he redactado otro [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md) en el que explico cómo funciona el fichero de configuración que utiliza Travis para trabajar.
+
+#### INTEGRACIÓN CONTINUA CON CIRCLE CI
+En este apartado, tenemos un [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md) en el que explico el por qué elegir Cricle-CI y cómo he trabajado con dicha plataforma.
+
+#### USO DEL GESTOR DE TAREAS
+[Aquí](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/gestor-tareas.md) podemos ver como se ha hecho uso del gestor de tareas para añadir la integración continua al proyecto con las diferentes plataformas.
+
+#### APROVECHAMIENTO DEL CONTENEDOR DE DOCKER HUB
+En el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis) tenemos tanto el [uso de Travis](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) aprovechando y sin aprovechar el contenedor junto con la explicación de los [diferentes ficheros de configuración diseñados](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md), y en este [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) se encuentra el desarrollo de cómo hemos trabajado con Circle CI con y sin usar el contenedor.
+
+#### AVANCE DE CÓDIGO
+Para este hito he decidido añadir tres Historias de Usuario y he implementado todo aquello que necesitan para llevarse a cabo.
+- [HU9.](https://github.com/irenecj/proyecto-idiomas/issues/41) Añadir frases cotidianas.
+- [HU10.](https://github.com/irenecj/proyecto-idiomas/issues/42) Mostrar frases cotidianas en función del tipo.
+- [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
+Esto ha conllevado a la creación de la clase *cotidiano.js* junto con sus respectivos tests, la implementación de la clase *NoAcierto.js* para gestionar excepciones, y la ampliación de código en la clase *idioma.js*.
+La explicación de todas las clases implementadas se encuentra en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/clases-implementadas/clases-implementadas.md). Y el código fuente está en este [directorio.](https://github.com/irenecj/proyecto-idiomas/tree/master/src)
 
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
@@ -77,6 +94,8 @@ docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas:latest
 11. [Buenas prácticas para diseñar un Dockerfile.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/buenas-practicas-docker.md)
 12. [Subir contenedor a Docker Hub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/docker-hub.md)
 13. [Subir contenedor a GitHub Docker Registry.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md)
+14. [Integración continua con Travis CI.](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis)
+15. [Integración continua con Circle CI.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md)
 
 ## :heavy_check_mark: ISSUES Y MILESTONES
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/issues?q=is%3Aissue+is%3Aclosed) de issues cerrados.
@@ -100,7 +119,12 @@ En este punto del proyecto sólo tengo dos historias de usuario, pero en próxim
   * Como usuario debo poder ver un listado de todas las expresiones populares que hay registradas.
 - [HU8.](https://github.com/irenecj/ProyectoIdiomasIV/issues/25) Mostrar palabras ordenadas alfabéticamente.
   * Como usuario debo poder ver un listado de todas las palabras que hay registradas indicando si quiero que éstas se muestren en orden alfabético ascendente o descendente.
-
+- [HU9.](https://github.com/irenecj/proyecto-idiomas/issues/41) Añadir frases cotidianas.
+  * Como usuario debo poder añadir aquellas frases cotidianas que aprendo junto con el tipo de éstas.
+- [HU10.](https://github.com/irenecj/proyecto-idiomas/issues/42) Mostrar frases cotidianas en función del tipo.
+  * Como usuario debo poder mostrar un listado de frases cotidianas de un tipo concreto.
+- [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
+  * Como usuario debo poder realizar una autoevaluación que consistirá en indicar qué palabra corresponde, en el idioma que estamos aprendiendo, a la definición proporcionada.
 
 ## :pencil2: AUTORA
 Irene Cano Jerez
