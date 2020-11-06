@@ -201,7 +201,50 @@ class Idioma{
       }
       return resultado;
     }
+    
+    //FUNCIÓN PARA GENERAR UN NÚMERO ALEATORIO
+    getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
 
+    generarDefinicion(){
+      var i = this.getRandomInt(0, this.listado.length);
+      var definicion = this.listado[i].getSignificado();
+      return definicion;
+    }
+
+    //FUNCIÓN PARA AUTOEVALUACIÓN
+    autoevaluacion(definicion,palAsociada){
+      var encontrada = false;
+      var numIntentos = 1;
+      var intento = 1;
+      var aciertos = 0;
+      var indicePalabra = -1;
+
+      for(var i in this.listado){
+        if(palAsociada == this.listado[i].getPalabra()){
+          encontrada = true;
+        }
+      }
+
+      if(encontrada == true){
+        for(var i in this.listado){
+          if(definicion == this.listado[i].getSignificado()){
+            indicePalabra = i;
+          }
+        }
+
+        if(palAsociada == this.listado[indicePalabra].getPalabra()){
+          aciertos++;
+          intento++;
+        }
+      }else{
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+      }
+
+
+      return aciertos;
+      }
 }
 
 module.exports = Idioma;
