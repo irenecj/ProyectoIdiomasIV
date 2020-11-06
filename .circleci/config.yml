@@ -20,7 +20,12 @@ jobs:
           name: Instalar Grunt
           #comando para instalar grunt
           command: |
-            sudo npm install -g grunt && sudo npm install -g grunt-cli grunt-run
+            sudo npm install -g grunt 
+      - run:
+          name: Instalar Grunt-cli y Grunt-run
+          #comando para instalar grunt
+          command: |
+            sudo npm install -g grunt-cli grunt-run
       - run:
           name: Lanzar tests
           #ejecutamos los tests con el gestor de tareas
