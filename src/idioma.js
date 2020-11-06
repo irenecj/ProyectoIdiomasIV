@@ -6,7 +6,10 @@ const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const Traduccion = require("../src/traduccion.js");
 const Expresion = require("../src/expresion.js");
+const Cotidiano = require("../src/cotidiano.js");
 const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
+const enumTipo = ["SALUDO.", "PEDIR DISCULPAS.", "PRESENTARSE."];
+
 
 class Idioma{
 
@@ -15,6 +18,7 @@ class Idioma{
         this.idiomaTraducir = idiomaTraducir;
         this.listado = new Array();
         this.expresiones = new Array();
+        this.frasesCot = new Array();
       }
 
       //FUNCIÓN PARA COMPROBAR QUE UNA CADENA ES UN STRING
@@ -158,9 +162,9 @@ class Idioma{
       }
     }
 
+
     //FUNCIÓN PARA AÑADIR EXPRESIONES
     aniadirExpresiones(expresion, explicacion){
-      var expr = expresion + " --> " + explicacion;
       var formatoExpr = this.comprobarFormato(expresion);
       var formatoExpl = this.comprobarFormato(explicacion);
       if(formatoExpr == true && formatoExpl == true){
@@ -175,6 +179,17 @@ class Idioma{
         resultado.push(this.expresiones[i].getExprPopular() + "\n");
       }
       return resultado;
+    }
+
+    //FUNCIONES PARA FRASES COTIDIANAS
+    aniadirFrase(frase, tipo){
+      var formatoFrase = this.comprobarFormato(frase);
+      var formatoTipo = this.comprobarFormato(tipo);
+
+      if(formatoFrase == true && formatoTipo == true){
+        var fraseC = new Cotidiano(frase.toUpperCase(), tipo.toUpperCase());
+        this.frasesCot.push(fraseC);
+      }
     }
 
 }
