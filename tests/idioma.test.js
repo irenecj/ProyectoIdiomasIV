@@ -257,5 +257,17 @@ describe("Testeando la clase idioma.js", () => {
       expect(ultimoTipo).toBe("PEDIR DISCULPAS.");
     });
   });
+  describe("Testeando el método mostrarFrases()", () => {
+    test("Comprobando que se muestra TODAS las expresiones del tipo indicado", () => {
+      //añadimos otra frase que sea un saludo
+      frase = "HASTA LUEGO.";
+      tipo = "SALUDO."
+      idioma.aniadirFrase(frase,tipo);
+      //ahora tenemos 2 frases de este tipo
+      var tipo_saludo = 2;
+      var devueltas = idioma.mostrarFrases(tipo).length;
 
+      expect(devueltas).toBe(tipo_saludo);
+    });
+  });
 });
