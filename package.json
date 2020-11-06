@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jest",
-    "coverage": "nyc --reporter=text --reporter=text grunt test"
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
