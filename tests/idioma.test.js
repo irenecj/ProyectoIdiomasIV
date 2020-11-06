@@ -5,6 +5,7 @@ const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const Traduccion = require("../src/traduccion.js");
 const Expresion = require("../src/expresion.js");
+const Cotidiano = require("../src/cotidiano.js");
 const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 //VARIABLES A UTILIZAR
@@ -15,13 +16,15 @@ var expectedError;
 var letra;
 var expresion, explicacion;
 var resultado;
-const idioma = new Idioma("Español", "Francés");
+var frase;
+var tipo;
+const idioma = new Idioma("Francés", "Español");
 
 describe("Testeando la clase idioma.js", () => {
   describe("Testeando el constructor", () =>{
     test("Comprobando que funciona correctamente", () => {
-      expect(idioma.idiomaBase).toBe("Español");
-      expect(idioma.idiomaTraducir).toBe("Francés");
+      expect(idioma.idiomaBase).toBe("Francés");
+      expect(idioma.idiomaTraducir).toBe("Español");
     });
   });
   describe("Testeando el método compruebaString()", () => {
@@ -230,4 +233,29 @@ describe("Testeando la clase idioma.js", () => {
       expect(tam_vector_expresiones).toEqual(tam_vocab);
     });
   });
+  describe("Testeando el método aniadirFrase()", () => {
+    test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
+      frase = "BUENOS DÍAS, ¿QUÉ TAL TODO?.";
+      tipo = "SALUDO.";
+      var tamañoOriginal = idioma.frasesCot.length;
+      idioma.aniadirFrase(frase,tipo);
+      var tamañoActual = idioma.frasesCot.length;
+
+      expect(tamañoActual).toEqual(tamañoOriginal + 1);
+    });
+    test("Comprobamos que la expresión se ha añadido correctamente", () => {
+      frase = "PERDÓN, FUE SIN QUERER.";
+      tipo = "PEDIR DISCULPAS.";
+
+      idioma.aniadirFrase(frase,tipo);
+
+      var tamaño = idioma.frasesCot.length;
+      var ultimaFrase = idioma.frasesCot[tamaño - 1].getFrase();
+      var ultimoTipo = idioma.frasesCot[tamaño -1].getTipo();
+
+      expect(ultimaFrase).toBe("PERDÓN, FUE SIN QUERER.");
+      expect(ultimoTipo).toBe("PEDIR DISCULPAS.");
+    });
+  });
+
 });
