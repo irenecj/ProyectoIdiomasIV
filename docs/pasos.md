@@ -90,7 +90,7 @@ Este hito se ha basado en añadir integración continua a nuestro proyecto.
   - Al igual que antes debemos crear un [fichero de configuración](https://github.com/irenecj/proyecto-idiomas/blob/master/.circleci/config.yml) y probar a pasar los tests tanto aprovechando el contenedor como sin él.
   - Las diferentes pruebas y explicaciones están en el siguiente [documento.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md)
 
-Una vez hecho esto, he avanzado código. En primer lugar, me he dado cuenta de que se podía optimizar un poco el código poniendo las expresiones en una clase aparte, llamada *expresion.js*, en la que creamos objetos de este tipo, formados por una expresión junto con su explicación. En esta clase tenemos los métodos 'get' y 'set' correspondientes, y en *idioma.js* tenemos un vector en el que guardaremos objetos de este tipo.
+Una vez hecho esto, he avanzado código. En primer lugar, me he dado cuenta de que se podía optimizar un poco el código poniendo las expresiones en una clase aparte, llamada *expresion.js*, en la que creamos objetos de este tipo, formados por una expresión junto con su explicación. En esta clase tenemos los métodos 'get' y 'set' correspondientes, y en *idioma.js* tenemos un vector en el que guardaremos objetos de este tipo. Por otro lado, hemos diseñado la clase *NoAcierto.js* para gestionar cuando un usuario introduzca una palabra que aún no conoce al autoevaluarse.
 A continuación, he implementado tres Historias de Usuario más:
 - HU9. Añadir frases cotidianas.
 - HU10. Mostrar frases cotidianas en función del tipo.
