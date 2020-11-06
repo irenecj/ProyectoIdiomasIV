@@ -44,6 +44,7 @@ Para este hito he decidido añadir tres Historias de Usuario y he implementado t
 - [HU10.](https://github.com/irenecj/proyecto-idiomas/issues/42) Mostrar frases cotidianas en función del tipo.
 - [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
 Esto ha conllevado a la creación de la clase *cotidiano.js* junto con sus respectivos tests, la implementación de la clase *NoAcierto.js* para gestionar excepciones, y la ampliación de código en la clase *idioma.js*.
+
 La explicación de todas las clases implementadas se encuentra en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/clases-implementadas/clases-implementadas.md). Y el código fuente está en este [directorio.](https://github.com/irenecj/proyecto-idiomas/tree/master/src)
 
 
