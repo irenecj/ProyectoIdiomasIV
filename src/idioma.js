@@ -4,6 +4,7 @@ const NoString = require("./excepciones/NoString");
 const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
+const NoAcierto = require("../src/excepciones/NoAcierto.js");
 const Traduccion = require("../src/traduccion.js");
 const Expresion = require("../src/expresion.js");
 const Cotidiano = require("../src/cotidiano.js");
@@ -207,44 +208,49 @@ class Idioma{
       return Math.floor(Math.random() * (max - min)) + min;
     }
 
+    //FUNCIÓN QUE GENERARÁ UNA DEFINICIÓN ALEATORIA
     generarDefinicion(){
       var i = this.getRandomInt(0, this.listado.length);
       var definicion = this.listado[i].getSignificado();
-      return definicion;
+      var defSola = definicion.substr('.');
+      return defSola;
     }
 
-    //FUNCIÓN PARA AUTOEVALUACIÓN
-    autoevaluacion(definicion,palAsociada){
+    //FUNCIÓN PARA EVALUAR SI LA PALABRA SE CORRESPONDE CON LA DEFINICION
+    autoevaluacion(defSola,palAsociada){
       var encontrada = false;
-      var numIntentos = 1;
-      var intento = 1;
-      var aciertos = 0;
-      var indicePalabra = -1;
+      var acierto = 0;
+      var indice = -1;
 
+      //si en el listado hay alguna definición que comience por la palabra introducida entonces esta palabra es válida
       for(var i in this.listado){
-        if(palAsociada == this.listado[i].getPalabra()){
+        var empieza = this.listado[i].getSignificado().startsWith(palAsociada);
+        if(empieza == true){
           encontrada = true;
+        }else{
+          encontrada = false;
         }
       }
 
       if(encontrada == true){
         for(var i in this.listado){
-          if(definicion == this.listado[i].getSignificado()){
-            indicePalabra = i;
+          //buscamos la definición COMPLETA y nos quedamos con el índice
+          if(this.listado[i].getSignificado().includes(defSola)){
+            var indice = i;
           }
         }
-
-        if(palAsociada == this.listado[indicePalabra].getPalabra()){
-          aciertos++;
-          intento++;
-        }
       }else{
-        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+        throw new NoAcierto("La palabra introducida no se ha registrado aún. Pruebe con una palabra de las que ha aprendido.");
       }
 
-
-      return aciertos;
+      if(this.listado[indice].getSignificado().startsWith(palAsociada)){
+        //sumamos un acierto
+        acierto++;
       }
+
+      return acierto;
+    }
+
 }
 
 module.exports = Idioma;
