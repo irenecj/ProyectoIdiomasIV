@@ -49,9 +49,7 @@ En mi caso, he ampliado la clase *idioma.js* dotándola de diversas funciones, l
 - HU7. Mostrar expresiones populares.
 - HU8. Mostrar palabras ordenadas alfabéticamente.
 
-Antes de nada, he implementado una clase llamada *traduccion.js* la cual sirve para crear objetos formados por una palabra y su significado. Dentro de esta clase tenemos métodos 'get' y 'set' para acceder y/o modificar los distintos atributos mencionados.
-
-En la clase *idioma.js*, como ya he comentado, nos encontramos funciones cuyo propósito reside en las historias de usuario. Por tanto, tenemos un constructor al cual le debemos pasar un objeto de la clase *traduccion.js*, una función para poder añadir palabras nuevas y otra función para poder añadir expresiones populares.
+En la clase *idioma.js*, como ya he comentado, nos encontramos funciones cuyo propósito reside en las historias de usuario. Por tanto, tenemos un constructor al cual le debemos pasar una palabra y su significado, una función para poder añadir palabras nuevas y otra función para poder añadir expresiones populares.
 Por otro lado, podemos mostrar toda la lista de palabras y su significado, al igual que podemos mostrar todas las expresiones populares.
 Si el significado o la traducción de una palabra no nos queda clara o preferimos redactarla de otra manera, tenemos una función que nos permite modificarla sin problema.
 También tenemos las opciones de consultar una palabra concreta, de consultar todas las palabras que empiecen por una letra determinada y de mostrar todo el listado de palabras ordenado alfabéticamente tanto ascendetente como descendentemente.
@@ -67,3 +65,36 @@ sudo npm install grunt --save-dev #para tener la dependencia en el package.json
 
 sudo npm install grunt-run --save-dev #para poder lanzar la tarea correspondiente a los tests
 ~~~
+
+# HITO 3: CREACIÓN DE UN CONTENEDOR PARA PRUEBAS
+Esta práctica consiste en diseñar, usando Docker, un contenedor con el que se puedan ejecutar fácilmente los tests unitarios sobre la aplicación que se está diseñando.
+
+En este hito he arreglado todo lo correspondiente a la implementación de código que se puso en los comentarios adicionales del hito anterior. Los cambios se pueden ver en el [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/src) que contiene dichos ficheros.
+Dentro de estos cambios, uno de ellos ha consistido en añadir una nueva clase, llamada *Traducción.js* la cual sirve para crear objetos formados por una palabra y su significado. Dentro de esta clase tenemos métodos 'get' y 'set' para acceder y/o modificar los distintos atributos mencionados.
+
+Por tanto, ahora en vez de pasarle al constructor una palabra y su significado, debemos pasarle un objeto de tipo *traduccion*.
+
+Otro cambio ha sido crear un enumerador que registre si el orden de ordenación es *ascendente* o *descendente*, e implementar más clases para la gestión de excepciones.
+
+Una vez corregido todos los cambios recomendados procedemos a la creación del contenedor. Los pasos a seguir son:
+- En primer lugar construimos un fichero [Dockerfile.](https://github.com/irenecj/proyecto-idiomas/blob/master/Dockerfile). Para ello, tenemos que elegir una imagen base, por lo que probamos diferentes [imágenes base](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/docker/pruebas-docker.md) y comparamos diversos aspectos técnicos hasta decantarnos por una.
+- A continuación debemos registrarnos en Docker Hub y crear un [repositorio](https://hub.docker.com/repository/docker/irenecj/proyecto-idiomas) que esté vinculado con el nuestro de GitHub, para así poder sincronizarse automáticamente cuando hagamos *push*.
+- También debemos subir nuestro [contenedor](https://github.com/users/irenecj/packages/container/package/proyectoidiomas) a GitHub Container Registry.
+
+# HITO 4: INTEGRACIÓN CONTINUA
+Este hito se ha basado en añadir integración continua a nuestro proyecto.
+- Lo primero que hemos hecho para llevar a cabo el hito ha sido registrarnos en **Travis** y a partir de ahí crear nuestro [fichero de configuración.](https://github.com/irenecj/proyecto-idiomas/blob/master/.travis.yml)
+  - Haciendo uso de Travis hemos podido ver con qué versiones de *node* funciona correctamente nuestra aplicación.
+  - Además, he aprendido que existe una versión de Travis, llamada *minimal*, la cual podemos usar cuando aprovechamos nuestro contenedor de Docker Hub, ya que en este caso el propio contenedor tiene su versión de node instalada junto con todo lo necesario para funcionar, por tanto no debemos indicar en el fichero de configuración que vamos a usar node ni su versión.
+- Una vez pasados los tests en Travis, debemos registrarnos en otra plataforma, en mi caso he escogido **CircleCI**.
+  - Al igual que antes debemos crear un [fichero de configuración](https://github.com/irenecj/proyecto-idiomas/blob/master/.circleci/config.yml) y probar a pasar los tests tanto aprovechando el contenedor como sin él.
+  - Las diferentes pruebas y explicaciones están en el siguiente [documento.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md)
+
+Una vez hecho esto, he avanzado código. En primer lugar, me he dado cuenta de que se podía optimizar un poco el código poniendo las expresiones en una clase aparte, llamada *expresion.js*, en la que creamos objetos de este tipo, formados por una expresión junto con su explicación. En esta clase tenemos los métodos 'get' y 'set' correspondientes, y en *idioma.js* tenemos un vector en el que guardaremos objetos de este tipo.
+A continuación, he implementado tres Historias de Usuario más:
+- HU9. Añadir frases cotidianas.
+- HU10. Mostrar frases cotidianas en función del tipo.
+- HU11. Autoevaluación de palabras aprendidas.
+Para ello, he tenido que implementar otra clase nueva, llamada *cotidiano.js*, donde crearemos objetos formados por una frase y el tipo de frase del que se trata (saludo, pedir permiso o presentarse). Además, hemos implementado los métodos 'get' y 'set' que corresponden.
+
+Además, he realizado los tests de cobertura a mi código y ha salido 100%, por tanto está todo el código cubierto.
