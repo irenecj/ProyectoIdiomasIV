@@ -20,7 +20,7 @@ La clase es bastante simple y sólo contiene métodos *get* y *set*:
 - **setExplicacion(nuevaExplicacion):** nos permite modificar la explicación proporcionada.
 
 
-## CLASE CONDICION
+## CLASE COTIDIANO
 Esta clase crea objetos formados por una frase y el tipo de dicha frase para poder clasificarla.
 Al igual que las clases anteriores, sólo tiene implementados métodos *get* y *set*:
 - **getTipo():** devuelve el tipo de frase que tenemos.
@@ -43,8 +43,8 @@ Dentro de esta clase tenemos una serie de funciones relacionadas con las histori
 - **mostrarExpresiones():** este método se relaciona con la [HU7](https://github.com/irenecj/proyecto-idiomas/issues/22) y simplemente muestra una lista con todas las expresiones registradas y su explicación.
 - **añadirFrase(frase,tipo):** en este caso nos hemos centrado en la [HU9](https://github.com/irenecj/proyecto-idiomas/issues/41) y básicamente lo que hacemos es añadir frases junto con el tipo de éstas, el cual tiene que pertenecer a un enumerador que contiene 'SALUDO', 'PEDIR DISCULPAS' y 'PRESENTARSE'.
 - **mostrarFrases(tipo):** este método sirve para poder mostrar las frases pertenecientes a un tipo concreto, es decir, si en un momento concreto queremos presentarnos y no nos acordamos de ninguna frase para ello, podremos buscar todas aquellas frases relacionadas con presentarse. Está relacionado con la [HU10](https://github.com/irenecj/proyecto-idiomas/issues/42).
-- **autoevaluacion(definicion,palAsociada):** este método se corresponde con la última Historia de Usuario, la [HU11](), cuya descripción nos dice que un usuario debe poder autoevaluar su conocimiento sobre las palabras aprendidas. Para poder implementar dicha función hemos recurrido a funciones auxiliares:
+- **autoevaluacion(definicion,palAsociada):** este método se corresponde con la última Historia de Usuario, la [HU11](https://github.com/irenecj/proyecto-idiomas/issues/43), cuya descripción nos dice que un usuario debe poder autoevaluar su conocimiento sobre las palabras aprendidas. Para poder implementar dicha función hemos recurrido a funciones auxiliares:
   - **getRandomInt:** esta función genera un número aleatorio.
   - **generarDefinicion():** esta función hace uso de la anterior y se basa en generar una definición aleatoria de aquellas que se encuentran en el listado de traducciones.
-El funcionamiento de este método consiste en ver si la palabra que ha introducido el usuario coincide con la definición generada. Si coincide, sumaremos un acierto, en caso contrario no sumaremos nada.
+El funcionamiento de este método consiste en ver si la palabra que ha introducido el usuario, en el idioma que estamos aprendiendo, coincide con la definición generada. Si coincide, sumaremos un acierto, en caso contrario no sumaremos nada.
 Además, si la palabra introducida no existe en el listado de traducciones, se mostrará un error.
