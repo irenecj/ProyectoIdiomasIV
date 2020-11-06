@@ -192,6 +192,16 @@ class Idioma{
       }
     }
 
+    mostrarFrases(tipo){
+      var resultado = new Array();
+      for(var i in this.frasesCot){
+        if(this.frasesCot[i].getTipo() == tipo){
+          resultado.push(this.frasesCot[i].getFrase());
+        }
+      }
+      return resultado;
+    }
+
 }
 
 module.exports = Idioma;
