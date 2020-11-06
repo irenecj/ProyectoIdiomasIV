@@ -270,4 +270,58 @@ describe("Testeando la clase idioma.js", () => {
       expect(devueltas).toBe(tipo_saludo);
     });
   });
+  describe("Testeando el método generarDefinicion()", () => {
+    test("Comprobando que la definición generada existe", () => {
+      //creamos un vector de definiciones
+      var definiciones = ["CAMBIO DESCRIPCIÓN DE LA MESA.", "INFORMATIQUE.CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS." ];
+      var defAleatoria = idioma.generarDefinicion();
+      var defEsperada = [defAleatoria];
+
+      //miramos que la definición esté en el array
+      expect.arrayContaining(defEsperada);
+    });
+  });
+  describe("Testeando el método autoevaluacion()", () => {
+    test("Comprobando que la palabra introducida se corresponde con la definición proporcionada", () => {
+      var definicion = "CAMBIO DESCRIPCIÓN DE LA MESA.";
+      var palAsociada = "MESA.";
+      for(var i in idioma.listado){
+        if(definicion == idioma.listado[i].getSignificado()){
+          var indiceDef = i;
+        }
+      }
+
+      for(var j in idioma.listado){
+        if(palAsociada == idioma.listado[j].getPalabra()){
+          var indicePal = j;
+        }
+      }
+
+      var aciertos = idioma.autoevaluacion(definicion, palAsociada);
+
+      expect(indicePal).toEqual(indiceDef);
+      expect(aciertos).toBe(1);
+
+      palAsociada="INFORMÁTICA."
+      for(var j in idioma.listado){
+        if(palAsociada == idioma.listado[j].getPalabra()){
+          var indicePal = j;
+        }
+      }
+
+      var aciertos = idioma.autoevaluacion(definicion, palAsociada);
+
+      expect(indicePal).not.toEqual(indiceDef);
+      expect(aciertos).toBe(0);
+    });
+    test("Comprobando que lanza un error si se introduce una palabra que no está registrada", () => {
+      var definicion = "CAMBIO DESCRIPCIÓN DE LA MESA.";
+      var palAsociada = "ESTUCHE.";
+
+      thrown_error = () => idioma.autoevaluacion(definicion, palAsociada);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
 });
