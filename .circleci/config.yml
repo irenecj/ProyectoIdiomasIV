@@ -5,17 +5,17 @@ jobs:
   #nombre de la tarea
   test:
     docker:
-       #contenedor que vamos a usar
+        #contenedor que vamos a usar
       - image: irenecj/proyecto-idiomas
     #listado de órdenes a ejecutar
     steps:
       - checkout
       - run:
-        #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
-        name: Ejecutar test
-        #comando para ejecutar los tests con grunt
-        command: |
-          grunt test
+          #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
+          name: Ejecutar test
+          #comando para ejecutar los tests con grunt
+          command: |
+            grunt test
 
 #flujos de trabajo
 workflows:
