@@ -228,10 +228,16 @@ describe("Testeando la clase idioma.js", () => {
   describe("Testeando el método mostrarExpresiones()", () => {
     test("Comprobando que se muestran TODAS las expresiones", () => {
       //el tamaño del vector devuelto tiene que ser el mismo que el del vector de expresiones
-      var tam_vector_expresiones = idioma.mostrarVocab().length;
+      var tam_vector_expresiones = idioma.mostrarExpresiones().length;
       var tam_vocab = idioma.listado.length;
       expect(tam_vector_expresiones).toEqual(tam_vocab);
     });
+    test("Comprobando que funciona correctamente", () => {
+      var vectorEsperado = ["\nEXPRESIÓN --> " + "MONTAR UN POLLO." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "TE HAS VENIDO ARRIBA. HAS MONTADO UNA BRONCA SIN VENIR A CUENTO. UN ESCÁNDALO." + "\n", "\nEXPRESIÓN --> " + "HABLAR POR LOS CODOS." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA." + "\n"];
+      var vectorObtenido = idioma.mostrarExpresiones()
+
+      expect(vectorObtenido).toEqual(vectorEsperado);
+    })
   });
   describe("Testeando el método aniadirFrase()", () => {
     test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
@@ -268,6 +274,7 @@ describe("Testeando la clase idioma.js", () => {
       var devueltas = idioma.mostrarFrases(tipo).length;
 
       expect(devueltas).toBe(tipo_saludo);
+
     });
   });
   describe("Testeando el método generarDefinicion()", () => {

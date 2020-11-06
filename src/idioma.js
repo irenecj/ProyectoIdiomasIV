@@ -176,7 +176,7 @@ class Idioma{
     mostrarExpresiones(){
       var resultado = new Array();
       for(var i in this.expresiones){
-        resultado.push(this.expresiones[i].getExprPopular() + "\n");
+        resultado.push(this.expresiones[i].getExpresion() + "\n");
       }
       return resultado;
     }
@@ -201,7 +201,7 @@ class Idioma{
       }
       return resultado;
     }
-    
+
     //FUNCIÓN PARA GENERAR UN NÚMERO ALEATORIO
     getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
