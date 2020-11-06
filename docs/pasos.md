@@ -96,5 +96,3 @@ A continuación, he implementado tres Historias de Usuario más:
 - HU10. Mostrar frases cotidianas en función del tipo.
 - HU11. Autoevaluación de palabras aprendidas.
 Para ello, he tenido que implementar otra clase nueva, llamada *cotidiano.js*, donde crearemos objetos formados por una frase y el tipo de frase del que se trata (saludo, pedir permiso o presentarse). Además, hemos implementado los métodos 'get' y 'set' que corresponden.
-
-Además, he realizado los tests de cobertura a mi código y ha salido 100%, por tanto está todo el código cubierto.
