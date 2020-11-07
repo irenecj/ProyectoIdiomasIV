@@ -7,6 +7,7 @@ Cuando accedemos a su página web nos permite [darnos de alta](https://travis-ci
 
 ![](../imagenes/primer-paso-travis.png)
 
+
 ![](../imagenes/acaba-primer-paso.png)
 
 3. **Agregar fichero de configuración:** este fichero se llamará [*.travis.yml*](https://github.com/irenecj/proyecto-idiomas/blob/master/.travis.yml) y se colocará en el directorio raíz de nuestro repositorio. En este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/travis/pruebas-travis.md) podemos ver cómo se ha construido dicho fichero de configuración y sus diferentes secciones.
