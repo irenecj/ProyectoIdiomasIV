@@ -23,8 +23,8 @@ Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente
 grunt test
 ~~~
 
-## :eyes: RELEVANTE AL HITO A ENTREGAR: HITO 4 - INTEGRACIÓN CONTINUA :eyes:
-Este hito ha consistido en añadir integración continua a nuestro proyecto con diferentes plataformas. Para poder usar las diferentes plataformas que vamos a utilizar, siempre debemos realizar un primer paso y es registrarse. Por ello, he adjuntado una [explicación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/registros-CI.md) de cómo registrarse en dichas plataformas.
+## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 4 - INTEGRACIÓN CONTINUA :eyes:
+Esta entrega ha consistido en añadir integración continua a nuestro proyecto con diferentes plataformas. Para poder usar las diferentes plataformas que vamos a utilizar, siempre debemos realizar un primer paso y es registrarse. Por ello, he adjuntado una [explicación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/registros-CI.md) de cómo registrarse en dichas plataformas.
 
 #### INTEGRACIÓN CONTINUA CON TRAVIS CI
 En el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) podemos encontrar como ha sido el proceso de usar Travis para nuestro proyecto, y además, he redactado otro [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md) en el que explico cómo funciona el fichero de configuración que utiliza Travis para trabajar.
@@ -39,7 +39,7 @@ En este apartado, tenemos un [fichero](https://github.com/irenecj/proyecto-idiom
 En el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis) tenemos tanto el [uso de Travis](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) aprovechando y sin aprovechar el contenedor junto con la explicación de los [diferentes ficheros de configuración diseñados](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md), y en este [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) se encuentra el desarrollo de cómo hemos trabajado con Circle CI con y sin usar el contenedor.
 
 #### AVANCE DE CÓDIGO
-Para este hito he decidido añadir tres Historias de Usuario y he implementado todo aquello que necesitan para llevarse a cabo.
+Para esta entrega he decidido añadir tres Historias de Usuario y he implementado todo aquello que necesitan para llevarse a cabo.
 - [HU9.](https://github.com/irenecj/proyecto-idiomas/issues/41) Añadir frases cotidianas.
 - [HU10.](https://github.com/irenecj/proyecto-idiomas/issues/42) Mostrar frases cotidianas en función del tipo.
 - [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
