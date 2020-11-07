@@ -81,7 +81,7 @@ Una vez corregido todos los cambios recomendados procedemos a la creación del c
 - A continuación debemos registrarnos en Docker Hub y crear un [repositorio](https://hub.docker.com/repository/docker/irenecj/proyecto-idiomas) que esté vinculado con el nuestro de GitHub, para así poder sincronizarse automáticamente cuando hagamos *push*.
 - También debemos subir nuestro [contenedor](https://github.com/users/irenecj/packages/container/package/proyectoidiomas) a GitHub Container Registry.
 
-# HITO 4: INTEGRACIÓN CONTINUA
+# HITO 4: AÑADIR INTEGRACIÓN CONTINUA
 Este hito se ha basado en añadir integración continua a nuestro proyecto.
 - Lo primero que hemos hecho para llevar a cabo el hito ha sido registrarnos en **Travis** y a partir de ahí crear nuestro [fichero de configuración.](https://github.com/irenecj/proyecto-idiomas/blob/master/.travis.yml)
   - Haciendo uso de Travis hemos podido ver con qué versiones de *node* funciona correctamente nuestra aplicación.
