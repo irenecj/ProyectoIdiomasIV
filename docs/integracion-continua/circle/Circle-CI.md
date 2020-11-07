@@ -46,6 +46,6 @@ Podemos ver, que este fichero de configuración también tuvo un resultado con �
 ![](../../imagenes/circle-correcto2.png)
 
 ## ENLACES CONSULTADOS
-Voy a dejar algunos de los enlaces que he consultado ya que aprender a usar CircleCI me ha parecido un poco más complicado que Travis, y hay que buscar bastante documentación para poder diseñar un fichero de configuración correcto.
+Voy a dejar algunos de los enlaces que he consultado ya que aprender a usar CircleCI me ha parecido un poco más complicado que TravisCI, y hay que buscar bastante documentación para poder diseñar un fichero de configuración correcto.
 - [Getting Started.](https://circleci.com/docs/2.0/getting-started/#section=getting-started)
 - [Explicación más detallada.](https://circleci.com/docs/2.0/config-intro/)
