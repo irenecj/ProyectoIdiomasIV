@@ -39,7 +39,7 @@ Para comprobar esto, recordamos que anteriormente probamos también las versione
 
 Vemos que como hemos comentado, todo funciona perfectamente en **todas** las versiones, debido a que nuestro contenedor tiene instalada la última versión de Node.
 
-Después de justificar todo esto, una compañera pasó un [enlace](https://docs.travis-ci.com/user/languages/minimal-and-generic/#minimal) en el que podemos ver que existe la versión **minimal** de Travis (la cual sólo contiene herramientas de control de versiones, herramientas de compilación esenciales, herramientas de red como *curl*, Docker y Python) ya que lo que necesitemos propio del lenguaje lo tendremos en el contenedor.
+Después de justificar todo esto, una compañera pasó un [enlace](https://docs.travis-ci.com/user/languages/minimal-and-generic/#minimal) en el que podemos ver que existe la versión **minimal** de Travis (la cual sólo contiene herramientas de control de versiones, herramientas de compilación esenciales, herramientas de red como *curl*, Docker y Python) por tanto es más optimo usar dicha versión ya que lo que necesitemos propio del lenguaje lo tendremos en el contenedor.
 
 ![](../../imagenes/travis-contenedor3.png)
 
