@@ -1,6 +1,7 @@
 # EXPLICACIÓN SOBRE LOS FICHEROS DE CONFIGURACIÓN DE TRAVIS USADOS
 
 ## SIN HACER USO DE UN CONTENEDOR
+
 ![](../../imagenes/primerTravis.png)
 
 ![](../../imagenes/segundoTravis.png)
@@ -16,6 +17,7 @@ Finalmente, nos encontramos la sección *script* en la que indicamos como ejecut
 ## HACIENDO USO DEL CONTENEDOR DE DOCKER HUB
 
 ### SIN UTILIZAR LA VERSIÓN "MINIMAL"
+
 ![](../../imagenes/travisContenedor1.png)
 
 ![](../../imagenes/travisContenedor2.png)
