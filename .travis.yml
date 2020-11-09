@@ -2,8 +2,6 @@
 language: node_js
 #vamos a probar desde la versión 8 a la 14
 node_js:
-    - 6
-    - 7
     - 8
     - 9
     - 10
@@ -12,10 +10,12 @@ node_js:
     - 13
     - 14
     - node
-#esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
-#instalamos Jest y Grunt
+#instalamos Docker e iniciamos el servicio
+services:
+  - docker
+#esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install . )
+#nos descargamos el contenedor
 before_install:
-  - npm install -g jest
-  - npm install -g grunt
-#ejecutamos los tests con grunt
-script: grunt test
+  - docker pull irenecj/proyecto-idiomas
+#ejecutamos dicho contenedor para lanzar los tests
+script: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
