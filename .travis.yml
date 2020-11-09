@@ -1,17 +1,5 @@
 #indicamos el lenguaje que estamos usando
-language: node_js
-#vamos a probar desde la versión 6 a la 14
-node_js:
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12
-    - 13
-    - 14
-    - node
+language: minimal
 #instalamos Docker e iniciamos el servicio
 services:
   - docker
