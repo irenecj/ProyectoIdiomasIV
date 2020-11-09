@@ -1,28 +1,21 @@
 #versión de la plataforma circle que estamos usando
 version: 2.1
+orbs:
+  node: circleci/node@1.1
 #tareas que vamos a realizar
 jobs:
   #nombre de la tarea
-  test:
-    docker:
-        #contenedor que vamos a usar
-      - image: irenecj/proyecto-idiomas
+  build:
+    executor:
+      name: node/default
+      tag: '14.0'
     #listado de órdenes a ejecutar
     steps:
       - checkout
-      - run:
-          #nombre proporcionado para dirigirnos a esta orden a la hora de ver errores o warnings
-          name: Ejecutar test
-          #comando para ejecutar los tests con grunt
-          command: |
-            grunt test
-      - run:
-          name: Mostrar test de cobertura
-          command: |
-            grunt coverage
-#flujos de trabajo
-workflows:
-  testeo:
-    jobs:
-      #tarea a ejecutar
-      - test
+      #almacenamos en caché automáticamente los paquetes
+      - node/with-cache:
+        #instalamos todo lo necesario
+        steps:
+          - run: npm install
+          - run: sudo npm install -g jest grunt
+      - run: grunt test
