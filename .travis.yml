@@ -1,11 +1,18 @@
 #indicamos el lenguaje que estamos usando
-language: minimal
-#instalamos Docker e iniciamos el servicio
-services:
-  - docker
+language: node_js
+#vamos a probar desde la versión 8 a la última
+node_js:
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - node
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install . )
-#nos descargamos el contenedor
+#instalamos Jest y Grunt
 before_install:
-  - docker pull irenecj/proyecto-idiomas
-#ejecutamos dicho contenedor para lanzar los tests
-script: docker run -t -v `pwd`:/test irenecj/proyecto-idiomas
+  - npm install -g jest grunt
+#ejecutamos los tests con grunt
+script: grunt test
