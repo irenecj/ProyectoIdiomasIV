@@ -11,6 +11,13 @@ module.exports = function (grunt){
           'run',
           'test'
         ]
+      },
+      coverage: {
+        cmd: 'npm',
+        args: [
+          'run',
+          'coverage'
+        ]
       }
     }
 });
