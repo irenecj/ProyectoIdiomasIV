@@ -19,7 +19,7 @@ jobs:
       - run:
           name: NO está la palabra "hito" en el README
           command: |
-            grep 'hito' README.md | grep 'HITO'
+            grep 'hito' README.md 
 
 #flujos de trabajo
 workflows:
