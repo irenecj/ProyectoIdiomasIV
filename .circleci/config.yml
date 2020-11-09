@@ -16,7 +16,10 @@ jobs:
           #comando para ejecutar los tests con grunt
           command: |
             grunt test
-
+      - run:
+          name: Mostrar test de cobertura
+          command: |
+            grunt coverage
 #flujos de trabajo
 workflows:
   testeo:
