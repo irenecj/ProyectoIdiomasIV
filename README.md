@@ -23,6 +23,11 @@ Como hemos instalado el gestor de tareas Grunt, para lanzar los test simplemente
 grunt test
 ~~~
 
+Para lanzar el test de cobertura, debemos ejecutar:
+~~~
+grunt coverage
+~~~
+
 ## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 4 - INTEGRACIÓN CONTINUA :eyes:
 Esta entrega ha consistido en añadir integración continua a nuestro proyecto con diferentes plataformas. Para poder usar las diferentes plataformas que vamos a utilizar, siempre debemos realizar un primer paso y es registrarse. Por ello, he adjuntado una [explicación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/registros-CI.md) de cómo registrarse en dichas plataformas.
 
