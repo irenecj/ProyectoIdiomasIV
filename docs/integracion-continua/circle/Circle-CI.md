@@ -29,7 +29,7 @@ Esta configuración podemos ver que pasa correctamente los tests.
 
 ### USANDO EL CONTENEDOR DE DOCKER HUB
 
-![](../../imagenes/circle-contenedor1.png)
+![](../../imagenes/circleContenedor1.png)
 
 Cuando usamos nuestro contenedor de Docker Hub, el fichero de configuración cambia un poco. En primer lugar, ahora no necesitamos poner *orbs* ya que simplemente vamos a descargarnos un contenedor, y a lanzar los tests con nuestro gestor de tareas, es decir, todo lo necesario se encuentra en nuestro contenedor.
 
@@ -37,13 +37,15 @@ En *jobs* establecemos los trabajos que vamos a realizar, y volvemos a tener só
 
 Una duda que me surgió era por qué usamos **grunt test** y no **docker run -t -v**, y esto se debe a que cuando ponemos *image: <contenedor>* lo que hacemos es introducirnos dentro del contenedor.
 
+Además, en nuestro [Gruntfile](https://github.com/irenecj/proyecto-idiomas/blob/master/Gruntfile.js) hemos añadido una tarea para poder mostrar el test de cobertura.
+
 Finalmente establecemos un flujo de trabajo, en el que crearemos otra tarea, llamada *testeo*, que consistirá en ejecutar la tarea creada anteriormente, la tarea *test*.
 
 Podemos apreciar una **diferencia que me resultó curiosa** respecto al fichero de configuración anterior, y es que los flujos de trabajo no aparecen. Esto se debe a que tenemos una única tarea, y el uso de *workflows* es más común cuando tenemos una colección de trabajos.
 
 Podemos ver, que este fichero de configuración también tuvo un resultado con éxito.
 
-![](../../imagenes/circle-correcto2.png)
+![](../../imagenes/circleCorrecto2.png)
 
 ## ENLACES CONSULTADOS
 Voy a dejar algunos de los enlaces que he consultado ya que aprender a usar CircleCI me ha parecido un poco más complicado que TravisCI, y hay que buscar bastante documentación para poder diseñar un fichero de configuración correcto.
