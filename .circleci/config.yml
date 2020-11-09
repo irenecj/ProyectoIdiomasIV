@@ -16,6 +16,10 @@ jobs:
           #comando para ejecutar los tests con grunt
           command: |
             grunt test
+      - run:
+          name: NO está la palabra "hito" en el README
+          command: |
+            grep 'hito' README.md | grep 'HITO'
 
 #flujos de trabajo
 workflows:
