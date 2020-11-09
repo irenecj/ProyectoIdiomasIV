@@ -24,6 +24,6 @@ module.exports = function (grunt){
 
   grunt.loadNpmTasks('grunt-run');
   grunt.registerTask('test', ['run:tests']);
-  grunt.registerTask('test', ['run:coverage']);
+  grunt.registerTask('coverage', ['run:coverage']);
 
 };
