@@ -9,6 +9,7 @@ node_js:
     - 12
     - 13
     - 14
+    - node
 #esta sección se ejecuta antes de la instalación de la aplicación (antes de npm install .)
 #instalamos Jest y Grunt
 before_install:
