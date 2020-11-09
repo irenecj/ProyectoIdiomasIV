@@ -23,6 +23,7 @@ module.exports = function (grunt){
 });
 
   grunt.loadNpmTasks('grunt-run');
-  grunt.registerTask('test', ['run']);
+  grunt.registerTask('test', ['run:tests']);
+  grunt.registerTask('test', ['run:coverage']);
 
 };
