@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-  const { name = 'World' } = req.query
+  const { name = 'Irene Cano' } = req.query
 
-  res.status(200).send(`Prueba realizada para el proyecto de Irene Cano ${name}!`)
+  res.status(200).send(`Prueba realizada para el proyecto de ${name}!`)
 }
