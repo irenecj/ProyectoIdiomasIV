@@ -34,3 +34,14 @@ Podemos ver que el proyecto se ha desplegado correctamente
 ![](../imagenes/despliegue-vercel-correcto.png)
 
 **Despliegue continuo:** cada vez que hagamos **git push** a nuestro proyecto se nos actualizará el repositorio tanto en GitHub como en [Vercel](https://proyecto-idiomas.vercel.app/).
+
+## COMPROBACIÓN DE FUNCIONAMIENTO CORRECTO USANDO UNA FUNCIÓN DE EJEMPLO
+Como ya hemos comentado al principio, hemos creado el fichero **hello.js** que contiene la siguiente función de prueba:
+
+![](../imagenes/helloVercel.png)
+
+A continuación hacemos **git push** y nos dirigimos a nuestro repositorio en Vercel para ver que se muestra el mensaje deseado por pantalla.
+
+![](../imagenes/hello-correcto.png)
+
+**Aclaración:** el funcionamiento correcto de nuestro ejemplo podemos verlo en cualquier momento mientras dispongamos de [este enlace](https://proyecto-idiomas-5tf0id7p5.vercel.app/api/hello.js).
