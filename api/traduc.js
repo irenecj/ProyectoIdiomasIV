@@ -19,11 +19,12 @@ module.exports = (req, res) => {
     // cadena += palabra.concat(' -> ',significado)
   }
 
-  var traduc = idioma.ordenarAlfabeto(orden);
+
   // cadena+= traducciones[0].getPalabra();
   // cadena+=idioma.listado[0].getPalabra();
   // cadena+=idioma.listado[1].getPalabra();
   if(orden == "ASCENDENTE" || orden == "DESCENDENTE"){
+    var traduc = idioma.ordenarAlfabeto(orden);
     var clave = "traducciones";
     obj[clave] = []
     traduc.forEach(elemento => {
