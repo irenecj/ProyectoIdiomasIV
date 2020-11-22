@@ -23,23 +23,24 @@ module.exports = (req, res) => {
   // cadena+= traducciones[0].getPalabra();
   // cadena+=idioma.listado[0].getPalabra();
   // cadena+=idioma.listado[1].getPalabra();
-  if(orden == "ACENDENTE" || orden == "DESCENDENTE"){
+  if(orden == "ASCENDENTE" || orden == "DESCENDENTE"){
     var clave = "traducciones";
+    obj[clave] = []
     traduc.forEach(elemento => {
       // cadena += elemento.getTraduccion();
       datos = {
         palabra: elemento.getPalabra(),
         significado: elemento.getSignificado()
       };
-      obj[clave] = []
+
       obj[clave].push(datos);
     });
   }else{
     clave = "ERROR";
+    obj[clave] = []
     datos = {
       error: "Debe introducir como parámetro correspondiente al orden un orden válido, es decir ASCENDENTE o DESCENDENTE"
     };
-    obj[clave] = []
     obj[clave].push(datos);
   }
 
