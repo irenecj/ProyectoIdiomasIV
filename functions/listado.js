@@ -6,7 +6,6 @@ exports.handler = async event => {
   var idioma = new Idioma("español","frances");
   var palabra;
   var significado;
-  var datos=[];
 
   for(var i = 0; i < data.traducciones.length; i++){
 
