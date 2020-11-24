@@ -8,7 +8,6 @@ exports.handler = async event => {
   var significado;
 
   for(var i = 0; i < data.traducciones.length; i++){
-
         palabra = data.traducciones[i].palabra;
         significado = data.traducciones[i].significado;
         idioma.aniadirVocab(palabra,significado)
