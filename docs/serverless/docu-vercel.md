@@ -65,7 +65,7 @@ Nuestra función se va a basar en que a partir del orden que se le proporcione m
 En el caso de que el orden introducido sea válido procedemos a ordenar el resultado. Para ello debemos crear un json, que enviaremos como respuesta, y que contendrá el listado ordenado. Simplemente debemos recorrer las traducciones e ir creando nuestro diccionario, cuya clave es *traducciones*, con las palabras en el orden correspondiente.
 En el caso en que el orden que se introduzca no sea válido, por ejemplo *numérico*, devolveremos un json el cual nos va a indicar que hay un error y que sólo podemos introducir como orden *ASCENDENTE* o *DESCENDENTE*.
 
-Finalmente enviamos como respuesta nuestro objeto. Para probar que esto funciona simplemente debemos acceder a [este enlace](https://proyecto-idiomas-5ezt1lzn5.vercel.app/api/ordenar.js?orden=ASCENDENTE) y vemos como la lista aparece ordenada de manera ascendente. Si queremos corroborar que funciona también de manera descendente simplemente usamos [este otro enlace.](https://proyecto-idiomas-5ezt1lzn5.vercel.app/api/ordenar.js?orden=DESCENDENTE)
+Finalmente enviamos como respuesta nuestro objeto. Para probar que esto funciona simplemente debemos acceder a [este enlace](https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=ASCENDENTE) y vemos como la lista aparece ordenada de manera ascendente. Si queremos corroborar que funciona también de manera descendente simplemente usamos [este otro enlace.]((https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=DESCENDENTE)
 
 ![](../imagenes/resultado-ordenarASC.png)
 
