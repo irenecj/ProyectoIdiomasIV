@@ -66,3 +66,7 @@ En el caso de que el orden introducido sea válido procedemos a ordenar el resul
 En el caso en que el orden que se introduzca no sea válido, por ejemplo *numérico*, devolveremos un json el cual nos va a indicar que hay un error y que sólo podemos introducir como orden *ASCENDENTE* o *DESCENDENTE*.
 
 Finalmente enviamos como respuesta nuestro objeto. Para probar que esto funciona simplemente debemos acceder a [este enlace](https://proyecto-idiomas-5ezt1lzn5.vercel.app/api/ordenar.js?orden=ASCENDENTE) y vemos como la lista aparece ordenada de manera ascendente. Si queremos corroborar que funciona también de manera descendente simplemente usamos [este otro enlace.](https://proyecto-idiomas-5ezt1lzn5.vercel.app/api/ordenar.js?orden=DESCENDENTE)
+
+![](../imagenes/resultado-ordenarASC.png)
+
+![](../imagenes/resultado-ordenarDSC.png)
