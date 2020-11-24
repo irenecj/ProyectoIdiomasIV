@@ -1,5 +1,13 @@
-entidad: src/idioma.js
+entidad:
+  - src/idioma.js
+  - src/cotidiano.js
+  - src/expresion.js
+  - src/traduccion.js
 lenguaje: JavaScript
 test:
   - tests/idioma.test.js
+  - tests/cotidiano.test.js
+  - tests/expresion.test.js
+  - tests/traduccion.test.js
 taskfile: Gruntfile.js
+URL: https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=ASCENDENTE
