@@ -8,5 +8,25 @@
       "palabra":"ESTUCHE.",
       "significado":"TROUSSE."
     }
+  ],
+  "expresiones":[
+    {
+      "frase":"BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.",
+      "tipo":"SALUDO."
+    },
+    {
+      "frase":"À BIENTÔT. -> HASTA PRONTO.",
+      "tipo":"SALUDO."
+    },
+    {
+      "frase":"DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.",
+      "tipo": "PEDIR DISCULPAS."
+    },
+    {
+      "frase": "SALUT!, JE M'APPELLE IRENE. -> HOLA!, ME LLAMO IRENE.",
+      "tipo": "PRESENTARSE"
+    }
   ]
+
+  
 }
