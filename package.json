@@ -23,13 +23,14 @@
   "author": "irenecj",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/irenecj/ProyectoIdiomasIV/issues"
+    "url": "https://github.com/irenecj/proyecto-idiomas/issues"
   },
-  "homepage": "https://github.com/irenecj/ProyectoIdiomasIV#readme",
+  "homepage": "https://github.com/irenecj/proyecto-idiomas#readme",
   "devDependencies": {
     "grunt": "^1.3.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
+    "node-telegram-bot-api": "^0.50.0",
     "nyc": "^15.1.0"
   },
   "dependencies": {
