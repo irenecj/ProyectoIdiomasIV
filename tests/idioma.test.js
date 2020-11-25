@@ -203,8 +203,8 @@ describe("Testeando la clase idioma.js", () => {
 
   describe("Testeando el método aniadirExpresiones()", () => {
     test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
-      expresion = "MONTAR UN POLLO.";
-      explicacion = "TE HAS VENIDO ARRIBA. HAS MONTADO UNA BRONCA SIN VENIR A CUENTO. UN ESCÁNDALO."
+      expresion = "C'EST SIMPLE COMME BONJOUR.";
+      explicacion = "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO."
       var tamañoOriginal = idioma.expresiones.length;
       idioma.aniadirExpresiones(expresion, explicacion);
       var tamañoActual = idioma.expresiones.length;
@@ -212,8 +212,8 @@ describe("Testeando la clase idioma.js", () => {
       expect(tamañoActual).toEqual(tamañoOriginal + 1);
     });
     test("Comprobamos que la expresión se ha añadido correctamente", () => {
-      expresion = "HABLAR POR LOS CODOS.";
-      significado = "CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.";
+      expresion = "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES.";
+      significado = "LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.";
 
       idioma.aniadirExpresiones(expresion, significado);
 
@@ -221,8 +221,8 @@ describe("Testeando la clase idioma.js", () => {
       var ultimaExprPopu = idioma.expresiones[tamaño - 1].getExprPopular();
       var ultimaExplicacion = idioma.expresiones[tamaño - 1].getExplicacion();
 
-      expect(ultimaExprPopu).toBe("HABLAR POR LOS CODOS.");
-      expect(ultimaExplicacion).toBe("CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA.")
+      expect(ultimaExprPopu).toBe("IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES.");
+      expect(ultimaExplicacion).toBe("LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.")
 
     });
   });
@@ -234,7 +234,7 @@ describe("Testeando la clase idioma.js", () => {
       expect(tam_vector_expresiones).toEqual(tam_vocab);
     });
     test("Comprobando que funciona correctamente", () => {
-      var vectorEsperado = ["\nEXPRESIÓN --> " + "MONTAR UN POLLO." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "TE HAS VENIDO ARRIBA. HAS MONTADO UNA BRONCA SIN VENIR A CUENTO. UN ESCÁNDALO." + "\n", "\nEXPRESIÓN --> " + "HABLAR POR LOS CODOS." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "CUANDO UNA PERSONA HABLA MUCHO O ESTÁ HABLANDO EN TODO MOMENTO, NO SE CALLA NUNCA." + "\n"];
+      var vectorEsperado = ["\nEXPRESIÓN --> " + "C'EST SIMPLE COMME BONJOUR." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO." + "\n", "\nEXPRESIÓN --> " + "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN." + "\n"];
       var vectorObtenido = idioma.mostrarExpresiones();
 
       expect(vectorObtenido).toEqual(vectorEsperado);
@@ -242,7 +242,7 @@ describe("Testeando la clase idioma.js", () => {
   });
   describe("Testeando el método aniadirFrase()", () => {
     test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
-      frase = "BUENOS DÍAS, ¿QUÉ TAL TODO?.";
+      frase = "BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.";
       tipo = "SALUDO.";
       var tamañoOriginal = idioma.frasesCot.length;
       idioma.aniadirFrase(frase,tipo);
@@ -251,7 +251,7 @@ describe("Testeando la clase idioma.js", () => {
       expect(tamañoActual).toEqual(tamañoOriginal + 1);
     });
     test("Comprobamos que la expresión se ha añadido correctamente", () => {
-      frase = "PERDÓN, FUE SIN QUERER.";
+      frase = "DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.";
       tipo = "PEDIR DISCULPAS.";
 
       idioma.aniadirFrase(frase,tipo);
@@ -260,14 +260,14 @@ describe("Testeando la clase idioma.js", () => {
       var ultimaFrase = idioma.frasesCot[tamaño - 1].getFrase();
       var ultimoTipo = idioma.frasesCot[tamaño -1].getTipo();
 
-      expect(ultimaFrase).toBe("PERDÓN, FUE SIN QUERER.");
+      expect(ultimaFrase).toBe("DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.");
       expect(ultimoTipo).toBe("PEDIR DISCULPAS.");
     });
   });
   describe("Testeando el método mostrarFrases()", () => {
     test("Comprobando que se muestra TODAS las expresiones del tipo indicado", () => {
       //añadimos otra frase que sea un saludo
-      frase = "HASTA LUEGO.";
+      frase = "À BIENTÔT. -> HASTA PRONTO.";
       tipo = "SALUDO."
       idioma.aniadirFrase(frase,tipo);
       //ahora tenemos 2 frases de este tipo
