@@ -10,9 +10,9 @@ exports.handler = async event => {
 
     var expresion = /\/buscar (.+)/
     var expresion2 = /\/cambiarsig (.+)/
+    var expresion3 = /\/clasificar (.+)/
 
     var encontrada = mensaje.match(expresion)
-
     // ahora tenemos que ver las diferentes opciones que puede introducir el usuario
 
     if(mensaje == "/start"){
@@ -26,6 +26,9 @@ exports.handler = async event => {
       var palabra = mensaje.split(" ")[1];
       var significado = mensaje.split("-")[1];
       respuesta = funciones.cambiarSignificado(palabra,significado)
+    }else if(mensaje.match(expresion3)){
+      var letra = mensaje.split(" ")[1];
+      respuesta = funciones.clasifLetra(letra);
     }else{
       respuesta = "Los comandos disponibles son: /start, /help, /listadovocab, /buscar <palabra>, /cambiarsig <palabra - significadoNuevo>, /clasificar <letra>, /listadoexpresiones, /listadofrases"
     }

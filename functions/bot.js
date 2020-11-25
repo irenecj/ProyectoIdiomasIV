@@ -80,4 +80,25 @@ function cambiarSignificado(pal, sig){
   return resultado;
 }
 
-module.exports = { formato, listadoVocab, palabraConcreta, cambiarSignificado };
+function clasifLetra(letra){
+  var resultado=" ";
+  if(letra == letra.toUpperCase()){
+    for(var i = 0; i < data.traducciones.length; i++){
+       var palabra = data.traducciones[i].palabra;
+      if(palabra.startsWith(letra)){
+        resultado += palabra + "\n"
+      }
+    }
+  }else{
+    resultado = "La letra debe introducirse en mayúsculas."
+  }
+
+  if(resultado == " "){
+    resultado = "No hay ninguna palabra que comience por dicha letra."
+  }
+
+  return resultado;
+}
+
+
+module.exports = { formato, listadoVocab, palabraConcreta, cambiarSignificado, clasifLetra };
