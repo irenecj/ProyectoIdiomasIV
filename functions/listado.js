@@ -16,7 +16,7 @@ exports.handler = async event => {
   var resultado = palRecibida;
   var formatoValido = idioma.comprobarFormato(palRecibida);
 
-  if(formatoValido == true && palRecibida == palRecibida.toUpperCase()){
+if(formatoValido == true && palRecibida == palRecibida.toUpperCase()){
     var pos = -1
     for(var j  = 0 ; j < idioma.listado.length ; j++){
       if(palRecibida == idioma.listado[j].getPalabra()){

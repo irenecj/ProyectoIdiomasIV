@@ -48,7 +48,7 @@ exports.handler = async event => {
         }
     }
   }else{
-    respuesta = " "
+    respuesta = " ";
     return{
       statusCode: 200,
       body: respuesta.toString()
