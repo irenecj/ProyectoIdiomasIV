@@ -47,8 +47,37 @@ function palabraConcreta(pal){
   }else{
     resultado = "El formato introducido no es correcto: la palabra debe introducirse en mayúsculas y acabando en punto final."
   }
+  return resultado;
+}
+
+function cambiarSignificado(pal, sig){
+  var palabraEncontrada;
+  var significado;
+  var resultado=" ";
+  var pos = -1;
+  var palValida = formato(pal);
+  var sigValido = formato(sig);
+  if(palValida && sigValido){
+    for(var i = 0; i < data.traducciones.length; i++){
+      if(pal == data.traducciones[i].palabra){
+        pos = i;
+      }
+    }
+
+    if(pos == -1){
+      resultado = "La palabra que busca no se encuentra registrada"
+    }
+    else{
+      palabraEncontrada = pal;
+      data.traducciones[pos].significado = sig;
+      significado = data.traducciones[pos].significado;
+      resultado = "El significado se ha cambiado con éxito."
+    }
+  }else{
+    resultado = "El formato introducido no es correcto: la palabra debe introducirse en mayúsculas y acabando en punto final. Además, la palabra y el significado deben estar separados por un guión, con un espacio a ambos lados."
+  }
 
   return resultado;
 }
 
-module.exports = { formato, listadoVocab, palabraConcreta };
+module.exports = { formato, listadoVocab, palabraConcreta, cambiarSignificado };

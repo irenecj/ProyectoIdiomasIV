@@ -8,12 +8,24 @@ exports.handler = async event => {
     var respuesta;
     var pal;
 
+    var expresion = /\/buscar (.+)/
+    var expresion2 = /\/cambiarsig (.+)/
+
+    var encontrada = mensaje.match(expresion)
+
     // ahora tenemos que ver las diferentes opciones que puede introducir el usuario
 
     if(mensaje == "/start"){
       respuesta = "¡Bienvenido a su cuaderno de vocabulario!";
     }else if(mensaje == "/listadovocab"){
       respuesta = funciones.listadoVocab();
+    }else if(mensaje.match(expresion)){
+      var palabra = mensaje.split(" ")[1];
+      respuesta = funciones.palabraConcreta(palabra);
+    }else if(mensaje.match(expresion2)){
+      var palabra = mensaje.split(" ")[1];
+      var significado = mensaje.split("-")[1];
+      respuesta = funciones.cambiarSignificado(palabra,significado)
     }else{
       respuesta = "Los comandos disponibles son: /start, /help, /listadovocab, /buscar <palabra>, /cambiarsig <palabra - significadoNuevo>, /clasificar <letra>, /listadoexpresiones, /listadofrases"
     }
