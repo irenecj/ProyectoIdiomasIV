@@ -119,9 +119,9 @@ function listadoFrases(){
   var tipo;
   var cadena = "";
   var resultado=" ";
-  for(var i = 0; i<data.frases_populares.length; i++){
-    frase = data.frases_populares[i].frase;
-    tipo = data.frases_populares[i].tipo + "\n";
+  for(var i = 0; i<data.frases.length; i++){
+    frase = data.frases[i].frase;
+    tipo = data.frases[i].tipo + "\n";
     cadena = frase.concat('\n',tipo);
     resultado += cadena + "\n";
   }
