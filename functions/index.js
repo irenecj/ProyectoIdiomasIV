@@ -13,6 +13,7 @@ exports.handler = async event => {
     var expresion3 = /\/clasificar (.+)/
 
     var encontrada = mensaje.match(expresion)
+
     // ahora tenemos que ver las diferentes opciones que puede introducir el usuario
 
     if(mensaje == "/start"){
@@ -29,6 +30,12 @@ exports.handler = async event => {
     }else if(mensaje.match(expresion3)){
       var letra = mensaje.split(" ")[1];
       respuesta = funciones.clasifLetra(letra);
+    }else if(mensaje == "/listadoexpresiones"){
+      respuesta = funciones.listadoExpresiones();
+    }else if(mensaje == "/listadofrases"){
+      respuesta = funciones.listadoFrases();
+    }else if(mensaje == "/help"){
+      respuesta = "/start - comenzar a usar el bot \n/listadovocab - muestra un listado del vocabulario registrado \n/listadoexpresiones - muestra un listado de las expresiones populares \n/listadofrases - muestra un listado de frases cotidianas \n/buscar <palabra> - devuelve la palabra junto con su significado \n/cambiarsig <palabra> - <significadoNuevo> - cambia el significado de la palabra \n/clasificar <letra> - muestra las palabras que comienzar por dicha letra"
     }else{
       respuesta = "Los comandos disponibles son: /start, /help, /listadovocab, /buscar <palabra>, /cambiarsig <palabra - significadoNuevo>, /clasificar <letra>, /listadoexpresiones, /listadofrases"
     }

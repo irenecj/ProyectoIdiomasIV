@@ -100,5 +100,32 @@ function clasifLetra(letra){
   return resultado;
 }
 
+function listadoExpresiones(){
+  var expresion;
+  var significado;
+  var cadena = "";
+  var resultado=" ";
+  for(var i = 0; i < data.expresiones_populares.length; i++){
+    expresion = data.expresiones_populares[i].expresion ;
+    significado = data.expresiones_populares[i].significado + "\n" ;
+    cadena = expresion.concat('\n',significado);
+    resultado += cadena + "\n";
+  }
+  return resultado;
+}
 
-module.exports = { formato, listadoVocab, palabraConcreta, cambiarSignificado, clasifLetra };
+function listadoFrases(){
+  var frase;
+  var tipo;
+  var cadena = "";
+  var resultado=" ";
+  for(var i = 0; i<data.frases.length; i++){
+    frase = data.frases[i].frase;
+    tipo = data.frases[i].tipo + "\n";
+    cadena = frase.concat('\n',tipo);
+    resultado += cadena + "\n";
+  }
+  return resultado;
+}
+
+module.exports = { formato, listadoVocab, palabraConcreta, cambiarSignificado, clasifLetra, listadoExpresiones, listadoFrases };
