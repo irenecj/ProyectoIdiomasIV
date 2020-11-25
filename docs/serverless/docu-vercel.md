@@ -47,9 +47,8 @@ A continuación hacemos **git push** y nos dirigimos a nuestro repositorio en Ve
 **Aclaración:** el funcionamiento correcto de nuestro ejemplo podemos verlo en cualquier momento mientras dispongamos de [este enlace](https://proyecto-idiomas-5tf0id7p5.vercel.app/api/hello.js).
 
 ## IMPLEMENTACIÓN DE UNA FUNCIÓN
-La función que vamos a implementar se llama **ordenarAlfabeto(orden)** y pertenece a nuestro proyecto desde el principio. Esta función se encargaba de devolvernos una lista de las palabras junto con su significado que habíamos registrado, según el orden que le indiquemos, es decir, de manera ascendente o descendente.
-Como comento en [este issue](https://github.com/irenecj/proyecto-idiomas/issues/46) he elegido desplegar dicha función ya que me parece que no es tan simple como mostrar sólo la lista de palabras sin más.
-Para llevar a cabo la implementación debemos ver cómo se pasan los parámetros por la URL, comprobar si el parámetro se ha introducido con un formato correcto y es un orden válido, y en caso contrario mostrar un mensaje de error y después mostramos la lista.
+La función que vamos a implementar se llama **ordenarAlfabeto(orden)** y corresponde a la [HU8.](https://github.com/irenecj/proyecto-idiomas/issues/25) Esta función se encarga de devolvernos una lista de las palabras junto con su significado, según el orden que le indiquemos, es decir, de manera ascendente o descendente.
+Como comento en [este issue](https://github.com/irenecj/proyecto-idiomas/issues/46) he elegido desplegar dicha función ya que me parece que no es tan simple como mostrar sólo la lista de palabras sin más ya que para llevar a cabo la implementación debemos ver cómo se pasan los parámetros por la URL, comprobar si el parámetro se ha introducido con un formato correcto y es un orden válido, y en caso contrario mostrar un mensaje de error y después mostramos la lista.
 
 Veamos todo esto con más detalle. En primer lugar, hemos creado un fichero [data.json](https://github.com/irenecj/proyecto-idiomas/blob/master/api/data/data.json) donde tenemos tanto nuestras palabras y su significado, como las expresiones populares y las frases cotidianas, y de dicho fichero vamos a recuperar los datos con los que formaremos nuestra respuesta.
 
@@ -58,12 +57,12 @@ Pasamos a analizar el código.
 ![](../imagenes/ordenar1.png)
 
 En primer lugar debemos hacer los *require* a nuestro fichero de datos y a la clase *idioma* ya que en ella tenemos las funciones necesarias para la integrar dicha función con nuestro código.
-Nuestra función se va a basar en que a partir del orden que se le proporcione mediante la url, nos mostrará un listado del vocabulario registrado de manera ascendente o descendente, por lo que lo primero que debemos hacer es leer nuestro fichero **data.json** e ir añadiendo las palabras junto con su significado que vayamos encontrando, para así tenerlas todas almacenadas en un vector, llamado *listado*.
+Nuestra función se va a basar en que a partir del orden que se le proporcione mediante la url, nos mostrará un listado del vocabulario registrado de manera ascendente o descendente, por lo que lo primero que debemos hacer es leer nuestro fichero **data.json** e ir añadiendo las palabras que vayamos encontrando junto con su significado, para así tenerlas todas almacenadas en un vector, llamado *listado*.
 
 ![](../imagenes/ordenar2.png)
 
-En el caso de que el orden introducido sea válido procedemos a ordenar el resultado. Para ello debemos crear un json, que enviaremos como respuesta, y que contendrá el listado ordenado. Simplemente debemos recorrer las traducciones e ir creando nuestro diccionario, cuya clave es *traducciones*, con las palabras en el orden correspondiente.
-En el caso en que el orden que se introduzca no sea válido, por ejemplo *numérico*, devolveremos un json el cual nos va a indicar que hay un error y que sólo podemos introducir como orden *ASCENDENTE* o *DESCENDENTE*.
+En el caso de que el orden introducido sea válido procedemos a ordenar el resultado. Para ello debemos crear un json, que enviaremos como respuesta, y que contendrá el listado ordenado. Simplemente debemos recorrer las traducciones ya ordenadas e ir creando nuestro diccionario, cuya clave es *traducciones*, con las palabras en el orden correspondiente.
+En el caso en que el orden que se introduzca no sea válido, por ejemplo *numérico*, devolveremos un json el cual nos va a indicar que hay un error y que sólo podemos introducir como orden *ASCENDENTE* o *DESCENDENTE* en ese formato.
 
 Finalmente enviamos como respuesta nuestro objeto. Para probar que esto funciona simplemente debemos acceder a [este enlace](https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=ASCENDENTE) y vemos como la lista aparece ordenada de manera ascendente. Si queremos corroborar que funciona también de manera descendente simplemente usamos [este otro enlace.]((https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=DESCENDENTE)
 
