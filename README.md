@@ -28,29 +28,34 @@ Para lanzar el test de cobertura, debemos ejecutar:
 grunt coverage
 ~~~
 
-## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 4 - INTEGRACIÓN CONTINUA :eyes:
-Esta entrega ha consistido en añadir integración continua a nuestro proyecto con diferentes plataformas. Para poder usar las diferentes plataformas que vamos a utilizar, siempre debemos realizar un primer paso y es registrarse. Por ello, he adjuntado una [explicación](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/registros-CI.md) de cómo registrarse en dichas plataformas.
+## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 5 - USO DE SISTEMAS SERVERLESS :eyes:
+El principal objetivo de esta entrega era entender los sistemas serverless y desplegar nuestro proyecto en dos de las alternativas proporcionadas. Además, se proponía llevar a cabo la implementación de un Bot de Telegram.
 
-#### INTEGRACIÓN CONTINUA CON TRAVIS CI
-En el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) podemos encontrar como ha sido el proceso de usar Travis para nuestro proyecto, y además, he redactado otro [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md) en el que explico cómo funciona el fichero de configuración que utiliza Travis para trabajar.
+#### DESPLIEGUE CORRECTO Y FUNCIONANDO DE VERCEL PARA DESPLIEGUE CONTINUO / INTEGRACIÓN DEL PROYECTO GENERAL / IR MÁS ALLÁ DEL DESPLIEGUE DE UN EJEMPLO (RÚBRICAS 1 Y 2)
+En mi caso, he llevado a cabo la resolución de la [rúbrica 1](http://jj.github.io/IV/documentos/proyecto/5.Serverless) desplegando una función de ejemplo en Vercel, y a continuación he resuelto la [rúbrica 2](http://jj.github.io/IV/documentos/proyecto/5.Serverless) desplegando una función relacionada con mi proyecto.
+- Para ver la documentación sobre el despliegue correcto de una función de ejemplo en Vercel debemos leernos los **dos primeros apartados** del siguiente [fichero.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md)
+- El resto de apartados del [fichero anterior](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md) se corresponden al despliegue de una función de nuestro proyecto.
+  - La función escogida ha sido **ordenarAlfabeto(orden)** la cual nos permite mostrar el listado de palabras junto con su significado ordenado de manera ascendente o descendente, y está relacionada con la [HU8.](https://github.com/irenecj/proyecto-idiomas/issues/25)
+- Para integrar esta entrega con el proyecto hemos creado 3 [issues](https://github.com/irenecj/proyecto-idiomas/issues?q=is%3Aissue+is%3Aclosed) que tratan sobre la entrega y que a su vez han estado relacionados con nuestras HU.
+  - [Issue 46](https://github.com/irenecj/proyecto-idiomas/issues/46): despliegue en Vercel de la función ordenarAlfabeto(orden).
+  - [Issue 47](https://github.com/irenecj/proyecto-idiomas/issues/47): despliegue de la función mostrarPalabra(palabra) en Netlify.
+  - [Issue 48](https://github.com/irenecj/proyecto-idiomas/issues/48): despliegue de Bot de Telegram en Netlify.
 
-#### INTEGRACIÓN CONTINUA CON CIRCLE CI
-En este apartado, tenemos un [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md) en el que explico el por qué elegir Cricle-CI y cómo he trabajado con dicha plataforma.
+#### USO DE VARIAS PLATAFORMAS DE DESPLIEGUE / INTEGRACIÓN DE UN BOT DE TELEGRAM (RÚBRICAS 3 Y 4)
+En mi caso, he decidido usar Netlify para desplegar una función de nuestro proyecto y para desplegar un Bot de Telegram.
+- En cuanto a la explicación de cómo se ha implementado la función escogida, debemos leernos el primer apartado del siguiente [fichero.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
+- En el resto del [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md) tenemos la explicación sobre nuestro [Bot de Telegram.](https://t.me/YourVocab_bot)
 
-#### USO DEL GESTOR DE TAREAS
-[Aquí](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/gestor-tareas.md) podemos ver como se ha hecho uso del gestor de tareas para añadir la integración continua al proyecto con las diferentes plataformas.
-
-#### APROVECHAMIENTO DEL CONTENEDOR DE DOCKER HUB
-En el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis) tenemos tanto el [uso de Travis](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) aprovechando y sin aprovechar el contenedor junto con la explicación de los [diferentes ficheros de configuración diseñados](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md), y en este [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) se encuentra el desarrollo de cómo hemos trabajado con Circle CI con y sin usar el contenedor.
-
-#### AVANCE DE CÓDIGO
-Para esta entrega he decidido añadir tres Historias de Usuario y he implementado todo aquello que necesitan para llevarse a cabo.
-- [HU9.](https://github.com/irenecj/proyecto-idiomas/issues/41) Añadir frases cotidianas.
-- [HU10.](https://github.com/irenecj/proyecto-idiomas/issues/42) Mostrar frases cotidianas en función del tipo.
-- [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
-Esto ha conllevado a la creación de la clase *cotidiano.js* junto con sus respectivos tests, la implementación de la clase *NoAcierto.js* para gestionar excepciones, y la ampliación de código en la clase *idioma.js*.
-
-La explicación de todas las clases implementadas se encuentra en este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/clases-implementadas/clases-implementadas.md). Y el código fuente está en este [directorio.](https://github.com/irenecj/proyecto-idiomas/tree/master/src)
+#### ARCHIVOS COMPLEMENTARIOS
+Hemos añadido en el fichero [iv.yaml](https://github.com/irenecj/proyecto-idiomas/blob/master/iv.yaml) la URL a la que hacer peticiones a nuestra función de Vercel, y el fichero [5.json](https://github.com/irenecj/proyecto-idiomas/blob/master/5.json) que contiene el resultado que debemos obtener.
+- En el directorio [funcitons](https://github.com/irenecj/proyecto-idiomas/tree/master/functions) tenemos todo aquello que hemos necesitado para los despliegues en Netlify.
+  - [bot.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/bot.js) - contiene las funciones que necesitamos para dar respuesta con nuestro bot.
+  - [index.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/index.js) - contiene las tareas que realiza nuestro bot, es decir, los comandos disponibles.
+  - [listado.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/listado.js) - contiene la función para buscar palabras concretas.
+  - [data.json](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/data/data.json) - contiene los datos que necesitamos.
+- En el directorio [api](https://github.com/irenecj/proyecto-idiomas/tree/master/api) tenemos los ficheros utilizados en el despligue en Vercel.
+  - [hello.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/hello.js) - fichero de ejemplo
+  - [ordenar.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/ordenar.js) - contiene la implementación de la función *ordenarAlfabeto(orden)*.
 
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
@@ -86,6 +91,20 @@ docker pull ghcr.io/irenecj/proyectoidiomas:latest
 docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas:latest
 ~~~
 
+### :file_folder: INTEGRACIÓN CONTINUA
+
+#### INTEGRACIÓN CONTINUA CON TRAVIS CI
+En el siguiente [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) podemos encontrar como ha sido el proceso de usar Travis para nuestro proyecto, y además, he redactado otro [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md) en el que explico cómo funciona el fichero de configuración que utiliza Travis para trabajar.
+
+#### INTEGRACIÓN CONTINUA CON CIRCLE CI
+En este apartado, tenemos un [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md) en el que explico el por qué elegir Cricle-CI y cómo he trabajado con dicha plataforma.
+
+#### USO DEL GESTOR DE TAREAS
+[Aquí](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/gestor-tareas.md) podemos ver como se ha hecho uso del gestor de tareas para añadir la integración continua al proyecto con las diferentes plataformas.
+
+#### APROVECHAMIENTO DEL CONTENEDOR DE DOCKER HUB
+En el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis) tenemos tanto el [uso de Travis](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) aprovechando y sin aprovechar el contenedor junto con la explicación de los [diferentes ficheros de configuración diseñados](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/pruebas-travis.md), y en este [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/travis/CI-travis.md) se encuentra el desarrollo de cómo hemos trabajado con Circle CI con y sin usar el contenedor.
+
 ## :closed_book: RECOPILACIÓN DE ENLACES ÚTILES
 1.  [Configuración de git y creación de par de claves y subida de clave pública a GitHub.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/config.md)
 2. [Elección y justificación de las herramientas y servicios utilizados.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/herramientas.md)
@@ -102,6 +121,11 @@ docker run -t -v `pwd`:/test ghcr.io/irenecj/proyectoidiomas:latest
 13. [Subir contenedor a GitHub Docker Registry.](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/docs/github-container-registry.md)
 14. [Integración continua con Travis CI.](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/integracion-continua/travis)
 15. [Integración continua con Circle CI.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/integracion-continua/circle/Circe-CI.md)
+16. [Despliegue con Vercel.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md)
+18. [Archivos necesarios para despliegue en Vercel.](https://github.com/irenecj/proyecto-idiomas/tree/master/api)
+19. [Despliegue con Netlify.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
+20. [Archivos necesarios para despliegue en Netlify.](https://github.com/irenecj/proyecto-idiomas/tree/master/functions)
+21. [Despliegue de un Bot de Telegram.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
 
 ## :heavy_check_mark: ISSUES Y MILESTONES
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/issues?q=is%3Aissue+is%3Aclosed) de issues cerrados.
