@@ -6,10 +6,18 @@
     },
     {
       "palabra":"ESTUCHE.",
-      "significado":"TROUSSE."
+      "significado":"TROUSSE.UTILIZADO PARA GUARDAR, ENTRE OTROS, UTENSILIOS ESCOLARES COMO SON LÁPICES Y BOLÍGRAFOS."
+    },
+    {
+      "palabra":"ZAPATO.",
+      "significado":"CHAUSSURE.CALZADO QUE CUBRE TOTAL O PARCIALMENTE EL PIE SIN SOBREPASAR EL TOBILLO, CON UNA SUELA DE UN MATERIAL CASI SIEMPRE MÁS DURO QUE EL RESTO."
+    },
+    {
+      "palabra":"ACEITUNA.",
+      "significado":"OLIVE.FRUTO DEL OLIVO, COMESTIBLE, DE PEQUEÑO TAMAÑO, FORMA OVALADA, COLOR VERDE OSCURO, NEGRO CUANDO ESTÁ MADURA, Y CON UN HUESO O CAROZO GRANDE Y DURO EN SU INTERIOR."
     }
   ],
-  "frases":[
+  "expresiones":[
     {
       "frase":"BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.",
       "tipo":"SALUDO."
@@ -27,7 +35,7 @@
       "tipo": "PRESENTARSE"
     }
   ],
-  "expresiones_populares":[
+  "frases_populares":[
     {
       "expresion":"C'EST SIMPLE COMME BONJOUR.",
       "significado":"SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO."
