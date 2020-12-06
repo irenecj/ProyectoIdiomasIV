@@ -25,6 +25,7 @@ A parte de basarnos en los tests de rendimiento también debemos valorar las car
 - Usa **async/await** que mejora la lectura del código.
 - El manejo de errores es más fino y con un solo middleware sería suficiente para manejarlos y solventarlos.
 - Gestión de rutas relativamente sencilla y bien documentada.
+- Permite el uso de middlewares simplemente indicando **app.use**. Si queremos poder hacer peticiones debemos importar **koa-route**.
 - Permite el uso de objetos que contienen propiedades útiles de Koa, mediante el **context**, al que nos referimos como **ctx**. Entre dichas propiedades nos encontramos *request*, *response*, *state* recomendado para pasar datos entre middlewares, *cookies*, que es una instancia de paquete de cookies, permitiendo agregar y obtener cookies firmadas, *throw*, para lanzar errores, entre otros.
 - Permite testeo con *Jest* y *Supertest*.
 
@@ -60,6 +61,9 @@ npm install @hapi/hapi
 
 El fichero creado para hacer las pruebas es el siguiente:
 
+![](../imagenes/prueba-hapi.png)
+
+Lo primero que hacemos es establecer cual va a ser el puerto en el que escuchará nuestro servidor e indicar que vamos a hacer las peticiones al localhost. Una vez hecho esto, definimos una ruta a la página principal y mostramos nuestro *Hello World*. Como vemos, estamos haciendo uso de una función asíncrona, y una vez establecemos la función debemos arrancar el servidor y mostrar un mensaje para saber que efectivamente estamos en la URI indicada.
 
 Podemos comprobar que funciona correctamente:
 
@@ -81,11 +85,23 @@ Nos hemos basado en la [página oficial](https://koajs.com/) para poder llevar a
 Primero debemos proceder a instalar el framework:
 ~~~
 npm install install koa
+
+npm install koa-router
 ~~~
 
 Y a continuación creamos nuestro *Hello World*.
 
-[](../imagenes/prueba-koa.png)
+![](../imagenes/koa-prueba.png)
+
+En este fichero, lo primero que llama la atención es que importamos tanto **koa** como **koa-router**, esto se debe a que el módulo **koa-router** es el que nos permite usar los métodos GET, POST, PUT y DELETE entre otros.
+A continuación establecemos nuestra ruta en la cual mostraremos el *Hello World* y cabe destacar que *ctx* es el objeto del que hemos hablado en las características de Koa y mediante el cual mandaremos la respuesta.
+
+A continuación, tenemos un middleware que se encargará de devolver la ruta correspondiente a la solicitud realizada y otro que verificará que el método sea correcto, es decir, si nosotros hemos establecido el path */ruta* como GET, si el usuario intenta hacer una petición POST en dicho path automáticamente saltará un error.
+Podemos comprobar esto usando una extensión de Chrome, llamada **Postman**, con la cual podemos lanzar peticiones HTTP. Aclarar, que puede probarse en el navegador como acostumbramos, simplemente aquí se ve más claro.
+
+![](../imagenes/errormetodo-koa.png)
+
+Vemos que directamente nos indica un error 405, que significa que el método no está permitido, ya que hemos definido nuestra ruta como GET, no como POST.
 
 Y comprobamos que funciona correctamente:
 
@@ -108,7 +124,10 @@ npm install restify
 ~~~
 
 Al igual que antes, creamos el fichero de prueba y vemos que funciona correctamente.
-[](../imagenes/prueba-restify.png)
+
+![](../imagenes/prueba-restify.png)
+
+Comenzamos dándole un nombre a nuestro servidor e indicando una versión del mismo. Hecho esto, establecemos nuestra ruta y respondemos con un mensaje. Finalmente, indicamos en qué puerto vamos a estar escuchando.
 
 ![](../imagenes/hello-restify.png)
 
