@@ -5,6 +5,7 @@ const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const NoAcierto = require("../src/excepciones/NoAcierto.js");
+const Encontrada = require("../src/excepciones/Encontrada.js");
 const Traduccion = require("../src/traduccion.js");
 const Expresion = require("../src/expresion.js");
 const Cotidiano = require("../src/cotidiano.js");
@@ -49,9 +50,21 @@ class Idioma{
         var significadoNoString = this.comprobarString(significado);
         var formatoValidoP = this.comprobarFormato(palabra);
         var formatoValidoS = this.comprobarFormato(significado);
+        var encontrada = 0;
         if( palabraNoString == false && significadoNoString == false && formatoValidoP == true && formatoValidoS == true){
+          for(var i in this.listado){
+            if(palabra.toUpperCase() == this.listado[i].getPalabra()){
+              encontrada++;
+            }
+          }
+          
+          if(encontrada == 0){
             var palabraNueva = new Traduccion(palabra.toUpperCase(), significado.toUpperCase());
             this.listado.push(palabraNueva);
+          }else{
+            throw new Encontrada('La palabra introducida ya existe, por favor registre otra palabra.');
+          }
+         
         }
       }
 

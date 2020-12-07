@@ -4,6 +4,7 @@ const NoEncontrada = require("../src/excepciones/NoEncontrada.js");
 const NoOrden = require("../src/excepciones/NoOrden.js");
 const NoFormato = require("../src/excepciones/NoFormato.js");
 const NoAcierto = require("../src/excepciones/NoAcierto.js");
+const Encontrada = require("../src/excepciones/Encontrada.js");
 const Traduccion = require("../src/traduccion.js");
 const Expresion = require("../src/expresion.js");
 const Cotidiano = require("../src/cotidiano.js");
@@ -11,7 +12,7 @@ const enumOrden = ["ASCENDENTE" , "DESCENDENTE"];
 
 //VARIABLES A UTILIZAR
 var palabra, significado;
-var tam_vocab, tam_descrip;
+var tam_vocab;
 var thrown_error;
 var expectedError;
 var letra;
@@ -73,13 +74,21 @@ describe("Testeando la clase idioma.js", () => {
       expect(ultimaPalabra).toBe("INFORMÁTICA.");
       expect(ultimaDescrip).toBe("INFORMATIQUE.CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS.");
     });
+    test("Comprobando que no nos permite añadir palabras ya existentes.", () => {
+      palabra = "INFORMÁTICA.";
+      significado = "INFORMATIQUE. ESTE ES OTRO SIGNIFICADO DE INFORMÁTICA.";
+
+      thrown_error = () => idioma.aniadirVocab(palabra,significado);
+      expectedError = new Encontrada('La palabra introducida ya existe, por favor registre otra palabra.');
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
 
   describe("Testeando el método mostrarVocab()", () => {
     test("Comprobamos que se han mostrado TODAS las palabras", () => {
       //el vector que mostramos debe ser igual que el vector de palabras, sino no se habrán mostrado todas
       var tam_vector_esperado = idioma.mostrarVocab().length;
-      var tam_vocab = idioma.listado.length;
+      tam_vocab = idioma.listado.length;
       expect(tam_vector_esperado).toEqual(tam_vocab);
     });
   });
@@ -230,7 +239,7 @@ describe("Testeando la clase idioma.js", () => {
     test("Comprobando que se muestran TODAS las expresiones", () => {
       //el tamaño del vector devuelto tiene que ser el mismo que el del vector de expresiones
       var tam_vector_expresiones = idioma.mostrarExpresiones().length;
-      var tam_vocab = idioma.listado.length;
+      tam_vocab = idioma.listado.length;
       expect(tam_vector_expresiones).toEqual(tam_vocab);
     });
     test("Comprobando que funciona correctamente", () => {
@@ -283,7 +292,7 @@ describe("Testeando la clase idioma.js", () => {
       //creamos un vector de definiciones
       var definiciones = ["CAMBIO DESCRIPCIÓN DE LA MESA.", "CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS." ];
       var defAleatoria = idioma.generarDefinicion();
-      var defEsperada = [defAleatoria];
+      var defEsperada = definiciones[defAleatoria];
 
       //miramos que la definición esté en el array
       expect.arrayContaining(defEsperada);
