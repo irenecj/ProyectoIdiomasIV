@@ -91,10 +91,10 @@ npm install koa-router
 
 Y a continuación creamos nuestro *Hello World*.
 
-![](../imagenes/koa-prueba.png)
+![](../imagenes/koaPrueba.png)
 
 En este fichero, lo primero que llama la atención es que importamos tanto **koa** como **koa-router**, esto se debe a que el módulo **koa-router** es el que nos permite usar los métodos GET, POST, PUT y DELETE entre otros.
-A continuación establecemos nuestra ruta en la cual mostraremos el *Hello World* y cabe destacar que *ctx* es el objeto del que hemos hablado en las características de Koa y mediante el cual mandaremos la respuesta.
+A continuación establecemos nuestra ruta en la cual mostraremos el *Hello World* y cabe destacar que *ctx* es el objeto del que hemos hablado en las características de Koa y mediante el cual mandaremos el mensaje.
 
 A continuación, tenemos un middleware que se encargará de devolver la ruta correspondiente a la solicitud realizada y otro que verificará que el método sea correcto, es decir, si nosotros hemos establecido el path */ruta* como GET, si el usuario intenta hacer una petición POST en dicho path automáticamente saltará un error.
 Podemos comprobar esto usando una extensión de Chrome, llamada **Postman**, con la cual podemos lanzar peticiones HTTP. Aclarar, que puede probarse en el navegador como acostumbramos, simplemente aquí se ve más claro.
