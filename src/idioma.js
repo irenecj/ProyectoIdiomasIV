@@ -204,6 +204,7 @@ class Idioma{
       }
     }
 
+    //MOSTRAR FRASES SEGÚN EL TIPO
     mostrarFrases(tipo){
       var resultado = new Array();
       for(var i in this.frasesCot){

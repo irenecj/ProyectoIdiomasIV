@@ -53,6 +53,17 @@ class Controller {
     var expresiones = this.idioma.mostrarExpresiones();
     return expresiones;
   }
+
+  //añadir frases cotidianas -> HU9
+  nuevaFrase(frase,tipo){
+    this.idioma.aniadirFrase(frase,tipo);
+  }
+
+  //mostrar frases cotidianas por tipo -> HU10
+  todasFrases(tipo){
+    var frases = this.idioma.mostrarFrases(tipo);
+    return frases;
+  }
 }
 
 module.exports = Controller;

@@ -120,6 +120,33 @@ router.get('/expresiones', (ctx) => {
   ctx.body = { lista_expresiones }
 });
 
+//añadir frases cotidianas -> HU9
+router.post('/frases/:frase/:tipo', (ctx) => {
+  var frase = ctx.params.frase;
+  var tipo = ctx.params.tipo;
+  control.nuevaFrase(frase,tipo);
+  ctx.status = 200;
+  ctx.body = {
+    frase: frase,
+    tipo: tipo
+  }
+});
+
+//mostrar frases cotidianas por tipo -> HU10
+router.get('/frases/:tipo', (ctx) => {
+  var tipo = ctx.params.tipo;
+  var frases = control.todasFrases(tipo);
+  var lista_frase = [];
+  frases.forEach(elemento => {
+    lista_frases.push({
+      frase: elemento.getFrase(),
+      tipo: elemento.getTipo()
+    });
+  });
+  ctx.status = 200;
+  ctx.body = { lista_frases }
+});
+
 app.use(router.routes());
 app.use(bodyParser());
 app.use(router.allowedMethods());
