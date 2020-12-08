@@ -58,7 +58,7 @@ router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
   ctx.status = 200;
   ctx.body = {
     palabra: palabra,
-    significado: significadoNuevo
+    significado: significado
   }
 });
 
@@ -84,7 +84,7 @@ router.get('/vocabulario/ordenar/:orden', (ctx) => {
   var traducOrdenadas = control.ordenarVocab(orden);
   var lista_traducciones = [];
   traducOrdenadas.forEach(elemento => {
-    traducOrdenadas.push({
+    lista_traducciones.push({
       palabra: elemento.getPalabra(),
       significado: elemento.getSignificado()
     });
