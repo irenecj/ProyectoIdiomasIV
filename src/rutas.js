@@ -13,48 +13,60 @@ router.get('/', (ctx) => {
   ctx.body = 'La API está funcionando.';
 });
 
-//obtener el listado de vocabulario completo -> HU1
-router.get('/vocabulario', (ctx) => {
-  ctx.body = control.todasTraducciones();
-});
-
-//añadir una traducción nueva -> HU2
+//añadir una traducción nueva
 router.post('/vocabulario/:palabra/:significado', (ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significado;
-  var traducAñadida = control.nuevaTraduccion(palabra,significado);
+  control.nuevaTraduccion(palabra,significado);
   ctx.status = 200;
   ctx.body = {
-    traducAñadida
+    palabra: palabra,
+    significado: significado
   }
 });
 
-//buscar una palabra concreta en el listado -> HU3
+//obtener el listado de vocabulario completo
+router.get('/vocabulario', (ctx) => {
+  var traducciones = control.todasTraducciones();
+  var lista_traducciones = [];
+  traducciones.forEach(elemento => {
+    lista_traducciones.push({
+      palabra: elemento.getPalabra(),
+      significado: elemento.getSignificado()
+    });
+  });
+  ctx.status = 200;
+  ctx.body = { lista_traducciones };
+});
+
+//buscar una palabra concreta en el listado
 router.get('/vocabulario/:palabra', (ctx) => {
   var palabra = ctx.params.palabra;
-  var traducEncontrada = control.traduccion(palabra);
+  var significadoEncontrado = control.traduccion(palabra);
   ctx.status = 200;
   ctx.body = {
-    traducEncontrada
+    palabra: palabra,
+    significado: significadoEncontrado
   }
 });
 
-  //modificar el significado de una palabra concreta
-  router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
-    var palabra = ctx.params.palabra;
-    var significado = ctx.params.significadoNuevo;
-    var traducModificada = control.cambioSignificado(palabra, significado);
-    ctx.status = 200;
-    ctx.body = {
-      traducModificada
-    }
-  });
+//modificar el significado de una palabra concreta
+router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
+  var palabra = ctx.params.palabra;
+  var significado = ctx.params.significadoNuevo;
+  control.cambioSignificado(palabra, significado);
+  ctx.status = 200;
+  ctx.body = {
+    palabra: palabra,
+    significado: significadoNuevo
+  }
+});
 
 
-    app.use(router.routes());
-    app.use(bodyParser());
-    app.use(router.allowedMethods());
+app.use(router.routes());
+app.use(bodyParser());
+app.use(router.allowedMethods());
 
-    app.listen(8080, () => {
-      console.log('Server listening on port 8080');
-    });
+app.listen(8080, () => {
+  console.log('Server listening on port 8080');
+});

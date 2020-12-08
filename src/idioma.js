@@ -105,7 +105,7 @@ class Idioma{
         var noString = this.comprobarString(palabra);
         var formatoValidoP = this.comprobarFormato(palabra);
         var formatoValidoD = this.comprobarFormato(descripcionNueva);
-        if(noString == false && formatoValidoD == true){
+        if(noString == false && formatoValidoP && formatoValidoD == true){
           for(var i in this.listado){
             if(palabra.toUpperCase() == this.listado[i].getPalabra()){
             //  var descripcionActual = this.descripcion[i];
@@ -126,8 +126,6 @@ class Idioma{
     clasificaLetra(letra){
       var mostrar = new Array();
       var encontrada = false;
-      var letraMayusc;
-      var letraMinusc;
 
       var noString = this.comprobarString(letra);
       if(noString == false){
