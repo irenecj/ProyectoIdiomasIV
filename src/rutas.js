@@ -1,7 +1,7 @@
 const Koa = require('koa')
 const Router = require('koa-router')
 
-const Controller = require('./Controller.js')
+const Controller = require('./controller.js')
 const app = new Koa();
 const router = new Router();
 const control = new Controller();
