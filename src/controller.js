@@ -42,6 +42,17 @@ class Controller {
   var ordenadas = this.idioma.ordenarAlfabeto(orden);
     return ordenadas;
   }
+
+  //añadir expresiones populares -> HU6
+  nuevaExpresion(expresion, explicacion){
+    this.idioma.aniadirExpresiones(expresion, explicacion);
+  }
+
+  //mostrar las expresiones populares -> HU7
+  todasExpresiones(){
+    var expresiones = this.idioma.mostrarExpresiones();
+    return expresiones;
+  }
 }
 
 module.exports = Controller;

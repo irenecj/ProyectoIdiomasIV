@@ -94,6 +94,32 @@ router.get('/vocabulario/ordenar/:orden', (ctx) => {
   ctx.body = { lista_traducciones }
 });
 
+//añadir expresiones populares -> HU6
+router.post('/expresiones/:expresion/:explicacion', (ctx) => {
+  var expresion = ctx.params.expresion;
+  var explicacion = ctx.params.explicacion;
+  control.nuevaExpresion(expresion, explicacion);
+  ctx.status = 200;
+  ctx.body = {
+    expresion: expresion,
+    explicacion: explicacion
+  }
+});
+
+//mostrar todas las expresiones populares -> HU7
+router.get('/expresiones', (ctx) => {
+  var expresiones = control.todasExpresiones();
+  var lista_expresiones = [];
+  expresiones.forEach(elemento => {
+    lista_expresiones.push({
+      expresion: elemento.getExprPopular(),
+      explicacion: elemento.getExplicacion()
+    });
+  });
+  ctx.status = 200;
+  ctx.body = { lista_expresiones }
+});
+
 app.use(router.routes());
 app.use(bodyParser());
 app.use(router.allowedMethods());

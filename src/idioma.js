@@ -147,36 +147,35 @@ class Idioma{
 
     //FUNCIÓN QUE ORDENA ALFABETICAMENTE DE MANERA ASCENDENTE O DESCENDENTE
     ordenarAlfabeto(orden){
-  var orden = orden;
-  var ordenado = new Array();
-  var lista_palabras =new Array();
-  var diccionario = {};
-  var i = 0
-  while (i < this.listado.length){
-    lista_palabras[i] = this.listado[i].getPalabra();
-    diccionario[this.listado[i].getPalabra()] = this.listado[i].getSignificado();
-    i+=1;
-  }
-  // descendente
-  if(orden == enumOrden[0]){
-    ordenado = lista_palabras.sort();
-  }
-  else if(orden == enumOrden[1]){
-    var desordenado = new Array()
-    desordenado = lista_palabras.sort();
-    ordenado = desordenado.reverse();
-  }else{
-    throw new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
-  }
-  var j = 0;
-  for(var pal in ordenado){
-    this.listado[j].setPalabra(ordenado[pal])
-    this.listado[j].setSignificado(diccionario[ordenado[pal]]);
-    j+=1
-  }
-    return this.listado;
-
-}
+      var orden = orden;
+      var ordenado = new Array();
+      var lista_palabras =new Array();
+      var diccionario = {};
+      var i = 0
+      while (i < this.listado.length){
+        lista_palabras[i] = this.listado[i].getPalabra();
+        diccionario[this.listado[i].getPalabra()] = this.listado[i].getSignificado();
+        i+=1;
+      }
+      // descendente
+      if(orden == enumOrden[0]){
+        ordenado = lista_palabras.sort();
+      }
+      else if(orden == enumOrden[1]){
+        var desordenado = new Array()
+        desordenado = lista_palabras.sort();
+        ordenado = desordenado.reverse();
+      }else{
+        throw new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
+      }
+      var j = 0;
+      for(var pal in ordenado){
+        this.listado[j].setPalabra(ordenado[pal])
+        this.listado[j].setSignificado(diccionario[ordenado[pal]]);
+        j+=1
+      }
+        return this.listado;
+    }
 
 
     //FUNCIÓN PARA AÑADIR EXPRESIONES
@@ -189,12 +188,9 @@ class Idioma{
       }
     }
 
+    //FUNCIÓN PARA MOSTRAR LAS EXPRESIONES POPULARES
     mostrarExpresiones(){
-      var resultado = new Array();
-      for(var i in this.expresiones){
-        resultado.push(this.expresiones[i].getExpresion() + "\n");
-      }
-      return resultado;
+      return this.expresiones;
     }
 
     //FUNCIONES PARA FRASES COTIDIANAS
