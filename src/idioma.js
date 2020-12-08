@@ -206,13 +206,17 @@ class Idioma{
 
     //MOSTRAR FRASES SEGÚN EL TIPO
     mostrarFrases(tipo){
-      var resultado = new Array();
-      for(var i in this.frasesCot){
-        if(this.frasesCot[i].getTipo() == tipo){
-          resultado.push(this.frasesCot[i].getFrase());
+      var formatoTipo = this.comprobarFormato(tipo);
+      if(formatoTipo == true){
+        var resultado = new Array();
+        for(var i in this.frasesCot){
+          if(this.frasesCot[i].getTipo() == tipo){
+            resultado.push(this.frasesCot[i]);
+          }
         }
-      }
+
       return resultado;
+      }
     }
 
     //FUNCIÓN PARA GENERAR UN NÚMERO ALEATORIO

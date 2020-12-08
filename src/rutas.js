@@ -136,7 +136,7 @@ router.post('/frases/:frase/:tipo', (ctx) => {
 router.get('/frases/:tipo', (ctx) => {
   var tipo = ctx.params.tipo;
   var frases = control.todasFrases(tipo);
-  var lista_frase = [];
+  var lista_frases = [];
   frases.forEach(elemento => {
     lista_frases.push({
       frase: elemento.getFrase(),
