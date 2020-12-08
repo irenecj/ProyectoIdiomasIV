@@ -147,17 +147,22 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
-//middleware para detectar rutas no encontradas
-app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
-app.use(async ctx => {
-  ctx.status = 404;
-  return (ctx.body = {
-    error: 'Ruta no encontrada.'
-  });
+
+//middleware para gestión de errores
+app.use(async (ctx,next) => {
+  try{
+    await next();
+  }catch(err){
+    ctx.status = err.code;
+    ctx.body = err.message;
+  }
 });
 
-app.use(bodyParser());
 app.use(router.allowedMethods());
+app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
+
+app.use(bodyParser());
+
 
 app.listen(8080, () => {
   console.log('Server listening on port 8080');
