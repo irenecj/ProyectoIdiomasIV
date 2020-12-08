@@ -3,8 +3,6 @@
 //----------------------------------------------------------------------------
 
 const Idioma = require("./idioma.js");
-const Traduccion = require("./traduccion.js");
-const Cotidiano = require("./cotidiano.js");
 class Controller {
 
   constructor(){
@@ -28,10 +26,15 @@ class Controller {
     return significado;
   }
 
-
   //método para cambiar el significado de una palabra concreta -> HU4
   cambioSignificado(palabra,significadoNuevo){
     this.idioma.cambiarSignificado(palabra,significadoNuevo);
+  }
+
+  //mostrar traducciones que empiezan por una determinada letra -> HU5
+  filtrarLetra(letra){
+    var traducciones = this.idioma.clasificaLetra(letra);
+    return traducciones;
   }
 }
 

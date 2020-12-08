@@ -62,6 +62,21 @@ router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
   }
 });
 
+//mostrar traducciones que empiezan por una determinada letra -> HU5
+router.get('/vocabulario/filtrar/:letra', (ctx) => {
+  var letra = ctx.params.letra;
+  var traducciones = control.filtrarLetra(letra);
+  var lista_traducciones = [];
+  traducciones.forEach(elemento => {
+    lista_traducciones.push({
+      palabra: elemento.getPalabra(),
+      significado: elemento.getSignificado()
+    });
+  });
+
+  ctx.status = 200;
+  ctx.body = { lista_traducciones };
+});
 
 app.use(router.routes());
 app.use(bodyParser());

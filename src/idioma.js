@@ -133,7 +133,7 @@ class Idioma{
             var comienza = this.listado[i].getPalabra().startsWith(letra.toUpperCase());
 
             if(comienza == true){
-                mostrar.push(this.listado[i].getTraduccion());
+                mostrar.push(this.listado[i]);
                 encontrada = true;
             }
         }
