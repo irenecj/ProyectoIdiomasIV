@@ -36,6 +36,12 @@ class Controller {
     var traducciones = this.idioma.clasificaLetra(letra);
     return traducciones;
   }
+
+  //mostrar palabras ordenadas alfabéticamente -> HU8
+  ordenarVocab(orden){
+  var ordenadas = this.idioma.ordenarAlfabeto(orden);
+    return ordenadas;
+  }
 }
 
 module.exports = Controller;

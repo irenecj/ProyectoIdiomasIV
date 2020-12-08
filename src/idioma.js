@@ -148,9 +148,7 @@ class Idioma{
     //FUNCIÓN QUE ORDENA ALFABETICAMENTE DE MANERA ASCENDENTE O DESCENDENTE
     ordenarAlfabeto(orden){
   var orden = orden;
-  var mostrar = new Array();
   var ordenado = new Array();
-  var ordenadoA = new Array();
   var lista_palabras =new Array();
   var diccionario = {};
   var i = 0

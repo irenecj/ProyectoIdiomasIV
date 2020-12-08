@@ -78,6 +78,22 @@ router.get('/vocabulario/filtrar/:letra', (ctx) => {
   ctx.body = { lista_traducciones };
 });
 
+//mostrar palabras ordenadas alfabéticamente de manera ascendente o descendente -> HU8
+router.get('/vocabulario/ordenar/:orden', (ctx) => {
+  var orden = ctx.params.orden;
+  var traducOrdenadas = control.ordenarVocab(orden);
+  var lista_traducciones = [];
+  traducOrdenadas.forEach(elemento => {
+    traducOrdenadas.push({
+      palabra: elemento.getPalabra(),
+      significado: elemento.getSignificado()
+    });
+  });
+
+  ctx.status = 200;
+  ctx.body = { lista_traducciones }
+});
+
 app.use(router.routes());
 app.use(bodyParser());
 app.use(router.allowedMethods());
