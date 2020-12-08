@@ -6,6 +6,7 @@ const app = new Koa();
 const router = new Router();
 const control = new Controller();
 const bodyParser = require('koa-bodyparser');
+const logger = require('koa-logger');
 
 //prueba para saber que todo funciona correctamente
 router.get('/', (ctx) => {
@@ -55,7 +56,7 @@ router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significadoNuevo;
   control.cambioSignificado(palabra, significado);
-  ctx.status = 200;
+  ctx.status = 201;
   ctx.body = {
     palabra: palabra,
     significado: significado
@@ -147,6 +148,8 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
+//middleware para registrar log
+app.use(logger());
 
 //middleware para gestión de errores
 app.use(async (ctx,next) => {
@@ -167,3 +170,5 @@ app.use(bodyParser());
 app.listen(8080, () => {
   console.log('Server listening on port 8080');
 });
+
+module.exports = app;
