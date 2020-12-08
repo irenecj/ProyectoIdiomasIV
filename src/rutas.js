@@ -28,3 +28,13 @@ router.post('/vocabulario/:palabra/:significado', (ctx) => {
     traducAñadida
   }
 });
+
+//buscar una palabra concreta en el listado -> HU3
+router.get('/vocabulario/:palabra', (ctx) => {
+  var palabra = ctx.params.palabra;
+  var traducEncontrada = control.traduccion(palabra);
+  ctx.status = 200;
+  ctx.body = {
+    traducEncontrada
+  }
+});

@@ -39,6 +39,18 @@ class Controller {
 
     return lista_traducciones;
   }
+
+  //mmétodo para obtener una traducción concreta del listado a partir de la palabra -> HU3
+  traduccion(palabra){
+    var significado = this.idioma.mostrarPalabra(palabra);
+    var traduc_json = [];
+    traduc_json.push({
+      palabra: palabra,
+      significado: significado
+    });
+
+    return traduc_json;
+  }
 }
 
 module.exports = Controller;

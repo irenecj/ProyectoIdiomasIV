@@ -76,7 +76,7 @@ class Idioma{
       //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
       mostrarPalabra(palabra){
         var encontrada = 0;
-        var palabraEncontrada;
+        var significadoEncontrado;
         var indice;
         var noString = this.comprobarString(palabra);
         var formatoValidoP = this.comprobarFormato(palabra);
@@ -90,12 +90,12 @@ class Idioma{
         }
 
         if(encontrada > 0){
-          palabraEncontrada = this.listado[indice].getTraduccion()+ " \n";
+          significadoEncontrado = this.listado[indice].getSignificado();
         }else{
           throw new NoEncontrada("La palabra que busca no se ha encontrado");
         }
 
-        return palabraEncontrada;
+        return significadoEncontrado;
       }
 
       //MODIFICAR EL SIGNIFICADO DE UNA PALABRA
