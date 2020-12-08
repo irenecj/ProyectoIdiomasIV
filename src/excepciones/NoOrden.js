@@ -5,6 +5,7 @@ class NoOrden extends Error { //clase error ya viene en javascript
 		super(mensajeError);
 		this.name = 'NoOrden';
 		this.message = mensajeError;
+		this.code = 400;
 	}
 
 }

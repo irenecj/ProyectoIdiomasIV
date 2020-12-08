@@ -5,6 +5,7 @@ class NoFormato extends Error {
 		super(mensajeError);
 		this.name = 'NoFormato';
 		this.message = mensajeError;
+		this.code = 400;
 	}
 
 }
