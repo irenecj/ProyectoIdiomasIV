@@ -38,3 +38,23 @@ router.get('/vocabulario/:palabra', (ctx) => {
     traducEncontrada
   }
 });
+
+  //modificar el significado de una palabra concreta
+  router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
+    var palabra = ctx.params.palabra;
+    var significado = ctx.params.significadoNuevo;
+    var traducModificada = control.cambioSignificado(palabra, significado);
+    ctx.status = 200;
+    ctx.body = {
+      traducModificada
+    }
+  });
+
+
+    app.use(router.routes());
+    app.use(bodyParser());
+    app.use(router.allowedMethods());
+
+    app.listen(8080, () => {
+      console.log('Server listening on port 8080');
+    });

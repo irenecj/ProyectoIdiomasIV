@@ -51,6 +51,18 @@ class Controller {
 
     return traduc_json;
   }
+
+    //método para cambiar el significado de una palabra concreta -> HU4
+    cambioSignificado(palabra,significadoNuevo){
+      this.idioma.cambiarSignificado(palabra,significadoNuevo);
+      var traduc_json = [];
+      traduc_json.push({
+        palabra: palabra,
+        significado: significadoNuevo
+      });
+  
+      return traduc_json;
+    }
 }
 
 module.exports = Controller;
