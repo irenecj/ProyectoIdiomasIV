@@ -13,7 +13,7 @@ router.get('/', (ctx) => {
   ctx.body = 'La API está funcionando.';
 });
 
-//añadir una traducción nueva
+//añadir una traducción nueva -> HU2
 router.post('/vocabulario/:palabra/:significado', (ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significado;
@@ -25,7 +25,7 @@ router.post('/vocabulario/:palabra/:significado', (ctx) => {
   }
 });
 
-//obtener el listado de vocabulario completo
+//obtener el listado de vocabulario completo -> HU1
 router.get('/vocabulario', (ctx) => {
   var traducciones = control.todasTraducciones();
   var lista_traducciones = [];
@@ -39,7 +39,7 @@ router.get('/vocabulario', (ctx) => {
   ctx.body = { lista_traducciones };
 });
 
-//buscar una palabra concreta en el listado
+//buscar una palabra concreta en el listado -> HU3
 router.get('/vocabulario/:palabra', (ctx) => {
   var palabra = ctx.params.palabra;
   var significadoEncontrado = control.traduccion(palabra);
@@ -50,7 +50,7 @@ router.get('/vocabulario/:palabra', (ctx) => {
   }
 });
 
-//modificar el significado de una palabra concreta
+//modificar el significado de una palabra concreta -> HU4
 router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significadoNuevo;
