@@ -57,24 +57,20 @@ class Idioma{
               encontrada++;
             }
           }
-          
+
           if(encontrada == 0){
             var palabraNueva = new Traduccion(palabra.toUpperCase(), significado.toUpperCase());
             this.listado.push(palabraNueva);
           }else{
             throw new Encontrada('La palabra introducida ya existe, por favor registre otra palabra.');
           }
-         
+
         }
       }
 
       //FUNCIÓN PARA MOSTRAR TODAS LAS PALABRAS DEL VOCABULARIO
       mostrarVocab(){
-        var mostrar = new Array();
-          for(var i in this.listado){
-            mostrar.push(this.listado[i].getTraduccion() + "\n");
-           }
-        return mostrar;
+        return this.listado;
       }
 
       //FUNCIÓN PARA MOSTRAR UNA PALABRA CONCRETA
