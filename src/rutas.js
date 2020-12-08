@@ -147,7 +147,15 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
-app.use(router.routes());
+//middleware para detectar rutas no encontradas
+app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
+app.use(async ctx => {
+  ctx.status = 404;
+  return (ctx.body = {
+    error: 'Ruta no encontrada.'
+  });
+});
+
 app.use(bodyParser());
 app.use(router.allowedMethods());
 
