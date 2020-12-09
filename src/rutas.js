@@ -164,7 +164,7 @@ app.use(async (ctx,next) => {
 app.use(router.allowedMethods());
 app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 
 
 app.listen(8080, () => {
