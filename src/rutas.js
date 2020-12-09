@@ -19,7 +19,7 @@ router.post('/vocabulario/:palabra/:significado', (ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significado;
   control.nuevaTraduccion(palabra,significado);
-  ctx.status = 200;
+  ctx.status = 201;
   ctx.body = {
     palabra: palabra,
     significado: significado
@@ -56,7 +56,7 @@ router.put('/vocabulario/:palabra/:significadoNuevo',(ctx) => {
   var palabra = ctx.params.palabra;
   var significado = ctx.params.significadoNuevo;
   control.cambioSignificado(palabra, significado);
-  ctx.status = 201;
+  ctx.status = 200;
   ctx.body = {
     palabra: palabra,
     significado: significado
@@ -100,7 +100,7 @@ router.post('/expresiones/:expresion/:explicacion', (ctx) => {
   var expresion = ctx.params.expresion;
   var explicacion = ctx.params.explicacion;
   control.nuevaExpresion(expresion, explicacion);
-  ctx.status = 200;
+  ctx.status = 201;
   ctx.body = {
     expresion: expresion,
     explicacion: explicacion
@@ -126,7 +126,7 @@ router.post('/frases/:frase/:tipo', (ctx) => {
   var frase = ctx.params.frase;
   var tipo = ctx.params.tipo;
   control.nuevaFrase(frase,tipo);
-  ctx.status = 200;
+  ctx.status = 201;
   ctx.body = {
     frase: frase,
     tipo: tipo
