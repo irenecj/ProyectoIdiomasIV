@@ -1,12 +1,13 @@
 const Koa = require('koa')
 const Router = require('koa-router')
+const bodyParser = require('koa-bodyparser');
+const logger  = require('./winston.js');
 
 const Controller = require('./controller.js')
 const app = new Koa();
 const router = new Router();
 const control = new Controller();
-const bodyParser = require('koa-bodyparser');
-const logger  = require('./winston.js');
+
 
 //prueba para saber que todo funciona correctamente
 router.get('/', (ctx) => {
@@ -150,29 +151,25 @@ router.get('/frases/:tipo', (ctx) => {
 
 //middleware para registrar log
 app.use(async(ctx,next)=>{
-  
-   const start = new Date();
-   await next();
-   const fecha = new Date();
-   const ms = new Date() - start;
-   var nivel;
-   console.log(typeof(ctx.status))
-   if(ctx.status >= 404){
-      nivel = 'warn';
-                  }
-   if(ctx.status >= 100 && ctx.status <= 200){
-      nivel = 'info';
-    }
+  const start = new Date();
+  await next();
+  const fecha = new Date();
+  const ms = new Date() - start;
+  var nivel;
+  if(ctx.status >= 404){
+    nivel = 'warn';
+  }
+  if(ctx.status >= 100 && ctx.status <= 200){
+    nivel = 'info';
+  }
             
-    var respuesta = `${fecha}` + `${ctx.status} ${ctx.message}` + ` ${ctx.method} ${ctx.originalUrl}` + ` ${ms}`;
+  var respuesta = `${fecha}` + `${ctx.status} ${ctx.message}` + ` ${ctx.method} ${ctx.originalUrl}` + ` ${ms}`;
 
-
-logger.log({
-                level: nivel,
-                message:respuesta
-
-            });
-})
+  logger.log({
+    level: nivel,
+    message:respuesta
+  });
+});
 
 //middleware para gestión de errores
 app.use(async (ctx,next) => {
