@@ -5,6 +5,7 @@ class Encontrada extends Error { //clase error ya viene en javascript
 		super(mensajeError);
 		this.name = 'Encontrada';
 		this.message = mensajeError;
+		this.code = 400;
 	}
 
 }
