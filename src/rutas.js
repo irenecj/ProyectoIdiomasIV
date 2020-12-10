@@ -155,11 +155,11 @@ app.use(async(ctx,next)=>{
   await next();
   const fecha = new Date();
   const ms = new Date() - start;
-  var nivel;
-  if(ctx.status >= 404){
+  var nivel="Algo";
+  if(ctx.status >= 400){
     nivel = 'warn';
   }
-  if(ctx.status >= 100 && ctx.status <= 200){
+  else{
     nivel = 'info';
   }
             
