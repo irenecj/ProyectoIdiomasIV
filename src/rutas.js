@@ -12,7 +12,9 @@ const control = new Controller();
 //prueba para saber que todo funciona correctamente
 router.get('/', (ctx) => {
   ctx.status = 200;
-  ctx.body = 'La API está funcionando.';
+  ctx.body = {
+    mensaje: 'La API está funcionando.'
+  }
 });
 
 //añadir una traducción nueva -> HU2
@@ -179,7 +181,7 @@ app.use(async (ctx,next) => {
     ctx.message = err.message;
     ctx.body = {
       error: ctx.message
-    };
+    }
   }
 });
 
