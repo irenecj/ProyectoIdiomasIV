@@ -30,7 +30,8 @@ Para llevar a cabo los tests vamos a usar **Jest**  ya que tiene una documentaci
 
 --------------------------------------------------------------------------------
 Para el sistema de log hay varias opciones, aunque principio he visto más documentación y mejores opiniones sobre **Winston**, pero aún tengo que informarme más para saber cuál elegir.
+Tras realizar el hito 6, me decanté por Winston ya que el framework que elegí, **Koa**, traía un módulo para implementar un sistema de log con Winston. Es cierto que también tiene un módulo para usar Morgan como sistema de log, pero me resultó más sencilla la implementación de dicho sistema con Winston.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
-**Adicional:** en muchos sitios recomiendan que se use un *framework de web* pero aún no me queda claro cómo se usará dicho framework ni su funcionalidad en general. Como ejemplo de este framework he visto **sails.js** y éste viene preparado para trabajar con MySQL, lo que sería un punto a favor en mi caso, pero hasta que no comprenda del todo el uso de este servicio no me voy a centrar en él.
+En cuanto al framework que he utilizado, ya he mencionado que es **Koa**, y los motivos por los que he elegido dicho framework están reflejados en [este fichero.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/framework-elegido.md).
