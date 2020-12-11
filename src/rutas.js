@@ -166,8 +166,6 @@ app.use(async(ctx,next)=>{
     await next();
   }catch(err){
     ctx.message = err.message;
-    console.log(err.message);
-
   }
 
   const start = new Date();
