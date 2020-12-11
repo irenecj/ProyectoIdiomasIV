@@ -11,18 +11,18 @@ describe("GET /", function() {
 });
 
 //HU2 -> Añadir una traducción nueva
-describe("PUT /vocabulario/:palabra/:significado", function() {
+describe("POST /vocabulario/:palabra/:significado", function() {
   //Añadimos la palabra y el significado correctamente
   it('añadir una palabra y su significado', function(done){
     request(app)
-      .post('/vocabulario/:INFORMATICA./INFORMATIQUE.CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS.')
+      .post('/vocabulario/INFORMÁTICA./INFORMATIQUE.CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS.')
       .expect('Content-Type', /json/)
       .expect(201,done);
   });
   //Devolvemos un error ya que la palabra que se quiere añadir ya está registrada
-  it("mostrar error 404 si añadimos una palabra que ya existe", function(done){
+  it("mostrar error 400 si añadimos una palabra que ya existe", function(done){
     request(app)
-      .post('/vocabulario/:INFORMATICA./INFORMATIQUE.SIGNIFICADO DISTINTO AL ANTERIOR PERO CORRESPONDIENTE A LA MISMA PALABRA.')
+      .post('/vocabulario/INFORMÁTICA./INFORMATIQUE.SIGNIFICADO DISTINTO AL ANTERIOR PERO CORRESPONDIENTE A LA MISMA PALABRA.')
       .expect('Content-Type', /json/)
       .expect(400,done);
   });
@@ -36,5 +36,23 @@ describe("GET /vocabulario", function() {
       .get('/vocabulario')
       .expect('Content-Type', /json/)
       .expect(200,done);
+  });
+});
+
+//HU3 -> Buscar una palabra concreta en el listado
+describe("GET /vocabulario/:palabra", function(){
+  //Mostramos una palabra concreta junto con su significado / traducción 
+  it('mostrar palabra concreta', function(done){
+    request(app) 
+      .get('/vocabulario/INFORMÁTICA.')
+      .expect('Content-Type', /json/)
+      .expect(200,done);
+  });
+  //Devolvemos un error ya que buscamos una palabra que no existe 
+  it('mostrar error 404 si la palabra que buscamos no existe', function(done){
+    request(app)
+      .get('/vocabulario/LIBRO.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
   });
 });
