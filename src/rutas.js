@@ -106,8 +106,8 @@ router.post('/expresiones/:expresion/:explicacion', (ctx) => {
   control.nuevaExpresion(expresion, explicacion);
   ctx.status = 201;
   ctx.body = {
-    expresion: expresion,
-    explicacion: explicacion
+    expresion: expresion.toUpperCase(),
+    explicacion: explicacion.toUpperCase()
   }
 });
 
