@@ -14,7 +14,7 @@ Veamos un ejemplo para saber que funciona correctamente: si hemos añadido la pa
 
 ![](../imagenes/ejemplo-errorAñadir1.png)
 
-![](../imagenes/ejemplo-errorAñadir2.png)
+![](../imagenes/error-añadir2.png)
 
 #### RUTAS
 Vemos que tenemos otro middleware muy sencillo, formado por una sola línea que es **app.use(router.routes())**. Con este middleware le estamos pasando a Koa todas las rutas que hemos diseñado, y en si ocurre el caso en el que el usuario introduce una URI que no se encuentra entre aquellas que hemos diseñado, nos mostrará un error, cuyo código de estado será 404, acompañado del mensaje **Not Found**, ya que efectivamente no ha podido encontrar la ruta correspondiente.
@@ -45,7 +45,7 @@ Aquí podemos ver dicho diseño:
 
 Como ya he comentado, vamos a crear la instancia de Winston con la función **createLogger()** e indicamos en la sección *transports* vamos a poner la ubicación de nuestro fichero de logs, que en nuestro caso va a ser en *log/api.log*.
 
-![](../imagenes/log-middleware.png)
+![](../imagenes/middleware-log.png)
 
 Una vez creada nuestra instancia vamos a obtener una serie de datos que registraremos en nuestro fichero de log, *api.log*. Estos datos son:
 - **fecha:** se registran la fecha y hora actuales.
