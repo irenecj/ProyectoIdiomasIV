@@ -3,7 +3,8 @@ const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser');
 const logger  = require('./winston.js');
 
-const Controller = require('./controller.js')
+const Controller = require('./controller.js');
+const { Console } = require('winston/lib/winston/transports');
 const app = new Koa();
 const router = new Router();
 const control = new Controller();

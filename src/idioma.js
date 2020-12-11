@@ -205,7 +205,7 @@ class Idioma{
       var listaExpresiones = [];
       this.expresiones.forEach(element=>{
         listaExpresiones.push(element.getExpresion()+"\n")
-      })
+      });
       return listaExpresiones;
     }
 

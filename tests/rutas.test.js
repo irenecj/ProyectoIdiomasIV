@@ -112,12 +112,37 @@ describe("POST /expresiones/:expresion/:explicacion", function(){
 });
 
 //HU7 -> Mostrar el listado de expresiones populares 
-describe("GET /expresiones", function(){
-  //Mostramos el listado completo de expresiones 
-  it('mostrar expresiones populares', function(done){
-    request(app) 
-      .post('/expresiones')
+// describe("GET /expresiones", function(){
+//   //Mostramos el listado completo de expresiones 
+//   it('mostrar expresiones populares', function(done){
+//     request(app) 
+//       .get('/expresiones')
+//       .expect('Content-Type', /json/)
+//       .expect(200,done)
+//   });
+// });
+
+//HU8 -> Mostrar el listado de vocabulario ordenado ascendente o descendentemente 
+describe("GET /vocabulario/ordenar/:orden", function(){
+  //Ordenamos de manera ascendente
+  it('orden ascendente', function(done){
+    request(app)
+      .get('/vocabulario/ordenar/ASCENDENTE')
       .expect('Content-Type', /json/)
       .expect(200,done)
+  });
+  //Ordenamos de manera descendente 
+  it('orden descendente', function(done){
+    request(app)
+      .get('/vocabulario/ordenar/DESCENDENTE')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+  //Devolvemos un error si el orden proporcionado no es ASCENDENTE ni DESCENDENTE
+  it('mostrar error 400 ya que el orden proporcionado no es válido', function(done){
+    request(app)
+      .get('/vocabulario/ordenar/NUMÉRICO')
+      .expect('Content-Type', /json/)
+      .expect(400,done)
   });
 });
