@@ -27,3 +27,14 @@ describe("PUT /vocabulario/:palabra/:significado", function() {
       .expect(400,done);
   });
 });
+
+//HU1 -> Consultar todo el listado de vocabulario
+describe("GET /vocabulario", function() {
+  //Mostramos todo el listado de vocabulario
+  it('mostrar todo el listado', function(done){
+    request(app)
+      .get('/vocabulario')
+      .expect('Content-Type', /json/)
+      .expect(200,done);
+  });
+});
