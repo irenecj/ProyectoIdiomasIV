@@ -110,3 +110,14 @@ describe("POST /expresiones/:expresion/:explicacion", function(){
       .expect(400,done)
   });
 });
+
+//HU7 -> Mostrar el listado de expresiones populares 
+describe("GET /expresiones", function(){
+  //Mostramos el listado completo de expresiones 
+  it('mostrar expresiones populares', function(done){
+    request(app) 
+      .post('/expresiones')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+});
