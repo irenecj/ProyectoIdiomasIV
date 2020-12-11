@@ -149,25 +149,9 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
-
-//middleware para gestión de errores
-app.use(async (ctx,next) => {
-  try{
-    await next();
-  }catch(err){
-    ctx.status = err.code;
-    ctx.body = err.message;
-  }
-});
-
-//middleware para registrar log
+// //middleware para registrar log
 app.use(async(ctx,next)=>{
-  try{
-    await next();
-  }catch(err){
-    ctx.message = err.message;
-  }
-
+  await next();
   const start = new Date();
   const fecha = new Date();
   const ms = new Date() - start;
@@ -186,14 +170,27 @@ app.use(async(ctx,next)=>{
   });
 });
 
+//middleware para gestión de errores
+app.use(async (ctx,next) => {
+  try{
+    await next();
+  }catch(err){
+    ctx.status = err.code;
+    ctx.message = err.message;
+    ctx.body = {
+      error: ctx.message
+    };
+  }
+});
+
+
 app.use(router.allowedMethods());
 app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
 
 app.use(bodyParser());
 
+app.listen(8080);
+console.log('Server listening on port 8080');
 
-app.listen(8080, () => {
-  console.log('Server listening on port 8080');
-});
 
-module.exports = app;
+module.exports = app.listen();
