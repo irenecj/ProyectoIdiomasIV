@@ -114,7 +114,7 @@ describe("Testeando la clase idioma.js", () => {
        }
        significado = idioma.listado[indicePalabra].getSignificado();
 
-       expect(resultado).toBe("\nPALABRA --> "  + palabra + "\nSIGNIFICADO --> " + significado + " \n");
+       expect(resultado).toBe(significado);
      });
      test("Comprobando que la palabra se corresponde con la descripción", () => {
        //comprobamos que el significado es el de dicha palabra y no otro
