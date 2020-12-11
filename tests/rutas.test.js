@@ -146,3 +146,21 @@ describe("GET /vocabulario/ordenar/:orden", function(){
       .expect(400,done)
   });
 });
+
+//HU9 -> Añadir frase cotidiana al listado de frases 
+describe("POST /frases/:frase/:tipo", function(){
+  //Añadimos una frase cotidiana
+  it('añadir frase cotidiana', function(done){
+    request(app)
+    .post('/frases/À BIENTÔT.HASTA PRONTO./SALUDO.')
+    .expect('Content-Type', /json/)
+    .expect(201,done)
+  });
+  //Devolvemos un error si la frase cotidiana ya existe 
+  it('mostrar error 400 ya que la frase ya existe', function(done){
+    request(app)
+      .post('/frases/À BIENTÔT.HASTA PRONTO./SALUDO.')
+      .expect('Content-Type', /json/)
+      .expect(400,done)
+  });
+});

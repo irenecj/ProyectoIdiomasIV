@@ -213,10 +213,22 @@ class Idioma{
     aniadirFrase(frase, tipo){
       var formatoFrase = this.comprobarFormato(frase);
       var formatoTipo = this.comprobarFormato(tipo);
-
+      var encontrada = 0; 
+      
       if(formatoFrase == true && formatoTipo == true){
-        var fraseC = new Cotidiano(frase.toUpperCase(), tipo.toUpperCase());
-        this.frasesCot.push(fraseC);
+        for(var i in this.frasesCot){
+          if(frase.toUpperCase() == this.frasesCot[i].getFrase()){
+            encontrada++;
+          }
+        }
+
+        if(encontrada == 0){
+          var fraseC = new Cotidiano(frase.toUpperCase(), tipo.toUpperCase());
+          this.frasesCot.push(fraseC);
+        }else{
+          throw new Encontrada('La frase introducida ya existe, por favor registre otra frase.');
+        }
+
       }
     }
 

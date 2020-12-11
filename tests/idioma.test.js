@@ -262,8 +262,6 @@ describe("Testeando la clase idioma.js", () => {
       vectorObtenido = idioma.mostrarExpresiones();
 
       expect(vectorObtenido).toStrictEqual(vectorEsperado)
-      
-    
     });
   });
   describe("Testeando el método aniadirFrase()", () => {
@@ -276,7 +274,7 @@ describe("Testeando la clase idioma.js", () => {
 
       expect(tamañoActual).toEqual(tamañoOriginal + 1);
     });
-    test("Comprobamos que la expresión se ha añadido correctamente", () => {
+    test("Comprobamos que la frase se ha añadido correctamente", () => {
       frase = "DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.";
       tipo = "PEDIR DISCULPAS.";
 
@@ -289,6 +287,16 @@ describe("Testeando la clase idioma.js", () => {
       expect(ultimaFrase).toBe("DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.");
       expect(ultimoTipo).toBe("PEDIR DISCULPAS.");
     });
+    test("Comprobamos que no permite añadir frases que ya existen.", () => {
+      frase = "DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.";
+      tipo = "PEDIR DISCULPAS.";
+
+      thrown_error = () => idioma.aniadirFrase(frase,tipo);
+      expectedError = new Encontrada('La frase introducida ya existe, por favor registre otra frase.');
+
+      expect(thrown_error).toThrow(expectedError);
+      
+    })
   });
   describe("Testeando el método mostrarFrases()", () => {
     test("Comprobando que se muestra TODAS las expresiones del tipo indicado", () => {
