@@ -25,8 +25,8 @@ router.post('/vocabulario/:palabra/:significado', (ctx) => {
   control.nuevaTraduccion(palabra,significado);
   ctx.status = 201;
   ctx.body = {
-    palabra: palabra,
-    significado: significado
+    palabra: palabra.toUpperCase(),
+    significado: significado.toUpperCase()
   }
 });
 

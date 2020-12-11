@@ -182,3 +182,13 @@ describe("GET /frases/:tipo", function(){
       .expect(404,done)
   });
 });
+
+//Insertar un string con un formato incorrecto, es decir, si no acaba en punto final
+describe("POST /vocabulario/:palabra/:significado", function(){
+  it('mostrar error 400 ya que el formato no es válido', function(done){
+    request(app)
+      .post('/vocabulario/Informatica/Este sería el significado.')
+      .expect('Content-Type', /json/)
+      .expect(400,done)
+  });
+});
