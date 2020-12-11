@@ -56,3 +56,20 @@ describe("GET /vocabulario/:palabra", function(){
       .expect(404,done)
   });
 });
+
+//HU4 -> Modificar el significado de una palabra 
+describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
+  //Modificamos el significado de una palabra existente 
+  it('cambiar significado', function(done){
+    request(app)
+      .put('/vocabulario/INFORMÁTICA./CAMBIO EL SIGNIFICADO.')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+  it('mostrar error 404 si la palabra no existe', function(done){
+    request(app)
+      .put('/vocabulario/LIBRO./CAMBIO EL SIGNFICADO DE PALABRA INEXISTENTE.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
+});
