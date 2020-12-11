@@ -72,17 +72,18 @@ A continuación, mediante una llamada a la función **filtrarLetra(letra)** que 
 Una vez hecho esto, recorremos dichas traducciones y vamos formando nuestro JSON para después devolverlo junto con el código de estado 200.
 
 ##### FUNCIONAMIENTO CORRECTO
-Vamos a mostrar todas aquellas palabras que comiencen por L en nuestro vocabulario, para ello hemos añadido LUNA, LEER, LAPIZ y LIBRO.
+Vamos a mostrar todas aquellas palabras que comiencen por L en nuestro vocabulario, para ello hemos añadido LUNA, LEER, y LIBRO.
 
-![](..imagenes/filtra-letra.png)
+![](../imagenes/filtrar.png)
+
 
 #### HU6: AÑADIR EXPRESIÓN POPULAR
-Esta Historia de Usuario, tal y como indica, permite añadir expresiones populares propias del idioma que estamos aprendiendo, en nuestro caso francés. El diseño de la ruta es similar al realizado para la HU2, solo que ahora pasamos como parámetros la expresión y la correspondiente explicación.
+Esta Historia de Usuario, tal y como indica, permite añadir expresiones populares propias del idioma que estamos aprendiendo, en nuestro caso francés. El diseño de la ruta es similar al realizado para la HU2, solo que ahora pasamos como parámetros la expresión y la correspondiente explicación. La URI es **http://localhost:8080/expresiones/:expresion/:explicacion**.
 
 ![](../imagenes/ruta-6.png)
 
 #### HU7: MOSTRAR TODAS LAS EXPRESIONES POPULARES
-En este caso, vamos a permitir que el usuario pueda obtener un listado con todas las expresiones populares que hay registradas, por tanto el diseño de la ruta ha sido similar al de la HU1 pero con sus parámetros correspondientes.
+En este caso, vamos a permitir que el usuario pueda obtener un listado con todas las expresiones populares que hay registradas, por tanto el diseño de la ruta ha sido similar al de la HU1 pero con sus parámetros correspondientes. La URI es **http://loclahost:8080/expresiones**.
 
 ![](../imagenes/ruta7.png)
 
@@ -101,13 +102,26 @@ El objetivo de esta Historia de Usuario es permitir al usuario indicar si quiere
 Para ello hemos definido la URI **http://localhost:8080/vocabulario/ordenar/:orden** y usamos como método *GET*.
 Una vez captamos el orden introducido por el usuario, llamamos a la función **ordenarVocab(orden)** que nos devolverá el listado de traducciones ordenados, con el cual generaremos nuestro JSON y ya lo tendremos listo para enviarlo como respuesta.
 
+##### FUNCIONAMIENTO CORRECTO
+Para probar este funcionamiento, previamente hemos añadido las palabras: LUNA, LEER, INFORMÁTICA, LIBRO y MESA.
+Primero vamos a ordenar el listado *ascendentemente*:
+
+![](../imagenes/orden-asc.png)
+
+Ahora de manera *descendente*:
+
+![](../imagenes/orden-desc.png)
+
+
+
 #### HU9: AÑADIR FRASE COTIDIANA
-Esta ruta se ha diseñado igual que las de HU2 y HU6 y permite añadir una frase cotidiana usada en el lenguaje que estamos aprendiendo.
+Esta ruta se ha diseñado igual que las de HU2 y HU6 y permite añadir una frase cotidiana usada en el lenguaje que estamos aprendiendo. La URI correspondiente es **http://localhost:8080/frases/:frase/:tipo**.
 
 ![](../imagenes/ruta9.png)
 
 #### HU10: MOSTRAR TODAS LAS FRASES COTIDIANAS POR TIPO
 En este caso, vamos a mostrar sólo aquellas frases cotidianas de un tipo específico, el cual nos indicará el usuario. Por tanto, si estamos hablando con alguien y necesitamos una frase que nos permita despedirnos, tendremos que buscar el tipo SALUDO.
+La URI es **http://localhost:8080/frases/:tipo**.
 
 ![](../imagenes/ruta10.png)
 
@@ -123,3 +137,52 @@ Vamos a añadir dos frases del mismo tipo, en este caso SALUDO, y otra del tipo 
 ![](../imagenes/frase-presentarse.png)
 
 ![](../imagenes/listado-saludo.png)
+
+## REALIZACIÓN DE TESTS
+Como hemos hecho en hitos anteriores, todo el código que implementemos debe ser testeado para así evitar que se produzcan fallos.
+En este punto del proyecto debemos realizar tests de integración.
+¿Por qué realizar dichos tests?
+Esto se debe a que las pruebas de integración nos permiten detectar errores antes de proceder a levantar nuestra API y asegurarnos de que todas nuestra rutas funcionan correctamente.
+
+En mi caso, he estado testeando mi proyecto con **Jest**, y ahora para hacer los tests de integración voy a usar **Supertest**.
+
+¿Por qué Supertest?
+En primer lugar, he probado esta librería al realizar los ejercicios del tema y me ha resultado bastante cómoda y fácil de entender. Además, se integra muy bien con Jest y tiene una documentación muy completa, permitiendo que implementando muy pocas líneas de código tengamos nuestros tests listos para comenzar a realizar las pruebas de integración.
+
+Para que no resulte muy pesada la documentación, voy a comentar sólo el diseño de algunos tests concretos ya que estos se repiten en las diferentes rutas.
+¿Qué debemos testear?
+- Que la petición se realiza correctamente, es decir, con código de estado 200 o 201, y que la respuesta devuelta está en formato json.
+- Que obtenemos un error 400 (Bad Request) cuando: la palabra/expresión/frase que añadimos ya está registrada, el orden no es *ascendente* ni *descendente*, el tipo de dato no es un *string* o el string no acaba en punto final.
+- Que obtenemos un error 404 (Not Found) cuando: la palabra/frase/expresión buscada no existe.
+
+Vamos a comenzar viendo un ejemplo de test de una función cuya petición, *GET* en este caso, se ha realizado con éxito.
+
+![](../imagenes/test-get-200.png)
+
+Simplemente indicamos que vamos a hacer una petición *GET* a la ruta */vocabulario* y que esta nos debe devolver un json acompañado del código de estado 200.
+Este tipo de test se tiene que realizar con todas nuestras consultas tanto con *GET* y *PUT*, que tendrán como código de estado el 200, y con *POST*, cuyo código de estado será el 201.
+
+A continuación, veremos un ejemplo en el que obtendremos un error 400.
+
+![](../imagenes/error-400-test.png)
+
+Podemos observar, que el primer test se encarga de añadir una frase, tal y como hemos indicado antes, y seguidamente procedemos a añadir esta misma frase. Cuando esto ocurre, volvemos a devolver un json pero esta vez irá acompañado del código de estado 400, ya que la frase que se pretende añadir ya está previamente registrada.
+
+Por otro lado, tenemos el error 404.
+
+![](../imagenes/error-404-test.png)
+
+Antes de este test, hemos realizado otro con el que hemos añadido la palabra *INFORMÁTICA*, por tanto, nuestro primer test que filtra por la letra *I*, devolverá un json con dicha palabra junto con su significado y el código de estado 200. Sin embargo, si pretendemos filtrar por la letra *M*, como no hay ninguna palabra que empiece por dicha letra, vamos a devolver un json con el código de estado 404.
+
+En cuanto al testeo del formato de los datos proporcionados, he decidido hacer un sólo test ya que me parecía poco eficiente repetir dicho test en todas las rutas diseñadas, ya que si nos funciona en una de ellas funcionará en el resto debido a la simple implementación de dichos métodos, que se basan en captar el dato y comprobar que se ajusta al formato que deseamos.
+
+![](../imagenes/formato-test.png)
+
+El primer test nos devolverá un error 400 ya que, en este caso, la palabra no termina en punto y final, por tanto no tiene un formato correcto. El siguiente test, evalúa que los datos que pasamos son de tipo *string*, entonces, como pasamos un *entero* vamos a devolver un error 400.
+
+Finalmente, nos cercioramos que cuando introducimos una URI la cual no hemos diseñado se nos devolverá un error 404.
+
+![](../imagenes/notfound-test.png)
+
+Como ya sabemos, la ruta */traducciones* no es una ruta que hayamos creado, por tanto debemos devolver el error 404.
+Aquí cabe destacar que no devolvemos un json, esto se debe a que para comprobar que una ruta no se encuentra entre las diseñadas utilizamos un middleware proporcionado por Koa, y dicho middleware nos devuelve la respuesta en texto plano.
