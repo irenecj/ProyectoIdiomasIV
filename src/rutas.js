@@ -149,27 +149,6 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
-//middleware para registrar log
-app.use(async(ctx,next)=>{
-  const start = new Date();
-  await next();
-  const fecha = new Date();
-  const ms = new Date() - start;
-  var nivel="Algo";
-  if(ctx.status >= 400){
-    nivel = 'warn';
-  }
-  else{
-    nivel = 'info';
-  }
-            
-  var respuesta = `${fecha}` + `${ctx.status} ${ctx.message}` + ` ${ctx.method} ${ctx.originalUrl}` + ` ${ms}`;
-
-  logger.log({
-    level: nivel,
-    message:respuesta
-  });
-});
 
 //middleware para gestión de errores
 app.use(async (ctx,next) => {
@@ -179,6 +158,34 @@ app.use(async (ctx,next) => {
     ctx.status = err.code;
     ctx.body = err.message;
   }
+});
+
+//middleware para registrar log
+app.use(async(ctx,next)=>{
+  try{
+    await next();
+  }catch(err){
+    ctx.message = err.message;
+    console.log(err.message);
+
+  }
+
+  const start = new Date();
+  const fecha = new Date();
+  const ms = new Date() - start;
+  var nivel;
+  if(ctx.status >= 400){
+    nivel = 'warn';
+  }else{
+    nivel = 'info';
+  }
+
+  var respuesta = `${fecha}` + `${ctx.status} ${ctx.message}` + ` ${ctx.method} ${ctx.originalUrl}` + ` ${ms}`;
+  
+  logger.log({
+    level: nivel,
+    message:respuesta
+  });
 });
 
 app.use(router.allowedMethods());
