@@ -202,3 +202,13 @@ describe("POST /frases/:frase/:tipo", function(){
       .expect(400,done)
   });
 });
+
+//Insertar una ruta la cual no hemos diseñado
+describe("GET /traducciones", function(){
+  it('mostrar error 404 ya que la URI no existe', function(done){
+    request(app)
+      .get('/traducciones')
+      .expect('Content-Type', 'text/plain; charset=utf-8')
+      .expect(404,done)
+  });
+});

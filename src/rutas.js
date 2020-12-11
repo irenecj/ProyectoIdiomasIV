@@ -152,7 +152,7 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
-// //middleware para registrar log
+//middleware para registrar log
 app.use(async(ctx,next)=>{
   await next();
   const start = new Date();
