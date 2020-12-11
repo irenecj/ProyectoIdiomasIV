@@ -66,9 +66,28 @@ describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
+  //Devolvemos un error ya que la palabra no existe
   it('mostrar error 404 si la palabra no existe', function(done){
     request(app)
       .put('/vocabulario/LIBRO./CAMBIO EL SIGNFICADO DE PALABRA INEXISTENTE.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
+});
+
+//HU5 -> Mostrar traducciones que empiezan por una determinada letra 
+describe(" GET /vocabulario/filtrar/:letra", function(){
+  //Mostramos las traducciones que empiezan por dicha letra 
+  it('filtrar por letra', function(done){
+    request(app)
+      .get('/vocabulario/filtrar/I')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+  //Devolvemos un error si no hay ninguna palabra que comience por dicha letra 
+  it('mostrar error 404 ya que no encuentra ninguna palabra', function(done){
+    request(app)
+      .get('/vocabulario/filtrar/M')
       .expect('Content-Type', /json/)
       .expect(404,done)
   });
