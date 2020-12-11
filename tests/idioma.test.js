@@ -311,6 +311,14 @@ describe("Testeando la clase idioma.js", () => {
       expect(devueltas).toBe(tipo_saludo);
 
     });
+    test("Comprobar que muestra un error si no hay ninguna frase de dicho tipo", () => {
+      tipo = "PERMISO.";
+
+      thrown_error = () => idioma.mostrarFrases(tipo);
+      expectedError = new NoEncontrada('No se ha encontrado ninguna frase de dicho tipo.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando el método generarDefinicion()", () => {
     test("Comprobando que la definición generada existe sin contar la traducción", () => {

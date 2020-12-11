@@ -164,3 +164,21 @@ describe("POST /frases/:frase/:tipo", function(){
       .expect(400,done)
   });
 });
+
+//HU10 -> Mostrar frases cotidianas por tipo 
+describe("GET /frases/:tipo", function(){
+  //Mostramos las frases por el tipo indicado 
+  it('mostrar frases por tipo', function(done){
+    request(app)
+    .get('/frases/SALUDO.')
+    .expect('Content-Type', /json/)
+    .expect(200,done)
+  });
+  //Devolvemos un error si no se encuentra ninguna frase de dicho tipo
+  it('mostrar error 404 ya que no hay frases de ese tipo', function(done){
+    request(app)
+      .get('/frases/PERMISO.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
+});

@@ -214,7 +214,7 @@ class Idioma{
       var formatoFrase = this.comprobarFormato(frase);
       var formatoTipo = this.comprobarFormato(tipo);
       var encontrada = 0; 
-      
+
       if(formatoFrase == true && formatoTipo == true){
         for(var i in this.frasesCot){
           if(frase.toUpperCase() == this.frasesCot[i].getFrase()){
@@ -235,15 +235,22 @@ class Idioma{
     //MOSTRAR FRASES SEGÚN EL TIPO
     mostrarFrases(tipo){
       var formatoTipo = this.comprobarFormato(tipo);
+      var encontrada = 0; 
       if(formatoTipo == true){
         var resultado = new Array();
         for(var i in this.frasesCot){
           if(this.frasesCot[i].getTipo() == tipo){
             resultado.push(this.frasesCot[i]);
+            encontrada++;
           }
         }
 
-      return resultado;
+        if(encontrada == 0){
+          throw new NoEncontrada('No se ha encontrado ninguna frase de dicho tipo.');
+        }else{
+          return resultado;
+        }
+
       }
     }
 
