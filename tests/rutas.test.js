@@ -192,3 +192,13 @@ describe("POST /vocabulario/:palabra/:significado", function(){
       .expect(400,done)
   });
 });
+
+//Insertar un dato que no sea de tipo string 
+describe("POST /frases/:frase/:tipo", function(){
+  it('mostrar error 400 ya que no es un string', function(done){
+    request(app)
+      .post('/frases/1/SALUDO.')
+      .expect('Content-Type', /json/)
+      .expect(400,done)
+  });
+});
