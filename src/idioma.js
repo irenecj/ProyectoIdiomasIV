@@ -190,7 +190,11 @@ class Idioma{
 
     //FUNCIÓN PARA MOSTRAR LAS EXPRESIONES POPULARES
     mostrarExpresiones(){
-      return this.expresiones;
+      var listaExpresiones = [];
+      this.expresiones.forEach(element=>{
+        listaExpresiones.push(element.getExpresion()+"\n")
+      })
+      return listaExpresiones;
     }
 
     //FUNCIONES PARA FRASES COTIDIANAS

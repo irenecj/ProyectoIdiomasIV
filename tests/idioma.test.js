@@ -243,10 +243,17 @@ describe("Testeando la clase idioma.js", () => {
       expect(tam_vector_expresiones).toEqual(tam_vocab);
     });
     test("Comprobando que funciona correctamente", () => {
-      var vectorEsperado = ["\nEXPRESIÓN --> " + "C'EST SIMPLE COMME BONJOUR." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO." + "\n", "\nEXPRESIÓN --> " + "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN." + "\n"];
-      var vectorObtenido = idioma.mostrarExpresiones();
+      var expresion1 = "EXPRESIÓN --> " + "C'EST SIMPLE COMME BONJOUR." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO.\n";
+      var expresion2 = "EXPRESIÓN --> " + "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES." + "\nESTA EXPRESIÓN QUIERE DECIR --> " + "LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.\n";
+      var vectorEsperado = [];
+      vectorEsperado.push(expresion1);
+      vectorEsperado.push(expresion2);
+      var vectorObtenido = [];
+      vectorObtenido = idioma.mostrarExpresiones();
 
-      expect(vectorObtenido).toEqual(vectorEsperado);
+      expect(vectorObtenido).toStrictEqual(vectorEsperado)
+      
+    
     });
   });
   describe("Testeando el método aniadirFrase()", () => {

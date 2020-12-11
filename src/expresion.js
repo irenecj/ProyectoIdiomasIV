@@ -5,7 +5,7 @@ class Expresion{
   }
 
   getExpresion(){
-    var expr = "\nEXPRESIÓN --> " + this.exprPopular + "\nESTA EXPRESIÓN QUIERE DECIR --> " + this.explicacion;
+    var expr = "EXPRESIÓN --> " + this.exprPopular + "\nESTA EXPRESIÓN QUIERE DECIR --> " + this.explicacion;
     return expr;
   }
 
