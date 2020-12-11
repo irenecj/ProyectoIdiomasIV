@@ -182,9 +182,21 @@ class Idioma{
     aniadirExpresiones(expresion, explicacion){
       var formatoExpr = this.comprobarFormato(expresion);
       var formatoExpl = this.comprobarFormato(explicacion);
+      var encontrada = 0;
       if(formatoExpr == true && formatoExpl == true){
-        var expresionNueva = new Expresion(expresion.toUpperCase(), explicacion.toUpperCase());
-        this.expresiones.push(expresionNueva);
+        for(var i in this.expresiones){
+          if(expresion.toUpperCase() == this.expresiones[i].getExprPopular()){
+            encontrada++;
+          }
+        }
+
+        if(encontrada == 0){
+          var expresionNueva = new Expresion(expresion.toUpperCase(), explicacion.toUpperCase());
+          this.expresiones.push(expresionNueva);
+        }else{
+          throw new Encontrada('La expresión introducida ya existe, por favor registre otra expresión.');
+        }
+
       }
     }
 

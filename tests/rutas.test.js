@@ -76,7 +76,7 @@ describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
 });
 
 //HU5 -> Mostrar traducciones que empiezan por una determinada letra 
-describe(" GET /vocabulario/filtrar/:letra", function(){
+describe("GET /vocabulario/filtrar/:letra", function(){
   //Mostramos las traducciones que empiezan por dicha letra 
   it('filtrar por letra', function(done){
     request(app)
@@ -90,5 +90,23 @@ describe(" GET /vocabulario/filtrar/:letra", function(){
       .get('/vocabulario/filtrar/M')
       .expect('Content-Type', /json/)
       .expect(404,done)
+  });
+});
+
+//HU6 -> Añadir expresión popular al listado de expresiones
+describe("POST /expresiones/:expresion/:explicacion", function(){
+  //Añadimos la expresión popular correctamente 
+  it('añadir expresión popular', function(done){
+    request(app) 
+      .post("/expresiones/C'EST SIMPLE COMME BONJOUR./SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO.")
+      .expect('Content-Type', /json/)
+      .expect(201,done)
+  });
+  //Devolvemos un error si la expresión insertada ya existe 
+  it('mostrar error 400 ya que la expresión insertada ya existe', function(done){
+    request(app)
+      .post("/expresiones/C'EST SIMPLE COMME BONJOUR./LA EXPLICACIÓN ES DISTINTA PERO LA EXPRESIÓN ES LA MISMA.")
+      .expect('Content-Type', /json/)
+      .expect(400,done)
   });
 });

@@ -234,6 +234,16 @@ describe("Testeando la clase idioma.js", () => {
       expect(ultimaExplicacion).toBe("LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.")
 
     });
+    test("Comprobamos que no se permite añadir una expresión que ya existe", () => {
+      expresion = "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES.";
+      significado = "ESTA ES OTRA EXPLICACIÓN DE LA EXPRESIÓN PROPORCIONADA ANTERIORMENTE.";
+
+      thrown_error = () => idioma.aniadirExpresiones(expresion,significado);
+      expectedError = new Encontrada('La expresión introducida ya existe, por favor registre otra expresión.');
+
+      expect(thrown_error).toThrow(expectedError);
+
+    });
   });
   describe("Testeando el método mostrarExpresiones()", () => {
     test("Comprobando que se muestran TODAS las expresiones", () => {
