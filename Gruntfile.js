@@ -18,6 +18,12 @@ module.exports = function (grunt){
           'run',
           'coverage'
         ]
+      }, 
+      install: {
+        cmd: 'npm', 
+        args: [ 
+          'install'
+        ]
       }
     }
 });
@@ -25,5 +31,5 @@ module.exports = function (grunt){
   grunt.loadNpmTasks('grunt-run');
   grunt.registerTask('test', ['run:tests']);
   grunt.registerTask('coverage', ['run:coverage']);
-
+  grunt.registerTask('install', ['run:install']);
 };
