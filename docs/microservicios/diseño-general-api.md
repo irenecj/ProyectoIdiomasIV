@@ -353,3 +353,19 @@ Después de esto, comprobamos que si el dato no acaba en punto final seremos not
 Aquí tenemos una captura en la que todos nuestros tests han pasado con éxito:
 
 ![](../imagenes/test-correctos.png)
+
+## ERROR RESUELTO - ACLARACIONES
+Si vemos las fotos mostradas, cuando testeamos nuestra API, ponemos **request(app)** pero si nos vamos al [código](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/rutas.test.js) vemos que tenemos **request(server)**.
+¿Por qué este cambio de "útlima hora"?
+Esto se debe a que al pasar los tests en mi local todo funcionaba perfectamente, pero una vez hacía push a mi repositorio me di cuenta que Travis estaba fallando, y esto era a causa de que nuestra api se estaba quedando escuchando de ahí que no se estaban acabando los tests.
+El error que mostraba Travis era el siguiente:
+
+![](../imagenes/error-travis.png)
+
+Como el error indicaba lo ya comentando la solución por la que tuve que optar fue por cerrar nuestro servidor una vez lanzados los tests y para ello tuve que añadir esto al código:
+
+![](../imagenes/cerrar-servidor.png)
+
+De manera que, antes de lanzar los tests indicamos que vamos a escuchar en el puerto 8080 y a continuación, cuando se terminen todos los tests vamos a cerrar dicha conexión.
+
+De esta forma, se pasan los tests tanto en nuestro local como en Travis.

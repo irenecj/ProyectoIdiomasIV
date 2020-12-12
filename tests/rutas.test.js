@@ -1,14 +1,5 @@
 const request = require('supertest');
-// const { app } = require('../src/rutas.js');
 const app = require('../src/rutas.js')
-
-// beforeAll(() => {
-//   app.listen(8080);
-// });
-
-// afterAll(() => {
-//   app.close();
-// });
 
 var server;
 beforeAll(() => {
