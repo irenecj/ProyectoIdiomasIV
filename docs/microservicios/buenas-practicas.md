@@ -61,9 +61,10 @@ Vamos a ver un ejemplo de esto en el que tendremos una petición *POST* y otra *
 
 ![](../imagenes/ejemplo-log.png)
 
+
 ## OTRAS BUENAS PRÁCTICAS
 #### USAR NOMBRES PERO NO VERBOS
-Para mejorar la comprensión y la legibilidad, en las buenas prácticas se recomienda utilizar en nuestra rutas nombres en vez de verbos. Por tanto, en las imágenes que he mostrado podemos ver que tenemos dos rutas que tienen un verbo por tanto las he cambiado de la siguiente manera: 
+Para mejorar la comprensión y la legibilidad, en las buenas prácticas se recomienda utilizar en nuestra rutas nombres en vez de verbos. Por tanto, en las imágenes que he mostrado podemos ver que tenemos dos rutas que tienen un verbo por tanto las he cambiado de la siguiente manera:
 - **http://localhost:8080/vocabulario/filtrar/:letra** ha pasado a ser http://localhost:8080/vocabulario/filtrado/:letra.
 - **http://localhost:8080/vocabulario/ordenar/:orden** ha pasado a ser http://localhost:8080/vocabulario/ordenacion/:orden.
 
