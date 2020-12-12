@@ -259,7 +259,24 @@ describe("Testeando la clase controladora", () => {
     });
 
   });
-  describe("Testeando método para mostrar frases cotidianas (HU10)", () => {
+  describe("Testeando método para mostrar frases cotidianas por tipo (HU10)", () => {
+    test("Comprobando que muestra todas las frases de dicho tipo", () => {
+      frase = "À BIENTÔT. -> HASTA PRONTO.";
+      tipo = "SALUDO."
+      control.nuevaFrase(frase,tipo);
 
+      var tipo_saludo = 2; //hay dos frases de este tipo
+      var devueltas = control.todasFrases(tipo).length;
+
+      expect(devueltas).toBe(tipo_saludo);
+    });
+    test("Comprobando que devuelve un error si no hay ninguna frase de dicho tipo", () => {
+      tipo = "PERMISO.";
+
+      thrown_error = () => control.todasFrases(tipo);
+      expectedError = new NoEncontrada('No se ha encontrado ninguna frase de dicho tipo.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
 });
