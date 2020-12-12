@@ -46,8 +46,8 @@ Tenemos un [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/d
 #### TESTS CORRECTOS Y DE ACUERDO A LAS HISTORIAS DE USUARIO (RÚBRICA 4)
 Este apartado ha quedado explicado en la rúbrica 2 ya que en dicha rúbrica también se pide documentación a cerca de los tests, y vemos que estos están relacionados con las Historias de Usuario.
 
-#### PUNTOS POR ORIGINALIDAD, UTILIDAD EN LA ASIGNATURA, GRADO DE TERMINACIÓN, CONFIGURACIÓN DEL GESTOR DE TAREAS (RÚBRICA 4)
-Se ha avanzado el proyecto en prácticamente todos los aspectos, se han refactorizado clases, se ha ampliado la documentación existente, se han diseñado nuevas clases, se han añadido Historias de Usuario y he configurado correctamente el gestor de tareas.
+#### AVANCE DEL PROYECTO 
+Se ha avanzado el proyecto en prácticamente todos los aspectos, se han refactorizado clases, se ha ampliado la documentación existente, se han diseñado nuevas clases, se han añadido Historias de Usuario, entre otros.
 ##### REFACTORIZACIÓN DE CLASES
 Las clases que se han refactorizado y utilizado son:
 - [expresion.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/expresion.js) con su correspondiente [test](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/expresion.test.js).
