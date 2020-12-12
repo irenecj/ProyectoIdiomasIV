@@ -20,8 +20,6 @@ USER usuario
 #copiamos el fichero de dependencias
 COPY package.json ./
 
-RUN chmod a+w /home/usuario
-
 #instalamos las dependencias y borramos la caché de información de los paquetes
 RUN npm install && rm -rf /var/lib/apt/lists/*
 
@@ -31,8 +29,6 @@ USER root
 #eliminamos el fichero de dependencias una vez éstas se han instalado
 RUN rm package.json
 
-RUN chmod 775 /test
-
 #volvemos al usuario sin privilegios
 USER usuario
 
@@ -41,7 +37,9 @@ ENV PATH=/node_modules/.bin:$PATH
 
 #creamos el directorio de trabajo /test
 WORKDIR /test
-
+USER root 
+RUN chmod 775 /test
+USER usuario
 
 #ejecutamos los tests con grunt, en concreto, con el comando 'grunt test'
 CMD ["grunt","test"]
