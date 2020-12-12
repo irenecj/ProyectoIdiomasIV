@@ -209,7 +209,24 @@ describe("Testeando la clase idioma.js", () => {
       expect(idio_nuevo.listado[1].getPalabra()).toBe("BONITO.");
     });
   });
+  describe("Testeando el método eliminarPalabra()", () => {
+    test("Comprobando que elimina la palabra correctamente si existe", () => {
+      tam_vocab = idioma.listado.length;
+      palabra = "MESA."
+      idioma.eliminarPalabra('MESA.');
 
+      var tam_nuevo = idioma.listado.length;
+
+      expect(tam_nuevo).toBe(tam_vocab -1);
+    });
+    test("Comprobando que devuelve un error si no encuentra la palabra", () => {
+      palabra = "COJÍN.";
+      thrown_error = () => idioma.eliminarPalabra(palabra);
+      expectedError = new NoEncontrada("La palabra que busca no se ha encontrado");
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
   describe("Testeando el método aniadirExpresiones()", () => {
     test("Comprobando que se incrementa el tamaño del vector al añadir", () => {
       expresion = "C'EST SIMPLE COMME BONJOUR.";

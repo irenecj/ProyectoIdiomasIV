@@ -183,6 +183,16 @@ describe("GET /frases/:tipo", function(){
   });
 });
 
+//HU11 -> Eliminar una palabra del listado de vocabulario 
+describe("DELETE /vocabulario/:palabra", function(){
+  //Eliminar la palabra si existe 
+  it('eliminar palabra', function(done){
+    request(app)
+      .delete('/vocabulario/INFORMÁTICA.')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+});
 //Insertar un string con un formato incorrecto, es decir, si no acaba en punto final
 describe("POST /vocabulario/:palabra/:significado", function(){
   it('mostrar error 400 ya que el formato no es válido', function(done){

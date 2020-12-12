@@ -64,6 +64,11 @@ class Controller {
     var frases = this.idioma.mostrarFrases(tipo);
     return frases;
   }
+
+  //eliminar una palabra del listado de vocabulario -> HU12
+  eliminarTraduccion(palabra){
+    this.idioma.eliminarPalabra(palabra);
+  }
 }
 
 module.exports = Controller;

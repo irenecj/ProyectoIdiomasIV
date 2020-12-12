@@ -160,6 +160,15 @@ router.get('/frases/:tipo', (ctx) => {
   ctx.body = { lista_frases }
 });
 
+//eliminar una traducción del listado de vocabulario -> HU12
+router.delete('/vocabulario/:palabra', (ctx) => {
+  var palabra = ctx.params.palabra;
+  control.eliminarTraduccion(palabra);
+  ctx.body = {
+    eliminada : 'La palabra ' + palabra + ' ha sido eliminada.'
+  }
+});
+
 //middleware para registrar log
 app.use(async(ctx,next)=>{
   await next();

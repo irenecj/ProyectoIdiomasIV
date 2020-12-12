@@ -177,6 +177,26 @@ class Idioma{
         return this.listado;
     }
 
+    //FUNCIÓN PARA ELIMINAR UNA PALABRA DEL LISTADO DE VOCABULARIO -> HU12
+    eliminarPalabra(palabra){
+      var noString = this.comprobarString(palabra);
+      var formatoValido = this.comprobarFormato(palabra);
+      var encontrada = 0;
+
+      if(noString == false && formatoValido == true){
+        for(var i in this.listado){
+          if(palabra.toUpperCase() == this.listado[i].getPalabra()){
+            encontrada++;
+          }
+        }
+      }
+
+      if(encontrada > 0){
+        this.listado.pop(palabra);
+      }else{
+        throw new NoEncontrada("La palabra que busca no se ha encontrado");
+      }
+    }
 
     //FUNCIÓN PARA AÑADIR EXPRESIONES
     aniadirExpresiones(expresion, explicacion){
