@@ -50,7 +50,11 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para mostrar vocabulario (HU1)", () => {
-
+    test("Comprobamos que se han mostrado TODAS las palabras", () => {
+      var tam_vector_esperado = control.todasTraducciones().length;
+      var tam_vocab = control.idioma.listado.length;
+      expect(tam_vector_esperado).toBe(tam_vocab);
+    });
   });
   describe("Testeando método para obetner traducción concreta (HU3)", () => {
 
