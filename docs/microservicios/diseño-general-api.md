@@ -21,7 +21,7 @@ Finalmente, debemos montar nuestro JSON recorriendo todas las traducciones obten
 
 ![](../imagenes/ruta2.png)
 
-En esta ruta debemos indicar que el método va a ser *POST* ya que vamos a crear un recurso, el cual en nuestro caso está formado por una palabra y su significado. Una vez obtenemos dichos parámetros de la URI usamos nuestra función **nuevaTraduccion(palabra,significado)** de la clase controladora, que añadirá al listado nuestra nueva palabra. Finalmente, al igual que antes, montamos nuestro JSON y lo devolvemos, indicando como código de estado en este caso el 201 indicando que nuestra petición ha tenido éxito y que se ha creado el recurso. La URI correspondiente a esta ruta es **http://localhost:8080/vocabulario/:palabra/:significado**.
+En esta ruta debemos indicar que el método va a ser *POST* ya que vamos a crear un recurso, el cual en nuestro caso está formado por una palabra y su significado. Una vez obtenemos dichos parámetros de la URI usamos nuestra función **nuevaTraduccion(palabra,significado)** de la clase controladora, que añadirá al listado nuestra nueva palabra. Finalmente, al igual que antes, montamos nuestro JSON con los datos que se han añadido y lo devolvemos, indicando como código de estado en este caso el 201 indicando que nuestra petición ha tenido éxito y que se ha creado el recurso. La URI correspondiente a esta ruta es **http://localhost:8080/vocabulario/:palabra/:significado**.
 **Aclaración:** los parámetros pasados en la URI se indican con ':'.
 
 ##### FUNCIONAMIENTO CORRECTO
@@ -52,7 +52,7 @@ Esta Historia de Usuario nos permite poder modificar el significado o la traducc
 ![](../imagenes/ruta4.png)
 
 En este caso, en la URI debemos indicar la palabra a la que queremos cambiarle el significado o la traducción y a continuación el nuevo valor de este último parámetro, obteniendo la siguiente URI: **http://localhost:8080/vocabulario/:palabra/:significadoNuevo**. Además, vamos a tener como método *PUT* ya que vamos a cambiar el estado del recurso.
-Una vez captamos el significado nuevo, lo pasamos como parámetro de la función **cambioSignificado(significadoNuevo)** la cual se encargará de modificar el significado correspondiente. Como en el resto de rutas, respondemos con un JSON y 200 como código de estado.
+Una vez captamos el significado nuevo, lo pasamos como parámetro de la función **cambioSignificado(significadoNuevo)** la cual se encargará de modificar el significado correspondiente. Como en el resto de rutas, respondemos con un JSON que mostrará los datos actualizados y 200 como código de estado.
 
 ##### FUNCIONAMIENTO CORRECTO
 Vamos a cambiar el significado de la palabra *MESA*.
@@ -142,6 +142,55 @@ Vamos a añadir dos frases del mismo tipo, en este caso SALUDO, y otra del tipo 
 
 ![](../imagenes/listado-saludo.png)
 
+#### HU12: ELIMINAR UNA TRADUCCIÓN DEL LISTADO DE VOCABULARIO.
+Esta ruta se ha diseñado para poder eliminar una traducción del listado de vocabulario, ya se porque nos hemos equivocado al introducirla y simplemente porque ya no necesitamos tenerla registrada. La URI es **http://localhost:8080/vocabulario/:palabra**.
+
+![](../imagenes/ruta-12.png)
+
+Primero indicamos que el método es *DELETE* y una vez hemos captado la palabra que queremos borrar, debemos llamar a la función **eliminarTraduccion(palabra)** que quitará la palabra del listado de vocabulario. Una vez hecho esto devolveremos un json indicando la palabra que hemos borrado.
+
+##### FUNCIONAMIENTO CORRECTO
+
+![](../imagenes/vocab-tam-2.png)
+
+Como vemos, actualmente tenemos dos palabras en nuestro listado de vocabulario, a continuación vamos a proceder a eliminar la palabra *MESA*.
+
+![](../imagenes/mesa-eliminada.png)
+
+![](../imagenes/vocab-tam-1.png)
+
+#### HU13: ELIMINAR UNA EXPRESIÓN DEL LISTADO DE EXPRESIONES.
+
+![](../imagenes/ruta-13.png)
+
+Esta ruta es similar a la anterior solo que el parámetro que captamos es una expresión y llamamos a la función **eliminarExpresiones(expresion)**. La URI correspondiente es: http://loclahost:8080/expresiones/:expresion**.
+
+##### FUNCIONAMIENTO CORRECTO
+
+![](../imagenes/expr-tam-2.png)
+
+Como vemos, actualmente tenemos dos expresiones en nuestro listado de expresiones, a continuación vamos a proceder a eliminar la primera expresión.
+
+![](../imagenes/expr1-eliminada.png)
+
+![](../imagenes/expr-tam-1.png)
+
+#### HU14: ELIMINAR UNA FRASE DEL LISTADO DE FRASES
+
+![](../imagenes/ruta-14.png)
+
+Esta ruta es similar a la anterior solo que el parámetro que captamos es una frase y llamamos a la función **eliminarFrases(frase)**. La URI correspondiente es: http://loclahost:8080/frases/:frase**.
+
+##### FUNCIONAMIENTO CORRECTO
+
+![](../imagenes/frase-tam-2.png)
+
+Como vemos, actualmente tenemos dos expresiones en nuestro listado de expresiones, a continuación vamos a proceder a eliminar la primera expresión.
+
+![](../imagenes/frase-eliminada.png)
+
+![](../imagenes/frase-tam-1.png)
+
 ## REALIZACIÓN DE TESTS
 
 #### TESTS DE INTEGRACIÓN
@@ -166,7 +215,7 @@ Vamos a comenzar viendo un ejemplo de test de una función cuya petición, *GET*
 ![](../imagenes/test-get-200.png)
 
 Simplemente indicamos que vamos a hacer una petición *GET* a la ruta */vocabulario* y que esta nos debe devolver un json acompañado del código de estado 200.
-Este tipo de test se tiene que realizar con todas nuestras consultas tanto con *GET* y *PUT*, que tendrán como código de estado el 200, y con *POST*, cuyo código de estado será el 201.
+Este tipo de test se tiene que realizar con todas nuestras consultas tanto con *GET*, *DELETE* y *PUT*, que tendrán como código de estado el 200, y con *POST*, cuyo código de estado será el 201.
 
 A continuación, veremos un ejemplo en el que obtendremos un error 400.
 
@@ -197,7 +246,7 @@ Aquí cabe destacar que no devolvemos un json, esto se debe a que para comprobar
 Además, como hemos añadido una clase controladora para tener un diseño por capas debemos testear el código implementado en dicha clase.
 En esta clase tenemos un método correspondiente a cada Historia de Usuario, por tanto tendremos que testear cada uno de esos métodos.
 
-##### CONSTRUCTOR Y HU2: AÑADIR TRADUCCION
+##### CONSTRUCTOR Y HU2: AÑADIR TRADUCCIÓN
 Comenzamos testeando nuestro constructor y el método para añadir traducciones nuevas al listado.
 
 ![](../imagenes/test-const-añadirTraduc.png)
@@ -275,6 +324,22 @@ Las comprobaciones de este método son iguales que las del método para añadir 
 Las comprobaciones llevadas a cabo para este método han sido:
 - Comprobamos que se devuelven todas las frases del tipo indicado: para ello añadimos otra frase de tipo *SALUDO*, por tanto ahora tenemos 2 frases de dicho tipo. Sabiendo que hay 2 frases de este tipo, nuestro resultado debe proporcionarnos 2 frases ya que no hay más ni menos que dicha cantidad de frases.
 - Comprobamos que devolvemos un error en el caso de no encontrar ninguna frase del tipo indicado.
+
+#### HU12: ELIMINAR UNA TRADUCCIÓN DEL LISTADO DE VOCABULARIO.
+
+#### HU13: ELIMINAR UNA EXPRESIÓN DEL LISTADO DE EXPRESIONES.
+
+#### HU14: ELIMINAR UNA FRASE DEL LISTADO DE FRASES.
+Para las rutas encargadas de realizar peticiones que sean *DELETE* hacemos 2 comprobaciones:
+- Si el parámetro existe, procedemos a eliminarla del listado.
+- Si el parámetro no existe, devolvemos un error 404 para notificar al usuario que el parámetro buscado no existe.
+
+![](../imagenes/test-eliminar-palabra.png)
+
+![](../imagenes/test-eliminar-expresion.png)
+
+![](../imagenes/test-eliminar-frase.png)
+
 
 ##### MÉTODOS PARA COMPROBAR EL FORMATO
 Una vez hemos testeado todos los métodos de la clase controladora, no debemos olvidarnos de testear el caso en el que se nos estén proporcionando datos no válidos, caso en el que tendremos que devolver un error.
