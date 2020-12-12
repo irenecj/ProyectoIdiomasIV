@@ -96,3 +96,32 @@ A continuación, he implementado tres Historias de Usuario más:
 - HU10. Mostrar frases cotidianas en función del tipo.
 - HU11. Autoevaluación de palabras aprendidas.
 Para ello, he tenido que implementar otra clase nueva, llamada *cotidiano.js*, donde crearemos objetos formados por una frase y el tipo de frase del que se trata (saludo, pedir permiso o presentarse). Además, hemos implementado los métodos 'get' y 'set' que corresponden.
+
+# HITO 5: USO DE SISTEMAS SERVERLESS
+El objetivo de esta entrega era entender los sistemas serverless y desplegar nuestro proyecto en dos de las alternativas proporcionadas. Además, se proponía llevar a cabo la implementación de un Bot de Telegram.
+- Lo primero que hice fue documentarme a cerca de **Vercel**, registrarme y desplegar una función de ejemplo para entrar en contexto.
+- Una vez hecho esto, procedemos a desplegar una función que esté relacionada con nuestro proyecto. En mi caso, he elegido la función encargada de ordenar el listado de vocabulario tanto ascendente como descendentemente, llamada **ordenarAlfabeto(orden)**, correspondiente a la [HU8](https://github.com/irenecj/proyecto-idiomas/issues/25).
+- A continuación, decidí implementar una función en otra plataforma y elegí hacerlo en **Netlify**. La función elegida ha sido la correspondiente a la [HU3](https://github.com/irenecj/proyecto-idiomas/issues/17) y esta se basa en buscar una palabra concreta dentro de nuestro listado de vocabulario. Además, en esta plataforma también hemos desplegado nuestro **Bot de Telegram**.
+
+### DOCUMENTACIÓN GENERADA
+- Documentación a cerca del despliegue en [Vercel](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md).
+- Documentación a cerca del despliegue en [Netlify](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md), tanto de la función como del Bot de Telegram.
+
+### ARCHIVOS COMPLEMENTARIOS
+En el directorio [functions](https://github.com/irenecj/proyecto-idiomas/tree/master/functions() tenemos lo necesario para realizar el despliegue en Netlify.
+- [bot.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/bot.js) - contiene las funciones que necesitamos para dar respuesta con nuestro bot.
+- [index.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/index.js) - contiene las tareas que realiza nuestro bot (comandos disponibles).
+- [listado.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/listado.js) - contiene la función para buscar palabras concretas.
+- [data.json](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/data/data.json) - contiene los datos que necesitamos.
+En el directorio [api](https://github.com/irenecj/proyecto-idiomas/tree/master/api) tenemos los ficheros utilizados en el despliegue en Vercel.
+- [hello.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/hello.js) - fichero de ejemplo.
+- [ordenar.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/ordenar.js) - contiene la implementación de la función **ordenarALfabeto(orden)**.
+
+# HITO 6: DISEÑO Y TEST DE UN MICROSERVICIO
+Este hito ha consistido en crear un microservicio sobre la base de la funcionalidad del hito anterior y cumpliendo los requisitos de las historias de usuario.
+Los pasos a seguir han sido:
+- Creación de rutas para nuestra API.
+- Creación de una clase controladora.
+- Refactorización de las clases necesarias.
+- Testeo de todo el código implementado.
+- Añadir HU nuevas. 
