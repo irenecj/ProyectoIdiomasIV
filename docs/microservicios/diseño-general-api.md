@@ -7,6 +7,7 @@ Para realizar un diseño por capas es necesario tener una clase controladora, en
 ## RUTAS
 El diseño de rutas es fundamental para poder poner en funcionamiento nuestra API y por ello voy a proceder a explicar cada una de las rutas.
 En primer lugar necesitamos importar tanto *koa* como *koa-router*, esta última dependencia es necesaria ya que Koa no admite rutas en su módulo principal, por lo tanto, necesitamos un módulo que nos permita crear y manejar dichas rutas. Podemos ver que también hacemos uso de *koa-bodyparser*, esta dependencia se encarga de interpretar y parsear el cuerpo de las solicitudes para que así tener un tratamiento más fácil. Además, necesitamos importar nuestra clase *controladora* ya que es la que nos va a proporcionar las estructuras de datos necesarias.
+
 #### HU1: OBTENER EL LISTADO DE VOCABULARIO COMPLETO
 Como su nombre indica, esta historia de usuario tiene como finalidad poder obtener un listado completo que contenga todas las palabras registradas junto con su traducción y significado correspondientes.
 
@@ -18,7 +19,7 @@ Finalmente, debemos montar nuestro JSON recorriendo todas las traducciones obten
 
 #### HU2: AÑADIR UNA TRADUCCIÓN NUEVA A NUESTRO LISTADO DE VOCABULARIO
 
-![](../imagenes/ruta-2.png)
+![](../imagenes/ruta2.png)
 
 En esta ruta debemos indicar que el método va a ser *POST* ya que vamos a crear un recurso, el cual en nuestro caso está formado por una palabra y su significado. Una vez obtenemos dichos parámetros de la URI usamos nuestra función **nuevaTraduccion(palabra,significado)** de la clase controladora, que añadirá al listado nuestra nueva palabra. Finalmente, al igual que antes, montamos nuestro JSON y lo devolvemos, indicando como código de estado en este caso el 201 indicando que nuestra petición ha tenido éxito y que se ha creado el recurso. La URI correspondiente a esta ruta es **http://localhost:8080/vocabulario/:palabra/:significado**.
 **Aclaración:** los parámetros pasados en la URI se indican con ':'.
@@ -80,12 +81,12 @@ Vamos a mostrar todas aquellas palabras que comiencen por L en nuestro vocabular
 #### HU6: AÑADIR EXPRESIÓN POPULAR
 Esta Historia de Usuario, tal y como indica, permite añadir expresiones populares propias del idioma que estamos aprendiendo, en nuestro caso francés. El diseño de la ruta es similar al realizado para la HU2, solo que ahora pasamos como parámetros la expresión y la correspondiente explicación. La URI es **http://localhost:8080/expresiones/:expresion/:explicacion**.
 
-![](../imagenes/ruta-6.png)
+![](../imagenes/ruta6.png)
 
 #### HU7: MOSTRAR TODAS LAS EXPRESIONES POPULARES
 En este caso, vamos a permitir que el usuario pueda obtener un listado con todas las expresiones populares que hay registradas. La URI es **http://loclahost:8080/expresiones**.
 
-![](../imagenes/ruta-7.png)
+![](../imagenes/ruta7.png)
 
 Como vemos, en este caso hemos tenido que separar nuestras expresiones populares en dos partes, realizando dicha separación mediante un guión.
 Por tanto, tenemos por un lado la *expresión* y por otro lado la *explicación*. De esta manera, vamos añadiendo a nuestro vector *lista-separación*, cada expresión y cada explicación como elementos separados, de tal forma que cuando vayamos a montar el json de respuesta, tenemos que recorrer dicha *lista_separación* e ir cogiendo los elementos de dos en dos, de manera que, un elemento de *lista_expresiones* corresponderá a un par *expresión-explicación* de *lista_separación*.
@@ -117,12 +118,10 @@ Ahora de manera *descendente*:
 
 ![](../imagenes/orden-desc.png)
 
-
-
 #### HU9: AÑADIR FRASE COTIDIANA
 Esta ruta se ha diseñado igual que las de HU2 y HU6 y permite añadir una frase cotidiana usada en el lenguaje que estamos aprendiendo. La URI correspondiente es **http://localhost:8080/frases/:frase/:tipo**.
 
-![](../imagenes/ruta9.png)
+![](../imagenes/ruta-9.png)
 
 #### HU10: MOSTRAR TODAS LAS FRASES COTIDIANAS POR TIPO
 En este caso, vamos a mostrar sólo aquellas frases cotidianas de un tipo específico, el cual nos indicará el usuario. Por tanto, si estamos hablando con alguien y necesitamos una frase que nos permita despedirnos, tendremos que buscar el tipo SALUDO.
@@ -198,6 +197,7 @@ Aquí cabe destacar que no devolvemos un json, esto se debe a que para comprobar
 Además, como hemos añadido una clase controladora para tener un diseño por capas debemos testear el código implementado en dicha clase.
 En esta clase tenemos un método correspondiente a cada Historia de Usuario, por tanto tendremos que testear cada uno de esos métodos.
 
+##### CONSTRUCTOR Y HU2: AÑADIR TRADUCCION
 Comenzamos testeando nuestro constructor y el método para añadir traducciones nuevas al listado.
 
 ![](../imagenes/test-const-añadirTraduc.png)
@@ -207,9 +207,13 @@ Podemos ver que en el constructor simplemente vemos que se han creado bien el *i
 - Comprobamos que efectivamente la palabra añadida se corresponde dentro de nuestro listado con su significado.
 - Lanzamos un error si pretendemos añadir una palabra la cual ya existe en el listado.
 
+##### HU1: OBTENER EL LISTADO DE VOCABULARIO COMPLETO
+
 ![](../imagenes/test-todoVocab.png);
 
 Este test ha sido muy sencillo ya que simplemente debemos comprobar que efectivamente se han mostrado todas las palabras de nuestro listado y no se ha quedado ninguna atrás.
+
+##### HU3: BUSCAR UNA TRADUCCIÓN CONCRETA EN EL LISTADO DE VOCABULARIO
 
 ![](../imagenes/test-concreta.png)
 
@@ -218,17 +222,23 @@ Para este método hemos realizado varios tests:
 - A continuación, tenemos otro test que comprueba que el significado devuelto efectivamente se corresponde al de la palabra que queremos buscar. Para ello, obtenemos la posición en la que se encuentra la palabra que buscamos y la posición del significado devuelto, si ambas posiciones coinciden efectivamente tenemos la palabra junto con su significado correspondiente.
 - Finalmente, comprobamos que si buscamos una palabra que no está en el listado se devuelve un error notificándonos sobre este suceso.
 
+##### HU4: MODIFICAR EL SIGNIFICADO / TRADUCCIÓN DE UNA PALABRA CONCRETA
+
 ![](../imagenes/test-cambio-significado.png)
 
 Este método tiene 2 comprobaciones:
 - La primera de ella se basa en cambiar el significado de una palabra y comprobar que el significado que aparece ahora en el listado (en la posición correspondiente a dicha palabra) es equivalente al significado nuevo que hemos proporcionado.
 - La otra comprobación, al igual que ocurre con el método anterior, nos devolverá un error si estamos intentando cambiarle el significado a una palabra que no está registrada.
 
+##### HU5: MOSTRAR TRADUCCIONES QUE EMPIEZAN POR UNA DETERMINADA LETRA
+
 ![](../imagenes/test-filtrar.png)
 
 Este método es muy fácil de testear, simplemente valoramos dos casos:
 - Si encontramos alguna palabra que comience por dicha letra: en este caso, como sólo habíamos añadido una palabra, el tamaño de la lista devuelta debe ser 1.
 - Si no hay ninguna palabra que comience por dicha letra: devolveremos un error indicando que no se ha encontrado ninguna palabra.
+
+##### HU8: MOSTRAR EL LISTADO DE VOCABULARIO ORDENADO DE MANERA ASCENDENTE O DESCENDENTE
 
 ![](../imagenes/test-ordenar.png)
 
@@ -237,6 +247,8 @@ En este caso queremos poder ordenar nuestro listado de vocabulario de manera asc
 - Si ordenamos de manera descendente, ocurrirá al revés, en primer lugar tendremos *ZAPATO* y a continuación *ESTUCHE*.
 - También debemos comprobar que si no se introduce un orden válido, por ejemplo *NUMÉRICO*, *DE MAYOR A MENOR*, o similares, se devuelve un error indicándonos que dicho orden no es válido y proponiéndonos aquellos que si lo son.
 
+##### HU6: AÑADIR EXPRESIÓN POPULAR
+
 ![](../imagenes/test-añadir-expr.png)
 
 Ahora pasamos a añadir expresiones populares. Para ello implementamos los siguientes tests:
@@ -244,13 +256,19 @@ Ahora pasamos a añadir expresiones populares. Para ello implementamos los sigui
 - Lo siguiente es comprobar que la expresión y la explicación añadidas se corresponden la una con la otra dentro del listado de expresiones. Para ello comprobamos que la última expresión añadida se corresponde con la expresión que hemos introducido y que ocurre lo mismo con la explicación.
 - Por último, en el caso de querer añadir una expresión que ya está registrada vamos a devolver un error notificándolo.
 
+##### HU7: MOSTRAR TODAS LAS EXPRESIONES POPULARES
+
 ![](../imagenes/test-mostrar-expr.png)
 
 Este método nos permite mostrar todas las expresiones populares que hemos añadido y simplemente debemos comprobar por un lado, que el tamaño de la lista de expresiones obtenida es equivalente al tamaño del listado de expresiones que tenemos, y por otro lado, que el vector que obtenemos tiene el formato apropiado.
 
+##### HU9: AÑADIR FRASE COTIDIANA
+
 ![](../imagenes/test-añadir-frase.png)
 
 Las comprobaciones de este método son iguales que las del método para añadir expresiones populares, sólo que ahora tenemos que hacer las comprobaciones con una frase y el tipo de dicha frase.
+
+##### HU10: MOSTRAR TODAS LAS FRASES COTIDIANAS POR TIPO
 
 ![](../imagenes/test-mostrar-frases.png)
 
@@ -258,6 +276,7 @@ Las comprobaciones llevadas a cabo para este método han sido:
 - Comprobamos que se devuelven todas las frases del tipo indicado: para ello añadimos otra frase de tipo *SALUDO*, por tanto ahora tenemos 2 frases de dicho tipo. Sabiendo que hay 2 frases de este tipo, nuestro resultado debe proporcionarnos 2 frases ya que no hay más ni menos que dicha cantidad de frases.
 - Comprobamos que devolvemos un error en el caso de no encontrar ninguna frase del tipo indicado.
 
+##### MÉTODOS PARA COMPROBAR EL FORMATO
 Una vez hemos testeado todos los métodos de la clase controladora, no debemos olvidarnos de testear el caso en el que se nos estén proporcionando datos no válidos, caso en el que tendremos que devolver un error.
 Como esto es común a todas las funciones, he decidido testearlo con una de ellas solamente para demostrar que funciona correctamente.
 
