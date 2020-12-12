@@ -83,9 +83,12 @@ Esta Historia de Usuario, tal y como indica, permite añadir expresiones popular
 ![](../imagenes/ruta-6.png)
 
 #### HU7: MOSTRAR TODAS LAS EXPRESIONES POPULARES
-En este caso, vamos a permitir que el usuario pueda obtener un listado con todas las expresiones populares que hay registradas, por tanto el diseño de la ruta ha sido similar al de la HU1 pero con sus parámetros correspondientes. La URI es **http://loclahost:8080/expresiones**.
+En este caso, vamos a permitir que el usuario pueda obtener un listado con todas las expresiones populares que hay registradas. La URI es **http://loclahost:8080/expresiones**.
 
-![](../imagenes/ruta7.png)
+![](../imagenes/ruta-7.png)
+
+Como vemos, en este caso hemos tenido que separar nuestras expresiones populares en dos partes, realizando dicha separación mediante un guión.
+Por tanto, tenemos por un lado la *expresión* y por otro lado la *explicación*. De esta manera, vamos añadiendo a nuestro vector *lista-separación*, cada expresión y cada explicación como elementos separados, de tal forma que cuando vayamos a montar el json de respuesta, tenemos que recorrer dicha *lista_separación* e ir cogiendo los elementos de dos en dos, de manera que, un elemento de *lista_expresiones* corresponderá a un par *expresión-explicación* de *lista_separación*.
 
 ##### FUNCIONAMIENTO CORRECTO
 Vamos a añadir dos expresiones populares y a continuación las mostraremos.
@@ -93,6 +96,8 @@ Vamos a añadir dos expresiones populares y a continuación las mostraremos.
 ![](../imagenes/expresion-ortigas.png)
 
 ![](../imagenes/expresion-bonjour.png)
+
+![](../imagenes/lista-expresiones.png)
 
 #### HU8: MOSTRAR EL LISTADO DE VOCABULARIO ORDENADO DE MANERA ASCENDENTE O DESCENDENTE
 El objetivo de esta Historia de Usuario es permitir al usuario indicar si quiere que el listado de vocabulario se muestre ordenado ascendente o descendentemente.
