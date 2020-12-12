@@ -14,8 +14,6 @@ RUN mkdir node_modules \
     && apk add --update nodejs npm make \
     && npm i -g grunt-cli grunt-run
 
-RUN chmod -R 775 /home/usuario
-
 #usuario sin privilegios
 USER usuario
 
@@ -39,9 +37,6 @@ ENV PATH=/node_modules/.bin:$PATH
 
 #creamos el directorio de trabajo /test
 WORKDIR /test
-USER root 
-RUN chmod -R 775 /test
-USER usuario
 
 #ejecutamos los tests con grunt, en concreto, con el comando 'grunt test'
 CMD ["grunt","test"]
