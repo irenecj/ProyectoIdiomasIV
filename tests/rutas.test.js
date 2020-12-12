@@ -1,6 +1,10 @@
 const request = require('supertest');
 app = require('../src/rutas.js')
 
+afterAll(async () => {
+  await app.close();
+});
+
 describe("GET /", function() {
   it("comprobar que funciona", function(done) {
     request(app)
