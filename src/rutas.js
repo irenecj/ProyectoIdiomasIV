@@ -118,10 +118,9 @@ router.get('/expresiones', (ctx) => {
   var lista_separacion = [];
   var lista_expresiones = [];
   for(var i in expresiones){
-    separacion = expresiones[i].split("-"); //se meten 2 
-
-      lista_separacion.push(separacion[0]); 
-      lista_separacion.push(separacion[1]);
+    separacion = expresiones[i].split("-"); 
+    lista_separacion.push(separacion[0]); 
+    lista_separacion.push(separacion[1]);
   }
   ctx.status = 200;
   for(var i=0; i<(lista_separacion.length)/2+2; i=i+2){
