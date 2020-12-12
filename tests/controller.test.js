@@ -141,7 +141,32 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para ordenar listado de vocabulario (HU8)", () => {
+    test("Comprobando que ordena correctamente de manera ascendente", () => {
+      control.ordenarVocab('ASCENDENTE');
+      var palabraEsperada1 = control.idioma.listado[0].getPalabra();
+      var palabraEsperada2 = control.idioma.listado[1].getPalabra();
 
+      control.ordenarVocab('ASCENDENTE');
+
+      expect(palabraEsperada1).toBe('ESTUCHE.');
+      expect(palabraEsperada2).toBe('ZAPATO.');
+    });
+    test("Comprobando que ordena correctamente de manera descendente", () => {
+      control.ordenarVocab('DESCENDENTE');
+      var palabraEsperada1 = control.idioma.listado[0].getPalabra();
+      var palabraEsperada2 = control.idioma.listado[1].getPalabra();
+
+      control.ordenarVocab('DESCENDENTE');
+
+      expect(palabraEsperada1).toBe('ZAPATO.');
+      expect(palabraEsperada2).toBe('ESTUCHE.');
+    });
+    test("Comprobando que devuelve error si el orden no es válido", () => {
+      thrown_error = () => control.ordenarVocab('Numérico');
+      expectedError = new NoOrden("El orden introducido no es válido, debe introducir 'ASCENDENTE' o 'DESCENDENTE'");
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando método para añadir expresiones populares (HU6)", () => {
 
