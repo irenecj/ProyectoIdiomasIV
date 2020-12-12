@@ -57,10 +57,12 @@ Las clases que se han refactorizado y utilizado son:
 - [winston.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/winston.js): contiene la instancia en Winston.
 - [rutas.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/rutas.js): contiene el diseño de las rutas de nuestra API, y sus debidos [tests](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/rutas.test.js).
 ##### HISTORIAS DE USUARIO
-He añadido 3 Historias de Usuario nuevas ya que me parece muy útil y necesario poder eliminar tanto palabras como expresiones y frases. Estas son:
+He añadido 3 Historias de Usuario nuevas ya que me parece muy útil y necesario poder eliminar tanto palabras como expresiones y frases. Y otra a parte, para gestionar el log del sistema. Estas son:
 - [HU12. Eliminar una traducción del listado de vocabulario.](https://github.com/irenecj/proyecto-idiomas/issues/56)
 - [HU13. Eliminar una expresión del listado de expresiones.](https://github.com/irenecj/proyecto-idiomas/issues/57)
 - [HU14. Eliminar una frase del listado de frases.](https://github.com/irenecj/proyecto-idiomas/issues/58)
+- [HU15. Como administrador quiero tener acceso al fichero de log.](https://github.com/irenecj/proyecto-idiomas/issues/59)
+
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
@@ -169,7 +171,8 @@ En este punto del proyecto sólo tengo dos historias de usuario, pero en próxim
   * Como usuario, al igual que puedo añadir expresiones al listado de expresiones, debo poder quitar aquella expresión que vea conveniente.
 - [HU14.](https://github.com/irenecj/proyecto-idiomas/issues/58) Eliminar una frase del listado de frases.
   * Como usuario, al igual que puedo añadir frases al listado de frases, debo poder quitar aquella frase que vea conveniente.
-
+- [HU15.](https://github.com/irenecj/proyecto-idiomas/issues/59) Como administrador quiero tener acceso al fichero de log.
+  * Como administrador debería poder tener acceso a un fichero de log en el cual se registren las peticiones HTTP que recibe el servidor.
 
 ## :pencil2: AUTORA
 Irene Cano Jerez
