@@ -65,7 +65,7 @@ Si ahora mostramos todo el vocabulario, o simplemente buscamos dicha palabra, ve
 
 #### HU5: MOSTRAR TRADUCCIONES QUE EMPIEZAN POR UNA DETERMINADA LETRA
 Esta Historia de Usuario se basa en mostrarnos aquellas palabras que comiencen por la letra indicada junto con sus traducciones.
-Para ello tenemos la URI **http://localhost:8080/vocabulario/filtrar/:letra** de la cual captamos la letra que usaremos para filtrar y el método es *GET* ya que nos encontramos ante una consulta.
+Para ello tenemos la URI **http://localhost:8080/vocabulario/filtrado/:letra** de la cual captamos la letra que usaremos para filtrar y el método es *GET* ya que nos encontramos ante una consulta.
 
 ![](../imagenes/ruta5.png)
 
@@ -105,7 +105,7 @@ El objetivo de esta Historia de Usuario es permitir al usuario indicar si quiere
 
 ![](../imagenes/ruta8.png)
 
-Para ello hemos definido la URI **http://localhost:8080/vocabulario/ordenar/:orden** y usamos como método *GET*.
+Para ello hemos definido la URI **http://localhost:8080/vocabulario/ordenacion/:orden** y usamos como método *GET*.
 Una vez captamos el orden introducido por el usuario, llamamos a la función **ordenarVocab(orden)** que nos devolverá el listado de traducciones ordenados, con el cual generaremos nuestro JSON y ya lo tendremos listo para enviarlo como respuesta.
 
 ##### FUNCIONAMIENTO CORRECTO

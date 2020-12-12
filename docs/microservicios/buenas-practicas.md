@@ -60,3 +60,18 @@ Con todos estos datos vamos a montar el mensaje que registraremos y una vez lo t
 Vamos a ver un ejemplo de esto en el que tendremos una petición *POST* y otra *GET* que se han realizado con éxito, después nos encontraremos un código de estado 400 ya que la URL introducida no se va a encontrar y finalmente, intentaremos añadir una palabra ya existente, obteniendo así un código de estado 404.
 
 ![](../imagenes/ejemplo-log.png)
+
+## OTRAS BUENAS PRÁCTICAS
+#### USAR NOMBRES PERO NO VERBOS
+Para mejorar la comprensión y la legibilidad, en las buenas prácticas se recomienda utilizar en nuestra rutas nombres en vez de verbos. Por tanto, en las imágenes que he mostrado podemos ver que tenemos dos rutas que tienen un verbo por tanto las he cambiado de la siguiente manera: 
+- **http://localhost:8080/vocabulario/filtrar/:letra** ha pasado a ser http://localhost:8080/vocabulario/filtrado/:letra.
+- **http://localhost:8080/vocabulario/ordenar/:orden** ha pasado a ser http://localhost:8080/vocabulario/ordenacion/:orden.
+
+#### LOS MÉTODOS GET Y LOS PARÁMETROS DE CONSULTA NO DEBEN ALTERAR EL ESTADO
+Como podemos ver sólo utilizamos GET para realizar consultas, en el momento que queremos cambiar el estado de uno de nuestros recursos recurrimos a los métodos POST y PUT.
+
+#### USAR NOMBRES EN PLURAL
+Es una buena práctica que usemos en nuestras rutas nombres en plural en vez de en singular. En nuestro caso, tenemos unas rutas con *expresiones* y otras con *frases*. Es cierto, que hay algunas que usan la palabra *vocabulario*, la cual no está en plural, pero me parece que engloba muy bien al conjunto de operaciones que podemos hacer a partir de dicha ruta, por tanto he decidido dejarla así.
+
+#### MANEJAR ERRORES CON CÓDIGO DE ESTADO HTTP
+A lo largo de toda la explicación de lo implementado en esta entrega podemos ver que hemos hecho uso de códigos de estado HTTP. Esto se debe a que facilitan muchísimo el poder identificar un error y ver donde se está dando o notificar al usuario si no se encuentra la URI proporcionada, o si la petición no es válida o no puede servirse.
