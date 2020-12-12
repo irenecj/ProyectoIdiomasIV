@@ -14,7 +14,7 @@ RUN mkdir node_modules \
     && apk add --update nodejs npm make \
     && npm i -g grunt-cli grunt-run
 
-RUN chmod a+w /home/usuario
+RUN chmod -R /home/usuario
 
 #usuario sin privilegios
 USER usuario
