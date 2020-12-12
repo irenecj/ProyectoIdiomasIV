@@ -2,6 +2,8 @@ const Controller = require('../src/controller.js');
 const Encontrada = require('../src/excepciones/Encontrada.js');
 const NoEncontrada = require('../src/excepciones/NoEncontrada.js');
 const NoOrden = require('../src/excepciones/NoOrden.js');
+const NoString = require("../src/excepciones/NoString.js");
+const NoFormato = require("../src/excepciones/NoFormato.js");
 
 const control = new Controller();
 var palabra, significado;
@@ -275,6 +277,24 @@ describe("Testeando la clase controladora", () => {
 
       thrown_error = () => control.todasFrases(tipo);
       expectedError = new NoEncontrada('No se ha encontrado ninguna frase de dicho tipo.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
+  describe("Testeando que cualquier función devolverá un error si el dato introducido no es un string o no acaba en punto final", () => {
+    test('Comprobando que se devuelve el error si no es un string', () => {
+      palabra = 7;
+      significado = "ESTE SERÍA EL SIGNIFICADO."
+      thrown_error = () => control.nuevaTraduccion(palabra,significado);
+      expectedError = new NoString('La palabra debe ser de tipo "string"');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+    test("Comprobando que se devuelve un error si no acaba en punto final", () => {
+      frase = "BONNE NUIT";
+      tipo = "SALUDO.";
+      thrown_error = () => control.nuevaFrase(frase,tipo);
+      expectedError = new NoFormato('El formato introducido no es válido, debe poner punto final.');
 
       expect(thrown_error).toThrow(expectedError);
     });
