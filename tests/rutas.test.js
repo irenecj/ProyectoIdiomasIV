@@ -76,18 +76,18 @@ describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
 });
 
 //HU5 -> Mostrar traducciones que empiezan por una determinada letra 
-describe("GET /vocabulario/filtrar/:letra", function(){
+describe("GET /vocabulario/filtrado/:letra", function(){
   //Mostramos las traducciones que empiezan por dicha letra 
   it('filtrar por letra', function(done){
     request(app)
-      .get('/vocabulario/filtrar/I')
+      .get('/vocabulario/filtrado/I')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Devolvemos un error si no hay ninguna palabra que comience por dicha letra 
   it('mostrar error 404 ya que no encuentra ninguna palabra', function(done){
     request(app)
-      .get('/vocabulario/filtrar/M')
+      .get('/vocabulario/filtrado/M')
       .expect('Content-Type', /json/)
       .expect(404,done)
   });
@@ -123,25 +123,25 @@ describe("GET /expresiones", function(){
 });
 
 //HU8 -> Mostrar el listado de vocabulario ordenado ascendente o descendentemente 
-describe("GET /vocabulario/ordenar/:orden", function(){
+describe("GET /vocabulario/ordenacion/:orden", function(){
   //Ordenamos de manera ascendente
   it('orden ascendente', function(done){
     request(app)
-      .get('/vocabulario/ordenar/ASCENDENTE')
+      .get('/vocabulario/ordenacion/ASCENDENTE')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Ordenamos de manera descendente 
   it('orden descendente', function(done){
     request(app)
-      .get('/vocabulario/ordenar/DESCENDENTE')
+      .get('/vocabulario/ordenacion/DESCENDENTE')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Devolvemos un error si el orden proporcionado no es ASCENDENTE ni DESCENDENTE
   it('mostrar error 400 ya que el orden proporcionado no es válido', function(done){
     request(app)
-      .get('/vocabulario/ordenar/NUMÉRICO')
+      .get('/vocabulario/ordenacion/NUMÉRICO')
       .expect('Content-Type', /json/)
       .expect(400,done)
   });
