@@ -4,7 +4,6 @@ const bodyParser = require('koa-bodyparser');
 const logger  = require('./winston.js');
 
 const Controller = require('./controller.js');
-const { Console, ConsoleTransportOptions } = require('winston/lib/winston/transports');
 const app = new Koa();
 const router = new Router();
 const control = new Controller();
@@ -231,5 +230,4 @@ app.use(bodyParser());
 app.listen(8080);
 console.log('Server listening on port 8080');
 
-
-module.exports = app.listen();
+module.exports = app.listen() ;
