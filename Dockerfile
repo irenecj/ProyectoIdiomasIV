@@ -31,6 +31,8 @@ USER root
 #eliminamos el fichero de dependencias una vez éstas se han instalado
 RUN rm package.json
 
+RUN chmod 775 /test
+
 #volvemos al usuario sin privilegios
 USER usuario
 
@@ -39,6 +41,7 @@ ENV PATH=/node_modules/.bin:$PATH
 
 #creamos el directorio de trabajo /test
 WORKDIR /test
+
 
 #ejecutamos los tests con grunt, en concreto, con el comando 'grunt test'
 CMD ["grunt","test"]
