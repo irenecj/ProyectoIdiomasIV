@@ -204,7 +204,24 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para mostrar expresiones populares (HU7)", () => {
+    test("Comprobando que se muestran todas las expresiones", () => {
+      var tam = control.todasExpresiones().length;
+      var tam_expr = control.idioma.expresiones.length;
 
+      expect(tam).toBe(tam_expr);
+    });
+    test("Comprobando que funciona correctamente", () => {
+      var expr1 = "C'EST SIMPLE COMME BONJOUR." + "-" + "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO.";
+      var expr2 = "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES." + "-" +"LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.";
+      var vector_esperado = [];
+      vector_esperado.push(expr1);
+      vector_esperado.push(expr2);
+
+      var vector_obtenido = [];
+      vector_obtenido = control.todasExpresiones();
+
+      expect(vector_obtenido).toStrictEqual(vector_esperado);
+    });
   });
   describe("Testeando método para añadir frases cotidianas (HU9)", () => {
 

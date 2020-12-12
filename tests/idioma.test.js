@@ -249,8 +249,8 @@ describe("Testeando la clase idioma.js", () => {
     test("Comprobando que se muestran TODAS las expresiones", () => {
       //el tamaño del vector devuelto tiene que ser el mismo que el del vector de expresiones
       var tam_vector_expresiones = idioma.mostrarExpresiones().length;
-      tam_vocab = idioma.listado.length;
-      expect(tam_vector_expresiones).toEqual(tam_vocab);
+      var tam_expr = idioma.expresiones.length;
+      expect(tam_vector_expresiones).toEqual(tam_expr);
     });
     test("Comprobando que funciona correctamente", () => {
       var expresion1 = "C'EST SIMPLE COMME BONJOUR." + "-" + "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO.";
