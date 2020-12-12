@@ -352,4 +352,4 @@ Después de esto, comprobamos que si el dato no acaba en punto final seremos not
 
 Aquí tenemos una captura en la que todos nuestros tests han pasado con éxito:
 
-![](../imagenes/tests-correctos.png)
+![](../imagenes/test-correctos.png)
