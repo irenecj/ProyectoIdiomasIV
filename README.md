@@ -61,8 +61,6 @@ He añadido 3 Historias de Usuario nuevas ya que me parece muy útil y necesario
 - [HU12. Eliminar una traducción del listado de vocabulario.](https://github.com/irenecj/proyecto-idiomas/issues/56)
 - [HU13. Eliminar una expresión del listado de expresiones.](https://github.com/irenecj/proyecto-idiomas/issues/57)
 - [HU14. Eliminar una frase del listado de frases.](https://github.com/irenecj/proyecto-idiomas/issues/58)
-##### GESTOR DE TAREAS
-Para poder ejecutar los tests usamos **grunt test** y para instalar las dependencias **grunt install**.
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
@@ -132,6 +130,10 @@ En el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/ma
 19. [Despliegue con Netlify.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
 20. [Archivos necesarios para despliegue en Netlify.](https://github.com/irenecj/proyecto-idiomas/tree/master/functions)
 21. [Despliegue de un Bot de Telegram.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
+22. [Documentación con pruebas realizadas para elegir framework.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/framework-elegido.md)
+23. [Documentación a cerca de diseño y testeo de la API.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/dise%C3%B1o-general-api.md)
+24. [Buenas prácticas seguidas para desarrollar la API.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/buenas-practicas.md)
+
 
 ## :heavy_check_mark: ISSUES Y MILESTONES
 - [Listado](https://github.com/irenecj/ProyectoIdiomasIV/issues?q=is%3Aissue+is%3Aclosed) de issues cerrados.
@@ -161,6 +163,13 @@ En este punto del proyecto sólo tengo dos historias de usuario, pero en próxim
   * Como usuario debo poder mostrar un listado de frases cotidianas de un tipo concreto.
 - [HU11.](https://github.com/irenecj/proyecto-idiomas/issues/43) Autoevaluación de palabras aprendidas.
   * Como usuario debo poder realizar una autoevaluación que consistirá en indicar qué palabra corresponde, en el idioma que estamos aprendiendo, a la definición proporcionada.
+- [HU12.](https://github.com/irenecj/proyecto-idiomas/issues/56) Eliminar una traducción del listado de vocabulario.
+  * Como usuario, al igual que puedo añadir traducciones al listado de vocabulario, debo poder quitar aquella traducción que vea conveniente.
+- [HU13.](https://github.com/irenecj/proyecto-idiomas/issues/57) Eliminar una expresión del listado de expresiones.
+  * Como usuario, al igual que puedo añadir expresiones al listado de expresiones, debo poder quitar aquella expresión que vea conveniente.
+- [HU14.](https://github.com/irenecj/proyecto-idiomas/issues/58) Eliminar una frase del listado de frases.
+  * Como usuario, al igual que puedo añadir frases al listado de frases, debo poder quitar aquella frase que vea conveniente.
+
 
 ## :pencil2: AUTORA
 Irene Cano Jerez
