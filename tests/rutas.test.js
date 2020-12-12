@@ -201,9 +201,9 @@ describe("DELETE /vocabulario/:palabra", function(){
 });
 
 
-//HU13 -> Eliminar una palabra del listado de vocabulario 
+//HU13 -> Eliminar una expresión del listado de expresiones 
 describe("DELETE /expresiones/:expresion", function(){
-  //Eliminar la palabra si existe 
+  //Eliminar la expreisón si existe 
   it('eliminar expresión', function(done){
     request(app)
       .delete("/expresiones/C'EST SIMPLE COMME BONJOUR.")
