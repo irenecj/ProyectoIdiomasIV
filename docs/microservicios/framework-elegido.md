@@ -140,6 +140,7 @@ Volvemos a tener un 100% de éxito y respecto al resto de datos tenemos:
 - Tiempo máximo transcurrido entre todos (en ms) = 126'5
 - Media de tiempo transcurrido por respuesta = 36'8
 
+
 #### CONCLUSIÓN OBTENIDA RESPECTO A TEST DE RENDIMIENTO
 En lo que respecta a **peticiones por segundo**, vemos que el framework que nos presenta un mayor resultado es Koa, seguido de Restify.
 En cuanto a **tiempo máximo transcurrido**, vemos que vuelve a ser Koa quien presenta un tiempo menor, esto quiere decir, que la petición que más ha tardado en ser respondida ha presentado un tiempo de 122'1 ms.
