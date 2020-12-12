@@ -227,7 +227,7 @@ app.use(router.routes()); //pasamos a Koa todas las rutas mediante un middleware
 
 app.use(bodyParser());
 
-app.listen(8080);
-console.log('Server listening on port 8080');
+// app.listen(8080);
+// console.log('Server listening on port 8080');
 
-module.exports = app.listen() ;
+module.exports = app;

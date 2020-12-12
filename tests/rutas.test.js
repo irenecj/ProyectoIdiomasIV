@@ -2,13 +2,26 @@ const request = require('supertest');
 // const { app } = require('../src/rutas.js');
 const app = require('../src/rutas.js')
 
+// beforeAll(() => {
+//   app.listen(8080);
+// });
+
+// afterAll(() => {
+//   app.close();
+// });
+
+var server;
+beforeAll(() => {
+  server = app.listen(8080)
+})
+
 afterAll(() => {
-  app.close();
-});
+  server.close()
+})
 
 describe("GET /", function() {
   it("comprobar que funciona", function(done) {
-    request(app)
+    request(server)
       .get('/')
       .expect('Content-Type', /json/)
       .expect(200,done);
@@ -19,14 +32,14 @@ describe("GET /", function() {
 describe("POST /vocabulario/:palabra/:significado", function() {
   //Añadimos la palabra y el significado correctamente
   it('añadir una palabra y su significado', function(done){
-    request(app)
+    request(server)
       .post('/vocabulario/INFORMÁTICA./INFORMATIQUE.CONJUNTO DE CONOCIMIENTOS TÉCNICOS QUE SE OCUPAN DEL TRATAMIENTO AUTOMÁTICO DE LA INFORMACIÓN POR MEDIO DE COMPUTADORAS.')
       .expect('Content-Type', /json/)
       .expect(201,done);
   });
   //Devolvemos un error ya que la palabra que se quiere añadir ya está registrada
   it("mostrar error 400 si añadimos una palabra que ya existe", function(done){
-    request(app)
+    request(server)
       .post('/vocabulario/INFORMÁTICA./INFORMATIQUE.SIGNIFICADO DISTINTO AL ANTERIOR PERO CORRESPONDIENTE A LA MISMA PALABRA.')
       .expect('Content-Type', /json/)
       .expect(400,done);
@@ -37,7 +50,7 @@ describe("POST /vocabulario/:palabra/:significado", function() {
 describe("GET /vocabulario", function() {
   //Mostramos todo el listado de vocabulario
   it('mostrar todo el listado', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario')
       .expect('Content-Type', /json/)
       .expect(200,done);
@@ -48,14 +61,14 @@ describe("GET /vocabulario", function() {
 describe("GET /vocabulario/:palabra", function(){
   //Mostramos una palabra concreta junto con su significado / traducción 
   it('mostrar palabra concreta', function(done){
-    request(app) 
+    request(server) 
       .get('/vocabulario/INFORMÁTICA.')
       .expect('Content-Type', /json/)
       .expect(200,done);
   });
   //Devolvemos un error ya que buscamos una palabra que no existe 
   it('mostrar error 404 si la palabra que buscamos no existe', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/LIBRO.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -66,14 +79,14 @@ describe("GET /vocabulario/:palabra", function(){
 describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
   //Modificamos el significado de una palabra existente 
   it('cambiar significado', function(done){
-    request(app)
+    request(server)
       .put('/vocabulario/INFORMÁTICA./CAMBIO EL SIGNIFICADO.')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Devolvemos un error ya que la palabra no existe
   it('mostrar error 404 si la palabra no existe', function(done){
-    request(app)
+    request(server)
       .put('/vocabulario/LIBRO./CAMBIO EL SIGNFICADO DE PALABRA INEXISTENTE.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -84,14 +97,14 @@ describe("PUT /vocabulario/:palabra/:significadoNuevo", function(){
 describe("GET /vocabulario/filtrado/:letra", function(){
   //Mostramos las traducciones que empiezan por dicha letra 
   it('filtrar por letra', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/filtrado/I')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Devolvemos un error si no hay ninguna palabra que comience por dicha letra 
   it('mostrar error 404 ya que no encuentra ninguna palabra', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/filtrado/M')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -102,14 +115,14 @@ describe("GET /vocabulario/filtrado/:letra", function(){
 describe("POST /expresiones/:expresion/:explicacion", function(){
   //Añadimos la expresión popular correctamente 
   it('añadir expresión popular', function(done){
-    request(app) 
+    request(server) 
       .post("/expresiones/C'EST SIMPLE COMME BONJOUR./SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO.")
       .expect('Content-Type', /json/)
       .expect(201,done)
   });
   //Devolvemos un error si la expresión insertada ya existe 
   it('mostrar error 400 ya que la expresión insertada ya existe', function(done){
-    request(app)
+    request(server)
       .post("/expresiones/C'EST SIMPLE COMME BONJOUR./LA EXPLICACIÓN ES DISTINTA PERO LA EXPRESIÓN ES LA MISMA.")
       .expect('Content-Type', /json/)
       .expect(400,done)
@@ -120,7 +133,7 @@ describe("POST /expresiones/:expresion/:explicacion", function(){
 describe("GET /expresiones", function(){
   //Mostramos el listado completo de expresiones 
   it('mostrar expresiones populares', function(done){
-    request(app) 
+    request(server) 
       .get('/expresiones')
       .expect('Content-Type', /json/)
       .expect(200,done)
@@ -131,21 +144,21 @@ describe("GET /expresiones", function(){
 describe("GET /vocabulario/ordenacion/:orden", function(){
   //Ordenamos de manera ascendente
   it('orden ascendente', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/ordenacion/ASCENDENTE')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Ordenamos de manera descendente 
   it('orden descendente', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/ordenacion/DESCENDENTE')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   //Devolvemos un error si el orden proporcionado no es ASCENDENTE ni DESCENDENTE
   it('mostrar error 400 ya que el orden proporcionado no es válido', function(done){
-    request(app)
+    request(server)
       .get('/vocabulario/ordenacion/NUMÉRICO')
       .expect('Content-Type', /json/)
       .expect(400,done)
@@ -156,14 +169,14 @@ describe("GET /vocabulario/ordenacion/:orden", function(){
 describe("POST /frases/:frase/:tipo", function(){
   //Añadimos una frase cotidiana
   it('añadir frase cotidiana', function(done){
-    request(app)
+    request(server)
     .post('/frases/À BIENTÔT.HASTA PRONTO./SALUDO.')
     .expect('Content-Type', /json/)
     .expect(201,done)
   });
   //Devolvemos un error si la frase cotidiana ya existe 
   it('mostrar error 400 ya que la frase ya existe', function(done){
-    request(app)
+    request(server)
       .post('/frases/À BIENTÔT.HASTA PRONTO./SALUDO.')
       .expect('Content-Type', /json/)
       .expect(400,done)
@@ -174,14 +187,14 @@ describe("POST /frases/:frase/:tipo", function(){
 describe("GET /frases/:tipo", function(){
   //Mostramos las frases por el tipo indicado 
   it('mostrar frases por tipo', function(done){
-    request(app)
+    request(server)
     .get('/frases/SALUDO.')
     .expect('Content-Type', /json/)
     .expect(200,done)
   });
   //Devolvemos un error si no se encuentra ninguna frase de dicho tipo
   it('mostrar error 404 ya que no hay frases de ese tipo', function(done){
-    request(app)
+    request(server)
       .get('/frases/PERMISO.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -192,13 +205,13 @@ describe("GET /frases/:tipo", function(){
 describe("DELETE /vocabulario/:palabra", function(){
   //Eliminar la palabra si existe 
   it('eliminar palabra', function(done){
-    request(app)
+    request(server)
       .delete('/vocabulario/INFORMÁTICA.')
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   it("mostrar error 404 ya que no se encuentra la palabra", function(done){
-    request(app)
+    request(server)
       .delete('/vocabulario/PIANO.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -210,13 +223,13 @@ describe("DELETE /vocabulario/:palabra", function(){
 describe("DELETE /expresiones/:expresion", function(){
   //Eliminar la expreisón si existe 
   it('eliminar expresión', function(done){
-    request(app)
+    request(server)
       .delete("/expresiones/C'EST SIMPLE COMME BONJOUR.")
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   it("mostrar error 404 ya que no se encuentra la expresión", function(done){
-    request(app)
+    request(server)
       .delete('/expresiones/MÁS VALE PÁJARO EN MANO QUE CIENTO VOLANDO.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -227,13 +240,13 @@ describe("DELETE /expresiones/:expresion", function(){
 describe("DELETE /frases/:frase", function(){
   //Eliminar la palabra si existe 
   it('eliminar frase', function(done){
-    request(app)
+    request(server)
       .delete("/frases/À BIENTÔT.HASTA PRONTO.")
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
   it("mostrar error 404 ya que no se encuentra la frase", function(done){
-    request(app)
+    request(server)
       .delete('/frases/BONJOUR À TOUT LE MONDE.')
       .expect('Content-Type', /json/)
       .expect(404,done)
@@ -243,7 +256,7 @@ describe("DELETE /frases/:frase", function(){
 //Insertar un string con un formato incorrecto, es decir, si no acaba en punto final
 describe("POST /vocabulario/:palabra/:significado", function(){
   it('mostrar error 400 ya que el formato no es válido', function(done){
-    request(app)
+    request(server)
       .post('/vocabulario/Informatica/Este sería el significado.')
       .expect('Content-Type', /json/)
       .expect(400,done)
@@ -253,7 +266,7 @@ describe("POST /vocabulario/:palabra/:significado", function(){
 //Insertar un dato que no sea de tipo string 
 describe("POST /frases/:frase/:tipo", function(){
   it('mostrar error 400 ya que no es un string', function(done){
-    request(app)
+    request(server)
       .post('/frases/1/SALUDO.')
       .expect('Content-Type', /json/)
       .expect(400,done)
@@ -263,7 +276,7 @@ describe("POST /frases/:frase/:tipo", function(){
 //Insertar una ruta la cual no hemos diseñado
 describe("GET /traducciones", function(){
   it('mostrar error 404 ya que la URI no existe', function(done){
-    request(app)
+    request(server)
       .get('/traducciones')
       .expect('Content-Type', 'text/plain; charset=utf-8')
       .expect(404,done)
