@@ -124,4 +124,5 @@ Los pasos a seguir han sido:
 - Creación de una clase controladora.
 - Refactorización de las clases necesarias.
 - Testeo de todo el código implementado.
-- Añadir HU nuevas. 
+- Añadir HU nuevas.
+- Configurar el gestor de tareas. 
