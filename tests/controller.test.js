@@ -7,6 +7,7 @@ const control = new Controller();
 var palabra, significado;
 var thrown_error;
 var expectedError;
+var resultado;
 
 describe("Testeando la clase controladora", () => {
   describe("Testeando el constructor", () => {
@@ -57,7 +58,47 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para obetner traducción concreta (HU3)", () => {
+    test("Comprobando que funciona correctamente si le pasamos una palabra existente", () => {
+      palabra = "ZAPATO.";
+      resultado = control.traduccion(palabra);
 
+      for(var i in control.idioma.listado){
+        if(palabra == control.idioma.listado[i].getPalabra()){
+          var indicePalabra = i;
+        }
+      }
+
+      significado = control.idioma.listado[indicePalabra].getSignificado();
+
+      expect(resultado).toBe(significado);
+    });
+    test("Comprobando que la palabra se corresponde con el significado", () => {
+      palabra = "ESTUCHE.";
+      significado = "TROUSSE.SE USA NORMALMENTE PARA GUARDAR MATERIAL ESCOLAR.";
+
+      for(var i in control.idioma.listado){
+        if(palabra == control.idioma.listado[i].getPalabra()){
+          var indicePalabra = i;
+        }
+      }
+
+      for(var j in control.idioma.listado){
+        if(significado == control.idioma.listado[j].getSignificado()){
+          var indiceSignif = j;
+        }
+      }
+
+      expect(indicePalabra).toEqual(indiceSignif);
+    });
+    test("Comprobando que devuelve un error al pasarle una palabra que no existe", () => {
+      palabra = "BOLÍGRAFO.";
+      significado = "STYLO. UTENSILIO QUE CONTIENE TINTA EL CUAL SE USA PARA ESCRIBIR."
+
+      thrown_error = () => control.traduccion(palabra);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando método para cambiar significado (HU4)", () => {
 
