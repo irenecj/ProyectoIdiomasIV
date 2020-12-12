@@ -77,7 +77,7 @@ describe("Testeando la clase controladora", () => {
     });
     test("Comprobando que la palabra se corresponde con el significado", () => {
       palabra = "ESTUCHE.";
-      significado = "TROUSSE.SE USA NORMALMENTE PARA GUARDAR MATERIAL ESCOLAR.";
+      significado = control.traduccion(palabra);
 
       for(var i in control.idioma.listado){
         if(palabra == control.idioma.listado[i].getPalabra()){
