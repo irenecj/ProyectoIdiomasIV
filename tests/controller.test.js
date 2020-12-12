@@ -5,9 +5,9 @@ const NoOrden = require('../src/excepciones/NoOrden.js');
 
 const control = new Controller();
 var palabra, significado;
-var thrown_error;
-var expectedError;
+var thrown_error, expectedError;
 var resultado;
+var expresion, explicacion;
 
 describe("Testeando la clase controladora", () => {
   describe("Testeando el constructor", () => {
@@ -169,7 +169,39 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para añadir expresiones populares (HU6)", () => {
+    test("Comprobando que la expresión se añade correctamente", () => {
+      expresion = "C'EST SIMPLE COMME BONJOUR.";
+      explicacion = "SE USA CUANDO ALGO ES TAN FÁCIL COMO DECIR HOLA, ES DECIR, CUANDO ALGO ES FACILÍSIMO."
 
+      var tamaño_original = control.idioma.expresiones.length;
+      control.nuevaExpresion(expresion,explicacion);
+      var tamaño_actual = control.idioma.expresiones.length;
+
+      expect(tamaño_actual).toEqual(tamaño_original+1);
+    });
+    test("Comprobando que la expresión se corresponde con la explicación", () => {
+      expresion = "IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES.";
+      explicacion = "LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.";
+
+      control.nuevaExpresion(expresion,explicacion);
+
+      var tam = control.idioma.expresiones.length;
+      var ultimaExpresion = control.idioma.expresiones[tam-1].getExprPopular();
+      var ultimaExplicacion = control.idioma.expresiones[tam-1].getExplicacion();
+
+      expect(ultimaExpresion).toBe("IL NE FAUT PAS POUSSER MÉMÉ DANS LES ORTIES.");
+      expect(ultimaExplicacion).toBe("LITERALMENTE SIGNIFICA QUE NO DEBEMOS TIRAR A LA ABUELA A LAS ORTIGAS, Y SE USA PARA DECIR QUE NO DEBEMOS EXAGERAR. SU SIGNIFICADO SE DEBE A QUE NUNCA DEBERÍAMOS TIRAR A NUESTRA ABUELA A LAS ORTIGAS, Y SI LO HACEMOS SERÁ UNA EXAGERACIÓN.");
+
+    });
+    test("Comprobando que no permite añadir expresiones ya existentes", () => {
+      expresion = "C'EST SIMPLE COMME BONJOUR.";
+      explicacion = "UNA EXPLICACIÓN NUEVA.";
+
+      thrown_error = () => control.nuevaExpresion(expresion,explicacion);
+      expectedError = new Encontrada('La expresión introducida ya existe, por favor registre otra expresión.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando método para mostrar expresiones populares (HU7)", () => {
 
