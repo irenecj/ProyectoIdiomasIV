@@ -281,6 +281,44 @@ describe("Testeando la clase controladora", () => {
       expect(thrown_error).toThrow(expectedError);
     });
   });
+  describe("Testeando método para eliminar una palabra del listado de vocabulario (HU12)", () => {
+    test("Comprobando que se elimina correctamente la palabra", () => {
+      var tam_vocab = control.idioma.listado.length;
+      
+      palabra = "ESTUCHE.";
+      control.eliminarTraduccion(palabra);
+
+      var tam_nuevo = control.idioma.listado.length;
+
+      expect(tam_nuevo).toEqual(tam_vocab-1);
+    });
+    test("Comprobando que devuelve un error si no existe la palabra", () => {
+      palabra = "ARMARIO.";
+      thrown_error = () => control.eliminarTraduccion(palabra);
+      expectedError = new NoEncontrada("La palabra que busca no se ha encontrado");
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
+  describe("Testeando método para eliminar una expresión del listado de expresiones (HU13)", () => {
+    test("Comprobando que se elimina correctamente la expresion", () => {
+      var tam_expresion = control.idioma.expresiones.length;
+      
+      expresion = "C'EST SIMPLE COMME BONJOUR.";
+      control.eliminarExpresiones(expresion);
+
+      var tam_nuevo = control.idioma.listado.length;
+
+      expect(tam_nuevo).toEqual(tam_expresion-1);
+    });
+    test("Comprobando que devuelve un error si no existe la palabra", () => {
+      expresion = "MÁS VALE PÁJARO EN MANO QUE CIENTO VOLANDO.";
+      thrown_error = () => control.eliminarExpresiones(expresion);
+      expectedError = new NoEncontrada("La expresión que busca no se ha encontrado");
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
   describe("Testeando que se devolverá un error si el dato introducido no es un string o no acaba en punto final", () => {
     test('Comprobando que se devuelve el error si no es un string', () => {
       palabra = 7;

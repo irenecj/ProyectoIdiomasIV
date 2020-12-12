@@ -183,7 +183,7 @@ describe("GET /frases/:tipo", function(){
   });
 });
 
-//HU11 -> Eliminar una palabra del listado de vocabulario 
+//HU12 -> Eliminar una palabra del listado de vocabulario 
 describe("DELETE /vocabulario/:palabra", function(){
   //Eliminar la palabra si existe 
   it('eliminar palabra', function(done){
@@ -192,7 +192,32 @@ describe("DELETE /vocabulario/:palabra", function(){
       .expect('Content-Type', /json/)
       .expect(200,done)
   });
+  it("mostrar error 404 ya que no se encuentra la palabra", function(done){
+    request(app)
+      .delete('/vocabulario/PIANO.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
 });
+
+
+//HU13 -> Eliminar una palabra del listado de vocabulario 
+describe("DELETE /expresiones/:expresion", function(){
+  //Eliminar la palabra si existe 
+  it('eliminar expresión', function(done){
+    request(app)
+      .delete("/expresiones/C'EST SIMPLE COMME BONJOUR.")
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+  it("mostrar error 404 ya que no se encuentra la expresión", function(done){
+    request(app)
+      .delete('/expresiones/MÁS VALE PÁJARO EN MANO QUE CIENTO VOLANDO.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
+});
+
 //Insertar un string con un formato incorrecto, es decir, si no acaba en punto final
 describe("POST /vocabulario/:palabra/:significado", function(){
   it('mostrar error 400 ya que el formato no es válido', function(done){

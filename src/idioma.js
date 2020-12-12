@@ -229,6 +229,27 @@ class Idioma{
       return listaExpresiones;
     }
 
+    //FUNCIÓN PARA ELIMINAR UNA EXPRESIÓN DEL LISTADO DE EXPRESIONES POPULARES 
+    eliminarExpresion(expresion){
+      var noString = this.comprobarString(expresion);
+      var formatoValido = this.comprobarFormato(expresion);
+      var encontrada = 0;
+
+      if(noString == false && formatoValido == true){
+        for(var i in this.expresiones){
+          if(expresion.toUpperCase() == this.expresiones[i].getExprPopular()){
+            encontrada++;
+          }
+        }
+      }
+
+      if(encontrada > 0){
+        this.expresiones.pop(expresion);
+      }else{
+        throw new NoEncontrada("La expresión que busca no se ha encontrado");
+      }
+    }
+
     //FUNCIONES PARA FRASES COTIDIANAS
     aniadirFrase(frase, tipo){
       var formatoFrase = this.comprobarFormato(frase);

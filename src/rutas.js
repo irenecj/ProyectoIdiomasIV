@@ -169,6 +169,16 @@ router.delete('/vocabulario/:palabra', (ctx) => {
   }
 });
 
+//eliminar una expresión del listado de expresiones -> HU13
+router.delete('/expresiones/:expresion', (ctx) => {
+  var expresion = ctx.params.expresion;
+  control.eliminarExpresiones(expresion);
+  ctx.body = {
+    eliminada : 'La expresión ' + expresion + ' ha sido eliminada.'
+  }
+});
+
+
 //middleware para registrar log
 app.use(async(ctx,next)=>{
   await next();

@@ -213,7 +213,7 @@ describe("Testeando la clase idioma.js", () => {
     test("Comprobando que elimina la palabra correctamente si existe", () => {
       tam_vocab = idioma.listado.length;
       palabra = "MESA."
-      idioma.eliminarPalabra('MESA.');
+      idioma.eliminarPalabra(palabra);
 
       var tam_nuevo = idioma.listado.length;
 
@@ -279,6 +279,24 @@ describe("Testeando la clase idioma.js", () => {
       vectorObtenido = idioma.mostrarExpresiones();
 
       expect(vectorObtenido).toStrictEqual(vectorEsperado)
+    });
+  });
+  describe("Testeando el método eliminarExpresion()", () => {
+    test("Comprobando que elimina la expresión correctamente si existe", () => {
+      tam_expresiones = idioma.expresiones.length;
+      expresion = "C'EST SIMPLE COMME BONJOUR.";
+      idioma.eliminarExpresion(expresion);
+
+      var tam_nuevo = idioma.expresiones.length;
+
+      expect(tam_nuevo).toBe(tam_expresiones -1);
+    });
+    test("Comprobando que devuelve un error si no encuentra la expresión", () => {
+      expresion = "MAS VALE PÁJARO EN MANO QUE CIENTO VOLANDO.";
+      thrown_error = () => idioma.eliminarExpresion(expresion);
+      expectedError = new NoEncontrada("La expresión que busca no se ha encontrado");
+
+      expect(thrown_error).toThrow(expectedError);
     });
   });
   describe("Testeando el método aniadirFrase()", () => {

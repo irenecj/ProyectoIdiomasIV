@@ -69,6 +69,11 @@ class Controller {
   eliminarTraduccion(palabra){
     this.idioma.eliminarPalabra(palabra);
   }
+
+  //eliminar una palabra del listado de vocabulario -> HU13
+  eliminarExpresiones(expresion){
+    this.idioma.eliminarExpresion(expresion);
+  }
 }
 
 module.exports = Controller;
