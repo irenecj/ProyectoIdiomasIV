@@ -281,7 +281,7 @@ describe("Testeando la clase controladora", () => {
       expect(thrown_error).toThrow(expectedError);
     });
   });
-  describe("Testeando que cualquier función devolverá un error si el dato introducido no es un string o no acaba en punto final", () => {
+  describe("Testeando que se devolverá un error si el dato introducido no es un string o no acaba en punto final", () => {
     test('Comprobando que se devuelve el error si no es un string', () => {
       palabra = 7;
       significado = "ESTE SERÍA EL SIGNIFICADO."
