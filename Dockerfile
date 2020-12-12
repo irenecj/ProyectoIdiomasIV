@@ -20,6 +20,8 @@ USER usuario
 #copiamos el fichero de dependencias
 COPY package.json ./
 
+RUN chmod a+w /home/usuario
+
 #instalamos las dependencias y borramos la caché de información de los paquetes
 RUN npm install && rm -rf /var/lib/apt/lists/*
 
