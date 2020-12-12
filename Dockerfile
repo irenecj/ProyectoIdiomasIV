@@ -6,12 +6,12 @@ LABEL maintainer="Irene Cano Jerez"
 
 
 #creamos un usuario y una carpeta sobre la que tendrá permisos
-RUN adduser -S usuario 
+RUN adduser -S usuario
 
 #permisos necesarios para el usuario e instalación de node, npm y grunt
 RUN mkdir node_modules \
     && chown -R usuario node_modules \
-    && apk add --update nodejs npm \
+    && apk add --update nodejs npm make \
     && npm i -g grunt-cli grunt-run
 
 #usuario sin privilegios

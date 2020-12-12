@@ -11,3 +11,4 @@ test:
   - tests/traduccion.test.js
 taskfile: Gruntfile.js
 URL: https://proyecto-idiomas-pa6dmtqdu.vercel.app/api/ordenar.js?orden=ASCENDENTE
+make: make
