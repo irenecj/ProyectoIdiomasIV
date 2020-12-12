@@ -28,35 +28,41 @@ Para lanzar el test de cobertura, debemos ejecutar:
 grunt coverage
 ~~~
 
-## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 5 - USO DE SISTEMAS SERVERLESS :eyes:
-El principal objetivo de esta entrega era entender los sistemas serverless y desplegar nuestro proyecto en dos de las alternativas proporcionadas. Además, se proponía llevar a cabo la implementación de un Bot de Telegram.
+## :eyes: RELEVANTE A LAS RÚBRICAS A ENTREGAR: ENTREGA 6 - DISEÑO Y TEST DE UN MICROSERVICIO :eyes:
+#### JUSTIFICACIÓN TÉCNICA DEL FRAMEWORK ELEGIDO PARA EL MICROSERVICIO (RÚBRICA 1)
+Para llevar a cabo esta rúbrica tenemos un [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/framework-elegido.md) en el que vemos como he realizado tests de rendimiento y he investigado a cerca de las características de varios frameworks para finalmente decantarme por uno de ellos, el cual ha sido **Koa**.
+Además, he implementado un ejemplo pequeño siguiendo el *Hello World* de las documentaciones oficiales, para cada framework. Estos ficheros de prueba se encuentran en el siguiente [directorio](https://github.com/irenecj/proyecto-idiomas/tree/master/docs/microservicios/pruebas-frameworks).
 
-#### DESPLIEGUE CORRECTO Y FUNCIONANDO DE VERCEL PARA DESPLIEGUE CONTINUO / INTEGRACIÓN DEL PROYECTO GENERAL / IR MÁS ALLÁ DEL DESPLIEGUE DE UN EJEMPLO (RÚBRICAS 1 Y 2)
-En mi caso, he llevado a cabo la resolución de la [rúbrica 1](http://jj.github.io/IV/documentos/proyecto/5.Serverless) desplegando una función de ejemplo en Vercel, y a continuación he resuelto la [rúbrica 2](http://jj.github.io/IV/documentos/proyecto/5.Serverless) desplegando una función relacionada con mi proyecto.
-- Para ver la documentación sobre el despliegue correcto de una función de ejemplo en Vercel debemos leernos los **dos primeros apartados** del siguiente [fichero.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md)
-- El resto de apartados del [fichero anterior](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-vercel.md) se corresponden al despliegue de una función de nuestro proyecto.
-  - La función escogida ha sido **ordenarAlfabeto(orden)** la cual nos permite mostrar el listado de palabras junto con su significado ordenado de manera ascendente o descendente, y está relacionada con la [HU8.](https://github.com/irenecj/proyecto-idiomas/issues/25)
-- Para integrar esta entrega con el proyecto hemos creado 3 [issues](https://github.com/irenecj/proyecto-idiomas/issues?q=is%3Aissue+is%3Aclosed) que tratan sobre la entrega y que a su vez han estado relacionados con nuestras HU.
-  - [Issue 46](https://github.com/irenecj/proyecto-idiomas/issues/46): despliegue en Vercel de la función ordenarAlfabeto(orden).
-  - [Issue 47](https://github.com/irenecj/proyecto-idiomas/issues/47): despliegue de la función mostrarPalabra(palabra) en Netlify.
-  - [Issue 48](https://github.com/irenecj/proyecto-idiomas/issues/48): despliegue de Bot de Telegram en Netlify.
+#### DISEÑO EN GENERAL DEL API (RÚBRICA 2)
+En este [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/dise%C3%B1o-general-api.md) tenemos toda la documentación a cerca de esta rúbrica.
+Los apartados que encontramos en ella son:
+- Breve explicación sobre por qué usamos una clase controladora.
+- Diseño de rutas necesarias: en este apartado tenemos 1 ruta por cada una de nuestras Historias de Usuario y explico cómo se han implementado. Además, proporciono la URI correspondiente a la ruta y ejemplos en los que se ve que todo funciona correctamente.
+- Realización de los tests: primero muestro y explico los tests de integración que he implementado con Supertest y después explico los tests implementados en la clase controladora.
 
-#### USO DE VARIAS PLATAFORMAS DE DESPLIEGUE / INTEGRACIÓN DE UN BOT DE TELEGRAM (RÚBRICAS 3 Y 4)
-En mi caso, he decidido usar Netlify para desplegar una función de nuestro proyecto y para desplegar un Bot de Telegram.
-- En cuanto a la explicación de cómo se ha implementado la función escogida, debemos leernos el primer apartado del siguiente [fichero.](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md)
-- En el resto del [fichero](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/serverless/docu-netlify.md) tenemos la explicación sobre nuestro [Bot de Telegram.](https://t.me/YourVocab_bot)
+#### USO DE BUENAS PRÁCTICAS (RÚBRICA 3)
+Tenemos un [documento](https://github.com/irenecj/proyecto-idiomas/blob/master/docs/microservicios/buenas-practicas.md) en el que explico todas las buenas prácticas que he seguido para diseñar la API.
 
-#### ARCHIVOS COMPLEMENTARIOS
-Hemos añadido en el fichero [iv.yaml](https://github.com/irenecj/proyecto-idiomas/blob/master/iv.yaml) la URL a la que hacer peticiones a nuestra función de Vercel, y el fichero [5.json](https://github.com/irenecj/proyecto-idiomas/blob/master/5.json) que contiene el resultado que debemos obtener.
-- En el directorio [funcitons](https://github.com/irenecj/proyecto-idiomas/tree/master/functions) tenemos todo aquello que hemos necesitado para los despliegues en Netlify.
-  - [bot.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/bot.js) - contiene las funciones que necesitamos para dar respuesta con nuestro bot.
-  - [index.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/index.js) - contiene las tareas que realiza nuestro bot, es decir, los comandos disponibles.
-  - [listado.js](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/listado.js) - contiene la función para buscar palabras concretas.
-  - [data.json](https://github.com/irenecj/proyecto-idiomas/blob/master/functions/data/data.json) - contiene los datos que necesitamos.
-- En el directorio [api](https://github.com/irenecj/proyecto-idiomas/tree/master/api) tenemos los ficheros utilizados en el despligue en Vercel.
-  - [hello.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/hello.js) - fichero de ejemplo
-  - [ordenar.js](https://github.com/irenecj/proyecto-idiomas/blob/master/api/ordenar.js) - contiene la implementación de la función *ordenarAlfabeto(orden)*.
+#### TESTS CORRECTOS Y DE ACUERDO A LAS HISTORIAS DE USUARIO (RÚBRICA 4)
+Este apartado ha quedado explicado en la rúbrica 2 ya que en dicha rúbrica también se pide documentación a cerca de los tests, y vemos que estos están relacionados con las Historias de Usuario.
 
+#### PUNTOS POR ORIGINALIDAD, UTILIDAD EN LA ASIGNATURA, GRADO DE TERMINACIÓN, CONFIGURACIÓN DEL GESTOR DE TAREAS (RÚBRICA 4)
+Se ha avanzado el proyecto en prácticamente todos los aspectos, se han refactorizado clases, se ha ampliado la documentación existente, se han diseñado nuevas clases, se han añadido Historias de Usuario y he configurado correctamente el gestor de tareas.
+##### REFACTORIZACIÓN DE CLASES
+Las clases que se han refactorizado y utilizado son:
+- [expresion.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/expresion.js) con su correspondiente [test](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/expresion.test.js).
+- [idioma.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/idioma.js) con su correspondiente [test](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/idioma.test.js).
+##### NUEVAS CLASES
+- [controller.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/controller.js): correspondiente a la clase controladora, y sus debidos [tests](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/controller.test.js).
+- [winston.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/winston.js): contiene la instancia en Winston.
+- [rutas.js](https://github.com/irenecj/proyecto-idiomas/blob/master/src/rutas.js): contiene el diseño de las rutas de nuestra API, y sus debidos [tests](https://github.com/irenecj/proyecto-idiomas/blob/master/tests/rutas.test.js).
+##### HISTORIAS DE USUARIO
+He añadido 3 Historias de Usuario nuevas ya que me parece muy útil y necesario poder eliminar tanto palabras como expresiones y frases. Estas son:
+- [HU12. Eliminar una traducción del listado de vocabulario.](https://github.com/irenecj/proyecto-idiomas/issues/56)
+- [HU13. Eliminar una expresión del listado de expresiones.](https://github.com/irenecj/proyecto-idiomas/issues/57)
+- [HU14. Eliminar una frase del listado de frases.](https://github.com/irenecj/proyecto-idiomas/issues/58)
+##### GESTOR DE TAREAS
+Para poder ejecutar los tests usamos **grunt test** y para instalar las dependencias **grunt install**.
 
 ## :wrench: HERRAMIENTA DE CONSTRUCCIÓN
 He utilizado el gestor de tareas **Grunt** con su correspondiente [Gruntfile.js](https://github.com/irenecj/ProyectoIdiomasIV/blob/master/Gruntfile.js).
