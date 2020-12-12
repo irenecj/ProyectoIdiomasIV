@@ -144,6 +144,8 @@ Vamos a añadir dos frases del mismo tipo, en este caso SALUDO, y otra del tipo 
 ![](../imagenes/listado-saludo.png)
 
 ## REALIZACIÓN DE TESTS
+
+#### TESTS DE INTEGRACIÓN
 Como hemos hecho en hitos anteriores, todo el código que implementemos debe ser testeado para así evitar que se produzcan fallos.
 En este punto del proyecto debemos realizar tests de integración.
 ¿Por qué realizar dichos tests?
@@ -191,3 +193,79 @@ Finalmente, nos cercioramos que cuando introducimos una URI la cual no hemos dis
 
 Como ya sabemos, la ruta */traducciones* no es una ruta que hayamos creado, por tanto debemos devolver el error 404.
 Aquí cabe destacar que no devolvemos un json, esto se debe a que para comprobar que una ruta no se encuentra entre las diseñadas utilizamos un middleware proporcionado por Koa, y dicho middleware nos devuelve la respuesta en texto plano.
+
+#### TESTS PARA LA CLASE CONTROLADORA
+Además, como hemos añadido una clase controladora para tener un diseño por capas debemos testear el código implementado en dicha clase.
+En esta clase tenemos un método correspondiente a cada Historia de Usuario, por tanto tendremos que testear cada uno de esos métodos.
+
+Comenzamos testeando nuestro constructor y el método para añadir traducciones nuevas al listado.
+
+![](../imagenes/test-const-añadirTraduc.png)
+
+Podemos ver que en el constructor simplemente vemos que se han creado bien el *idiomaBase* y el *idiomaTraducir*. En cuanto al método para **añadir una traducción** está formado por 3 tests:
+- Comprobamos que se ha añadido la traducción correctamente mirando si el tamaño del vector ha incrementado en 1 unidad, ya que hemos añadido 1 sola traducción.
+- Comprobamos que efectivamente la palabra añadida se corresponde dentro de nuestro listado con su significado.
+- Lanzamos un error si pretendemos añadir una palabra la cual ya existe en el listado.
+
+![](../imagenes/test-todoVocab.png);
+
+Este test ha sido muy sencillo ya que simplemente debemos comprobar que efectivamente se han mostrado todas las palabras de nuestro listado y no se ha quedado ninguna atrás.
+
+![](../imagenes/test-concreta.png)
+
+Para este método hemos realizado varios tests:
+- Comprobamos que si buscamos una palabra que existe en el listado no nos lanza un error y nos devolverá un significado.
+- A continuación, tenemos otro test que comprueba que el significado devuelto efectivamente se corresponde al de la palabra que queremos buscar. Para ello, obtenemos la posición en la que se encuentra la palabra que buscamos y la posición del significado devuelto, si ambas posiciones coinciden efectivamente tenemos la palabra junto con su significado correspondiente.
+- Finalmente, comprobamos que si buscamos una palabra que no está en el listado se devuelve un error notificándonos sobre este suceso.
+
+![](../imagenes/test-cambio-significado.png)
+
+Este método tiene 2 comprobaciones:
+- La primera de ella se basa en cambiar el significado de una palabra y comprobar que el significado que aparece ahora en el listado (en la posición correspondiente a dicha palabra) es equivalente al significado nuevo que hemos proporcionado.
+- La otra comprobación, al igual que ocurre con el método anterior, nos devolverá un error si estamos intentando cambiarle el significado a una palabra que no está registrada.
+
+![](../imagenes/test-filtrar.png)
+
+Este método es muy fácil de testear, simplemente valoramos dos casos:
+- Si encontramos alguna palabra que comience por dicha letra: en este caso, como sólo habíamos añadido una palabra, el tamaño de la lista devuelta debe ser 1.
+- Si no hay ninguna palabra que comience por dicha letra: devolveremos un error indicando que no se ha encontrado ninguna palabra.
+
+![](../imagenes/test-ordenar.png)
+
+En este caso queremos poder ordenar nuestro listado de vocabulario de manera ascendente o descendente por tanto, debemos comprobar que ambos métodos de ordenación funcionan de manera correcta.
+- Si ordenamos de manera ascendente simplemente comprobamos que aparece primero la palabra *ESTUCHE*, ya que comienza por E, y seguidamente la palabra *ZAPATO* ya que comienza por Z.
+- Si ordenamos de manera descendente, ocurrirá al revés, en primer lugar tendremos *ZAPATO* y a continuación *ESTUCHE*.
+- También debemos comprobar que si no se introduce un orden válido, por ejemplo *NUMÉRICO*, *DE MAYOR A MENOR*, o similares, se devuelve un error indicándonos que dicho orden no es válido y proponiéndonos aquellos que si lo son.
+
+![](../imagenes/test-añadir-expr.png)
+
+Ahora pasamos a añadir expresiones populares. Para ello implementamos los siguientes tests:
+- Comprobamos que la expresión se añade correctamente y para ello vemos que el listado de expresiones incrementa su tamaño en 1 unidad cuando añadimos una expresión.
+- Lo siguiente es comprobar que la expresión y la explicación añadidas se corresponden la una con la otra dentro del listado de expresiones. Para ello comprobamos que la última expresión añadida se corresponde con la expresión que hemos introducido y que ocurre lo mismo con la explicación.
+- Por último, en el caso de querer añadir una expresión que ya está registrada vamos a devolver un error notificándolo.
+
+![](../imagenes/test-mostrar-expr.png)
+
+Este método nos permite mostrar todas las expresiones populares que hemos añadido y simplemente debemos comprobar por un lado, que el tamaño de la lista de expresiones obtenida es equivalente al tamaño del listado de expresiones que tenemos, y por otro lado, que el vector que obtenemos tiene el formato apropiado.
+
+![](../imagenes/test-añadir-frase.png)
+
+Las comprobaciones de este método son iguales que las del método para añadir expresiones populares, sólo que ahora tenemos que hacer las comprobaciones con una frase y el tipo de dicha frase.
+
+![](../imagenes/test-mostrar-frases.png)
+
+Las comprobaciones llevadas a cabo para este método han sido:
+- Comprobamos que se devuelven todas las frases del tipo indicado: para ello añadimos otra frase de tipo *SALUDO*, por tanto ahora tenemos 2 frases de dicho tipo. Sabiendo que hay 2 frases de este tipo, nuestro resultado debe proporcionarnos 2 frases ya que no hay más ni menos que dicha cantidad de frases.
+- Comprobamos que devolvemos un error en el caso de no encontrar ninguna frase del tipo indicado.
+
+Una vez hemos testeado todos los métodos de la clase controladora, no debemos olvidarnos de testear el caso en el que se nos estén proporcionando datos no válidos, caso en el que tendremos que devolver un error.
+Como esto es común a todas las funciones, he decidido testearlo con una de ellas solamente para demostrar que funciona correctamente.
+
+![](../imagenes/test-formato.png)
+
+En primer lugar, miramos que el dato proporcionado sea de tipo string, ya que si esto no es así nuestro método no funcionará adecuadamente. Para ello, intentamos añadir una palabra que en realidad es un entero y vemos que efectivamente se devuelve el error correspondiente.
+Después de esto, comprobamos que si el dato no acaba en punto final seremos notificados, para ello simplemente pasamos uno de las dos parámetros, o ambos, sin punto final y vemos que devuelve error.
+
+Aquí tenemos una captura en la que todos nuestros tests han pasado con éxito:
+
+![](../imagenes/tests-correctos.png)
