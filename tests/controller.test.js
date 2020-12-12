@@ -126,7 +126,19 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para filtrar por letra (HU5)", () => {
+    test("Comprobando que muestra el listado de palabras filtradas", () => {
+      letra = "Z";
+      resultado = control.filtrarLetra(letra);
 
+      expect(resultado.length).toBe(1);
+    });
+    test("Comprobando que devuelve error si no encuentra ninguna palabra", () => {
+      letra = "Y.";
+      thrown_error = () => control.filtrarLetra(letra);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando método para ordenar listado de vocabulario (HU8)", () => {
 
