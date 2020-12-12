@@ -8,6 +8,7 @@ var palabra, significado;
 var thrown_error, expectedError;
 var resultado;
 var expresion, explicacion;
+var frase, tipo;
 
 describe("Testeando la clase controladora", () => {
   describe("Testeando el constructor", () => {
@@ -224,6 +225,38 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para añadir frases cotidianas (HU9)", () => {
+    test("Comprobamos que se añade correctamente", () => {
+      frase = "BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.";
+      tipo = "SALUDO.";
+
+      var tam_original = control.idioma.frasesCot.length;
+      control.nuevaFrase(frase,tipo);
+      var tam_actual = control.idioma.frasesCot.length;
+
+      expect(tam_actual).toEqual(tam_original+1);
+    });
+    test("Comprobamos que la frase se corresponde al tipo", () => {
+      frase = "DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.";
+      tipo = "PEDIR DISCULPAS.";
+
+      control.nuevaFrase(frase,tipo);
+
+      var tam = control.idioma.frasesCot.length;
+      var ultimaFrase = control.idioma.frasesCot[tam-1].getFrase();
+      var ultimoTipo = control.idioma.frasesCot[tam-1].getTipo();
+
+      expect(ultimaFrase).toBe("DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.");
+      expect(ultimoTipo).toBe("PEDIR DISCULPAS.");
+    });
+    test("Comprobando que no permite añadir frases ya existentes", () => {
+      frase = "DÉSOLÉ, JE NE VOULAIS PAS. -> PERDÓN, FUE SIN QUERER.";
+      tipo = "PEDIR DISCULPAS.";
+
+      thrown_error = () => control.nuevaFrase(frase,tipo);
+      expectedError = new Encontrada('La frase introducida ya existe, por favor registre otra frase.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
 
   });
   describe("Testeando método para mostrar frases cotidianas (HU10)", () => {
