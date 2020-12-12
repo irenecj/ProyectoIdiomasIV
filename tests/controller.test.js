@@ -101,7 +101,29 @@ describe("Testeando la clase controladora", () => {
     });
   });
   describe("Testeando método para cambiar significado (HU4)", () => {
+    test("Comprobando que funciona correctamente si la palabra existe y le cambia el significado", () => {
+      palabra = "ZAPATO.";
+      var significadoNuevo = "CHAUSSURE.CAMBIO LA DESCRIPCIÓN DEL ZAPATO.";
+      for(var i in control.idioma.listado){
+        if(palabra == control.idioma.listado[i].getPalabra()){
+          var indicePalabra = i;
+        }
+      }
+      control.cambioSignificado(palabra,significadoNuevo);
 
+      var significado_esperado = control.idioma.listado[indicePalabra].getSignificado();
+
+      expect(significado_esperado).toBe(significadoNuevo);
+    });
+    test("Comprobando que devuelve un error al pasarle una palabra que no existe", () => {
+      palabra = "BOLÍGRAFO.";
+      significado = "STYLO. UTENSILIO QUE CONTIENE TINTA EL CUAL SE USA PARA ESCRIBIR."
+
+      thrown_error = () => control.cambioSignificado(palabra,significado);
+      expectedError = new NoEncontrada('La palabra que busca no se ha encontrado');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
   });
   describe("Testeando método para filtrar por letra (HU5)", () => {
 
