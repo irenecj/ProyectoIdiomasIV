@@ -112,15 +112,15 @@ describe("POST /expresiones/:expresion/:explicacion", function(){
 });
 
 //HU7 -> Mostrar el listado de expresiones populares 
-// describe("GET /expresiones", function(){
-//   //Mostramos el listado completo de expresiones 
-//   it('mostrar expresiones populares', function(done){
-//     request(app) 
-//       .get('/expresiones')
-//       .expect('Content-Type', /json/)
-//       .expect(200,done)
-//   });
-// });
+describe("GET /expresiones", function(){
+  //Mostramos el listado completo de expresiones 
+  it('mostrar expresiones populares', function(done){
+    request(app) 
+      .get('/expresiones')
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+});
 
 //HU8 -> Mostrar el listado de vocabulario ordenado ascendente o descendentemente 
 describe("GET /vocabulario/ordenar/:orden", function(){

@@ -11,7 +11,7 @@ describe("Testeando la clase expresion.js", () => {
   describe("Testeando métodos get", () => {
     test("Testeando getExpresion()", () => {
       var exp = expresion.getExpresion();
-      var expEsperada =  "EXPRESIÓN --> " + expresion.exprPopular + "\nESTA EXPRESIÓN QUIERE DECIR --> " + expresion.explicacion;
+      var expEsperada = expresion.exprPopular + "-" + expresion.explicacion;
 
       expect(exp).toBe(expEsperada);
     });

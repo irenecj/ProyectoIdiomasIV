@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const logger  = require('./winston.js');
 
 const Controller = require('./controller.js');
-const { Console } = require('winston/lib/winston/transports');
+const { Console, ConsoleTransportOptions } = require('winston/lib/winston/transports');
 const app = new Koa();
 const router = new Router();
 const control = new Controller();
@@ -114,15 +114,24 @@ router.post('/expresiones/:expresion/:explicacion', (ctx) => {
 //mostrar todas las expresiones populares -> HU7
 router.get('/expresiones', (ctx) => {
   var expresiones = control.todasExpresiones();
+  var separacion;
+  var lista_separacion = [];
   var lista_expresiones = [];
-  expresiones.forEach(elemento => {
-    lista_expresiones.push({
-      expresion: elemento.getExprPopular(),
-      explicacion: elemento.getExplicacion()
-    });
-  });
+  for(var i in expresiones){
+    separacion = expresiones[i].split("-"); //se meten 2 
+
+      lista_separacion.push(separacion[0]); 
+      lista_separacion.push(separacion[1]);
+  }
   ctx.status = 200;
-  ctx.body = { lista_expresiones }
+  for(var i=0; i<(lista_separacion.length)/2+2; i=i+2){
+    lista_expresiones.push({
+      expresion: lista_separacion[i],
+      explicacion: lista_separacion[i+1]
+    });
+  }
+  ctx.body = { lista_expresiones };
+ 
 });
 
 //añadir frases cotidianas -> HU9
