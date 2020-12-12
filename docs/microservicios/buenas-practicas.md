@@ -2,6 +2,9 @@
 
 ## MIDDLEWARES
 #### MANEJO DE ERRORES
+
+![](../imagenes/mid-errores.png)
+
 Como podemos ver en el código, usamos **app.use()** para agregar middlewares. Vemos que la estructura para nuestro middleware de manejo de datos contiene un *try/catch*. Esto se debe a que debemos indicarle que mientras no encuentre ningún error, debe dar paso al siguiente middleware establecido, de ahí que usemos *await next()*. En el caso de encontrar un error vamos a asignarle un código de estado y vamos a mostrar el mensaje de dicho error.
 
 ¿Dónde se establecen el código de estado y el mensaje del error?
