@@ -140,8 +140,8 @@ router.post('/frases/:frase/:tipo', (ctx) => {
   control.nuevaFrase(frase,tipo);
   ctx.status = 201;
   ctx.body = {
-    frase: frase,
-    tipo: tipo
+    frase: frase.toUpperCase(),
+    tipo: tipo.toUpperCase()
   }
 });
 
