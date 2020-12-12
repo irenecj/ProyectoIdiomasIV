@@ -295,6 +295,26 @@ class Idioma{
       }
     }
 
+   //FUNCIÓN PARA ELIMINAR UNA FRASE DEL LISTADO DE FRASES COTIDIANAS 
+   eliminarFrase(frase){
+    var noString = this.comprobarString(frase);
+    var formatoValido = this.comprobarFormato(frase);
+    var encontrada = 0;
+
+    if(noString == false && formatoValido == true){
+      for(var i in this.frasesCot){
+        if(frase.toUpperCase() == this.frasesCot[i].getFrase()){
+          encontrada++;
+        }
+      }
+    }
+
+    if(encontrada > 0){
+      this.frasesCot.pop(frase);
+    }else{
+      throw new NoEncontrada("La frase que busca no se ha encontrado");
+    }
+  }
     //FUNCIÓN PARA GENERAR UN NÚMERO ALEATORIO
     getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;

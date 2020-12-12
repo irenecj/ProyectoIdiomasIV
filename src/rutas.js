@@ -178,6 +178,15 @@ router.delete('/expresiones/:expresion', (ctx) => {
   }
 });
 
+//eliminar una frase del listado de frases -> HU14
+router.delete('/frases/:frase', (ctx) => {
+  var frase = ctx.params.frase;
+  control.eliminarFrases(frase);
+  ctx.body = {
+    eliminada : 'La frase ' + frase + ' ha sido eliminada.'
+  }
+});
+
 
 //middleware para registrar log
 app.use(async(ctx,next)=>{

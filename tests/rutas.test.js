@@ -218,6 +218,23 @@ describe("DELETE /expresiones/:expresion", function(){
   });
 });
 
+//HU14 -> Eliminar una frase del listado de frases 
+describe("DELETE /frases/:frase", function(){
+  //Eliminar la palabra si existe 
+  it('eliminar frase', function(done){
+    request(app)
+      .delete("/frases/À BIENTÔT.HASTA PRONTO.")
+      .expect('Content-Type', /json/)
+      .expect(200,done)
+  });
+  it("mostrar error 404 ya que no se encuentra la frase", function(done){
+    request(app)
+      .delete('/frases/BONJOUR À TOUT LE MONDE.')
+      .expect('Content-Type', /json/)
+      .expect(404,done)
+  });
+});
+
 //Insertar un string con un formato incorrecto, es decir, si no acaba en punto final
 describe("POST /vocabulario/:palabra/:significado", function(){
   it('mostrar error 400 ya que el formato no es válido', function(done){

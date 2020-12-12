@@ -283,7 +283,7 @@ describe("Testeando la clase idioma.js", () => {
   });
   describe("Testeando el método eliminarExpresion()", () => {
     test("Comprobando que elimina la expresión correctamente si existe", () => {
-      tam_expresiones = idioma.expresiones.length;
+      var tam_expresiones = idioma.expresiones.length;
       expresion = "C'EST SIMPLE COMME BONJOUR.";
       idioma.eliminarExpresion(expresion);
 
@@ -351,6 +351,24 @@ describe("Testeando la clase idioma.js", () => {
 
       thrown_error = () => idioma.mostrarFrases(tipo);
       expectedError = new NoEncontrada('No se ha encontrado ninguna frase de dicho tipo.');
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
+  describe("Testeando el método eliminarFrase()", () => {
+    test("Comprobando que elimina la frase correctamente si existe", () => {
+      var tam_frases = idioma.frasesCot.length;
+      frase = "BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.";
+      idioma.eliminarFrase(frase);
+
+      var tam_nuevo = idioma.frasesCot.length;
+
+      expect(tam_nuevo).toBe(tam_frases -1);
+    });
+    test("Comprobando que devuelve un error si no encuentra la frase", () => {
+      frase = "BONJOUR À TOUT LE MONDE.";
+      thrown_error = () => idioma.eliminarFrase(frase);
+      expectedError = new NoEncontrada("La frase que busca no se ha encontrado");
 
       expect(thrown_error).toThrow(expectedError);
     });

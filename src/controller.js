@@ -70,9 +70,14 @@ class Controller {
     this.idioma.eliminarPalabra(palabra);
   }
 
-  //eliminar una palabra del listado de vocabulario -> HU13
+  //eliminar una expresión del listado de expresiones -> HU13
   eliminarExpresiones(expresion){
     this.idioma.eliminarExpresion(expresion);
+  }
+
+  //eliminar una frase del listado de frases -> HU14
+  eliminarFrases(frase){
+    this.idioma.eliminarFrase(frase);
   }
 }
 

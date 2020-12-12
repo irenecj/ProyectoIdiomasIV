@@ -319,6 +319,25 @@ describe("Testeando la clase controladora", () => {
       expect(thrown_error).toThrow(expectedError);
     });
   });
+  describe("Testeando método para eliminar una frase del listado de expresiones (HU13)", () => {
+    test("Comprobando que se elimina correctamente la frase", () => {
+      var tam_frases = control.idioma.frasesCot.length;
+      
+      frase = "BONJOUR, COMMENT ÇA VA?. -> BUENOS DÍAS, ¿QUÉ TAL?.";
+      control.eliminarFrases(frase);
+
+      var tam_nuevo = control.idioma.frasesCot.length;
+
+      expect(tam_nuevo).toEqual(tam_frases-1);
+    });
+    test("Comprobando que devuelve un error si no existe la frase", () => {
+      frase = "BONJOUR À TOUT LE MONDE.";
+      thrown_error = () => control.eliminarFrases(frase);
+      expectedError = new NoEncontrada("La frase que busca no se ha encontrado");
+
+      expect(thrown_error).toThrow(expectedError);
+    });
+  });
   describe("Testeando que se devolverá un error si el dato introducido no es un string o no acaba en punto final", () => {
     test('Comprobando que se devuelve el error si no es un string', () => {
       palabra = 7;
